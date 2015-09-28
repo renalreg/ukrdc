@@ -48,10 +48,10 @@
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="Encounters" minOccurs="0">
+				<xs:element name="Medications" minOccurs="0">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="Encounter" type="Encounter" maxOccurs="unbounded"/>
+							<xs:element name="Medication" type="Medication" maxOccurs="unbounded"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
@@ -69,10 +69,10 @@
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="Medications" minOccurs="0">
+				<xs:element name="Encounters" minOccurs="0">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="Medication" type="Medication" maxOccurs="unbounded"/>
+							<xs:element name="Encounter" type="Encounter" maxOccurs="unbounded"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
@@ -163,7 +163,7 @@
 					<xs:documentation>From HL7 Table 0296 (??) TBC. Does this need to be a complex type?</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Death" type="DeathType" minOccurs="0">
+			<xs:element name="Death" type="xs:boolean" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Present only when dead - replaces isDead concept</xs:documentation>
 				</xs:annotation>
@@ -219,11 +219,6 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<xs:complexType name="Language">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
 	<xs:complexType name="CodeTableDetail">
 		<xs:sequence>
 			<xs:element name="CodingStandard" minOccurs="0">
@@ -248,28 +243,6 @@
 				</xs:simpleType>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="User">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="Organization">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail">
-				<xs:sequence>
-					<xs:element name="Address" type="Address" minOccurs="0"/>
-					<xs:element name="ContactDetail" type="ContactDetail" minOccurs="0"/>
-					<xs:element name="Trusts" minOccurs="0">
-						<xs:complexType>
-							<xs:sequence>
-								<xs:element name="Trust" type="Trust" maxOccurs="unbounded"/>
-							</xs:sequence>
-						</xs:complexType>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="Address">
 		<xs:sequence>
@@ -327,11 +300,6 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
-	<xs:complexType name="Trust">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
 	<xs:complexType name="EthnicGroup">
 		<xs:complexContent>
 			<xs:extension base="CodeTableDetail"/>
@@ -356,23 +324,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="CareProvider">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail">
-				<xs:sequence>
-					<xs:element name="Name" type="Name" minOccurs="0"/>
-					<xs:element name="Address" type="Address" minOccurs="0"/>
-					<xs:element name="ContactDetail" type="ContactDetail" minOccurs="0"/>
-					<xs:element name="CareProviderType" type="CareProviderType" minOccurs="0"/>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="CareProviderType">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
 	<xs:complexType name="FamilyDoctor">
 		<xs:sequence>
 			<xs:element name="GPPracticeId">
@@ -394,10 +345,11 @@
 	</xs:complexType>
 	<xs:complexType name="Encounter">
 		<xs:sequence>
-			<xs:element name="UpdatedOn" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="EncounterNumber" type="xs:string" minOccurs="0"/>
-			<xs:element name="AdmissionType" type="AdmissionType" minOccurs="0"/>
-			<xs:element name="EncounterType" minOccurs="0">
+			<xs:element name="EncounterNumber" type="xs:string"/>
+			<xs:element name="EncounterType">
+				<xs:annotation>
+					<xs:documentation>RRT method/status /conservative care</xs:documentation>
+				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
 						<xs:enumeration value="E"/>
@@ -410,176 +362,42 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="AdmittingClinician" type="CareProvider" minOccurs="0"/>
-			<xs:element name="AttendingClinicians" minOccurs="0">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="CareProvider" type="CareProvider" maxOccurs="unbounded"/>
-					</xs:sequence>
-				</xs:complexType>
+			<xs:element name="FromTime" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>Time that encounter starts as  CCYYMMDD</xs:documentation>
+				</xs:annotation>
 			</xs:element>
-			<xs:element name="ConsultingClinicians" minOccurs="0">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="CareProvider" type="CareProvider" maxOccurs="unbounded"/>
-					</xs:sequence>
-				</xs:complexType>
+			<xs:element name="ToTime" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>Time that encounter ends as  CCYYMMDD</xs:documentation>
+				</xs:annotation>
 			</xs:element>
-			<xs:element name="ReferringClinician" type="ReferralDoctor" minOccurs="0"/>
-			<xs:element name="AccountNumber" minOccurs="0">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="220"/>
-					</xs:restriction>
-				</xs:simpleType>
+			<xs:element name="AdmittingClinician" type="CodeTableDetail" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Responsible Clinician as a National Clinicial code where possible or other local code if not.</xs:documentation>
+				</xs:annotation>
 			</xs:element>
-			<xs:element name="PriorVisitNumber" minOccurs="0">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="220"/>
-					</xs:restriction>
-				</xs:simpleType>
+			<xs:element name="AdmitReason" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Reason for change of care</xs:documentation>
+				</xs:annotation>
 			</xs:element>
-			<xs:element name="PreAdmissionNumber" minOccurs="0">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="220"/>
-					</xs:restriction>
-				</xs:simpleType>
+			<xs:element name="HealthCareFacility" type="CodeTableDetail" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Parent renal unit as national ODS code (e.g. RXF01)</xs:documentation>
+				</xs:annotation>
 			</xs:element>
-			<xs:element name="AdmissionSource" type="AdmissionSource" minOccurs="0"/>
-			<xs:element name="AdmitReason" type="AdmitReason" minOccurs="0"/>
-			<xs:element name="HealthCareFacility" type="HealthCareFacility" minOccurs="0"/>
-			<xs:element name="DischargeLocation" type="DischargeLocation" minOccurs="0"/>
-			<xs:element name="VisitDescription" type="xs:string" minOccurs="0"/>
-			<xs:element name="EncounterMRN" type="xs:string" minOccurs="0"/>
-			<xs:element name="EndTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="SeparationMode" type="SeparationMode" minOccurs="0"/>
-			<xs:element name="Specialties" minOccurs="0">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="CareProvider" type="CareProvider" maxOccurs="unbounded"/>
-					</xs:sequence>
-				</xs:complexType>
+			<xs:element name="EnteredAt" type="CodeTableDetail" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>National code for the hospital providing care - e.g. RXF01</xs:documentation>
+				</xs:annotation>
 			</xs:element>
-			<xs:element name="RecommendationsProvided" minOccurs="0">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="Recommendation" type="Recommendation" maxOccurs="unbounded"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="ExpectedAdmitTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="ExpectedDischargeTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="PublicityCode" type="PublicityCode" minOccurs="0"/>
-			<xs:element name="Priority" type="EncounterPriority" minOccurs="0"/>
-			<xs:element name="ExpectedLOAReturnTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="DiagnosisRelatedGroup" type="DiagnosisRelatedGroup" minOccurs="0"/>
-			<xs:element name="ActionCode" type="xs:string" minOccurs="0"/>
-			<xs:element name="EnteredBy" type="User" minOccurs="0"/>
-			<xs:element name="EnteredAt" type="Organization" minOccurs="0"/>
-			<xs:element name="EnteredOn" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="FromTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="ToTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="ExternalId" minOccurs="0">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="220"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="ActionScope" type="xs:string" minOccurs="0"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="AdmissionType">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="ReferralDoctor">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail">
-				<xs:sequence>
-					<xs:element name="Name" type="Name" minOccurs="0"/>
-					<xs:element name="Address" type="Address" minOccurs="0"/>
-					<xs:element name="ContactDetail" type="ContactDetail" minOccurs="0"/>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="AdmissionSource">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="AdmitReason">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="HealthCareFacility">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail">
-				<xs:sequence>
-					<xs:element name="Organization" type="Organization" minOccurs="0"/>
-					<xs:element name="LocationType" minOccurs="0">
-						<xs:simpleType>
-							<xs:restriction base="xs:string">
-								<xs:enumeration value="CLINIC"/>
-								<xs:enumeration value="ER"/>
-								<xs:enumeration value="DEPARTMENT"/>
-								<xs:enumeration value="WARD"/>
-								<xs:enumeration value="OTHER"/>
-							</xs:restriction>
-						</xs:simpleType>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="DischargeLocation">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="SeparationMode">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="Recommendation">
-		<xs:sequence>
-			<xs:element name="NoteText" type="xs:string" minOccurs="0"/>
-			<xs:element name="RecipientPersons" minOccurs="0">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="CareProvider" type="CareProvider" maxOccurs="unbounded"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="RecipientOrganizations" minOccurs="0">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="HealthCareFacility" type="HealthCareFacility" maxOccurs="unbounded"/>
-					</xs:sequence>
-				</xs:complexType>
+			<xs:element name="VisitDescription" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Details of validation e.g. Date Done, by whom, who provided the info</xs:documentation>
+				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="PublicityCode">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="EncounterPriority">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="DiagnosisRelatedGroup">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="Allergy">
 		<xs:sequence>
@@ -646,62 +464,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="CodeTableTranslated">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail">
-				<xs:sequence>
-					<xs:element name="OriginalText" minOccurs="0">
-						<xs:simpleType>
-							<xs:restriction base="xs:string">
-								<xs:maxLength value="32000"/>
-							</xs:restriction>
-						</xs:simpleType>
-					</xs:element>
-					<xs:element name="PriorCodes" minOccurs="0">
-						<xs:complexType>
-							<xs:sequence>
-								<xs:element name="PriorCode" type="PriorCode" maxOccurs="unbounded"/>
-							</xs:sequence>
-						</xs:complexType>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="PriorCode">
-		<xs:sequence>
-			<xs:element name="Code" minOccurs="0">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="32000"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="Description" minOccurs="0">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="32000"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="CodeSystem" minOccurs="0">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="32000"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="Type" minOccurs="0">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="A"/>
-						<xs:enumeration value="O"/>
-						<xs:enumeration value="N"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
 	<xs:complexType name="SocialHistory">
 		<xs:sequence>
 			<xs:element name="SocialHabit" type="CodeTableDetail">
@@ -711,21 +473,21 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="FamilyMember">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
 	<xs:complexType name="Diagnosis">
 		<xs:sequence>
-			<xs:element name="DiagnosingClinician" type="CodeTableDetail" minOccurs="0">
+			<xs:element name="DiagnosisType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>National Clinicial code where possible or other cod</xs:documentation>
+					<xs:documentation>The type of diagnosis:  admitting, working, final, discharge</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Diagnosis" type="CodeTableDetail" minOccurs="0">
+			<xs:element name="DiagnosingClinician" type="CodeTableDetail" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>SNOMED CT coded diagnoses</xs:documentation>
+					<xs:documentation>National Clinicial code where possible or other local code if not.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Diagnosis" type="CodeTableDetail">
+				<xs:annotation>
+					<xs:documentation>SNOMED CT coded diagnoses. Primary Renal Diagnosis should additionally be included with a EDTA code. PRD will therefore be represented twice (SNOMED and EDTA)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="IdentificationTime" type="xs:dateTime" minOccurs="0">
@@ -735,7 +497,27 @@
 			</xs:element>
 			<xs:element name="OnsetTime" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Date condition began</xs:documentation>
+					<xs:documentation>Date condition began. Can use approximate dates through truncation. CCYYMMDD or CCYYMM or CCYY</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EnteredOn">
+				<xs:annotation>
+					<xs:documentation>The date the diagnosis was recorded in the medical record.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Certainty" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>FUTURE USE</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Importance" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>FUTURE USE</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SideOfBody" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>FUTURE USE</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -774,145 +556,83 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="UoM">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="BodyPart">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="PhysicalExam">
-		<xs:sequence>
-			<xs:element name="UpdatedOn" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="FromTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="ToTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="ExternalId" type="xs:string" minOccurs="0"/>
-			<xs:element name="EncounterNumber" type="xs:string" minOccurs="0"/>
-			<xs:element name="PhysExamTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="PhysExamCode" type="PhysExam" minOccurs="0"/>
-			<xs:element name="PhysExamObs" type="PhysExamObs" minOccurs="0"/>
-			<xs:element name="PhysExamObsQualifier" type="PhysExamObsQualifier" minOccurs="0"/>
-			<xs:element name="PhysExamObsValue" type="PhysExamObsValue" minOccurs="0"/>
-			<xs:element name="NoteText" type="xs:string" minOccurs="0"/>
-			<xs:element name="ActionCode" type="xs:string" minOccurs="0"/>
-			<xs:element name="EnteredBy" type="User" minOccurs="0"/>
-			<xs:element name="EnteredAt" type="Organization" minOccurs="0"/>
-			<xs:element name="EnteredOn" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="ActionScope" type="xs:string" minOccurs="0"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="PhysExam">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="PhysExamObs">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="PhysExamObsQualifier">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="PhysExamObsValue">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
 	<xs:complexType name="Procedure">
 		<xs:sequence>
-			<xs:element name="UpdatedOn" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="FromTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="ToTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="EncounterNumber" type="xs:string" minOccurs="0"/>
-			<xs:element name="Procedure" type="ProcedureCode" minOccurs="0"/>
-			<xs:element name="Clinician" type="CareProvider" minOccurs="0"/>
-			<xs:element name="ProcedureTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="EnteredBy" type="User" minOccurs="0"/>
-			<xs:element name="EnteredAt" type="Organization" minOccurs="0"/>
-			<xs:element name="EnteredOn" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="ExternalId" type="xs:string" minOccurs="0"/>
-			<xs:element name="ActionCode" type="xs:string" minOccurs="0"/>
-			<xs:element name="ActionScope" type="xs:string" minOccurs="0"/>
+			<xs:element name="Procedure" type="CodeTableDetail" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>SNOMED CT encoded procedure.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Clinician" type="CodeTableDetail" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>National Clinicial code where possible or other local code if not.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ProcedureTime" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>As CCYYMMDDhhmm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EnteredBy" type="CodeTableDetail" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Person entering the diagnosis as a National Clinicial code where possible or other local code if not.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EnteredAt" type="CodeTableDetail" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Location the procedure was performed at. Use National coding e.g. RXF01</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="ProcedureCode">
-		<xs:complexContent>
-			<xs:extension base="CodeTableTranslated"/>
-		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="Document">
 		<xs:sequence>
-			<xs:element name="UpdatedOn" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="FromTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="ToTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="EncounterNumber" type="xs:string" minOccurs="0"/>
-			<xs:element name="DocumentTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="NoteText" type="xs:string" minOccurs="0"/>
-			<xs:element name="DocumentType" type="DocumentType" minOccurs="0"/>
-			<xs:element name="Clinician" type="CareProvider" minOccurs="0"/>
-			<xs:element name="TranscriptionTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="AuthorizationTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="DocumentTime" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Document Creation as CCYYMMDDhhmm</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NoteText" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The body of the document as free text,</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DocumentType" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Always TEXT for now. For future use.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Clinician" type="CodeTableDetail" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>National Clinicial code where possible or other local code if not.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="DocumentName" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Document title</xs:documentation>
+				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
 						<xs:maxLength value="220"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="FileType" type="xs:string" minOccurs="0"/>
-			<xs:element name="Stream" type="xs:base64Binary" minOccurs="0"/>
-			<xs:element name="DocumentURL" minOccurs="0">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="220"/>
-					</xs:restriction>
-				</xs:simpleType>
+			<xs:element name="Status" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>ACTIVE or INACTIVE</xs:documentation>
+				</xs:annotation>
 			</xs:element>
-			<xs:element name="DocumentNumber" minOccurs="0">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="220"/>
-					</xs:restriction>
-				</xs:simpleType>
+			<xs:element name="EnteredBy" type="CodeTableDetail" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Person entering the diagnosis as a National Clinicial code where possible or other local code if not.</xs:documentation>
+				</xs:annotation>
 			</xs:element>
-			<xs:element name="Facilities" minOccurs="0">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="Organization" type="Organization" maxOccurs="unbounded"/>
-					</xs:sequence>
-				</xs:complexType>
+			<xs:element name="EnteredAt" type="CodeTableDetail" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Location the procedure was performed at. Use National coding e.g. RXF01</xs:documentation>
+				</xs:annotation>
 			</xs:element>
-			<xs:element name="Status" type="DocumentStatus" minOccurs="0"/>
-			<xs:element name="ActionTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="ActionCode" type="xs:string" minOccurs="0"/>
-			<xs:element name="EnteredBy" type="User" minOccurs="0"/>
-			<xs:element name="EnteredAt" type="Organization" minOccurs="0"/>
-			<xs:element name="EnteredOn" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="ExternalId" minOccurs="0">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="220"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="ActionScope" type="xs:string" minOccurs="0"/>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="DocumentType">
-		<xs:complexContent>
-			<xs:extension base="CodeTableTranslated"/>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="DocumentStatus">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="LabOrder">
 		<xs:sequence>
@@ -1070,321 +790,104 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="Order">
-		<xs:complexContent>
-			<xs:extension base="CodeTableTranslated"/>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="OrderCategory">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="Frequency">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail">
-				<xs:sequence>
-					<xs:element name="Factor" minOccurs="0">
-						<xs:simpleType>
-							<xs:restriction base="xs:string">
-								<xs:maxLength value="32000"/>
-							</xs:restriction>
-						</xs:simpleType>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="Duration">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail">
-				<xs:sequence>
-					<xs:element name="Factor" minOccurs="0">
-						<xs:simpleType>
-							<xs:restriction base="xs:string">
-								<xs:maxLength value="32000"/>
-							</xs:restriction>
-						</xs:simpleType>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="Priority">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="Confidentiality">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
 	<xs:complexType name="Medication">
 		<xs:sequence>
-			<xs:element name="PlacerId" type="xs:string" minOccurs="0"/>
-			<xs:element name="FillerId" type="xs:string" minOccurs="0"/>
-			<xs:element name="OrderItem" type="Order" minOccurs="0"/>
-			<xs:element name="OrderCategory" type="OrderCategory" minOccurs="0"/>
-			<xs:element name="OrderQuantity" type="xs:string" minOccurs="0"/>
-			<xs:element name="OrderedBy" type="CareProvider" minOccurs="0"/>
-			<xs:element name="EnteringOrganization" type="HealthCareFacility" minOccurs="0"/>
-			<xs:element name="VerifiedBy" type="CareProvider" minOccurs="0"/>
-			<xs:element name="CallbackNumber" type="xs:string" minOccurs="0"/>
-			<xs:element name="ReassessmentTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="Frequency" type="Frequency" minOccurs="0"/>
-			<xs:element name="Duration" type="Duration" minOccurs="0"/>
-			<xs:element name="Status" type="xs:string" minOccurs="0"/>
-			<xs:element name="Priority" type="Priority" minOccurs="0"/>
-			<xs:element name="ConfidentialityCode" type="Confidentiality" minOccurs="0"/>
-			<xs:element name="Condition" type="xs:string" minOccurs="0"/>
-			<xs:element name="TextInstruction" type="xs:string" minOccurs="0"/>
-			<xs:element name="OrderGroup" type="xs:string" minOccurs="0"/>
-			<xs:element name="Comments" type="xs:string" minOccurs="0"/>
-			<xs:element name="ConsultationDepartment" type="HealthCareFacility" minOccurs="0"/>
-			<xs:element name="AuthorizationTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="ReceivingLocation" type="HealthCareFacility" minOccurs="0"/>
-			<xs:element name="VerifiedComments" type="xs:string" minOccurs="0"/>
-			<xs:element name="GroupId" type="xs:string" minOccurs="0"/>
-			<xs:element name="ActionCode" type="xs:string" minOccurs="0"/>
-			<xs:element name="EnteredBy" type="User" minOccurs="0"/>
-			<xs:element name="EnteredAt" type="Organization" minOccurs="0"/>
-			<xs:element name="EnteredOn" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="FromTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="ToTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="UpdatedOn" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="ExternalId" type="xs:string" minOccurs="0"/>
-			<xs:element name="EncounterNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="PrescriptionNumber" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Prescription Id</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FromTime" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>Start Time of the prescription</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ToTime" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>End Time of the prescription</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OrderedBy" type="CodeTableDetail" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Prescriber - National Id</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Route" type="CodeTableDetail" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Medication Route from RR22 - Standard always RR22. Code is 1=Oral, 2=Topical, 3=Inhalation, 4=Injection, 5=Intra peritoneal, 9=Other - please specify in description. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="DrugProduct" type="DrugProduct" minOccurs="0"/>
-			<xs:element name="StrengthVolume" type="xs:decimal" minOccurs="0"/>
-			<xs:element name="StrengthVolumeUnits" type="xs:string" minOccurs="0"/>
-			<xs:element name="RateAmount" type="xs:decimal" minOccurs="0"/>
-			<xs:element name="RateUnits" type="RateUnits" minOccurs="0"/>
-			<xs:element name="RateTimeUnit" type="xs:string" minOccurs="0"/>
-			<xs:element name="DoseQuantity" type="xs:decimal" minOccurs="0"/>
-			<xs:element name="MaxDoseQuantity" type="xs:decimal" minOccurs="0"/>
-			<xs:element name="NumberOfRefills" type="xs:string" minOccurs="0"/>
-			<xs:element name="DoseUoM" type="UoM" minOccurs="0"/>
-			<xs:element name="DosageForm" type="DosageForm" minOccurs="0"/>
-			<xs:element name="Route" type="Route" minOccurs="0"/>
-			<xs:element name="Indication" type="xs:string" minOccurs="0"/>
-			<xs:element name="PharmacyStatus" type="xs:string" minOccurs="0"/>
-			<xs:element name="PrescriptionNumber" type="xs:string" minOccurs="0"/>
-			<xs:element name="RefillNumber" type="xs:decimal" minOccurs="0"/>
-			<xs:element name="RefillDescription" type="xs:string" minOccurs="0"/>
-			<xs:element name="DosageSteps" minOccurs="0">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="DosageStep" type="DosageStep" maxOccurs="unbounded"/>
-					</xs:sequence>
-				</xs:complexType>
+			<xs:element name="Frequency" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Frequency</xs:documentation>
+				</xs:annotation>
 			</xs:element>
-			<xs:element name="Administrations" minOccurs="0">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="Administration" type="Administration" maxOccurs="unbounded"/>
-					</xs:sequence>
-				</xs:complexType>
+			<xs:element name="Comments" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Other instructions</xs:documentation>
+				</xs:annotation>
 			</xs:element>
-			<xs:element name="ComponentMeds" minOccurs="0">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="DrugProduct" type="DrugProduct" maxOccurs="unbounded"/>
-					</xs:sequence>
-				</xs:complexType>
+			<xs:element name="DoseQuantity" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Dose</xs:documentation>
+				</xs:annotation>
 			</xs:element>
-			<xs:element name="ResultCopiesTo" minOccurs="0">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="CareProvider" type="CareProvider" maxOccurs="unbounded"/>
-					</xs:sequence>
-				</xs:complexType>
+			<xs:element name="Indication" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The condition or problem for which the drug is being prescribed</xs:documentation>
+				</xs:annotation>
 			</xs:element>
-			<xs:element name="Specimen" type="xs:string" minOccurs="0"/>
-			<xs:element name="SpecimenCollectedTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="SpecimenReceivedTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="ActionScope" type="xs:string" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="DrugProduct">
-		<xs:complexContent>
-			<xs:extension base="CodeTableTranslated">
-				<xs:sequence>
-					<xs:element name="BaseQty" type="xs:decimal" minOccurs="0"/>
-					<xs:element name="BaseUnits" type="UoM" minOccurs="0"/>
-					<xs:element name="ProductName" minOccurs="0">
-						<xs:simpleType>
-							<xs:restriction base="xs:string">
-								<xs:maxLength value="220"/>
-							</xs:restriction>
-						</xs:simpleType>
-					</xs:element>
-					<xs:element name="OfficialCode" minOccurs="0">
-						<xs:simpleType>
-							<xs:restriction base="xs:string">
-								<xs:maxLength value="220"/>
-							</xs:restriction>
-						</xs:simpleType>
-					</xs:element>
-					<xs:element name="PackageSize" type="xs:decimal" minOccurs="0"/>
-					<xs:element name="PackageSizeUnits" type="PackageSizeUoM" minOccurs="0"/>
-					<xs:element name="Type" type="DrugProductType" minOccurs="0"/>
-					<xs:element name="Form" type="DrugProductForm" minOccurs="0"/>
-					<xs:element name="Identifier1" minOccurs="0">
-						<xs:simpleType>
-							<xs:restriction base="xs:string">
-								<xs:maxLength value="220"/>
-							</xs:restriction>
-						</xs:simpleType>
-					</xs:element>
-					<xs:element name="Identifier2" minOccurs="0">
-						<xs:simpleType>
-							<xs:restriction base="xs:string">
-								<xs:maxLength value="220"/>
-							</xs:restriction>
-						</xs:simpleType>
-					</xs:element>
-					<xs:element name="StrengthQty" type="xs:decimal" minOccurs="0"/>
-					<xs:element name="StrengthUnits" type="UoM" minOccurs="0"/>
-					<xs:element name="Strength" type="Strength" minOccurs="0"/>
-					<xs:element name="Generic" type="Generic" minOccurs="0"/>
-					<xs:element name="LabelName" minOccurs="0">
-						<xs:simpleType>
-							<xs:restriction base="xs:string">
-								<xs:maxLength value="220"/>
-							</xs:restriction>
-						</xs:simpleType>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="PackageSizeUoM">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="DrugProductType">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="DrugProductForm">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="Strength">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="Generic">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="RateUnits">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="DosageForm">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="Route">
-		<xs:complexContent>
-			<xs:extension base="CodeTableDetail"/>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="DosageStep">
 		<xs:sequence>
-			<xs:element name="EnteredBy" type="User" minOccurs="0"/>
-			<xs:element name="EnteredAt" type="Organization" minOccurs="0"/>
-			<xs:element name="EnteredOn" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="TextInstruction" type="xs:string" minOccurs="0"/>
-			<xs:element name="Frequency" type="Frequency" minOccurs="0"/>
-			<xs:element name="DoseQuantity" type="xs:decimal" minOccurs="0"/>
-			<xs:element name="DoseUoM" type="UoM" minOccurs="0"/>
-			<xs:element name="Duration" type="Duration" minOccurs="0"/>
-			<xs:element name="FromTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="ToTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="ActionCode" type="xs:string" minOccurs="0"/>
-			<xs:element name="ActionScope" type="xs:string" minOccurs="0"/>
-			<xs:element name="UpdatedOn" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="ExternalId" minOccurs="0">
+			<xs:element name="Id" type="CodeTableDetail">
+				<xs:annotation>
+					<xs:documentation>dm + d code for the drug</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Generic" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Generic name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LabelName" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Brand Name</xs:documentation>
+				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
 						<xs:maxLength value="220"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="EncounterNumber" minOccurs="0">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="220"/>
-					</xs:restriction>
-				</xs:simpleType>
+			<xs:element name="Form" type="CodeTableDetail" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>SNOMED Code and description</xs:documentation>
+				</xs:annotation>
 			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="Administration">
-		<xs:sequence>
-			<xs:element name="EnteredBy" type="User" minOccurs="0"/>
-			<xs:element name="EnteredAt" type="Organization" minOccurs="0"/>
-			<xs:element name="AdministrationNotes" type="xs:string" minOccurs="0"/>
-			<xs:element name="AdministeringProvider" type="CareProvider" minOccurs="0"/>
-			<xs:element name="AdministeredAtLocation" type="HealthCareFacility" minOccurs="0"/>
-			<xs:element name="AdministrationStatus" type="CodeTableDetail" minOccurs="0"/>
-			<xs:element name="AdministeredAmount" type="xs:string" minOccurs="0"/>
-			<xs:element name="AdministeredUnits" type="xs:string" minOccurs="0"/>
-			<xs:element name="LotNumber" type="xs:string" minOccurs="0"/>
-			<xs:element name="ExpiryDate" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="ManufacturerName" minOccurs="0">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="32000"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="EnteredOn" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="FromTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="ToTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="ActionCode" type="xs:string" minOccurs="0"/>
-			<xs:element name="ActionScope" type="xs:string" minOccurs="0"/>
-			<xs:element name="UpdatedOn" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="ExternalId" minOccurs="0">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="220"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="EncounterNumber" minOccurs="0">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="220"/>
-					</xs:restriction>
-				</xs:simpleType>
+			<xs:element name="StrengthUnits" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Units - use RR table 23</xs:documentation>
+				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ClinicalRelationship">
 		<xs:sequence>
 			<xs:element name="ActionCode" type="xs:string" minOccurs="0"/>
-			<xs:element name="EnteredBy" type="User" minOccurs="0"/>
-			<xs:element name="EnteredAt" type="Organization" minOccurs="0"/>
+			<xs:element name="EnteredBy" type="CodeTableDetail" minOccurs="0"/>
+			<xs:element name="EnteredAt" type="CodeTableDetail" minOccurs="0"/>
 			<xs:element name="EnteredOn" type="xs:dateTime" minOccurs="0"/>
 			<xs:element name="UpdatedOn" type="xs:dateTime" minOccurs="0"/>
 			<xs:element name="FromTime" type="xs:dateTime" minOccurs="0"/>
 			<xs:element name="ToTime" type="xs:dateTime" minOccurs="0"/>
 			<xs:element name="ExternalId" type="xs:string" minOccurs="0"/>
 			<xs:element name="EncounterNumber" type="xs:string" minOccurs="0"/>
-			<xs:element name="Clinician" type="CareProvider" minOccurs="0"/>
+			<xs:element name="Clinician" type="CodeTableDetail" minOccurs="0"/>
 			<xs:element name="FacilityCode" type="xs:string" minOccurs="0"/>
-			<xs:element name="ClinicianGroup" type="CareProvider" minOccurs="0"/>
+			<xs:element name="ClinicianGroup" type="CodeTableDetail" minOccurs="0"/>
 			<xs:element name="ExpirationDate" type="xs:dateTime" minOccurs="0"/>
 			<xs:element name="ActionScope" type="xs:string" minOccurs="0"/>
 		</xs:sequence>
@@ -1392,8 +895,8 @@
 	<xs:complexType name="ProgramMembership">
 		<xs:sequence>
 			<xs:element name="ActionCode" type="xs:string" minOccurs="0"/>
-			<xs:element name="EnteredBy" type="User" minOccurs="0"/>
-			<xs:element name="EnteredAt" type="Organization" minOccurs="0"/>
+			<xs:element name="EnteredBy" type="CodeTableDetail" minOccurs="0"/>
+			<xs:element name="EnteredAt" type="CodeTableDetail" minOccurs="0"/>
 			<xs:element name="EnteredOn" type="xs:dateTime" minOccurs="0"/>
 			<xs:element name="UpdatedOn" type="xs:dateTime" minOccurs="0"/>
 			<xs:element name="ExternalId" type="xs:string" minOccurs="0"/>
@@ -1409,25 +912,6 @@
 			<xs:element name="FromTime" type="xs:dateTime" minOccurs="0"/>
 			<xs:element name="ToTime" type="xs:dateTime" minOccurs="0"/>
 			<xs:element name="ActionScope" type="xs:string" minOccurs="0"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="DeathType">
-		<xs:sequence>
-			<xs:element name="DeathTime">
-				<xs:annotation>
-					<xs:documentation>As CCYYMMDDhhmm</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="DeathLocation" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>e.g. Home, Hospice, Hospital Ward</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="255"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PersonalContactType">
