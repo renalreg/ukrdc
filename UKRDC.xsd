@@ -1,3 +1,4 @@
+<!-- edited with XMLSpy v2015 rel. 4 sp1 (x64) (http://www.altova.com) by Nick Jones (Agiloak Limited) -->
 <xs:schema xmlns="http://www.rixg.org.uk/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.rixg.org.uk/">
 	<xs:element name="PatientRecord">
 		<xs:complexType>
@@ -76,17 +77,21 @@
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
+				<xs:element name="ProgramMemberships" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ProgramMembership" type="ProgramMembership" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation>Used for consent to RDG or study. May be more than one per study if consent given by parents and child (for example)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
 				<xs:element name="ClinicalRelationships" minOccurs="0">
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element name="ClinicalRelationship" type="ClinicalRelationship" maxOccurs="unbounded"/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-				<xs:element name="ProgramMemberships" minOccurs="0">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="ProgramMembership" type="ProgramMembership" maxOccurs="unbounded"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
@@ -624,12 +629,27 @@
 			</xs:element>
 			<xs:element name="EnteredBy" type="CodeTableDetail" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Person entering the diagnosis as a National Clinicial code where possible or other local code if not.</xs:documentation>
+					<xs:documentation>Person entering the document as a National Clinicial code where possible or other local code if not.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EnteredAt" type="CodeTableDetail" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Location the procedure was performed at. Use National coding e.g. RXF01</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FileType" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The type of data e.g PDF, DOC, RTF, TXT</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Stream" type="xs:base64Binary" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>This property is used when the Note is binary data, e.g DOC, PDF, JPG</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DocumentURL" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The full URL where the document can be accessed.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -876,42 +896,65 @@
 	</xs:complexType>
 	<xs:complexType name="ClinicalRelationship">
 		<xs:sequence>
-			<xs:element name="ActionCode" type="xs:string" minOccurs="0"/>
-			<xs:element name="EnteredBy" type="CodeTableDetail" minOccurs="0"/>
-			<xs:element name="EnteredAt" type="CodeTableDetail" minOccurs="0"/>
-			<xs:element name="EnteredOn" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="UpdatedOn" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="FromTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="ToTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="ExternalId" type="xs:string" minOccurs="0"/>
-			<xs:element name="EncounterNumber" type="xs:string" minOccurs="0"/>
-			<xs:element name="Clinician" type="CodeTableDetail" minOccurs="0"/>
-			<xs:element name="FacilityCode" type="xs:string" minOccurs="0"/>
-			<xs:element name="ClinicianGroup" type="CodeTableDetail" minOccurs="0"/>
-			<xs:element name="ExpirationDate" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="ActionScope" type="xs:string" minOccurs="0"/>
+			<xs:element name="FromTime" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>Start of the relationship as CCYYMMDD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ToTime" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>End of the relationship as CCYYMMDD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Clinician" type="CodeTableDetail">
+				<xs:annotation>
+					<xs:documentation>Identity of the clinician as a National Clinicial code where possible or other local code if not.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FacilityCode" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>OCS Code of Trust (5-char e.g. RXF01)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ProgramMembership">
 		<xs:sequence>
-			<xs:element name="ActionCode" type="xs:string" minOccurs="0"/>
-			<xs:element name="EnteredBy" type="CodeTableDetail" minOccurs="0"/>
-			<xs:element name="EnteredAt" type="CodeTableDetail" minOccurs="0"/>
-			<xs:element name="EnteredOn" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="UpdatedOn" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="ExternalId" type="xs:string" minOccurs="0"/>
-			<xs:element name="EncounterNumber" type="xs:string" minOccurs="0"/>
-			<xs:element name="ProgramName" type="xs:string" minOccurs="0"/>
+			<xs:element name="EnteredBy" type="CodeTableDetail" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Person entering the consent as a National Clinicial code where possible or other local code if not.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EnteredAt" type="CodeTableDetail" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>National code for the trust recording the consent - e.g. RXF01</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ProgramName" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Name of RDG or study</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="ProgramDescription" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Free text to include "How Given", "Place Consent Stored", "Flag for refused permission" and "Comments"</xs:documentation>
+				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
 						<xs:maxLength value="220"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="FromTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="ToTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="ActionScope" type="xs:string" minOccurs="0"/>
+			<xs:element name="FromTime" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>Date Consent Given as CCYYMDD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ToTime" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Date Consent Withdrawn as CCYYMMDD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PersonalContactType">
