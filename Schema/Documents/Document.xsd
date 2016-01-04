@@ -1,11 +1,17 @@
 <xs:schema xmlns="http://www.rixg.org.uk/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.rixg.org.uk/">
 
-    <xs:include schemaLocation="../Types/Clinician.xsd"/>
-    <xs:include schemaLocation="../Types/Location.xsd"/>
-    <xs:include schemaLocation="../Types/CodedField.xsd"/>
+	<xs:include schemaLocation="../Types/Clinician.xsd"/>
+	<xs:include schemaLocation="../Types/Location.xsd"/>
+	<xs:include schemaLocation="../Types/CodedField.xsd"/>
+	<xs:include schemaLocation="../Types/ActionCode.xsd"/>
 
 	<xs:complexType name="Document">
 		<xs:sequence>
+			<xs:element minOccurs="0" name="UpdatedOn" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>Last Modified Date</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="DocumentTime" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Document Creation as CCYYMMDDhhmm</xs:documentation>
@@ -24,7 +30,7 @@
 			<xs:element name="Clinician" type="Clinician" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The person responsibile for the content of the document</xs:documentation>
-				</xs:annotation>              
+				</xs:annotation>
 			</xs:element>
 			<xs:element name="DocumentName" minOccurs="0">
 				<xs:annotation>
@@ -64,6 +70,16 @@
 			<xs:element name="DocumentURL" type="xs:string" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The full URL where the document can be accessed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="ActionCode" type="ActionCode">
+				<xs:annotation>
+					<xs:documentation>Add/Update/Delete Control</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="ExternalId" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Unique Identifier</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

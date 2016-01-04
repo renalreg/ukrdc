@@ -4,28 +4,34 @@
     <xs:include schemaLocation="../Types/CF_HL7_00206.xsd"/>
     <xs:include schemaLocation="../Types/CF_SNOWMED.xsd"/>
     <xs:include schemaLocation="../Types/Clinician.xsd"/>
+    <xs:include schemaLocation="../Types/ActionCode.xsd"/>
 
     <xs:complexType name="Allergy">
         <xs:sequence>
+            <xs:element minOccurs="0" name="UpdatedOn" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:documentation>Last Modified Date</xs:documentation>
+                </xs:annotation>
+            </xs:element>
             <xs:element name="Allergy" type="CF_SNOWMED">
                 <xs:annotation>
-                    <xs:documentation>Substance to which the patient is allergic. SNOMED CT coded</xs:documentation>
+                    <xs:documentation>Substance to which the patient is allergic. (SNOWMED)</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="AllergyCategory" type="CF_HL7_00204" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation>Type of Allergy (AL1-2)   HL7 Table 0204 e.g.    DA=Drug Allergy</xs:documentation>
+                    <xs:documentation>Type of Allergy (HL7 00204)</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="Severity" type="CF_HL7_00206" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation>AL1-5 HL7 Table 0206 eg SV=Severe</xs:documentation>
+                    <xs:documentation>Severity (HL7 00206)</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="Clinician" type="Clinician" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation>National clinician code if clinician reported using an appropriate OID or free </xs:documentation>
-                </xs:annotation>          
+                    <xs:documentation>Diagnosing Clinician</xs:documentation>
+                </xs:annotation>
             </xs:element>
             <xs:element name="DiscoveryTime" type="xs:dateTime" minOccurs="0">
                 <xs:annotation>
@@ -62,6 +68,16 @@
                         <xs:maxLength value="32000"/>
                     </xs:restriction>
                 </xs:simpleType>
+            </xs:element>
+            <xs:element minOccurs="0" name="ActionCode" type="ActionCode">
+                <xs:annotation>
+                    <xs:documentation>Add/Update/Delete Control</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="ExternalId" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Unique Identifier</xs:documentation>
+                </xs:annotation>
             </xs:element>
         </xs:sequence>
     </xs:complexType>

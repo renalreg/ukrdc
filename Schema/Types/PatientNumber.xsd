@@ -55,13 +55,14 @@
                         </xs:enumeration>
                         <xs:enumeration value="LOCALHOSP">
                             <xs:annotation>
-                                <xs:documentation>Local Hospital Number</xs:documentation> <!-- TODO: Ideally this would be the Trust ID but this wouldn't allow the enumeration. We could swap LOCALHOSP for that on load? -->
+                                <xs:documentation>Local Hospital Number</xs:documentation>
+                                <!-- TODO: Ideally this would be the Trust ID but this wouldn't allow the enumeration. We could swap LOCALHOSP for that on load? -->
                             </xs:annotation>
                         </xs:enumeration>
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            
+
             <xs:element minOccurs="0" name="NumberType">
                 <xs:simpleType>
                     <xs:restriction base="xs:string">

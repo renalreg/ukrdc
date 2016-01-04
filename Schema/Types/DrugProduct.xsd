@@ -1,35 +1,15 @@
 <xs:schema xmlns="http://www.rixg.org.uk/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.rixg.org.uk/">
+
+	<xs:include schemaLocation="CF_DMD.xsd"/>
+	<xs:include schemaLocation="CF_SNOWMED.xsd"/>
+	<xs:include schemaLocation="CF_RR23.xsd"/>
+
 	<xs:complexType name="DrugProduct">
 		<xs:sequence>
-			<xs:element name="Id">
+			<xs:element name="Id" type="CF_DMD">
 				<xs:annotation>
 					<xs:documentation>dm + d code for the drug</xs:documentation>
 				</xs:annotation>
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="CodingStandard" minOccurs="0">
-                            <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                    <xs:maxLength value="32000"/>
-                                </xs:restriction>
-                            </xs:simpleType>
-                        </xs:element>
-                        <xs:element name="Code" minOccurs="0">
-                            <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                    <xs:maxLength value="32000"/>
-                                </xs:restriction>
-                            </xs:simpleType>
-                        </xs:element>
-                        <xs:element name="Description" minOccurs="0">
-                            <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                    <xs:maxLength value="32000"/>
-                                </xs:restriction>
-                            </xs:simpleType>
-                        </xs:element>
-                    </xs:sequence>
-                </xs:complexType>                
 			</xs:element>
 			<xs:element name="Generic" type="xs:string" minOccurs="0">
 				<xs:annotation>
@@ -46,39 +26,14 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="Form" minOccurs="0">
+			<xs:element name="Form" minOccurs="0" type="CF_SNOWMED">
 				<xs:annotation>
 					<xs:documentation>SNOMED Code and description</xs:documentation>
 				</xs:annotation>
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="CodingStandard" minOccurs="0">
-                            <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                    <xs:maxLength value="32000"/>
-                                </xs:restriction>
-                            </xs:simpleType>
-                        </xs:element>
-                        <xs:element name="Code" minOccurs="0">
-                            <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                    <xs:maxLength value="32000"/>
-                                </xs:restriction>
-                            </xs:simpleType>
-                        </xs:element>
-                        <xs:element name="Description" minOccurs="0">
-                            <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                    <xs:maxLength value="32000"/>
-                                </xs:restriction>
-                            </xs:simpleType>
-                        </xs:element>
-                    </xs:sequence>
-                </xs:complexType>                   
 			</xs:element>
-			<xs:element name="StrengthUnits" type="xs:string" minOccurs="0">
+			<xs:element name="StrengthUnits" type="CF_RR23" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Units - use RR table 23</xs:documentation>
+					<xs:documentation>Units</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

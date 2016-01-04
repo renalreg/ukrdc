@@ -1,12 +1,18 @@
 <xs:schema xmlns="http://www.rixg.org.uk/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.rixg.org.uk/">
-<!-- To be used to record NHS B&T Waiting List periods -->
+	<!-- To be used to record NHS B&T Waiting List periods -->
 
-    <xs:include schemaLocation="../Types/Clinician.xsd"/>
-    <xs:include schemaLocation="../Types/Location.xsd"/>
-    <xs:include schemaLocation="../Types/CodedField.xsd"/>
+	<xs:include schemaLocation="../Types/Clinician.xsd"/>
+	<xs:include schemaLocation="../Types/Location.xsd"/>
+	<xs:include schemaLocation="../Types/CodedField.xsd"/>
+	<xs:include schemaLocation="../Types/ActionCode.xsd"/>
 
-    <xs:complexType name="Transplant">
+	<xs:complexType name="Transplant">
 		<xs:sequence>
+			<xs:element minOccurs="0" name="UpdatedOn" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>Last Modified Date</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="EncounterNumber" type="xs:string"/>
 			<xs:element name="EncounterType">
 				<xs:annotation>
@@ -26,12 +32,12 @@
 			</xs:element>
 			<xs:element name="FromTime" type="xs:dateTime">
 				<xs:annotation>
-					<xs:documentation>Time that encounter starts as  CCYYMMDD</xs:documentation>
+					<xs:documentation>Time that encounter starts as CCYYMMDD</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ToTime" type="xs:dateTime">
 				<xs:annotation>
-					<xs:documentation>Time that encounter ends as  CCYYMMDD</xs:documentation>
+					<xs:documentation>Time that encounter ends as CCYYMMDD</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="AdmittingClinician" type="Clinician" minOccurs="0">
@@ -62,6 +68,16 @@
 			<xs:element name="VisitDescription" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Details of validation e.g. Date Done, by whom, who provided the info</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="ActionCode" type="ActionCode">
+				<xs:annotation>
+					<xs:documentation>Add/Update/Delete Control</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="ExternalId" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Unique Identifier</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
