@@ -1,9 +1,10 @@
-	<xs:complexType name="CodeTableDetail">
+<xs:schema xmlns="http://www.rixg.org.uk/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.rixg.org.uk/">
+	<xs:complexType name="CF_DMD">
 		<xs:sequence>
 			<xs:element name="CodingStandard" minOccurs="0">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
-						<xs:maxLength value="32000"/>
+						<xs:enumeration value="DM+D"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -23,8 +24,4 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-
-
-
-  
-
+</xs:schema>

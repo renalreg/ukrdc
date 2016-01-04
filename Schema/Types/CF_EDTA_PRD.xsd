@@ -1,5 +1,6 @@
 <xs:schema xmlns="http://www.rixg.org.uk/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.rixg.org.uk/">
-    <xs:complexType name="CF_EDTA_PRD"> <!-- Also known as RR4/RR20 -->
+    <xs:complexType name="CF_EDTA_PRD">
+        <!-- Also known as RR4/RR20 -->
         <xs:sequence>
             <xs:element name="CodingStandard" minOccurs="0">
                 <xs:simpleType>
@@ -10,8 +11,8 @@
                 </xs:simpleType>
             </xs:element>
             <xs:element name="Code" minOccurs="0">
-                 <xs:simpleType>
-                    <xs:restriction base="xs:string">           
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
                         <xs:enumeration value="0">
                             <xs:annotation>
                                 <xs:documentation>Chronic Renal Failure, Aetiology uncertain</xs:documentation>
@@ -337,9 +338,9 @@
                                 <xs:documentation>Other identified Renal Disorders - Please Specify</xs:documentation>
                             </xs:annotation>
                         </xs:enumeration>
-                        
+
                         <!-- TODO: EDTA2 Codes will go here -->
-                        
+
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>

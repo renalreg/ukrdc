@@ -24,8 +24,32 @@
 		</xs:sequence>
 		<xs:attribute name="use">
 			<xs:annotation>
-				<xs:documentation>Based on HL7 table 201   PRN=Home Phone   WPN=Work Phone    PRS=Mobile Number    NET=Email </xs:documentation>
+				<xs:documentation>Based on HL7 table 201</xs:documentation>
 			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="PRN">
+						<xs:annotation>
+							<xs:documentation>Home Phone</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="WPN">
+						<xs:annotation>
+							<xs:documentation>Work Phone</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="PRS">
+						<xs:annotation>
+							<xs:documentation>Mobile Number</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="NET">
+						<xs:annotation>
+							<xs:documentation>Email</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
 		</xs:attribute>
 	</xs:complexType>
 </xs:schema>

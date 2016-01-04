@@ -1,9 +1,9 @@
 <xs:schema xmlns="http://www.rixg.org.uk/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.rixg.org.uk/">
-	
-    <xs:include schemaLocation="../Types/Clinician.xsd"/>
-    <xs:include schemaLocation="../Types/DrugProduct.xsd"/>
-    
-    <xs:complexType name="Medication">
+
+	<xs:include schemaLocation="../Types/Clinician.xsd"/>
+	<xs:include schemaLocation="../Types/DrugProduct.xsd"/>
+
+	<xs:complexType name="Medication">
 		<xs:sequence>
 			<xs:element name="PrescriptionNumber" type="xs:string" minOccurs="0">
 				<xs:annotation>
@@ -29,31 +29,31 @@
 				<xs:annotation>
 					<xs:documentation>Medication Route from RR22 - Standard always RR22. Code is 1=Oral, 2=Topical, 3=Inhalation, 4=Injection, 5=Intra peritoneal, 9=Other - please specify in description. </xs:documentation>
 				</xs:annotation>
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="CodingStandard" minOccurs="0">
-                            <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                    <xs:maxLength value="32000"/>
-                                </xs:restriction>
-                            </xs:simpleType>
-                        </xs:element>
-                        <xs:element name="Code" minOccurs="0">
-                            <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                    <xs:maxLength value="32000"/>
-                                </xs:restriction>
-                            </xs:simpleType>
-                        </xs:element>
-                        <xs:element name="Description" minOccurs="0">
-                            <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                    <xs:maxLength value="32000"/>
-                                </xs:restriction>
-                            </xs:simpleType>
-                        </xs:element>
-                    </xs:sequence>
-                </xs:complexType>                 
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="CodingStandard" minOccurs="0">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="32000"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="Code" minOccurs="0">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="32000"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="Description" minOccurs="0">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="32000"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
 			</xs:element>
 			<xs:element name="DrugProduct" type="DrugProduct" minOccurs="0"/>
 			<xs:element name="Frequency" type="xs:string" minOccurs="0">

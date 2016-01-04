@@ -165,7 +165,7 @@
                             <xs:annotation>
                                 <xs:documentation>Acute Peritoneal Dialysis - ARF</xs:documentation>
                             </xs:annotation>
-                        </xs:enumeration>                            
+                        </xs:enumeration>
 
                         <xs:enumeration value="93">
                             <xs:annotation>
@@ -176,14 +176,14 @@
                             <xs:annotation>
                                 <xs:documentation>Conservative Management - Clinical decision not to offer RRT</xs:documentation>
                             </xs:annotation>
-                        </xs:enumeration>           
- 
+                        </xs:enumeration>
+
                         <xs:enumeration value="900">
                             <xs:annotation>
                                 <xs:documentation>CKD (Not on RRT)</xs:documentation>
                             </xs:annotation>
-                        </xs:enumeration> 
-                        
+                        </xs:enumeration>
+
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
@@ -197,8 +197,3 @@
         </xs:sequence>
     </xs:complexType>
 </xs:schema>
-
-
-
-  
-
