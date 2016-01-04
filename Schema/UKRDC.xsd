@@ -38,6 +38,8 @@
                         <xs:sequence>
                             <xs:element name="LabOrder" type="LabOrder" maxOccurs="unbounded"/>
                         </xs:sequence>
+                        <xs:attribute name="start" type="xs:date" use="required"/>
+                        <xs:attribute name="stop" type="xs:date" use="required"/>
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="SocialHistories" minOccurs="0">
@@ -59,6 +61,8 @@
                         <xs:sequence>
                             <xs:element name="Observation" type="Observation" maxOccurs="unbounded"/>
                         </xs:sequence>
+                        <xs:attribute name="start" type="xs:date" use="required"/>
+                        <xs:attribute name="stop" type="xs:date" use="required"/>
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="Allergies" minOccurs="0">
@@ -92,6 +96,8 @@
                             <xs:element name="Transplant" type="Transplant" maxOccurs="unbounded"/>
                             <xs:element name="VasciularAccess" type="VascularAccess" maxOccurs="unbounded"/>
                         </xs:sequence>
+                        <xs:attribute name="start" type="xs:date" use="required"/>
+                        <xs:attribute name="stop" type="xs:date" use="required"/>
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="Documents" minOccurs="0">
