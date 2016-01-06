@@ -1,0 +1,2263 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Schema documentation for Document.xsd</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css" /><script type="text/javascript">
+         <!--
+        var propertiesBoxes= new Array('properties_Document.xsd', 
+				'properties_Document_UpdatedOn', 
+				'properties_Document_DocumentTime', 
+				'properties_Document_NoteText', 
+				'properties_Document_DocumentType', 
+				'properties_Document_Clinician', 
+				'properties_Document_DocumentName', 
+				'properties_Document_Status', 
+				'properties_Document_EnteredBy', 
+				'properties_Document_EnteredAt', 
+				'properties_Document_FileType', 
+				'properties_Document_Stream', 
+				'properties_Document_DocumentURL', 
+				'properties_Document_ActionCode', 
+				'properties_Document_ExternalId');
+var facetsBoxes= new Array('facets_Document_DocumentName', 
+				'facets_Document_ActionCode');
+var usedByBoxes= new Array('usedBy_Document');
+var sourceBoxes= new Array('source_Document_UpdatedOn', 
+				'source_Document_DocumentTime', 
+				'source_Document_NoteText', 
+				'source_Document_DocumentType', 
+				'source_Document_Clinician', 
+				'source_Document_DocumentName', 
+				'source_Document_Status', 
+				'source_Document_EnteredBy', 
+				'source_Document_EnteredAt', 
+				'source_Document_FileType', 
+				'source_Document_Stream', 
+				'source_Document_DocumentURL', 
+				'source_Document_ActionCode', 
+				'source_Document_ExternalId', 
+				'source_Document');
+var instanceBoxes= new Array('instance_Document_DocumentType', 
+				'instance_Document_Clinician', 
+				'instance_Document_Status', 
+				'instance_Document_EnteredBy', 
+				'instance_Document_EnteredAt', 
+				'instance_Document_FileType');
+var diagramBoxes= new Array('diagram_Document_UpdatedOn', 
+				'diagram_Document_DocumentTime', 
+				'diagram_Document_NoteText', 
+				'diagram_Document_DocumentType', 
+				'diagram_Document_Clinician', 
+				'diagram_Document_DocumentName', 
+				'diagram_Document_Status', 
+				'diagram_Document_EnteredBy', 
+				'diagram_Document_EnteredAt', 
+				'diagram_Document_FileType', 
+				'diagram_Document_Stream', 
+				'diagram_Document_DocumentURL', 
+				'diagram_Document_ActionCode', 
+				'diagram_Document_ExternalId', 
+				'diagram_Document');
+var annotationBoxes= new Array('annotations_Document_UpdatedOn', 
+				'annotations_Document_DocumentTime', 
+				'annotations_Document_NoteText', 
+				'annotations_Document_DocumentType', 
+				'annotations_Document_Clinician', 
+				'annotations_Document_DocumentName', 
+				'annotations_Document_Status', 
+				'annotations_Document_EnteredBy', 
+				'annotations_Document_EnteredAt', 
+				'annotations_Document_FileType', 
+				'annotations_Document_Stream', 
+				'annotations_Document_DocumentURL', 
+				'annotations_Document_ActionCode', 
+				'annotations_Document_ExternalId');
+var modelBoxes= new Array('model_Document_DocumentType', 
+				'model_Document_Clinician', 
+				'model_Document_Status', 
+				'model_Document_EnteredBy', 
+				'model_Document_EnteredAt', 
+				'model_Document_FileType', 
+				'model_Document');
+
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //--></script></head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft"></td>
+               <td class="rt_lineTop"></td>
+               <td class="rt_cornerTopRight"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft"></td>
+               <td class="rt_content">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, annotationBoxes);" class="control" /></span><span class="globalControlName">Annotations</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, diagramBoxes);" class="control" /></span><span class="globalControlName">Diagrams</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, facetsBoxes);" class="control" /></span><span class="globalControlName">Facets </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, instanceBoxes);" class="control" /></span><span class="globalControlName">Instances</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, modelBoxes);" class="control" /></span><span class="globalControlName">Model </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, propertiesBoxes);" class="control" /></span><span class="globalControlName">Properties </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control" /></span><span class="globalControlName">Source</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control" /></span><span class="globalControlName">Used by </span></td>
+                     </tr>
+                  </table>
+                  <div align="right"><span><input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close" /></span></div>
+               </td>
+               <td class="rt_lineRight"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft"></td>
+               <td class="rt_lineBottom"></td>
+               <td class="rt_cornerBottomRight"></td>
+            </tr>
+         </table>
+      </div><a id="Document.xsd"></a><div class="componentTitle">Included schema <span class="qname">Document.xsd</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.rixg.org.uk/</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_Document.xsd" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_Document.xsd');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_Document.xsd" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">attribute form default</td>
+                                    <td><b>unqualified</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">element form default</td>
+                                    <td><b>unqualified</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="Document_UpdatedOn"></a><div class="componentTitle">Element <span class="qname"><b><a href="Document_xsd.html#Document" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Document.xsd')">Document</a></b> / UpdatedOn</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_Document_UpdatedOn" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_Document_UpdatedOn');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_Document_UpdatedOn" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">Last Modified Date</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_Document_UpdatedOn" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_Document_UpdatedOn');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_Document_UpdatedOn" style="display:block"><img alt="Diagram" border="0" src="img/Document_xsd_Element_UpdatedOn.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:dateTime</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_Document_UpdatedOn" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_Document_UpdatedOn');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_Document_UpdatedOn" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_Document_UpdatedOn" type="image" src="img/btM.gif" value="-" onclick="switchState('source_Document_UpdatedOn');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_Document_UpdatedOn" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"UpdatedOn"</span><span class="tAN"> type=</span><span class="tAV">"xs:dateTime"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Last Modified Date</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="Document_DocumentTime"></a><div class="componentTitle">Element <span class="qname"><b><a href="Document_xsd.html#Document" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Document.xsd')">Document</a></b> / DocumentTime</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_Document_DocumentTime" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_Document_DocumentTime');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_Document_DocumentTime" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">Document Creation as CCYYMMDDhhmm</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_Document_DocumentTime" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_Document_DocumentTime');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_Document_DocumentTime" style="display:block"><img alt="Diagram" border="0" src="img/Document_xsd_Element_DocumentTime.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:dateTime</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_Document_DocumentTime" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_Document_DocumentTime');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_Document_DocumentTime" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_Document_DocumentTime" type="image" src="img/btM.gif" value="-" onclick="switchState('source_Document_DocumentTime');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_Document_DocumentTime" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"DocumentTime"</span><span class="tAN"> type=</span><span class="tAV">"xs:dateTime"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Document Creation as CCYYMMDDhhmm</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="Document_NoteText"></a><div class="componentTitle">Element <span class="qname"><b><a href="Document_xsd.html#Document" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Document.xsd')">Document</a></b> / NoteText</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_Document_NoteText" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_Document_NoteText');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_Document_NoteText" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">The body of the document as free text,</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_Document_NoteText" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_Document_NoteText');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_Document_NoteText" style="display:block"><img alt="Diagram" border="0" src="img/Document_xsd_Element_NoteText.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_Document_NoteText" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_Document_NoteText');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_Document_NoteText" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_Document_NoteText" type="image" src="img/btM.gif" value="-" onclick="switchState('source_Document_NoteText');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_Document_NoteText" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"NoteText"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The body of the document as free text,</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="Document_DocumentType"></a><div class="componentTitle">Element <span class="qname"><b><a href="Document_xsd.html#Document" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Document.xsd')">Document</a></b> / DocumentType</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_Document_DocumentType" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_Document_DocumentType');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_Document_DocumentType" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">Always TEXT for now. For future use.</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_Document_DocumentType" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_Document_DocumentType');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_Document_DocumentType" style="display:block"><img alt="Diagram" border="0" src="img/Document_xsd_Element_DocumentType.jpeg" usemap="#Document_xsd_Element_DocumentType" /><map name="Document_xsd_Element_DocumentType" id="Document_xsd_Element_DocumentType">
+                                 <area alt="CodedField_xsd.tmp#CodedField_CodingStandard" href="CodedField_xsd.html#CodedField_CodingStandard" coords="236,40,344,65" />
+                                 <area alt="CodedField_xsd.tmp#CodedField_Code" href="CodedField_xsd.html#CodedField_Code" coords="236,75,292,100" />
+                                 <area alt="CodedField_xsd.tmp#CodedField_Description" href="CodedField_xsd.html#CodedField_Description" coords="236,110,321,135" />
+                                 <area alt="CodedField_xsd.tmp#CodedField" href="CodedField_xsd.html#CodedField" coords="154,3,258,25" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="CodedField_xsd.html#CodedField" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for CodedField.xsd')">CodedField</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_Document_DocumentType" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_Document_DocumentType');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_Document_DocumentType" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_Document_DocumentType" type="image" src="img/btM.gif" value="-" onclick="switchState('model_Document_DocumentType');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_Document_DocumentType" style="display:block"><b><a href="CodedField_xsd.html#CodedField_CodingStandard" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for CodedField.xsd')">CodingStandard{0,1}</a></b> , <b><a href="CodedField_xsd.html#CodedField_Code" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for CodedField.xsd')">Code{0,1}</a></b> , <b><a href="CodedField_xsd.html#CodedField_Description" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for CodedField.xsd')">Description{0,1}</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="CodedField_xsd.html#CodedField_Code" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for CodedField.xsd')">Code</a></b>, <b><a href="CodedField_xsd.html#CodedField_CodingStandard" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for CodedField.xsd')">CodingStandard</a></b>, <b><a href="CodedField_xsd.html#CodedField_Description" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for CodedField.xsd')">Description</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_Document_DocumentType" type="image" src="img/btM.gif" value="-" onclick="switchState('instance_Document_DocumentType');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_Document_DocumentType" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;DocumentType</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;CodingStandard</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/CodingStandard&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;Code</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/Code&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;Description</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/Description&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/DocumentType&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_Document_DocumentType" type="image" src="img/btM.gif" value="-" onclick="switchState('source_Document_DocumentType');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_Document_DocumentType" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"DocumentType"</span><span class="tAN"> type=</span><span class="tAV">"CodedField"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Always TEXT for now. For future use.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="Document_Clinician"></a><div class="componentTitle">Element <span class="qname"><b><a href="Document_xsd.html#Document" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Document.xsd')">Document</a></b> / Clinician</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_Document_Clinician" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_Document_Clinician');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_Document_Clinician" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">The person responsibile for the content of the document</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_Document_Clinician" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_Document_Clinician');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_Document_Clinician" style="display:block"><img alt="Diagram" border="0" src="img/Document_xsd_Element_Clinician.jpeg" usemap="#Document_xsd_Element_Clinician" /><map name="Document_xsd_Element_Clinician" id="Document_xsd_Element_Clinician">
+                                 <area alt="Clinician_xsd.tmp#Clinician_CodingStandard" href="Clinician_xsd.html#Clinician_CodingStandard" coords="203,40,311,65" />
+                                 <area alt="Clinician_xsd.tmp#Clinician_Code" href="Clinician_xsd.html#Clinician_Code" coords="203,75,259,100" />
+                                 <area alt="Clinician_xsd.tmp#Clinician_Description" href="Clinician_xsd.html#Clinician_Description" coords="203,110,288,135" />
+                                 <area alt="Clinician_xsd.tmp#Clinician" href="Clinician_xsd.html#Clinician" coords="121,3,211,25" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="Clinician_xsd.html#Clinician" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Clinician.xsd')">Clinician</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_Document_Clinician" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_Document_Clinician');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_Document_Clinician" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_Document_Clinician" type="image" src="img/btM.gif" value="-" onclick="switchState('model_Document_Clinician');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_Document_Clinician" style="display:block"><b><a href="Clinician_xsd.html#Clinician_CodingStandard" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Clinician.xsd')">CodingStandard{0,1}</a></b> , <b><a href="Clinician_xsd.html#Clinician_Code" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Clinician.xsd')">Code{0,1}</a></b> , <b><a href="Clinician_xsd.html#Clinician_Description" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Clinician.xsd')">Description{0,1}</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="Clinician_xsd.html#Clinician_Code" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Clinician.xsd')">Code</a></b>, <b><a href="Clinician_xsd.html#Clinician_CodingStandard" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Clinician.xsd')">CodingStandard</a></b>, <b><a href="Clinician_xsd.html#Clinician_Description" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Clinician.xsd')">Description</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_Document_Clinician" type="image" src="img/btM.gif" value="-" onclick="switchState('instance_Document_Clinician');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_Document_Clinician" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;Clinician</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;CodingStandard</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/CodingStandard&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;Code</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/Code&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;Description</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/Description&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/Clinician&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_Document_Clinician" type="image" src="img/btM.gif" value="-" onclick="switchState('source_Document_Clinician');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_Document_Clinician" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"Clinician"</span><span class="tAN"> type=</span><span class="tAV">"Clinician"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The person responsibile for the content of the document</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="Document_DocumentName"></a><div class="componentTitle">Element <span class="qname"><b><a href="Document_xsd.html#Document" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Document.xsd')">Document</a></b> / DocumentName</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_Document_DocumentName" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_Document_DocumentName');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_Document_DocumentName" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">Document title</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_Document_DocumentName" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_Document_DocumentName');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_Document_DocumentName" style="display:block"><img alt="Diagram" border="0" src="img/Document_xsd_Element_DocumentName.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>restriction of <b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_Document_DocumentName" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_Document_DocumentName');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_Document_DocumentName" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_Document_DocumentName" type="image" src="img/btM.gif" value="-" onclick="switchState('facets_Document_DocumentName');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_Document_DocumentName" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">maxLength</td>
+                                    <td width="30%"><b>220</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_Document_DocumentName" type="image" src="img/btM.gif" value="-" onclick="switchState('source_Document_DocumentName');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_Document_DocumentName" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"DocumentName"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Document title</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:maxLength</span><span class="tAN"> value=</span><span class="tAV">"220"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="Document_Status"></a><div class="componentTitle">Element <span class="qname"><b><a href="Document_xsd.html#Document" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Document.xsd')">Document</a></b> / Status</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_Document_Status" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_Document_Status');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_Document_Status" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">ACTIVE or INACTIVE</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_Document_Status" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_Document_Status');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_Document_Status" style="display:block"><img alt="Diagram" border="0" src="img/Document_xsd_Element_Status.jpeg" usemap="#Document_xsd_Element_Status" /><map name="Document_xsd_Element_Status" id="Document_xsd_Element_Status">
+                                 <area alt="CodedField_xsd.tmp#CodedField_CodingStandard" href="CodedField_xsd.html#CodedField_CodingStandard" coords="195,40,303,65" />
+                                 <area alt="CodedField_xsd.tmp#CodedField_Code" href="CodedField_xsd.html#CodedField_Code" coords="195,75,251,100" />
+                                 <area alt="CodedField_xsd.tmp#CodedField_Description" href="CodedField_xsd.html#CodedField_Description" coords="195,110,280,135" />
+                                 <area alt="CodedField_xsd.tmp#CodedField" href="CodedField_xsd.html#CodedField" coords="113,3,217,25" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="CodedField_xsd.html#CodedField" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for CodedField.xsd')">CodedField</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_Document_Status" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_Document_Status');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_Document_Status" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_Document_Status" type="image" src="img/btM.gif" value="-" onclick="switchState('model_Document_Status');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_Document_Status" style="display:block"><b><a href="CodedField_xsd.html#CodedField_CodingStandard" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for CodedField.xsd')">CodingStandard{0,1}</a></b> , <b><a href="CodedField_xsd.html#CodedField_Code" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for CodedField.xsd')">Code{0,1}</a></b> , <b><a href="CodedField_xsd.html#CodedField_Description" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for CodedField.xsd')">Description{0,1}</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="CodedField_xsd.html#CodedField_Code" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for CodedField.xsd')">Code</a></b>, <b><a href="CodedField_xsd.html#CodedField_CodingStandard" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for CodedField.xsd')">CodingStandard</a></b>, <b><a href="CodedField_xsd.html#CodedField_Description" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for CodedField.xsd')">Description</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_Document_Status" type="image" src="img/btM.gif" value="-" onclick="switchState('instance_Document_Status');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_Document_Status" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;Status</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;CodingStandard</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/CodingStandard&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;Code</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/Code&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;Description</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/Description&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/Status&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_Document_Status" type="image" src="img/btM.gif" value="-" onclick="switchState('source_Document_Status');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_Document_Status" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"Status"</span><span class="tAN"> type=</span><span class="tAV">"CodedField"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ACTIVE or INACTIVE</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="Document_EnteredBy"></a><div class="componentTitle">Element <span class="qname"><b><a href="Document_xsd.html#Document" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Document.xsd')">Document</a></b> / EnteredBy</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_Document_EnteredBy" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_Document_EnteredBy');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_Document_EnteredBy" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">Person entering the document as a National Clinicial code where possible or other local code if not.</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_Document_EnteredBy" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_Document_EnteredBy');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_Document_EnteredBy" style="display:block"><img alt="Diagram" border="0" src="img/Document_xsd_Element_EnteredBy.jpeg" usemap="#Document_xsd_Element_EnteredBy" /><map name="Document_xsd_Element_EnteredBy" id="Document_xsd_Element_EnteredBy">
+                                 <area alt="Clinician_xsd.tmp#Clinician_CodingStandard" href="Clinician_xsd.html#Clinician_CodingStandard" coords="214,40,322,65" />
+                                 <area alt="Clinician_xsd.tmp#Clinician_Code" href="Clinician_xsd.html#Clinician_Code" coords="214,75,270,100" />
+                                 <area alt="Clinician_xsd.tmp#Clinician_Description" href="Clinician_xsd.html#Clinician_Description" coords="214,110,299,135" />
+                                 <area alt="Clinician_xsd.tmp#Clinician" href="Clinician_xsd.html#Clinician" coords="132,3,222,25" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="Clinician_xsd.html#Clinician" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Clinician.xsd')">Clinician</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_Document_EnteredBy" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_Document_EnteredBy');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_Document_EnteredBy" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_Document_EnteredBy" type="image" src="img/btM.gif" value="-" onclick="switchState('model_Document_EnteredBy');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_Document_EnteredBy" style="display:block"><b><a href="Clinician_xsd.html#Clinician_CodingStandard" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Clinician.xsd')">CodingStandard{0,1}</a></b> , <b><a href="Clinician_xsd.html#Clinician_Code" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Clinician.xsd')">Code{0,1}</a></b> , <b><a href="Clinician_xsd.html#Clinician_Description" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Clinician.xsd')">Description{0,1}</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="Clinician_xsd.html#Clinician_Code" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Clinician.xsd')">Code</a></b>, <b><a href="Clinician_xsd.html#Clinician_CodingStandard" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Clinician.xsd')">CodingStandard</a></b>, <b><a href="Clinician_xsd.html#Clinician_Description" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Clinician.xsd')">Description</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_Document_EnteredBy" type="image" src="img/btM.gif" value="-" onclick="switchState('instance_Document_EnteredBy');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_Document_EnteredBy" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;EnteredBy</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;CodingStandard</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/CodingStandard&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;Code</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/Code&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;Description</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/Description&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/EnteredBy&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_Document_EnteredBy" type="image" src="img/btM.gif" value="-" onclick="switchState('source_Document_EnteredBy');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_Document_EnteredBy" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"EnteredBy"</span><span class="tAN"> type=</span><span class="tAV">"Clinician"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Person entering the document as a National Clinicial code where possible or other local code if not.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="Document_EnteredAt"></a><div class="componentTitle">Element <span class="qname"><b><a href="Document_xsd.html#Document" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Document.xsd')">Document</a></b> / EnteredAt</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_Document_EnteredAt" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_Document_EnteredAt');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_Document_EnteredAt" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">Location the procedure was performed at. Use National coding e.g. RXF01</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_Document_EnteredAt" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_Document_EnteredAt');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_Document_EnteredAt" style="display:block"><img alt="Diagram" border="0" src="img/Document_xsd_Element_EnteredAt.jpeg" usemap="#Document_xsd_Element_EnteredAt" /><map name="Document_xsd_Element_EnteredAt" id="Document_xsd_Element_EnteredAt">
+                                 <area alt="Location_xsd.tmp#Location_CodingStandard" href="Location_xsd.html#Location_CodingStandard" coords="212,40,320,65" />
+                                 <area alt="Location_xsd.tmp#Location_Code" href="Location_xsd.html#Location_Code" coords="212,75,268,100" />
+                                 <area alt="Location_xsd.tmp#Location_Description" href="Location_xsd.html#Location_Description" coords="212,110,297,135" />
+                                 <area alt="Location_xsd.tmp#Location" href="Location_xsd.html#Location" coords="130,3,222,25" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="Location_xsd.html#Location" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Location.xsd')">Location</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_Document_EnteredAt" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_Document_EnteredAt');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_Document_EnteredAt" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_Document_EnteredAt" type="image" src="img/btM.gif" value="-" onclick="switchState('model_Document_EnteredAt');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_Document_EnteredAt" style="display:block"><b><a href="Location_xsd.html#Location_CodingStandard" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Location.xsd')">CodingStandard{0,1}</a></b> , <b><a href="Location_xsd.html#Location_Code" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Location.xsd')">Code{0,1}</a></b> , <b><a href="Location_xsd.html#Location_Description" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Location.xsd')">Description{0,1}</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="Location_xsd.html#Location_Code" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Location.xsd')">Code</a></b>, <b><a href="Location_xsd.html#Location_CodingStandard" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Location.xsd')">CodingStandard</a></b>, <b><a href="Location_xsd.html#Location_Description" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Location.xsd')">Description</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_Document_EnteredAt" type="image" src="img/btM.gif" value="-" onclick="switchState('instance_Document_EnteredAt');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_Document_EnteredAt" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;EnteredAt</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;CodingStandard</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/CodingStandard&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;Code</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/Code&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;Description</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/Description&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/EnteredAt&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_Document_EnteredAt" type="image" src="img/btM.gif" value="-" onclick="switchState('source_Document_EnteredAt');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_Document_EnteredAt" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"EnteredAt"</span><span class="tAN"> type=</span><span class="tAV">"Location"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Location the procedure was performed at. Use National coding e.g. RXF01</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="Document_FileType"></a><div class="componentTitle">Element <span class="qname"><b><a href="Document_xsd.html#Document" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Document.xsd')">Document</a></b> / FileType</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_Document_FileType" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_Document_FileType');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_Document_FileType" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">The type of data e.g PDF, DOC, RTF, TXT</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_Document_FileType" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_Document_FileType');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_Document_FileType" style="display:block"><img alt="Diagram" border="0" src="img/Document_xsd_Element_FileType.jpeg" usemap="#Document_xsd_Element_FileType" /><map name="Document_xsd_Element_FileType" id="Document_xsd_Element_FileType">
+                                 <area alt="CodedField_xsd.tmp#CodedField_CodingStandard" href="CodedField_xsd.html#CodedField_CodingStandard" coords="204,40,312,65" />
+                                 <area alt="CodedField_xsd.tmp#CodedField_Code" href="CodedField_xsd.html#CodedField_Code" coords="204,75,260,100" />
+                                 <area alt="CodedField_xsd.tmp#CodedField_Description" href="CodedField_xsd.html#CodedField_Description" coords="204,110,289,135" />
+                                 <area alt="CodedField_xsd.tmp#CodedField" href="CodedField_xsd.html#CodedField" coords="122,3,226,25" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="CodedField_xsd.html#CodedField" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for CodedField.xsd')">CodedField</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_Document_FileType" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_Document_FileType');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_Document_FileType" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_Document_FileType" type="image" src="img/btM.gif" value="-" onclick="switchState('model_Document_FileType');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_Document_FileType" style="display:block"><b><a href="CodedField_xsd.html#CodedField_CodingStandard" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for CodedField.xsd')">CodingStandard{0,1}</a></b> , <b><a href="CodedField_xsd.html#CodedField_Code" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for CodedField.xsd')">Code{0,1}</a></b> , <b><a href="CodedField_xsd.html#CodedField_Description" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for CodedField.xsd')">Description{0,1}</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="CodedField_xsd.html#CodedField_Code" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for CodedField.xsd')">Code</a></b>, <b><a href="CodedField_xsd.html#CodedField_CodingStandard" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for CodedField.xsd')">CodingStandard</a></b>, <b><a href="CodedField_xsd.html#CodedField_Description" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for CodedField.xsd')">Description</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_Document_FileType" type="image" src="img/btM.gif" value="-" onclick="switchState('instance_Document_FileType');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_Document_FileType" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;FileType</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;CodingStandard</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/CodingStandard&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;Code</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/Code&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;Description</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/Description&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/FileType&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_Document_FileType" type="image" src="img/btM.gif" value="-" onclick="switchState('source_Document_FileType');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_Document_FileType" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"FileType"</span><span class="tAN"> type=</span><span class="tAV">"CodedField"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The type of data e.g PDF, DOC, RTF, TXT</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="Document_Stream"></a><div class="componentTitle">Element <span class="qname"><b><a href="Document_xsd.html#Document" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Document.xsd')">Document</a></b> / Stream</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_Document_Stream" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_Document_Stream');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_Document_Stream" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">This property is used when the Note is binary data, e.g DOC, PDF, JPG</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_Document_Stream" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_Document_Stream');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_Document_Stream" style="display:block"><img alt="Diagram" border="0" src="img/Document_xsd_Element_Stream.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:base64Binary</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_Document_Stream" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_Document_Stream');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_Document_Stream" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_Document_Stream" type="image" src="img/btM.gif" value="-" onclick="switchState('source_Document_Stream');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_Document_Stream" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"Stream"</span><span class="tAN"> type=</span><span class="tAV">"xs:base64Binary"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">This property is used when the Note is binary data, e.g DOC, PDF, JPG</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="Document_DocumentURL"></a><div class="componentTitle">Element <span class="qname"><b><a href="Document_xsd.html#Document" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Document.xsd')">Document</a></b> / DocumentURL</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_Document_DocumentURL" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_Document_DocumentURL');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_Document_DocumentURL" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">The full URL where the document can be accessed.</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_Document_DocumentURL" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_Document_DocumentURL');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_Document_DocumentURL" style="display:block"><img alt="Diagram" border="0" src="img/Document_xsd_Element_DocumentURL.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_Document_DocumentURL" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_Document_DocumentURL');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_Document_DocumentURL" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_Document_DocumentURL" type="image" src="img/btM.gif" value="-" onclick="switchState('source_Document_DocumentURL');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_Document_DocumentURL" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"DocumentURL"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The full URL where the document can be accessed.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="Document_ActionCode"></a><div class="componentTitle">Element <span class="qname"><b><a href="Document_xsd.html#Document" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Document.xsd')">Document</a></b> / ActionCode</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_Document_ActionCode" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_Document_ActionCode');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_Document_ActionCode" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">Add/Update/Delete Control</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_Document_ActionCode" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_Document_ActionCode');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_Document_ActionCode" style="display:block"><img alt="Diagram" border="0" src="img/Document_xsd_Element_ActionCode.jpeg" usemap="#Document_xsd_Element_ActionCode" /><map name="Document_xsd_Element_ActionCode" id="Document_xsd_Element_ActionCode">
+                                 <area alt="ActionCode_xsd.tmp#ActionCode" href="ActionCode_xsd.html#ActionCode" coords="135,0,246,26" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="ActionCode_xsd.html#ActionCode" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for ActionCode.xsd')">ActionCode</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_Document_ActionCode" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_Document_ActionCode');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_Document_ActionCode" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_Document_ActionCode" type="image" src="img/btM.gif" value="-" onclick="switchState('facets_Document_ActionCode');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_Document_ActionCode" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>D</b></td>
+                                    <td>
+                                       <div class="annotation">
+                                          <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                             <tr>
+                                                <td width="100%"><pre><span class="tT">Delete</span></pre></td>
+                                             </tr>
+                                          </table>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>E</b></td>
+                                    <td>
+                                       <div class="annotation">
+                                          <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                             <tr>
+                                                <td width="100%"><pre><span class="tT">Delete if Empty</span></pre></td>
+                                             </tr>
+                                          </table>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>I</b></td>
+                                    <td>
+                                       <div class="annotation">
+                                          <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                             <tr>
+                                                <td width="100%"><pre><span class="tT">Inactivate All</span></pre></td>
+                                             </tr>
+                                          </table>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>C</b></td>
+                                    <td>
+                                       <div class="annotation">
+                                          <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                             <tr>
+                                                <td width="100%"><pre><span class="tT">Clear All</span></pre></td>
+                                             </tr>
+                                          </table>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>R</b></td>
+                                    <td>
+                                       <div class="annotation">
+                                          <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                             <tr>
+                                                <td width="100%"><pre><span class="tT">Replace (Patient and Encounter only)</span></pre></td>
+                                             </tr>
+                                          </table>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>A</b></td>
+                                    <td>
+                                       <div class="annotation">
+                                          <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                             <tr>
+                                                <td width="100%"><pre><span class="tT">Add or Update</span></pre></td>
+                                             </tr>
+                                          </table>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_Document_ActionCode" type="image" src="img/btM.gif" value="-" onclick="switchState('source_Document_ActionCode');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_Document_ActionCode" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"ActionCode"</span><span class="tAN"> type=</span><span class="tAV">"ActionCode"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Add/Update/Delete Control</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="Document_ExternalId"></a><div class="componentTitle">Element <span class="qname"><b><a href="Document_xsd.html#Document" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Document.xsd')">Document</a></b> / ExternalId</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_Document_ExternalId" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_Document_ExternalId');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_Document_ExternalId" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">Unique Identifier</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_Document_ExternalId" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_Document_ExternalId');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_Document_ExternalId" style="display:block"><img alt="Diagram" border="0" src="img/Document_xsd_Element_ExternalId.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_Document_ExternalId" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_Document_ExternalId');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_Document_ExternalId" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_Document_ExternalId" type="image" src="img/btM.gif" value="-" onclick="switchState('source_Document_ExternalId');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_Document_ExternalId" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"ExternalId"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Unique Identifier</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="Document"></a><div class="componentTitle">Complex Type <span class="qname">Document</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.rixg.org.uk/</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_Document" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_Document');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_Document" style="display:block"><img alt="Diagram" border="0" src="img/Document_xsd_Complex_Type_Document.jpeg" usemap="#Document_xsd_Complex_Type_Document" /><map name="Document_xsd_Complex_Type_Document" id="Document_xsd_Complex_Type_Document">
+                                 <area alt="Document_xsd.tmp#Document_UpdatedOn" href="Document_xsd.html#Document_UpdatedOn" coords="202,0,287,25" />
+                                 <area alt="Document_xsd.tmp#Document_DocumentTime" href="Document_xsd.html#Document_DocumentTime" coords="202,66,303,91" />
+                                 <area alt="Document_xsd.tmp#Document_NoteText" href="Document_xsd.html#Document_NoteText" coords="202,132,276,157" />
+                                 <area alt="Document_xsd.tmp#Document_DocumentType" href="Document_xsd.html#Document_DocumentType" coords="202,198,305,223" />
+                                 <area alt="Document_xsd.tmp#Document_Clinician" href="Document_xsd.html#Document_Clinician" coords="202,264,272,289" />
+                                 <area alt="Document_xsd.tmp#Document_DocumentName" href="Document_xsd.html#Document_DocumentName" coords="202,344,308,369" />
+                                 <area alt="Document_xsd.tmp#Document_Status" href="Document_xsd.html#Document_Status" coords="202,410,264,435" />
+                                 <area alt="Document_xsd.tmp#Document_EnteredBy" href="Document_xsd.html#Document_EnteredBy" coords="202,476,283,501" />
+                                 <area alt="Document_xsd.tmp#Document_EnteredAt" href="Document_xsd.html#Document_EnteredAt" coords="202,556,281,581" />
+                                 <area alt="Document_xsd.tmp#Document_FileType" href="Document_xsd.html#Document_FileType" coords="202,636,273,661" />
+                                 <area alt="Document_xsd.tmp#Document_Stream" href="Document_xsd.html#Document_Stream" coords="202,702,267,727" />
+                                 <area alt="Document_xsd.tmp#Document_DocumentURL" href="Document_xsd.html#Document_DocumentURL" coords="202,782,301,807" />
+                                 <area alt="Document_xsd.tmp#Document_ActionCode" href="Document_xsd.html#Document_ActionCode" coords="202,848,289,873" />
+                                 <area alt="Document_xsd.tmp#Document_ExternalId" href="Document_xsd.html#Document_ExternalId" coords="202,914,280,939" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_Document" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_Document');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_Document" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="UKRDC_xsd.html#PatientRecord_PatientRecord_Documents_Document" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for UKRDC.xsd')">PatientRecord/Documents/Document</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_Document" type="image" src="img/btM.gif" value="-" onclick="switchState('model_Document');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_Document" style="display:block"><b><a href="Document_xsd.html#Document_UpdatedOn" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Document.xsd')">UpdatedOn{0,1}</a></b> , <b><a href="Document_xsd.html#Document_DocumentTime" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Document.xsd')">DocumentTime{0,1}</a></b> , <b><a href="Document_xsd.html#Document_NoteText" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Document.xsd')">NoteText{0,1}</a></b> , <b><a href="Document_xsd.html#Document_DocumentType" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Document.xsd')">DocumentType{0,1}</a></b> , <b><a href="Document_xsd.html#Document_Clinician" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Document.xsd')">Clinician{0,1}</a></b> , <b><a href="Document_xsd.html#Document_DocumentName" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Document.xsd')">DocumentName{0,1}</a></b> , <b><a href="Document_xsd.html#Document_Status" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Document.xsd')">Status{0,1}</a></b> , <b><a href="Document_xsd.html#Document_EnteredBy" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Document.xsd')">EnteredBy{0,1}</a></b> , <b><a href="Document_xsd.html#Document_EnteredAt" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Document.xsd')">EnteredAt{0,1}</a></b> , <b><a href="Document_xsd.html#Document_FileType" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Document.xsd')">FileType{0,1}</a></b> , <b><a href="Document_xsd.html#Document_Stream" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Document.xsd')">Stream{0,1}</a></b> , <b><a href="Document_xsd.html#Document_DocumentURL" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Document.xsd')">DocumentURL{0,1}</a></b> , <b><a href="Document_xsd.html#Document_ActionCode" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Document.xsd')">ActionCode{0,1}</a></b> , <b><a href="Document_xsd.html#Document_ExternalId" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Document.xsd')">ExternalId{0,1}</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="Document_xsd.html#Document_ActionCode" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Document.xsd')">ActionCode</a></b>, <b><a href="Document_xsd.html#Document_Clinician" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Document.xsd')">Clinician</a></b>, <b><a href="Document_xsd.html#Document_DocumentName" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Document.xsd')">DocumentName</a></b>, <b><a href="Document_xsd.html#Document_DocumentTime" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Document.xsd')">DocumentTime</a></b>, <b><a href="Document_xsd.html#Document_DocumentType" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Document.xsd')">DocumentType</a></b>, <b><a href="Document_xsd.html#Document_DocumentURL" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Document.xsd')">DocumentURL</a></b>, <b><a href="Document_xsd.html#Document_EnteredAt" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Document.xsd')">EnteredAt</a></b>, <b><a href="Document_xsd.html#Document_EnteredBy" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Document.xsd')">EnteredBy</a></b>, <b><a href="Document_xsd.html#Document_ExternalId" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Document.xsd')">ExternalId</a></b>, <b><a href="Document_xsd.html#Document_FileType" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Document.xsd')">FileType</a></b>, <b><a href="Document_xsd.html#Document_NoteText" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Document.xsd')">NoteText</a></b>, <b><a href="Document_xsd.html#Document_Status" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Document.xsd')">Status</a></b>, <b><a href="Document_xsd.html#Document_Stream" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Document.xsd')">Stream</a></b>, <b><a href="Document_xsd.html#Document_UpdatedOn" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Document.xsd')">UpdatedOn</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_Document" type="image" src="img/btM.gif" value="-" onclick="switchState('source_Document');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_Document" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:complexType</span><span class="tAN"> name=</span><span class="tAV">"Document"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"UpdatedOn"</span><span class="tAN"> type=</span><span class="tAV">"xs:dateTime"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Last Modified Date</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"DocumentTime"</span><span class="tAN"> type=</span><span class="tAV">"xs:dateTime"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Document Creation as CCYYMMDDhhmm</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"NoteText"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The body of the document as free text,</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"DocumentType"</span><span class="tAN"> type=</span><span class="tAV">"CodedField"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Always TEXT for now. For future use.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"Clinician"</span><span class="tAN"> type=</span><span class="tAV">"Clinician"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The person responsibile for the content of the document</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"DocumentName"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Document title</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:maxLength</span><span class="tAN"> value=</span><span class="tAV">"220"</span><span class="tEl">/&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"Status"</span><span class="tAN"> type=</span><span class="tAV">"CodedField"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ACTIVE or INACTIVE</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"EnteredBy"</span><span class="tAN"> type=</span><span class="tAV">"Clinician"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Person entering the document as a National Clinicial code where possible or other local code if not.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"EnteredAt"</span><span class="tAN"> type=</span><span class="tAV">"Location"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Location the procedure was performed at. Use National coding e.g. RXF01</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"FileType"</span><span class="tAN"> type=</span><span class="tAV">"CodedField"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The type of data e.g PDF, DOC, RTF, TXT</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"Stream"</span><span class="tAN"> type=</span><span class="tAV">"xs:base64Binary"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">This property is used when the Note is binary data, e.g DOC, PDF, JPG</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"DocumentURL"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The full URL where the document can be accessed.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"ActionCode"</span><span class="tAN"> type=</span><span class="tAV">"ActionCode"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Add/Update/Delete Control</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"ExternalId"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Unique Identifier</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:complexType&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table>
+      <div class="footer">
+         <hr />
+         <div align="center">XML Schema documentation generated by <a href="http://www.oxygenxml.com" target="_parent"><span class="oXygenLogo"><span class="redX">&lt;</span>o<span class="redX">X</span>ygen<span class="redX">/&gt;</span></span></a><sup>®</sup> XML Developer Trial Edition.
+         </div>
+      </div><script type="text/javascript">
+         <!--
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //--></script></body>
+</html>

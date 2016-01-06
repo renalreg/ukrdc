@@ -1,0 +1,1716 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Schema documentation for Address.xsd</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css" /><script type="text/javascript">
+         <!--
+        var propertiesBoxes= new Array('properties_Address.xsd', 
+				'properties_Address_FromTime', 
+				'properties_Address_ToTime', 
+				'properties_Address_Street', 
+				'properties_Address_Town', 
+				'properties_Address_County', 
+				'properties_Address_Postcode', 
+				'properties_Address_Country', 
+				'properties_Address_Address_Country_CodingStandard', 
+				'properties_Address_Address_Country_Code', 
+				'properties_Address_Address_Country_Description');
+var facetsBoxes= new Array('facets_Address_Street', 
+				'facets_Address_Postcode', 
+				'facets_Address_Address_Country_CodingStandard', 
+				'facets_Address_Address_Country_Code', 
+				'facets_Address_Address_Country_Description', 
+				'facets_PostCode');
+var usedByBoxes= new Array('usedBy_Address', 
+				'usedBy_PostCode', 
+				'usedBy_Address_use');
+var sourceBoxes= new Array('source_Address_FromTime', 
+				'source_Address_ToTime', 
+				'source_Address_Street', 
+				'source_Address_Town', 
+				'source_Address_County', 
+				'source_Address_Postcode', 
+				'source_Address_Country', 
+				'source_Address_Address_Country_CodingStandard', 
+				'source_Address_Address_Country_Code', 
+				'source_Address_Address_Country_Description', 
+				'source_Address', 
+				'source_PostCode', 
+				'source_Address_use');
+var instanceBoxes= new Array('instance_Address_Country');
+var diagramBoxes= new Array('diagram_Address_FromTime', 
+				'diagram_Address_ToTime', 
+				'diagram_Address_Street', 
+				'diagram_Address_Town', 
+				'diagram_Address_County', 
+				'diagram_Address_Postcode', 
+				'diagram_Address_Country', 
+				'diagram_Address_Address_Country_CodingStandard', 
+				'diagram_Address_Address_Country_Code', 
+				'diagram_Address_Address_Country_Description', 
+				'diagram_Address', 
+				'diagram_PostCode');
+var annotationBoxes= new Array('annotations_Address_Street', 
+				'annotations_Address_use');
+var attributesBoxes= new Array('attributes_Address');
+var modelBoxes= new Array('model_Address_Country', 
+				'model_Address');
+
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //--></script></head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft"></td>
+               <td class="rt_lineTop"></td>
+               <td class="rt_cornerTopRight"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft"></td>
+               <td class="rt_content">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, annotationBoxes);" class="control" /></span><span class="globalControlName">Annotations</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, attributesBoxes);" class="control" /></span><span class="globalControlName">Attributes </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, diagramBoxes);" class="control" /></span><span class="globalControlName">Diagrams</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, facetsBoxes);" class="control" /></span><span class="globalControlName">Facets </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, instanceBoxes);" class="control" /></span><span class="globalControlName">Instances</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, modelBoxes);" class="control" /></span><span class="globalControlName">Model </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, propertiesBoxes);" class="control" /></span><span class="globalControlName">Properties </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control" /></span><span class="globalControlName">Source</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control" /></span><span class="globalControlName">Used by </span></td>
+                     </tr>
+                  </table>
+                  <div align="right"><span><input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close" /></span></div>
+               </td>
+               <td class="rt_lineRight"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft"></td>
+               <td class="rt_lineBottom"></td>
+               <td class="rt_cornerBottomRight"></td>
+            </tr>
+         </table>
+      </div><a id="Address.xsd"></a><div class="componentTitle">Included schema <span class="qname">Address.xsd</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.rixg.org.uk/</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_Address.xsd" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_Address.xsd');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_Address.xsd" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">attribute form default</td>
+                                    <td><b>unqualified</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">element form default</td>
+                                    <td><b>unqualified</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="Address_FromTime"></a><div class="componentTitle">Element <span class="qname"><b><a href="Address_xsd.html#Address" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Address.xsd')">Address</a></b> / FromTime</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_Address_FromTime" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_Address_FromTime');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_Address_FromTime" style="display:block"><img alt="Diagram" border="0" src="img/Address_xsd_Element_FromTime.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:dateTime</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_Address_FromTime" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_Address_FromTime');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_Address_FromTime" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_Address_FromTime" type="image" src="img/btM.gif" value="-" onclick="switchState('source_Address_FromTime');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_Address_FromTime" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"FromTime"</span><span class="tAN"> type=</span><span class="tAV">"xs:dateTime"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="Address_ToTime"></a><div class="componentTitle">Element <span class="qname"><b><a href="Address_xsd.html#Address" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Address.xsd')">Address</a></b> / ToTime</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_Address_ToTime" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_Address_ToTime');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_Address_ToTime" style="display:block"><img alt="Diagram" border="0" src="img/Address_xsd_Element_ToTime.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:dateTime</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_Address_ToTime" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_Address_ToTime');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_Address_ToTime" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_Address_ToTime" type="image" src="img/btM.gif" value="-" onclick="switchState('source_Address_ToTime');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_Address_ToTime" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"ToTime"</span><span class="tAN"> type=</span><span class="tAV">"xs:dateTime"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="Address_Street"></a><div class="componentTitle">Element <span class="qname"><b><a href="Address_xsd.html#Address" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Address.xsd')">Address</a></b> / Street</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_Address_Street" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_Address_Street');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_Address_Street" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">Everything prior to the Town in the Address</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_Address_Street" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_Address_Street');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_Address_Street" style="display:block"><img alt="Diagram" border="0" src="img/Address_xsd_Element_Street.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>restriction of <b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_Address_Street" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_Address_Street');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_Address_Street" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_Address_Street" type="image" src="img/btM.gif" value="-" onclick="switchState('facets_Address_Street');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_Address_Street" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">maxLength</td>
+                                    <td width="30%"><b>220</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_Address_Street" type="image" src="img/btM.gif" value="-" onclick="switchState('source_Address_Street');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_Address_Street" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"Street"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Everything prior to the Town in the Address</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:maxLength</span><span class="tAN"> value=</span><span class="tAV">"220"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="Address_Town"></a><div class="componentTitle">Element <span class="qname"><b><a href="Address_xsd.html#Address" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Address.xsd')">Address</a></b> / Town</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_Address_Town" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_Address_Town');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_Address_Town" style="display:block"><img alt="Diagram" border="0" src="img/Address_xsd_Element_Town.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_Address_Town" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_Address_Town');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_Address_Town" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_Address_Town" type="image" src="img/btM.gif" value="-" onclick="switchState('source_Address_Town');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_Address_Town" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"Town"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="Address_County"></a><div class="componentTitle">Element <span class="qname"><b><a href="Address_xsd.html#Address" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Address.xsd')">Address</a></b> / County</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_Address_County" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_Address_County');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_Address_County" style="display:block"><img alt="Diagram" border="0" src="img/Address_xsd_Element_County.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_Address_County" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_Address_County');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_Address_County" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_Address_County" type="image" src="img/btM.gif" value="-" onclick="switchState('source_Address_County');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_Address_County" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"County"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="Address_Postcode"></a><div class="componentTitle">Element <span class="qname"><b><a href="Address_xsd.html#Address" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Address.xsd')">Address</a></b> / Postcode</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_Address_Postcode" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_Address_Postcode');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_Address_Postcode" style="display:block"><img alt="Diagram" border="0" src="img/Address_xsd_Element_Postcode.jpeg" usemap="#Address_xsd_Element_Postcode" /><map name="Address_xsd_Element_Postcode" id="Address_xsd_Element_Postcode">
+                                 <area alt="Address_xsd.tmp#PostCode" href="Address_xsd.html#PostCode" coords="104,0,205,26" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="Address_xsd.html#PostCode" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Address.xsd')">PostCode</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_Address_Postcode" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_Address_Postcode');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_Address_Postcode" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_Address_Postcode" type="image" src="img/btM.gif" value="-" onclick="switchState('facets_Address_Postcode');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_Address_Postcode" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">pattern</td>
+                                    <td width="30%"><b>([A-PR-UWYZ0-9][A-HK-Y0-9][AEHJKMNPRTUVXY0-9]?[ABEHMNPRVWXY0-9]? {1,2}[0-9][ABD-HJLN-UW-Z]{2}|GIR
+                                          0AA)</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_Address_Postcode" type="image" src="img/btM.gif" value="-" onclick="switchState('source_Address_Postcode');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_Address_Postcode" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"Postcode"</span><span class="tAN"> type=</span><span class="tAV">"PostCode"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="Address_Country"></a><div class="componentTitle">Element <span class="qname"><b><a href="Address_xsd.html#Address" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Address.xsd')">Address</a></b> / Country</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_Address_Country" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_Address_Country');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_Address_Country" style="display:block"><img alt="Diagram" border="0" src="img/Address_xsd_Element_Country.jpeg" usemap="#Address_xsd_Element_Country" /><map name="Address_xsd_Element_Country" id="Address_xsd_Element_Country">
+                                 <area alt="Address_xsd.tmp#Address_Address_Country_CodingStandard" href="Address_xsd.html#Address_Address_Country_CodingStandard" coords="168,2,276,27" />
+                                 <area alt="Address_xsd.tmp#Address_Address_Country_Code" href="Address_xsd.html#Address_Address_Country_Code" coords="168,37,224,62" />
+                                 <area alt="Address_xsd.tmp#Address_Address_Country_Description" href="Address_xsd.html#Address_Address_Country_Description" coords="168,72,253,97" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_Address_Country" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_Address_Country');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_Address_Country" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_Address_Country" type="image" src="img/btM.gif" value="-" onclick="switchState('model_Address_Country');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_Address_Country" style="display:block"><b><a href="Address_xsd.html#Address_Address_Country_CodingStandard" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Address.xsd')">CodingStandard{0,1}</a></b> , <b><a href="Address_xsd.html#Address_Address_Country_Code" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Address.xsd')">Code{0,1}</a></b> , <b><a href="Address_xsd.html#Address_Address_Country_Description" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Address.xsd')">Description{0,1}</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="Address_xsd.html#Address_Address_Country_Code" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Address.xsd')">Code</a></b>, <b><a href="Address_xsd.html#Address_Address_Country_CodingStandard" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Address.xsd')">CodingStandard</a></b>, <b><a href="Address_xsd.html#Address_Address_Country_Description" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Address.xsd')">Description</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_Address_Country" type="image" src="img/btM.gif" value="-" onclick="switchState('instance_Address_Country');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_Address_Country" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;Country</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;CodingStandard</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/CodingStandard&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;Code</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/Code&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;Description</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/Description&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/Country&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_Address_Country" type="image" src="img/btM.gif" value="-" onclick="switchState('source_Address_Country');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_Address_Country" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"Country"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"CodingStandard"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"ISO3166-1"</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">http://www.datadictionary.nhs.uk/data_dictionary/attributes/c/cou/country_code_de.asp</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/xs:enumeration&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"Code"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:maxLength</span><span class="tAN"> value=</span><span class="tAV">"32000"</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"Description"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:maxLength</span><span class="tAN"> value=</span><span class="tAV">"32000"</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="Address_Address_Country_CodingStandard"></a><div class="componentTitle">Element <span class="qname"><b><a href="Address_xsd.html#Address" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Address.xsd')">Address</a></b> / <b><a href="Address_xsd.html#Address_Country" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Address.xsd')">Country</a></b> / CodingStandard</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_Address_Address_Country_CodingStandard" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_Address_Address_Country_CodingStandard');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_Address_Address_Country_CodingStandard" style="display:block"><img alt="Diagram" border="0" src="img/Address_xsd_Element_CodingStandard.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>restriction of <b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_Address_Address_Country_CodingStandard" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_Address_Address_Country_CodingStandard');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_Address_Address_Country_CodingStandard" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_Address_Address_Country_CodingStandard" type="image" src="img/btM.gif" value="-" onclick="switchState('facets_Address_Address_Country_CodingStandard');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_Address_Address_Country_CodingStandard" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>ISO3166-1</b></td>
+                                    <td>
+                                       <div class="annotation">
+                                          <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                             <tr>
+                                                <td width="100%"><pre><span class="tT">http://www.datadictionary.nhs.uk/data_dictionary/attributes/c/cou/country_code_de.asp</span></pre></td>
+                                             </tr>
+                                          </table>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_Address_Address_Country_CodingStandard" type="image" src="img/btM.gif" value="-" onclick="switchState('source_Address_Address_Country_CodingStandard');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_Address_Address_Country_CodingStandard" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"CodingStandard"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"ISO3166-1"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">http://www.datadictionary.nhs.uk/data_dictionary/attributes/c/cou/country_code_de.asp</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:enumeration&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="Address_Address_Country_Code"></a><div class="componentTitle">Element <span class="qname"><b><a href="Address_xsd.html#Address" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Address.xsd')">Address</a></b> / <b><a href="Address_xsd.html#Address_Country" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Address.xsd')">Country</a></b> / Code</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_Address_Address_Country_Code" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_Address_Address_Country_Code');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_Address_Address_Country_Code" style="display:block"><img alt="Diagram" border="0" src="img/Address_xsd_Element_Code.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>restriction of <b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_Address_Address_Country_Code" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_Address_Address_Country_Code');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_Address_Address_Country_Code" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_Address_Address_Country_Code" type="image" src="img/btM.gif" value="-" onclick="switchState('facets_Address_Address_Country_Code');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_Address_Address_Country_Code" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">maxLength</td>
+                                    <td width="30%"><b>32000</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_Address_Address_Country_Code" type="image" src="img/btM.gif" value="-" onclick="switchState('source_Address_Address_Country_Code');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_Address_Address_Country_Code" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"Code"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:maxLength</span><span class="tAN"> value=</span><span class="tAV">"32000"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="Address_Address_Country_Description"></a><div class="componentTitle">Element <span class="qname"><b><a href="Address_xsd.html#Address" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Address.xsd')">Address</a></b> / <b><a href="Address_xsd.html#Address_Country" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Address.xsd')">Country</a></b> / Description</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_Address_Address_Country_Description" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_Address_Address_Country_Description');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_Address_Address_Country_Description" style="display:block"><img alt="Diagram" border="0" src="img/Address_xsd_Element_Description.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>restriction of <b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_Address_Address_Country_Description" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_Address_Address_Country_Description');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_Address_Address_Country_Description" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_Address_Address_Country_Description" type="image" src="img/btM.gif" value="-" onclick="switchState('facets_Address_Address_Country_Description');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_Address_Address_Country_Description" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">maxLength</td>
+                                    <td width="30%"><b>32000</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_Address_Address_Country_Description" type="image" src="img/btM.gif" value="-" onclick="switchState('source_Address_Address_Country_Description');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_Address_Address_Country_Description" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"Description"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:maxLength</span><span class="tAN"> value=</span><span class="tAV">"32000"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="Address"></a><div class="componentTitle">Complex Type <span class="qname">Address</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.rixg.org.uk/</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_Address" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_Address');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_Address" style="display:block"><img alt="Diagram" border="0" src="img/Address_xsd_Complex_Type_Address.jpeg" usemap="#Address_xsd_Complex_Type_Address" /><map name="Address_xsd_Complex_Type_Address" id="Address_xsd_Complex_Type_Address">
+                                 <area alt="Address_xsd.tmp#Address_use" href="Address_xsd.html#Address_use" coords="139,39,198,64" />
+                                 <area alt="Address_xsd.tmp#Address_FromTime" href="Address_xsd.html#Address_FromTime" coords="196,126,273,151" />
+                                 <area alt="Address_xsd.tmp#Address_ToTime" href="Address_xsd.html#Address_ToTime" coords="196,161,261,186" />
+                                 <area alt="Address_xsd.tmp#Address_Street" href="Address_xsd.html#Address_Street" coords="196,196,256,221" />
+                                 <area alt="Address_xsd.tmp#Address_Town" href="Address_xsd.html#Address_Town" coords="196,262,255,287" />
+                                 <area alt="Address_xsd.tmp#Address_County" href="Address_xsd.html#Address_County" coords="196,297,261,322" />
+                                 <area alt="Address_xsd.tmp#Address_Postcode" href="Address_xsd.html#Address_Postcode" coords="196,332,272,357" />
+                                 <area alt="Address_xsd.tmp#Address_Country" href="Address_xsd.html#Address_Country" coords="196,367,265,392" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_Address" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_Address');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_Address" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="Patient_xsd.html#Patient_Patient_Addresses_Address" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Patient.xsd')">Patient/Addresses/Address</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_Address" type="image" src="img/btM.gif" value="-" onclick="switchState('model_Address');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_Address" style="display:block"><b><a href="Address_xsd.html#Address_FromTime" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Address.xsd')">FromTime{0,1}</a></b> , <b><a href="Address_xsd.html#Address_ToTime" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Address.xsd')">ToTime{0,1}</a></b> , <b><a href="Address_xsd.html#Address_Street" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Address.xsd')">Street</a></b> , <b><a href="Address_xsd.html#Address_Town" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Address.xsd')">Town</a></b> , <b><a href="Address_xsd.html#Address_County" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Address.xsd')">County{0,1}</a></b> , <b><a href="Address_xsd.html#Address_Postcode" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Address.xsd')">Postcode{0,1}</a></b> , <b><a href="Address_xsd.html#Address_Country" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Address.xsd')">Country{0,1}</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="Address_xsd.html#Address_Country" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Address.xsd')">Country</a></b>, <b><a href="Address_xsd.html#Address_County" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Address.xsd')">County</a></b>, <b><a href="Address_xsd.html#Address_FromTime" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Address.xsd')">FromTime</a></b>, <b><a href="Address_xsd.html#Address_Postcode" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Address.xsd')">Postcode</a></b>, <b><a href="Address_xsd.html#Address_Street" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Address.xsd')">Street</a></b>, <b><a href="Address_xsd.html#Address_ToTime" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Address.xsd')">ToTime</a></b>, <b><a href="Address_xsd.html#Address_Town" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Address.xsd')">Town</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Attributes</b></div>
+                           <div class="floatRight"><input id="button_attributes_Address" type="image" src="img/btM.gif" value="-" onclick="switchState('attributes_Address');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="attributes_Address" style="display:block">
+                              <table class="attributesTable">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th width="10%">Type</th>
+                                       <th width="5%">Use</th>
+                                       <th>Annotation</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="firstColumn"><b><a href="Address_xsd.html#Address_use" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Address.xsd')">use</a></b></td>
+                                    <td></td>
+                                    <td>optional</td>
+                                    <td>
+                                       <div class="annotation">
+                                          <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                             <tr>
+                                                <td width="100%"><pre><span class="tT">From National MIM H=Home TMP=Temporary PST=Postal</span></pre></td>
+                                             </tr>
+                                          </table>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_Address" type="image" src="img/btM.gif" value="-" onclick="switchState('source_Address');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_Address" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:complexType</span><span class="tAN"> name=</span><span class="tAV">"Address"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"FromTime"</span><span class="tAN"> type=</span><span class="tAV">"xs:dateTime"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"ToTime"</span><span class="tAN"> type=</span><span class="tAV">"xs:dateTime"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"Street"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Everything prior to the Town in the Address</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:maxLength</span><span class="tAN"> value=</span><span class="tAV">"220"</span><span class="tEl">/&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"Town"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tC">&lt;!-- SDA: City --&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"County"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tC">&lt;!-- SDA: State --&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"Postcode"</span><span class="tAN"> type=</span><span class="tAV">"PostCode"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tC">&lt;!-- SDA: Zip --&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"Country"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"CodingStandard"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"ISO3166-1"</span><span class="tEl">&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+                    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">http://www.datadictionary.nhs.uk/data_dictionary/attributes/c/cou/country_code_de.asp</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;/xs:enumeration&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"Code"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;xs:maxLength</span><span class="tAN"> value=</span><span class="tAV">"32000"</span><span class="tEl">/&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"Description"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;xs:maxLength</span><span class="tAN"> value=</span><span class="tAV">"32000"</span><span class="tEl">/&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"use"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">From National MIM H=Home TMP=Temporary PST=Postal</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tC">&lt;!-- TODO: Get codes for this --&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:attribute&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:complexType&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="PostCode"></a><div class="componentTitle">Simple Type <span class="qname">PostCode</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.rixg.org.uk/</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_PostCode" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_PostCode');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_PostCode" style="display:block"><img alt="Diagram" border="0" src="img/Address_xsd_Simple_Type_PostCode.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>restriction of <b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_PostCode" type="image" src="img/btM.gif" value="-" onclick="switchState('facets_PostCode');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_PostCode" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">pattern</td>
+                                    <td width="30%"><b>([A-PR-UWYZ0-9][A-HK-Y0-9][AEHJKMNPRTUVXY0-9]?[ABEHMNPRVWXY0-9]? {1,2}[0-9][ABD-HJLN-UW-Z]{2}|GIR
+                                          0AA)</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_PostCode" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_PostCode');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_PostCode" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="Address_xsd.html#Address_Postcode" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for Address.xsd')">Address/Postcode</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_PostCode" type="image" src="img/btM.gif" value="-" onclick="switchState('source_PostCode');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_PostCode" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"PostCode"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:pattern</span><span class="tAN"> value=</span><span class="tAV">"([A-PR-UWYZ0-9][A-HK-Y0-9][AEHJKMNPRTUVXY0-9]?[ABEHMNPRVWXY0-9]? {1,2}[0-9][ABD-HJLN-UW-Z]{2}|GIR 0AA)"</span><span class="tEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="Address_use"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="Address_xsd.html#Address" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Address.xsd')">Address</a></b> / @use</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_Address_use" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_Address_use');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_Address_use" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%"><pre><span class="tT">From National MIM H=Home TMP=Temporary PST=Postal</span></pre></td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_Address_use" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_Address_use');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_Address_use" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Complex Type </td>
+                                    <td><b><a href="Address_xsd.html#Address" target="mainFrame" title="http://www.rixg.org.uk/" onclick="updatePageTitle('Schema documentation for Address.xsd')">Address</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_Address_use" type="image" src="img/btM.gif" value="-" onclick="switchState('source_Address_use');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_Address_use" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"use"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">From National MIM H=Home TMP=Temporary PST=Postal</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+    </span><span class="tC">&lt;!-- TODO: Get codes for this --&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:attribute&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table>
+      <div class="footer">
+         <hr />
+         <div align="center">XML Schema documentation generated by <a href="http://www.oxygenxml.com" target="_parent"><span class="oXygenLogo"><span class="redX">&lt;</span>o<span class="redX">X</span>ygen<span class="redX">/&gt;</span></span></a><sup>®</sup> XML Developer Trial Edition.
+         </div>
+      </div><script type="text/javascript">
+         <!--
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //--></script></body>
+</html>

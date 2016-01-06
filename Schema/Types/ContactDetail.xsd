@@ -13,7 +13,7 @@
 			</xs:element>
 			<xs:element name="Comments" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>????</xs:documentation>
+					<xs:documentation></xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">

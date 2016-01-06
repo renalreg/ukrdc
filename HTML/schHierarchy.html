@@ -1,0 +1,627 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Schema documentation for </title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css" /><script type="text/javascript">
+         <!--
+        
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                        //--></script></head>
+   <body>
+      <h2><a id="INDEX">Table of Contents</a></h2>
+      <p><a href="UKRDC.indexList.html">Components</a><span> | </span><a href="schHierarchy.html">Resource Hierarchy</a></p>
+      <hr />
+      <ul class="schemaHierarchy">
+         <li class="internal">
+            <p class="componentTitle"><input id="button_sHUKRDC.xsd" type="image" value="-" src="img/btM.gif" onclick="switchState('sHUKRDC.xsd');" class="control" /><a href="UKRDC_xsd.html#UKRDC.xsd" target="mainFrame">UKRDC.xsd</a></p>
+            <div id="sHUKRDC.xsd" style="display:block">
+               <ul class="internal">
+                  <li class="schemaHierarchy">
+                     <p><input id="button_sHUKRDC.xsdPatient.xsd" type="image" value="-" src="img/btP.gif" onclick="switchState('sHUKRDC.xsdPatient.xsd');" class="control" /><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'UKRDC.xsd'." /> <a href="Patient_xsd.html#Patient.xsd" target="mainFrame" title="Included by 'UKRDC.xsd'." onclick="updatePageTitle('Schema documentation for Patient.xsd')">Patient.xsd</a></p>
+                     <div id="sHUKRDC.xsdPatient.xsd" style="display:none">
+                        <ul class="internal">
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Patient.xsd'." /> <a href="Address_xsd.html#Address.xsd" target="mainFrame" title="Included by 'Patient.xsd'." onclick="updatePageTitle('Schema documentation for Address.xsd')">Address.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Patient.xsd'." /> <a href="ContactDetail_xsd.html#ContactDetail.xsd" target="mainFrame" title="Included by 'Patient.xsd'." onclick="updatePageTitle('Schema documentation for ContactDetail.xsd')">ContactDetail.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Patient.xsd'." /> <a href="EthnicGroup_xsd.html#EthnicGroup.xsd" target="mainFrame" title="Included by 'Patient.xsd'." onclick="updatePageTitle('Schema documentation for EthnicGroup.xsd')">EthnicGroup.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Patient.xsd'." /> <a href="FamilyDoctor_xsd.html#FamilyDoctor.xsd" target="mainFrame" title="Included by 'Patient.xsd'." onclick="updatePageTitle('Schema documentation for FamilyDoctor.xsd')">FamilyDoctor.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Patient.xsd'." /> <a href="Name_xsd.html#Name.xsd" target="mainFrame" title="Included by 'Patient.xsd'." onclick="updatePageTitle('Schema documentation for Name.xsd')">Name.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Patient.xsd'." /> <a href="Occupation_xsd.html#Occupation.xsd" target="mainFrame" title="Included by 'Patient.xsd'." onclick="updatePageTitle('Schema documentation for Occupation.xsd')">Occupation.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Patient.xsd'." /> <a href="PatientLanguage_xsd.html#PatientLanguage.xsd" target="mainFrame" title="Included by 'Patient.xsd'." onclick="updatePageTitle('Schema documentation for PatientLanguage.xsd')">PatientLanguage.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Patient.xsd'." /> <a href="PatientNumber_xsd.html#PatientNumber.xsd" target="mainFrame" title="Included by 'Patient.xsd'." onclick="updatePageTitle('Schema documentation for PatientNumber.xsd')">PatientNumber.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><input id="button_sHUKRDC.xsdPatient.xsdPersonalContactType.xsd" type="image" value="-" src="img/btM.gif" onclick="switchState('sHUKRDC.xsdPatient.xsdPersonalContactType.xsd');" class="control" /><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Patient.xsd'." /> <a href="PersonalContactType_xsd.html#PersonalContactType.xsd" target="mainFrame" title="Included by 'Patient.xsd'." onclick="updatePageTitle('Schema documentation for PersonalContactType.xsd')">PersonalContactType.xsd</a></p>
+                              <div id="sHUKRDC.xsdPatient.xsdPersonalContactType.xsd" style="display:block">
+                                 <ul class="internal">
+                                    <li class="schemaHierarchy">
+                                       <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'PersonalContactType.xsd'." /> <a href="ContactDetail_xsd.html#ContactDetail.xsd" target="mainFrame" title="Included by 'PersonalContactType.xsd'." onclick="updatePageTitle('Schema documentation for ContactDetail.xsd')">ContactDetail.xsd</a></p>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p><input id="button_sHUKRDC.xsdLabOrder.xsd" type="image" value="-" src="img/btP.gif" onclick="switchState('sHUKRDC.xsdLabOrder.xsd');" class="control" /><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'UKRDC.xsd'." /> <a href="LabOrder_xsd.html#LabOrder.xsd" target="mainFrame" title="Included by 'UKRDC.xsd'." onclick="updatePageTitle('Schema documentation for LabOrder.xsd')">LabOrder.xsd</a></p>
+                     <div id="sHUKRDC.xsdLabOrder.xsd" style="display:none">
+                        <ul class="internal">
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'LabOrder.xsd'." /> <a href="Clinician_xsd.html#Clinician.xsd" target="mainFrame" title="Included by 'LabOrder.xsd'." onclick="updatePageTitle('Schema documentation for Clinician.xsd')">Clinician.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'LabOrder.xsd'." /> <a href="ActionCode_xsd.html#ActionCode.xsd" target="mainFrame" title="Included by 'LabOrder.xsd'." onclick="updatePageTitle('Schema documentation for ActionCode.xsd')">ActionCode.xsd</a></p>
+                           </li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p><input id="button_sHUKRDC.xsdSocialHistory.xsd" type="image" value="-" src="img/btP.gif" onclick="switchState('sHUKRDC.xsdSocialHistory.xsd');" class="control" /><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'UKRDC.xsd'." /> <a href="SocialHistory_xsd.html#SocialHistory.xsd" target="mainFrame" title="Included by 'UKRDC.xsd'." onclick="updatePageTitle('Schema documentation for SocialHistory.xsd')">SocialHistory.xsd</a></p>
+                     <div id="sHUKRDC.xsdSocialHistory.xsd" style="display:none">
+                        <ul class="internal">
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'SocialHistory.xsd'." /> <a href="ActionCode_xsd.html#ActionCode.xsd" target="mainFrame" title="Included by 'SocialHistory.xsd'." onclick="updatePageTitle('Schema documentation for ActionCode.xsd')">ActionCode.xsd</a></p>
+                           </li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p><input id="button_sHUKRDC.xsdFamilyHistory.xsd" type="image" value="-" src="img/btP.gif" onclick="switchState('sHUKRDC.xsdFamilyHistory.xsd');" class="control" /><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'UKRDC.xsd'." /> <a href="FamilyHistory_xsd.html#FamilyHistory.xsd" target="mainFrame" title="Included by 'UKRDC.xsd'." onclick="updatePageTitle('Schema documentation for FamilyHistory.xsd')">FamilyHistory.xsd</a></p>
+                     <div id="sHUKRDC.xsdFamilyHistory.xsd" style="display:none">
+                        <ul class="internal">
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'FamilyHistory.xsd'." /> <a href="Clinician_xsd.html#Clinician.xsd" target="mainFrame" title="Included by 'FamilyHistory.xsd'." onclick="updatePageTitle('Schema documentation for Clinician.xsd')">Clinician.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'FamilyHistory.xsd'." /> <a href="Location_xsd.html#Location.xsd" target="mainFrame" title="Included by 'FamilyHistory.xsd'." onclick="updatePageTitle('Schema documentation for Location.xsd')">Location.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'FamilyHistory.xsd'." /> <a href="CF_SNOWMED_xsd.html#CF_SNOWMED.xsd" target="mainFrame" title="Included by 'FamilyHistory.xsd'." onclick="updatePageTitle('Schema documentation for CF_SNOWMED.xsd')">CF_SNOWMED.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'FamilyHistory.xsd'." /> <a href="CodedField_xsd.html#CodedField.xsd" target="mainFrame" title="Included by 'FamilyHistory.xsd'." onclick="updatePageTitle('Schema documentation for CodedField.xsd')">CodedField.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'FamilyHistory.xsd'." /> <a href="ActionCode_xsd.html#ActionCode.xsd" target="mainFrame" title="Included by 'FamilyHistory.xsd'." onclick="updatePageTitle('Schema documentation for ActionCode.xsd')">ActionCode.xsd</a></p>
+                           </li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p><input id="button_sHUKRDC.xsdObservation.xsd" type="image" value="-" src="img/btP.gif" onclick="switchState('sHUKRDC.xsdObservation.xsd');" class="control" /><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'UKRDC.xsd'." /> <a href="Observation_xsd.html#Observation.xsd" target="mainFrame" title="Included by 'UKRDC.xsd'." onclick="updatePageTitle('Schema documentation for Observation.xsd')">Observation.xsd</a></p>
+                     <div id="sHUKRDC.xsdObservation.xsd" style="display:none">
+                        <ul class="internal">
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Observation.xsd'." /> <a href="Clinician_xsd.html#Clinician.xsd" target="mainFrame" title="Included by 'Observation.xsd'." onclick="updatePageTitle('Schema documentation for Clinician.xsd')">Clinician.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Observation.xsd'." /> <a href="ActionCode_xsd.html#ActionCode.xsd" target="mainFrame" title="Included by 'Observation.xsd'." onclick="updatePageTitle('Schema documentation for ActionCode.xsd')">ActionCode.xsd</a></p>
+                           </li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p><input id="button_sHUKRDC.xsdAllergy.xsd" type="image" value="-" src="img/btP.gif" onclick="switchState('sHUKRDC.xsdAllergy.xsd');" class="control" /><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'UKRDC.xsd'." /> <a href="Allergy_xsd.html#Allergy.xsd" target="mainFrame" title="Included by 'UKRDC.xsd'." onclick="updatePageTitle('Schema documentation for Allergy.xsd')">Allergy.xsd</a></p>
+                     <div id="sHUKRDC.xsdAllergy.xsd" style="display:none">
+                        <ul class="internal">
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Allergy.xsd'." /> <a href="CF_HL7_00204_xsd.html#CF_HL7_00204.xsd" target="mainFrame" title="Included by 'Allergy.xsd'." onclick="updatePageTitle('Schema documentation for CF_HL7_00204.xsd')">CF_HL7_00204.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Allergy.xsd'." /> <a href="CF_HL7_00206_xsd.html#CF_HL7_00206.xsd" target="mainFrame" title="Included by 'Allergy.xsd'." onclick="updatePageTitle('Schema documentation for CF_HL7_00206.xsd')">CF_HL7_00206.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Allergy.xsd'." /> <a href="CF_SNOWMED_xsd.html#CF_SNOWMED.xsd" target="mainFrame" title="Included by 'Allergy.xsd'." onclick="updatePageTitle('Schema documentation for CF_SNOWMED.xsd')">CF_SNOWMED.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Allergy.xsd'." /> <a href="Clinician_xsd.html#Clinician.xsd" target="mainFrame" title="Included by 'Allergy.xsd'." onclick="updatePageTitle('Schema documentation for Clinician.xsd')">Clinician.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Allergy.xsd'." /> <a href="ActionCode_xsd.html#ActionCode.xsd" target="mainFrame" title="Included by 'Allergy.xsd'." onclick="updatePageTitle('Schema documentation for ActionCode.xsd')">ActionCode.xsd</a></p>
+                           </li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p><input id="button_sHUKRDC.xsdProcedure.xsd" type="image" value="-" src="img/btP.gif" onclick="switchState('sHUKRDC.xsdProcedure.xsd');" class="control" /><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'UKRDC.xsd'." /> <a href="Procedure_xsd.html#Procedure.xsd" target="mainFrame" title="Included by 'UKRDC.xsd'." onclick="updatePageTitle('Schema documentation for Procedure.xsd')">Procedure.xsd</a></p>
+                     <div id="sHUKRDC.xsdProcedure.xsd" style="display:none">
+                        <ul class="internal">
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Procedure.xsd'." /> <a href="Clinician_xsd.html#Clinician.xsd" target="mainFrame" title="Included by 'Procedure.xsd'." onclick="updatePageTitle('Schema documentation for Clinician.xsd')">Clinician.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Procedure.xsd'." /> <a href="Location_xsd.html#Location.xsd" target="mainFrame" title="Included by 'Procedure.xsd'." onclick="updatePageTitle('Schema documentation for Location.xsd')">Location.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Procedure.xsd'." /> <a href="ActionCode_xsd.html#ActionCode.xsd" target="mainFrame" title="Included by 'Procedure.xsd'." onclick="updatePageTitle('Schema documentation for ActionCode.xsd')">ActionCode.xsd</a></p>
+                           </li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p><input id="button_sHUKRDC.xsdDialysisSession.xsd" type="image" value="-" src="img/btP.gif" onclick="switchState('sHUKRDC.xsdDialysisSession.xsd');" class="control" /><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'UKRDC.xsd'." /> <a href="DialysisSession_xsd.html#DialysisSession.xsd" target="mainFrame" title="Included by 'UKRDC.xsd'." onclick="updatePageTitle('Schema documentation for DialysisSession.xsd')">DialysisSession.xsd</a></p>
+                     <div id="sHUKRDC.xsdDialysisSession.xsd" style="display:none">
+                        <ul class="internal">
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'DialysisSession.xsd'." /> <a href="Clinician_xsd.html#Clinician.xsd" target="mainFrame" title="Included by 'DialysisSession.xsd'." onclick="updatePageTitle('Schema documentation for Clinician.xsd')">Clinician.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'DialysisSession.xsd'." /> <a href="Location_xsd.html#Location.xsd" target="mainFrame" title="Included by 'DialysisSession.xsd'." onclick="updatePageTitle('Schema documentation for Location.xsd')">Location.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'DialysisSession.xsd'." /> <a href="ActionCode_xsd.html#ActionCode.xsd" target="mainFrame" title="Included by 'DialysisSession.xsd'." onclick="updatePageTitle('Schema documentation for ActionCode.xsd')">ActionCode.xsd</a></p>
+                           </li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p><input id="button_sHUKRDC.xsdTransplant.xsd" type="image" value="-" src="img/btP.gif" onclick="switchState('sHUKRDC.xsdTransplant.xsd');" class="control" /><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'UKRDC.xsd'." /> <a href="Transplant_xsd_1.html#Transplant.xsd" target="mainFrame" title="Included by 'UKRDC.xsd'." onclick="updatePageTitle('Schema documentation for Transplant.xsd')">Transplant.xsd</a></p>
+                     <div id="sHUKRDC.xsdTransplant.xsd" style="display:none">
+                        <ul class="internal">
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Transplant.xsd'." /> <a href="Clinician_xsd.html#Clinician.xsd" target="mainFrame" title="Included by 'Transplant.xsd'." onclick="updatePageTitle('Schema documentation for Clinician.xsd')">Clinician.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Transplant.xsd'." /> <a href="Location_xsd.html#Location.xsd" target="mainFrame" title="Included by 'Transplant.xsd'." onclick="updatePageTitle('Schema documentation for Location.xsd')">Location.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Transplant.xsd'." /> <a href="ActionCode_xsd.html#ActionCode.xsd" target="mainFrame" title="Included by 'Transplant.xsd'." onclick="updatePageTitle('Schema documentation for ActionCode.xsd')">ActionCode.xsd</a></p>
+                           </li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p><input id="button_sHUKRDC.xsdVascularAccess.xsd" type="image" value="-" src="img/btP.gif" onclick="switchState('sHUKRDC.xsdVascularAccess.xsd');" class="control" /><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'UKRDC.xsd'." /> <a href="VascularAccess_xsd.html#VascularAccess.xsd" target="mainFrame" title="Included by 'UKRDC.xsd'." onclick="updatePageTitle('Schema documentation for VascularAccess.xsd')">VascularAccess.xsd</a></p>
+                     <div id="sHUKRDC.xsdVascularAccess.xsd" style="display:none">
+                        <ul class="internal">
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'VascularAccess.xsd'." /> <a href="Clinician_xsd.html#Clinician.xsd" target="mainFrame" title="Included by 'VascularAccess.xsd'." onclick="updatePageTitle('Schema documentation for Clinician.xsd')">Clinician.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'VascularAccess.xsd'." /> <a href="Location_xsd.html#Location.xsd" target="mainFrame" title="Included by 'VascularAccess.xsd'." onclick="updatePageTitle('Schema documentation for Location.xsd')">Location.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'VascularAccess.xsd'." /> <a href="ActionCode_xsd.html#ActionCode.xsd" target="mainFrame" title="Included by 'VascularAccess.xsd'." onclick="updatePageTitle('Schema documentation for ActionCode.xsd')">ActionCode.xsd</a></p>
+                           </li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p><input id="button_sHUKRDC.xsdDiagnosis.xsd" type="image" value="-" src="img/btP.gif" onclick="switchState('sHUKRDC.xsdDiagnosis.xsd');" class="control" /><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'UKRDC.xsd'." /> <a href="Diagnosis_xsd.html#Diagnosis.xsd" target="mainFrame" title="Included by 'UKRDC.xsd'." onclick="updatePageTitle('Schema documentation for Diagnosis.xsd')">Diagnosis.xsd</a></p>
+                     <div id="sHUKRDC.xsdDiagnosis.xsd" style="display:none">
+                        <ul class="internal">
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Diagnosis.xsd'." /> <a href="Clinician_xsd.html#Clinician.xsd" target="mainFrame" title="Included by 'Diagnosis.xsd'." onclick="updatePageTitle('Schema documentation for Clinician.xsd')">Clinician.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Diagnosis.xsd'." /> <a href="CF_SNOWMED_xsd.html#CF_SNOWMED.xsd" target="mainFrame" title="Included by 'Diagnosis.xsd'." onclick="updatePageTitle('Schema documentation for CF_SNOWMED.xsd')">CF_SNOWMED.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Diagnosis.xsd'." /> <a href="ActionCode_xsd.html#ActionCode.xsd" target="mainFrame" title="Included by 'Diagnosis.xsd'." onclick="updatePageTitle('Schema documentation for ActionCode.xsd')">ActionCode.xsd</a></p>
+                           </li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p><input id="button_sHUKRDC.xsdCauseOfDeath.xsd" type="image" value="-" src="img/btP.gif" onclick="switchState('sHUKRDC.xsdCauseOfDeath.xsd');" class="control" /><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'UKRDC.xsd'." /> <a href="CauseOfDeath_xsd.html#CauseOfDeath.xsd" target="mainFrame" title="Included by 'UKRDC.xsd'." onclick="updatePageTitle('Schema documentation for CauseOfDeath.xsd')">CauseOfDeath.xsd</a></p>
+                     <div id="sHUKRDC.xsdCauseOfDeath.xsd" style="display:none">
+                        <ul class="internal">
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'CauseOfDeath.xsd'." /> <a href="Clinician_xsd.html#Clinician.xsd" target="mainFrame" title="Included by 'CauseOfDeath.xsd'." onclick="updatePageTitle('Schema documentation for Clinician.xsd')">Clinician.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'CauseOfDeath.xsd'." /> <a href="CF_EDTA_COD_xsd.html#CF_EDTA_COD.xsd" target="mainFrame" title="Included by 'CauseOfDeath.xsd'." onclick="updatePageTitle('Schema documentation for CF_EDTA_COD.xsd')">CF_EDTA_COD.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'CauseOfDeath.xsd'." /> <a href="ActionCode_xsd.html#ActionCode.xsd" target="mainFrame" title="Included by 'CauseOfDeath.xsd'." onclick="updatePageTitle('Schema documentation for ActionCode.xsd')">ActionCode.xsd</a></p>
+                           </li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p><input id="button_sHUKRDC.xsdRenalDiagnosis.xsd" type="image" value="-" src="img/btP.gif" onclick="switchState('sHUKRDC.xsdRenalDiagnosis.xsd');" class="control" /><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'UKRDC.xsd'." /> <a href="RenalDiagnosis_xsd.html#RenalDiagnosis.xsd" target="mainFrame" title="Included by 'UKRDC.xsd'." onclick="updatePageTitle('Schema documentation for RenalDiagnosis.xsd')">RenalDiagnosis.xsd</a></p>
+                     <div id="sHUKRDC.xsdRenalDiagnosis.xsd" style="display:none">
+                        <ul class="internal">
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'RenalDiagnosis.xsd'." /> <a href="Clinician_xsd.html#Clinician.xsd" target="mainFrame" title="Included by 'RenalDiagnosis.xsd'." onclick="updatePageTitle('Schema documentation for Clinician.xsd')">Clinician.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'RenalDiagnosis.xsd'." /> <a href="ActionCode_xsd.html#ActionCode.xsd" target="mainFrame" title="Included by 'RenalDiagnosis.xsd'." onclick="updatePageTitle('Schema documentation for ActionCode.xsd')">ActionCode.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'RenalDiagnosis.xsd'." /> <a href="CF_EDTA_PRD_xsd.html#CF_EDTA_PRD.xsd" target="mainFrame" title="Included by 'RenalDiagnosis.xsd'." onclick="updatePageTitle('Schema documentation for CF_EDTA_PRD.xsd')">CF_EDTA_PRD.xsd</a></p>
+                           </li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p><input id="button_sHUKRDC.xsdDocument.xsd" type="image" value="-" src="img/btP.gif" onclick="switchState('sHUKRDC.xsdDocument.xsd');" class="control" /><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'UKRDC.xsd'." /> <a href="Document_xsd.html#Document.xsd" target="mainFrame" title="Included by 'UKRDC.xsd'." onclick="updatePageTitle('Schema documentation for Document.xsd')">Document.xsd</a></p>
+                     <div id="sHUKRDC.xsdDocument.xsd" style="display:none">
+                        <ul class="internal">
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Document.xsd'." /> <a href="Clinician_xsd.html#Clinician.xsd" target="mainFrame" title="Included by 'Document.xsd'." onclick="updatePageTitle('Schema documentation for Clinician.xsd')">Clinician.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Document.xsd'." /> <a href="Location_xsd.html#Location.xsd" target="mainFrame" title="Included by 'Document.xsd'." onclick="updatePageTitle('Schema documentation for Location.xsd')">Location.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Document.xsd'." /> <a href="CodedField_xsd.html#CodedField.xsd" target="mainFrame" title="Included by 'Document.xsd'." onclick="updatePageTitle('Schema documentation for CodedField.xsd')">CodedField.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Document.xsd'." /> <a href="ActionCode_xsd.html#ActionCode.xsd" target="mainFrame" title="Included by 'Document.xsd'." onclick="updatePageTitle('Schema documentation for ActionCode.xsd')">ActionCode.xsd</a></p>
+                           </li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p><input id="button_sHUKRDC.xsdEncounter.xsd" type="image" value="-" src="img/btP.gif" onclick="switchState('sHUKRDC.xsdEncounter.xsd');" class="control" /><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'UKRDC.xsd'." /> <a href="Encounter_xsd.html#Encounter.xsd" target="mainFrame" title="Included by 'UKRDC.xsd'." onclick="updatePageTitle('Schema documentation for Encounter.xsd')">Encounter.xsd</a></p>
+                     <div id="sHUKRDC.xsdEncounter.xsd" style="display:none">
+                        <ul class="internal">
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Encounter.xsd'." /> <a href="Clinician_xsd.html#Clinician.xsd" target="mainFrame" title="Included by 'Encounter.xsd'." onclick="updatePageTitle('Schema documentation for Clinician.xsd')">Clinician.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Encounter.xsd'." /> <a href="Location_xsd.html#Location.xsd" target="mainFrame" title="Included by 'Encounter.xsd'." onclick="updatePageTitle('Schema documentation for Location.xsd')">Location.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Encounter.xsd'." /> <a href="ActionCode_xsd.html#ActionCode.xsd" target="mainFrame" title="Included by 'Encounter.xsd'." onclick="updatePageTitle('Schema documentation for ActionCode.xsd')">ActionCode.xsd</a></p>
+                           </li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p><input id="button_sHUKRDC.xsdTreatment.xsd" type="image" value="-" src="img/btP.gif" onclick="switchState('sHUKRDC.xsdTreatment.xsd');" class="control" /><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'UKRDC.xsd'." /> <a href="Treatment_xsd.html#Treatment.xsd" target="mainFrame" title="Included by 'UKRDC.xsd'." onclick="updatePageTitle('Schema documentation for Treatment.xsd')">Treatment.xsd</a></p>
+                     <div id="sHUKRDC.xsdTreatment.xsd" style="display:none">
+                        <ul class="internal">
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Treatment.xsd'." /> <a href="Clinician_xsd.html#Clinician.xsd" target="mainFrame" title="Included by 'Treatment.xsd'." onclick="updatePageTitle('Schema documentation for Clinician.xsd')">Clinician.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Treatment.xsd'." /> <a href="Location_xsd.html#Location.xsd" target="mainFrame" title="Included by 'Treatment.xsd'." onclick="updatePageTitle('Schema documentation for Location.xsd')">Location.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Treatment.xsd'." /> <a href="CF_RR7_Treatment_xsd.html#CF_RR7_Treatment.xsd" target="mainFrame" title="Included by 'Treatment.xsd'." onclick="updatePageTitle('Schema documentation for CF_RR7_Treatment.xsd')">CF_RR7_Treatment.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Treatment.xsd'." /> <a href="CF_RR7_Discharge_xsd.html#CF_RR7_Discharge.xsd" target="mainFrame" title="Included by 'Treatment.xsd'." onclick="updatePageTitle('Schema documentation for CF_RR7_Discharge.xsd')">CF_RR7_Discharge.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Treatment.xsd'." /> <a href="ActionCode_xsd.html#ActionCode.xsd" target="mainFrame" title="Included by 'Treatment.xsd'." onclick="updatePageTitle('Schema documentation for ActionCode.xsd')">ActionCode.xsd</a></p>
+                           </li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p><input id="button_sHUKRDC.xsdschema_NAMESPACE_http___www.rixg.org.uk__LOCATION_file__U__My_20Documents_Code_ukrdc_Schema_Encounters_Transplant.xsd" type="image" value="-" src="img/btP.gif" onclick="switchState('sHUKRDC.xsdschema_NAMESPACE_http___www.rixg.org.uk__LOCATION_file__U__My_20Documents_Code_ukrdc_Schema_Encounters_Transplant.xsd');" class="control" /><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'UKRDC.xsd'." /> <a href="Transplant_xsd.html#schema_NAMESPACE_http___www.rixg.org.uk__LOCATION_file__U__My_20Documents_Code_ukrdc_Schema_Encounters_Transplant.xsd" target="mainFrame" title="Included by 'UKRDC.xsd'." onclick="updatePageTitle('Schema documentation for Transplant.xsd')">Transplant.xsd</a></p>
+                     <div id="sHUKRDC.xsdschema_NAMESPACE_http___www.rixg.org.uk__LOCATION_file__U__My_20Documents_Code_ukrdc_Schema_Encounters_Transplant.xsd" style="display:none">
+                        <ul class="internal">
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Transplant.xsd'." /> <a href="Clinician_xsd.html#Clinician.xsd" target="mainFrame" title="Included by 'Transplant.xsd'." onclick="updatePageTitle('Schema documentation for Clinician.xsd')">Clinician.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Transplant.xsd'." /> <a href="Location_xsd.html#Location.xsd" target="mainFrame" title="Included by 'Transplant.xsd'." onclick="updatePageTitle('Schema documentation for Location.xsd')">Location.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Transplant.xsd'." /> <a href="CodedField_xsd.html#CodedField.xsd" target="mainFrame" title="Included by 'Transplant.xsd'." onclick="updatePageTitle('Schema documentation for CodedField.xsd')">CodedField.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Transplant.xsd'." /> <a href="ActionCode_xsd.html#ActionCode.xsd" target="mainFrame" title="Included by 'Transplant.xsd'." onclick="updatePageTitle('Schema documentation for ActionCode.xsd')">ActionCode.xsd</a></p>
+                           </li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p><input id="button_sHUKRDC.xsdProgramMembership.xsd" type="image" value="-" src="img/btP.gif" onclick="switchState('sHUKRDC.xsdProgramMembership.xsd');" class="control" /><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'UKRDC.xsd'." /> <a href="ProgramMembership_xsd.html#ProgramMembership.xsd" target="mainFrame" title="Included by 'UKRDC.xsd'." onclick="updatePageTitle('Schema documentation for ProgramMembership.xsd')">ProgramMembership.xsd</a></p>
+                     <div id="sHUKRDC.xsdProgramMembership.xsd" style="display:none">
+                        <ul class="internal">
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'ProgramMembership.xsd'." /> <a href="Clinician_xsd.html#Clinician.xsd" target="mainFrame" title="Included by 'ProgramMembership.xsd'." onclick="updatePageTitle('Schema documentation for Clinician.xsd')">Clinician.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'ProgramMembership.xsd'." /> <a href="Location_xsd.html#Location.xsd" target="mainFrame" title="Included by 'ProgramMembership.xsd'." onclick="updatePageTitle('Schema documentation for Location.xsd')">Location.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'ProgramMembership.xsd'." /> <a href="ActionCode_xsd.html#ActionCode.xsd" target="mainFrame" title="Included by 'ProgramMembership.xsd'." onclick="updatePageTitle('Schema documentation for ActionCode.xsd')">ActionCode.xsd</a></p>
+                           </li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p><input id="button_sHUKRDC.xsdClinicalRelationship.xsd" type="image" value="-" src="img/btP.gif" onclick="switchState('sHUKRDC.xsdClinicalRelationship.xsd');" class="control" /><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'UKRDC.xsd'." /> <a href="ClinicalRelationship_xsd.html#ClinicalRelationship.xsd" target="mainFrame" title="Included by 'UKRDC.xsd'." onclick="updatePageTitle('Schema documentation for ClinicalRelationship.xsd')">ClinicalRelationship.xsd</a></p>
+                     <div id="sHUKRDC.xsdClinicalRelationship.xsd" style="display:none">
+                        <ul class="internal">
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'ClinicalRelationship.xsd'." /> <a href="Clinician_xsd.html#Clinician.xsd" target="mainFrame" title="Included by 'ClinicalRelationship.xsd'." onclick="updatePageTitle('Schema documentation for Clinician.xsd')">Clinician.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'ClinicalRelationship.xsd'." /> <a href="Location_xsd.html#Location.xsd" target="mainFrame" title="Included by 'ClinicalRelationship.xsd'." onclick="updatePageTitle('Schema documentation for Location.xsd')">Location.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'ClinicalRelationship.xsd'." /> <a href="ActionCode_xsd.html#ActionCode.xsd" target="mainFrame" title="Included by 'ClinicalRelationship.xsd'." onclick="updatePageTitle('Schema documentation for ActionCode.xsd')">ActionCode.xsd</a></p>
+                           </li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p><input id="button_sHUKRDC.xsdMedication.xsd" type="image" value="-" src="img/btP.gif" onclick="switchState('sHUKRDC.xsdMedication.xsd');" class="control" /><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'UKRDC.xsd'." /> <a href="Medication_xsd.html#Medication.xsd" target="mainFrame" title="Included by 'UKRDC.xsd'." onclick="updatePageTitle('Schema documentation for Medication.xsd')">Medication.xsd</a></p>
+                     <div id="sHUKRDC.xsdMedication.xsd" style="display:none">
+                        <ul class="internal">
+                           <li class="schemaHierarchy">
+                              <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Medication.xsd'." /> <a href="Clinician_xsd.html#Clinician.xsd" target="mainFrame" title="Included by 'Medication.xsd'." onclick="updatePageTitle('Schema documentation for Clinician.xsd')">Clinician.xsd</a></p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p><input id="button_sHUKRDC.xsdMedication.xsdDrugProduct.xsd" type="image" value="-" src="img/btM.gif" onclick="switchState('sHUKRDC.xsdMedication.xsdDrugProduct.xsd');" class="control" /><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'Medication.xsd'." /> <a href="DrugProduct_xsd.html#DrugProduct.xsd" target="mainFrame" title="Included by 'Medication.xsd'." onclick="updatePageTitle('Schema documentation for DrugProduct.xsd')">DrugProduct.xsd</a></p>
+                              <div id="sHUKRDC.xsdMedication.xsdDrugProduct.xsd" style="display:block">
+                                 <ul class="internal">
+                                    <li class="schemaHierarchy">
+                                       <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'DrugProduct.xsd'." /> <a href="CF_DMD_xsd.html#CF_DMD.xsd" target="mainFrame" title="Included by 'DrugProduct.xsd'." onclick="updatePageTitle('Schema documentation for CF_DMD.xsd')">CF_DMD.xsd</a></p>
+                                    </li>
+                                    <li class="schemaHierarchy">
+                                       <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'DrugProduct.xsd'." /> <a href="CF_SNOWMED_xsd.html#CF_SNOWMED.xsd" target="mainFrame" title="Included by 'DrugProduct.xsd'." onclick="updatePageTitle('Schema documentation for CF_SNOWMED.xsd')">CF_SNOWMED.xsd</a></p>
+                                    </li>
+                                    <li class="schemaHierarchy">
+                                       <p><img src="img/HierarchyArrow12.jpg" /> <img src="img/Include12.gif" title="Included by 'DrugProduct.xsd'." /> <a href="CF_RR23_xsd.html#CF_RR23.xsd" target="mainFrame" title="Included by 'DrugProduct.xsd'." onclick="updatePageTitle('Schema documentation for CF_RR23.xsd')">CF_RR23.xsd</a></p>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </li>
+                        </ul>
+                     </div>
+                  </li>
+               </ul>
+            </div>
+         </li>
+      </ul>
+      <div class="footer">
+         <hr />
+         <div align="center">XML Schema documentation generated by <a href="http://www.oxygenxml.com" target="_parent"><span class="oXygenLogo"><span class="redX">&lt;</span>o<span class="redX">X</span>ygen<span class="redX">/&gt;</span></span></a><sup>®</sup> XML Developer Trial Edition.
+         </div>
+      </div>
+   </body>
+</html>
