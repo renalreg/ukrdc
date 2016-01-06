@@ -1,42 +1,9 @@
-# Example Python Repository
+# UKRDC Schema
 
-## Getting Started
+## Documentation
 
-Install [virtualenv](https://virtualenv.readthedocs.org/) and create a new environment:
+Schema Documentation (https://github.com/renalreg/ukrdc/blob/master/HTML/UKRDC.html)
 
-```
-virtualenv env
-```
+Instructions (https://github.com/renalreg/ukrdc/blob/master/Documentation/UKRDC.docx)
 
-Activate the environment on Linux or OS X:
-
-```
-. env/bin/activate
-```
-
-Or Windows:
-
-```
-.\env\scripts\activate
-```
-
-Install the package and its requirements:
-
-```
-pip install -r dev-requirements.txt
-```
-
-### Running Tests
-
-Run the tests with the [tox](https://tox.readthedocs.org/) command:
-
-```
-tox
-```
-
-### Uploading to PyPi
-
-```
-python setup.py register -r internal
-python setup.py sdist upload -r internal
-```
+Annotated UKRR v4.2 Dataset (https://github.com/renalreg/ukrdc/blob/master/Documentation/RR%20Dataset%20v4.2_UKRDC.xls)
