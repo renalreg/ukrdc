@@ -2,7 +2,7 @@
 
 ## Documentation
 
-Schema Documentation (https://htmlpreview.github.com/renalreg/ukrdc/raw/master/HTML/UKRDC.html)
+Schema Documentation (https://htmlpreview.github.io/?https://github.com/renalreg/ukrdc/blob/master/HTML/UKRDC.html)
 
 Instructions (https://github.com/renalreg/ukrdc/raw/master/Documentation/UKRDC.docx)
 
