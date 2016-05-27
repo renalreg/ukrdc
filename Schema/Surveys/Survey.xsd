@@ -42,7 +42,7 @@
                     <xs:complexType name="Question">
                         <xs:sequence>
                         
-                            <xs:element name="Question" minOccurs="0">
+                            <xs:element name="QuestionType" minOccurs="0">
                                 <xs:annotation>
                                     <xs:documentation>Question Type</xs:documentation>
                                 </xs:annotation>
@@ -73,13 +73,56 @@
                                 </xs:complexType>
                             </xs:element>
 
-
                             <xs:element name="Response" type="xs:string"/>
 
                     </xs:complexType>
 
                 </xS:sequence>
             </xs:complexType>
+            
+            <xs:complexType name="Scores">
+                <xs:sequence>
+                    <xs:complexType name="Score">
+                        <xs:sequence>
+
+                            <xs:element name="ScoreType" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation>Score Type</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="CodingStandard" minOccurs="0">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="32000"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="Code" minOccurs="0">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="32000"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="Description" minOccurs="0">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="32000"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+
+                            <xs:element name="Value" type="xs:string"/>
+                            
+                            <xs:element name="Level" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:sequence>
+            </xs:complexType>                          
 
             <xs:element name="EnteredAt" type="Location" minOccurs="0">
                 <xs:annotation>
@@ -102,6 +145,5 @@
         </xs:sequence>
     
     </xs:complexType>
-
 
 </xs:schema>
