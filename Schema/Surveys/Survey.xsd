@@ -74,10 +74,12 @@
                             </xs:element>
 
                             <xs:element name="Response" type="xs:string"/>
+                            
+                        </xs:sequence>
 
                     </xs:complexType>
 
-                </xS:sequence>
+                </xs:sequence>
             </xs:complexType>
             
             <xs:complexType name="Scores">
