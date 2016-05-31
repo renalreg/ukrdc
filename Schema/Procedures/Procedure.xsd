@@ -11,7 +11,8 @@
                     <xs:documentation>Last Modified Date</xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="Procedure" minOccurs="0">
+            <!-- NOTE: This is Procedure in SDA -->
+            <xs:element name="ProcedureType" minOccurs="0">
                 <xs:annotation>
                     <xs:documentation>SNOMED CT encoded procedure.</xs:documentation>
                 </xs:annotation>
