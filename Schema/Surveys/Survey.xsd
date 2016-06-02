@@ -132,7 +132,7 @@
                         <xs:documentation>Where the Survey was completed</xs:documentation>
                     </xs:annotation>
                 </xs:element>
-                <xs:element minOccurs="0" name="UpdatedOn" type="xs:dateTime">
+                <xs:element name="UpdatedOn" minOccurs="1" type="xs:dateTime">
                     <xs:annotation>
                         <xs:documentation>Last Modified Date</xs:documentation>
                     </xs:annotation>
