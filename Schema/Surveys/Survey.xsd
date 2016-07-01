@@ -2,6 +2,7 @@
 
     <xs:include schemaLocation="../Types/Location.xsd"/>
     <xs:include schemaLocation="../Types/ActionCode.xsd"/>
+    <xs:include schemaLocation="../Types/CodedField.xsd"/>
 
     <xs:complexType name="Survey">
             <xs:sequence>
@@ -127,6 +128,11 @@
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
+                <xs:element minOccurs="0" name="EnteredBy" type="CodedField">
+                    <xs:annotation>
+                        <xs:documentation>Who completed the survey</xs:documentation>
+                    </xs:annotation>
+                </xs:element>                
                 <xs:element name="EnteredAt" type="Location" minOccurs="0">
                     <xs:annotation>
                         <xs:documentation>Where the Survey was completed</xs:documentation>
