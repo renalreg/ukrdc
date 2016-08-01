@@ -71,6 +71,11 @@
                                 <xs:documentation>Primary Identifier for that Organisation</xs:documentation>
                             </xs:annotation>
                         </xs:enumeration>
+                        <xs:enumeration value="NI">
+                            <xs:annotation>
+                                <xs:documentation>For 3rd-Party Identifiers such as NHS Numbers</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>                        
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
