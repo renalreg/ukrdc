@@ -53,6 +53,11 @@
                                 <xs:documentation>Rare Disease Registry</xs:documentation>
                             </xs:annotation>
                         </xs:enumeration>
+                        <xs:enumeration value="BAPN">
+                            <xs:annotation>
+                                <xs:documentation>British Association For Paediatric Nephrology</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>                        
                         <xs:enumeration value="LOCALHOSP">
                             <xs:annotation>
                                 <xs:documentation>Local Hospital Number</xs:documentation>
