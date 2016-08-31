@@ -37,7 +37,7 @@
                 <xs:element name="LabOrders" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="LabOrder" type="LabOrder" maxOccurs="unbounded"/>
+                            <xs:element name="LabOrder" type="LabOrder"  minOccurs="0" maxOccurs="unbounded"/>
                         </xs:sequence>
                         <xs:attribute name="start" type="xs:date" use="required"/>
                         <xs:attribute name="stop" type="xs:date" use="required"/>
@@ -46,21 +46,21 @@
                 <xs:element name="SocialHistories" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="SocialHistory" type="SocialHistory" maxOccurs="unbounded"/>
+                            <xs:element name="SocialHistory" type="SocialHistory"  minOccurs="0" maxOccurs="unbounded"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="FamilyHistories" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="FamilyHistory" type="FamilyHistory" maxOccurs="unbounded"/>
+                            <xs:element name="FamilyHistory" type="FamilyHistory"  minOccurs="0" maxOccurs="unbounded"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="Observations" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="Observation" type="Observation" maxOccurs="unbounded"/>
+                            <xs:element name="Observation" type="Observation"  minOccurs="0" maxOccurs="unbounded"/>
                         </xs:sequence>
                         <xs:attribute name="start" type="xs:date" use="required"/>
                         <xs:attribute name="stop" type="xs:date" use="required"/>
@@ -69,33 +69,33 @@
                 <xs:element name="Allergies" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="Allergy" type="Allergy" maxOccurs="unbounded"/>
+                            <xs:element name="Allergy" type="Allergy"  minOccurs="0" maxOccurs="unbounded"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="Diagnoses" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="Diagnosis" type="Diagnosis" maxOccurs="unbounded"/>
-                            <xs:element name="CauseOfDeath" type="CauseOfDeath" maxOccurs="unbounded"/>
-                            <xs:element name="RenalDiagnosis" type="RenalDiagnosis" maxOccurs="unbounded"/>
+                            <xs:element name="Diagnosis" type="Diagnosis"  minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element name="CauseOfDeath" type="CauseOfDeath"  minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element name="RenalDiagnosis" type="RenalDiagnosis"  minOccurs="0" maxOccurs="unbounded"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="Medications" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="Medication" type="Medication" maxOccurs="unbounded"/>
+                            <xs:element name="Medication" type="Medication"  minOccurs="0" maxOccurs="unbounded"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="Procedures" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="Procedure" type="Procedure" maxOccurs="unbounded"/>
-                            <xs:element name="DialysisSession" type="DialysisSession" maxOccurs="unbounded"/>
-                            <xs:element name="Transplant" type="Transplant" maxOccurs="unbounded"/>
-                            <xs:element name="VasciularAccess" type="VascularAccess" maxOccurs="unbounded"/>
+                            <xs:element name="Procedure" type="Procedure"  minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element name="DialysisSession" type="DialysisSession"  minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element name="Transplant" type="Transplant"  minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element name="VasciularAccess" type="VascularAccess"  minOccurs="0" maxOccurs="unbounded"/>
                         </xs:sequence>
                         <xs:attribute name="start" type="xs:date" use="required"/>
                         <xs:attribute name="stop" type="xs:date" use="required"/>
@@ -104,32 +104,32 @@
                 <xs:element name="Documents" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="Document" type="Document" maxOccurs="unbounded"/>
+                            <xs:element name="Document" type="Document"  minOccurs="0" maxOccurs="unbounded"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="Encounters" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="Encounter" type="Encounter" maxOccurs="unbounded"/>
+                            <xs:element name="Encounter" type="Encounter"  minOccurs="0" maxOccurs="unbounded"/>
                             <!-- SDA: Encounter -->
-                            <xs:element name="Treatment" type="Treatment" maxOccurs="unbounded"/>
+                            <xs:element name="Treatment" type="Treatment"  minOccurs="0" maxOccurs="unbounded"/>
                             <!-- SDA: Encounter -->
-                            <xs:element name="Transplant" type="Transplant" maxOccurs="unbounded"/>
+                            <xs:element name="Transplant" type="Transplant"  minOccurs="0" maxOccurs="unbounded"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="ProgramMemberships" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="ProgramMembership" type="ProgramMembership" maxOccurs="unbounded"/>
+                            <xs:element name="ProgramMembership" type="ProgramMembership"  minOccurs="0" maxOccurs="unbounded"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="ClinicalRelationships" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="ClinicalRelationship" type="ClinicalRelationship" maxOccurs="unbounded"/>
+                            <xs:element name="ClinicalRelationship" type="ClinicalRelationship"  minOccurs="0" maxOccurs="unbounded"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
@@ -137,7 +137,7 @@
                 <xs:element name="Surveys" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="Survey" type="Survey" maxOccurs="unbounded"/>
+                            <xs:element name="Survey" type="Survey"  minOccurs="0" maxOccurs="unbounded"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element> 
