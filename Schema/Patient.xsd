@@ -6,7 +6,7 @@
 	<xs:include schemaLocation="Types/FamilyDoctor.xsd"/>
 	<xs:include schemaLocation="Types/Name.xsd"/>
 	<xs:include schemaLocation="Types/Occupation.xsd"/>
-	<xs:include schemaLocation="Types/PatientLanguage.xsd"/>
+	<xs:include schemaLocation="Types/Language.xsd"/>
 	<xs:include schemaLocation="Types/PatientNumber.xsd"/>
 	<xs:include schemaLocation="Types/PersonalContactType.xsd"/>
 
@@ -73,10 +73,9 @@
 					<xs:documentation>Code range TBD </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="PatientLanguage" type="PatientLanguage" minOccurs="0">
+			<xs:element name="PrimaryLanguage" type="Language" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Primary Language</xs:documentation>
-					<!-- Note: HL7 Table 0296 might be an alternative -->
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Death" type="xs:boolean" minOccurs="0">
