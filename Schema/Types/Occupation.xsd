@@ -4,7 +4,7 @@
             <xs:element name="CodingStandard" minOccurs="0">
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
-                        <xs:enumeration value="CF_NHSDD_EMPLOYMENT_STATUS">
+                        <xs:enumeration value="NHS_DATA_DICTIONARY_EMPLOYMENT_STATUS">
                             <xs:annotation>
                                 <xs:documentation>http://www.datadictionary.nhs.uk/data_dictionary/attributes/e/emp/employment_status_de.asp</xs:documentation>
                             </xs:annotation>
