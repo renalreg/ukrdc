@@ -71,6 +71,11 @@
 					<xs:documentation>Dose</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+            <xs:element minOccurs="0" name="DoseUoM" type="CodedField">
+                <xs:annotation>
+                    <xs:documentation></xs:documentation>
+                </xs:annotation>
+            </xs:element>
 			<xs:element name="Indication" type="xs:string" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The condition or problem for which the drug is being prescribed</xs:documentation>
