@@ -2,7 +2,7 @@
 
     <xs:include schemaLocation="../Types/Clinician.xsd"/>
     <xs:include schemaLocation="../Types/Location.xsd"/>
-    <xs:include schemaLocation="../Types/CF_SNOWMED.xsd"/>
+    <xs:include schemaLocation="../Types/CF_SNOMED.xsd"/>
     <xs:include schemaLocation="../Types/CodedField.xsd"/>
     <xs:include schemaLocation="../Types/ActionCode.xsd"/>
 
@@ -18,7 +18,7 @@
                     <xs:documentation>Family member</xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element minOccurs="0" name="Diagnosis" type="CF_SNOWMED">
+            <xs:element minOccurs="0" name="Diagnosis" type="CF_SNOMED">
                 <xs:annotation>
                     <xs:documentation>Diagnosis on family member</xs:documentation>
                 </xs:annotation>

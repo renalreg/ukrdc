@@ -1,7 +1,7 @@
 <xs:schema xmlns="http://www.rixg.org.uk/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.rixg.org.uk/">
 
 	<xs:include schemaLocation="CF_DMD.xsd"/>
-	<xs:include schemaLocation="CF_SNOWMED.xsd"/>
+	<xs:include schemaLocation="CF_SNOMED.xsd"/>
 	<xs:include schemaLocation="CF_RR23.xsd"/>
 
 	<xs:complexType name="DrugProduct">
@@ -26,7 +26,7 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="Form" minOccurs="0" type="CF_SNOWMED">
+			<xs:element name="Form" minOccurs="0" type="CF_SNOMED">
 				<xs:annotation>
 					<xs:documentation>SNOMED Code and description</xs:documentation>
 				</xs:annotation>

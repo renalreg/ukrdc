@@ -2,7 +2,7 @@
 
     <xs:include schemaLocation="../Types/CF_HL7_00204.xsd"/>
     <xs:include schemaLocation="../Types/CF_HL7_00206.xsd"/>
-    <xs:include schemaLocation="../Types/CF_SNOWMED.xsd"/>
+    <xs:include schemaLocation="../Types/CF_SNOMED.xsd"/>
     <xs:include schemaLocation="../Types/Clinician.xsd"/>
     <xs:include schemaLocation="../Types/ActionCode.xsd"/>
 
@@ -13,9 +13,9 @@
                     <xs:documentation>Last Modified Date</xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="Allergy" type="CF_SNOWMED">
+            <xs:element name="Allergy" type="CF_SNOMED">
                 <xs:annotation>
-                    <xs:documentation>Substance to which the patient is allergic. (SNOWMED)</xs:documentation>
+                    <xs:documentation>Substance to which the patient is allergic. (SNOMED)</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="AllergyCategory" type="CF_HL7_00204" minOccurs="0">
