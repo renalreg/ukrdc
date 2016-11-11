@@ -2,6 +2,7 @@
 
     <xs:include schemaLocation="../Types/Clinician.xsd"/>
     <xs:include schemaLocation="../Types/ActionCode.xsd"/>
+    <xs:include schemaLocation="../Types/CF_HL7_0004.xsd"/>
 
     <xs:complexType name="LabOrder">
         <xs:sequence>
@@ -203,7 +204,7 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="PatientClass" minOccurs="0">
+            <xs:element name="PatientClass" type="CF_HL7_0004" minOccurs="0">
                 <xs:annotation>
                     <xs:documentation>In patient / out patient - equivalent ot PV1:2 Patient Class or derivation thereiof Where can this map to in SDA????</xs:documentation>
                 </xs:annotation>
