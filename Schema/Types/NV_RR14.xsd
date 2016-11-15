@@ -1,5 +1,5 @@
 <xs:schema xmlns="http://www.rixg.org.uk/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.rixg.org.uk/">
-    <xs:complexType name="CF_RR14">
+    <xs:complexType name="NV_RR14">
                         <xs:enumeration value="10">
                             <xs:annotation>
                                 <xs:documentation>Heart</xs:documentation>
