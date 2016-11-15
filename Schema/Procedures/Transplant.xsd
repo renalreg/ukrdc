@@ -3,6 +3,7 @@
     <xs:include schemaLocation="../Types/Clinician.xsd"/>
     <xs:include schemaLocation="../Types/Location.xsd"/>
     <xs:include schemaLocation="../Types/ActionCode.xsd"/>
+    <xs:include schemaLocation="../Types/CF_RR14.xsd"/>
 
     <xs:complexType name="TransplantProcedure">
         <xs:sequence>
@@ -212,12 +213,12 @@
                                 <xs:documentation>Functioning</xs:documentation>
                             </xs:annotation>
                         </xs:element>
-                        <xs:element name="TRA97" type="xs:string">
+                        <xs:element name="TRA97" type="CF_RR14">
                             <xs:annotation>
                                 <xs:documentation>Other organ transplanted simultaneously 1</xs:documentation>
                             </xs:annotation>
                         </xs:element>
-                        <xs:element name="TRA98" type="xs:string">
+                        <xs:element name="TRA98" type="CF_RR14">
                             <xs:annotation>
                                 <xs:documentation>Other organ transplanted simultaneously 2</xs:documentation>
                             </xs:annotation>
