@@ -15,7 +15,7 @@
     <xs:include schemaLocation="Diagnoses/RenalDiagnosis.xsd"/>
     <xs:include schemaLocation="Documents/Document.xsd"/>
     <xs:include schemaLocation="Encounters/Encounter.xsd"/>
-    <xs:include schemaLocation="Encounters/Treatment.xsd"/>
+    <xs:include schemaLocation="Encounters/TreatmentList.xsd"/>
     <xs:include schemaLocation="Encounters/Transplant.xsd"/>
     <xs:include schemaLocation="ProgramMemberships/ProgramMembership.xsd"/>
     <xs:include schemaLocation="ClinicalRelationships/ClinicalRelationship.xsd"/>
@@ -115,7 +115,7 @@
                             <!-- SDA: Encounter -->
                             <xs:element name="Treatment" type="Treatment"  minOccurs="0" maxOccurs="unbounded"/>
                             <!-- SDA: Encounter -->
-                            <xs:element name="Transplant" type="Transplant"  minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element name="TransplantList" type="TransplantList"  minOccurs="0" maxOccurs="unbounded"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>

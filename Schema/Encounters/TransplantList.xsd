@@ -6,7 +6,7 @@
 	<xs:include schemaLocation="../Types/CodedField.xsd"/>
 	<xs:include schemaLocation="../Types/ActionCode.xsd"/>
 
-	<xs:complexType name="Transplant">
+	<xs:complexType name="TransplantList">
 		<xs:sequence>
 			<xs:element minOccurs="0" name="UpdatedOn" type="xs:dateTime">
 				<xs:annotation>
