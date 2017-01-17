@@ -25,11 +25,15 @@
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="SendingFacility">
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:maxLength value="220"/>
-						</xs:restriction>
-					</xs:simpleType>
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="xs:string">
+								<xs:attribute name="channelName"/>
+								<xs:attribute name="channelId"/>
+								<xs:attribute name="time"/>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
 				</xs:element>
 				<xs:element name="Patient" type="Patient" minOccurs="1"/>
 				<xs:element name="LabOrders" minOccurs="0">
