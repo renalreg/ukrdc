@@ -3,7 +3,6 @@
 	<xs:include schemaLocation="../Types/Location.xsd"/>
 	<xs:include schemaLocation="../Types/CF_SNOMED.xsd"/>
 	<xs:include schemaLocation="../Types/CodedField.xsd"/>
-	<xs:include schemaLocation="../Types/ActionCode.xsd"/>
 	<xs:include schemaLocation="../Types/CommonMetadata.xsd"/>
 	<xs:complexType name="FamilyHistory">
 		<xs:sequence>
@@ -40,5 +39,4 @@
 			<xs:group ref="CommonMetadata"/>
 		</xs:sequence>
 	</xs:complexType>
-
 </xs:schema>

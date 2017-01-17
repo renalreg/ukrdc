@@ -1,5 +1,4 @@
 <xs:schema xmlns="http://www.rixg.org.uk/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.rixg.org.uk/">
-
 	<xs:include schemaLocation="Types/Address.xsd"/>
 	<xs:include schemaLocation="Types/ContactDetail.xsd"/>
 	<xs:include schemaLocation="Types/EthnicGroup.xsd"/>
@@ -9,8 +8,7 @@
 	<xs:include schemaLocation="Types/Language.xsd"/>
 	<xs:include schemaLocation="Types/PatientNumber.xsd"/>
 	<xs:include schemaLocation="Types/PersonalContactType.xsd"/>
-
-
+	<xs:include schemaLocation="Types/CommonMetadata.xsd"/>
 	<xs:complexType name="Patient">
 		<xs:sequence>
 			<xs:element name="PatientNumbers" minOccurs="0">
@@ -83,6 +81,7 @@
 					<xs:documentation>Present only when dead - replaces isDead concept</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:group ref="CommonMetadata"/>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>
