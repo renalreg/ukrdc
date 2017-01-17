@@ -1,18 +1,12 @@
+<!-- edited with XMLSpy v2015 rel. 4 (x64) (http://www.altova.com) by Nick Jones (Agiloak Limited) -->
 <xs:schema xmlns="http://www.rixg.org.uk/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.rixg.org.uk/">
-
 	<xs:include schemaLocation="../Types/Clinician.xsd"/>
 	<xs:include schemaLocation="../Types/Location.xsd"/>
 	<xs:include schemaLocation="../Types/CF_RR7_Treatment.xsd"/>
 	<xs:include schemaLocation="../Types/CF_RR7_Discharge.xsd"/>
-	<xs:include schemaLocation="../Types/ActionCode.xsd"/>
-
+	<xs:include schemaLocation="../Types/CommonMetadata.xsd"/>
 	<xs:complexType name="Treatment">
 		<xs:sequence>
-			<xs:element minOccurs="0" name="UpdatedOn" type="xs:dateTime">
-				<xs:annotation>
-					<xs:documentation>Last Modified Date</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="EncounterNumber" type="xs:string"/>
 			<xs:element name="EncounterType">
 				<xs:annotation>
@@ -21,40 +15,40 @@
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
 						<xs:enumeration value="E">
-                            <xs:annotation>
-                                <xs:documentation>Emergency</xs:documentation>
-                            </xs:annotation>                  
-                        </xs:enumeration>
+							<xs:annotation>
+								<xs:documentation>Emergency</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
 						<xs:enumeration value="I">
-                            <xs:annotation>
-                                <xs:documentation>Inpatient</xs:documentation>
-                            </xs:annotation>                  
-                        </xs:enumeration>                        
+							<xs:annotation>
+								<xs:documentation>Inpatient</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
 						<xs:enumeration value="O">
-                            <xs:annotation>
-                                <xs:documentation>Outpatient</xs:documentation>
-                            </xs:annotation>                  
-                        </xs:enumeration>
+							<xs:annotation>
+								<xs:documentation>Outpatient</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
 						<xs:enumeration value="N">
-                            <xs:annotation>
-                                <xs:documentation>N/A</xs:documentation>
-                            </xs:annotation>                  
-                        </xs:enumeration>                        
+							<xs:annotation>
+								<xs:documentation>N/A</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
 						<xs:enumeration value="G">
-                            <xs:annotation>
-                                <xs:documentation>?</xs:documentation>
-                            </xs:annotation>                  
-                        </xs:enumeration>                     
+							<xs:annotation>
+								<xs:documentation>?</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
 						<xs:enumeration value="P">
-                            <xs:annotation>
-                                <xs:documentation>Pre-Admit</xs:documentation>
-                            </xs:annotation>                  
-                        </xs:enumeration>                      
+							<xs:annotation>
+								<xs:documentation>Pre-Admit</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
 						<xs:enumeration value="S">
-                            <xs:annotation>
-                                <xs:documentation>?</xs:documentation>
-                            </xs:annotation>                  
-                        </xs:enumeration>                        
+							<xs:annotation>
+								<xs:documentation>?</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -73,19 +67,29 @@
 					<xs:documentation>Responsible Clinician as a National Clinicial code where possible or other local code if not.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="HealthCareFacility" type="Location" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Treatment Centre</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="AdmitReason" type="CF_RR7_TREATMENT" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Modality</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SeparationMode" type="CF_RR7_DISCHARGE" minOccurs="0">
+			<xs:element name="AdmissionSource" type="Location" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Parent renal unit as national ODS code (e.g. RXF01)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DischargeReason" type="CF_RR7_DISCHARGE" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Reason for Discharge</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="HealthCareFacility" type="Location" minOccurs="0">
+			<xs:element name="DischargeLocation" type="Location" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Treatment Centre</xs:documentation>
+					<xs:documentation>Parent renal unit as national ODS code (e.g. RXF01)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EnteredAt" type="Location" minOccurs="0">
@@ -123,7 +127,6 @@
 								<xs:documentation>Sodium in Dialysate</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-
 						<xs:element name="QBL05" type="xs:string">
 							<xs:annotation>
 								<xs:documentation>HD Treatment Location</xs:documentation>
@@ -139,7 +142,6 @@
 								<xs:documentation>Patient Participation</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-
 						<!-- Only for first RRT Treatment -->
 						<xs:element name="ERF61">
 							<xs:annotation>
@@ -175,27 +177,16 @@
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
-
 						<!-- TODO: We should be using Referrals objects for this -->
 						<xs:element name="PAT35" type="xs:string">
 							<xs:annotation>
 								<xs:documentation>Date of referral to renal team (i.e. date letter received)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element minOccurs="0" name="ActionCode" type="ActionCode">
-				<xs:annotation>
-					<xs:documentation>Add/Update/Delete Control</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="ExternalId" type="xs:string">
-				<xs:annotation>
-					<xs:documentation>Unique Identifier</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+			<xs:group ref="CommonMetadata"/>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>
