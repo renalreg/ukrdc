@@ -7,8 +7,7 @@
 	<xs:complexType name="Procedure">
 		<xs:sequence>
 			<!-- NOTE: This is Procedure in SDA -->
-			<xs:element name="ProcedureType" type="CF_SNOMED" minOccurs="0">
-			</xs:element>
+			<xs:element name="ProcedureType" type="CF_SNOMED" minOccurs="0"/>
 			<xs:element name="Clinician" type="Clinician" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>National Clinicial code where possible or other local code if not.</xs:documentation>
@@ -31,5 +30,7 @@
 			</xs:element>
 			<xs:group ref="CommonMetadata"/>
 		</xs:sequence>
+		<xs:attribute name="start" type="xs:date" use="required"/>
+		<xs:attribute name="stop" type="xs:date" use="required"/>
 	</xs:complexType>
 </xs:schema>
