@@ -3,6 +3,7 @@
 	<xs:include schemaLocation="../Types/Clinician.xsd"/>
 	<xs:include schemaLocation="../Types/CF_HL7_0004.xsd"/>
 	<xs:include schemaLocation="../Types/CommonMetadata.xsd"/>
+	<xs:include schemaLocation="../Types/CodedField.xsd"/>
 	<xs:complexType name="LabOrder">
 		<xs:sequence>
 			<xs:element name="PlacerId" type="xs:string" minOccurs="0">
@@ -26,64 +27,35 @@
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="ServiceId">
+						<xs:element name="ServiceId" type="CodedField">
 							<xs:annotation>
 								<xs:documentation>OBR:4 Service Id - the identity of the test ordered LOINC Code ???</xs:documentation>
-							</xs:annotation>
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="CodingStandard" minOccurs="0">
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:maxLength value="32000"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="Code" minOccurs="0">
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:maxLength value="32000"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="Description" minOccurs="0">
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:maxLength value="32000"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-						<xs:element name="SpecimenSource" type="xs:string">
-							<xs:annotation>
-								<xs:documentation>OBR:15.1 e.g. serum, blood</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="SpecimenAdditives">
-							<xs:annotation>
-								<xs:documentation>OBR:15.2 e.g. preservative ....</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="SpecimenReceivedTime" type="xs:dateTime">
-							<xs:annotation>
-								<xs:documentation>CCYYMMDDhhmm Equivalent to OBR:14</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="SpecimenCollectedTime" type="xs:dateTime">
-							<xs:annotation>
-								<xs:documentation>CCYYMMDDhhmm Equivalent to OBR:22</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="Duration" type="xs:string" minOccurs="0">
-							<xs:annotation>
-								<!-- TODO: Confirm This -->
-								<xs:documentation>OBR:27.3</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
+			</xs:element>
+			<xs:element name="OrderCategory" type="CodedField" minOccurs="0"/>
+			<xs:element name="SpecimenCollectedTime" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>CCYYMMDDhhmm Equivalent to OBR:22</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SpecimenReceivedTime" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>CCYYMMDDhhmm Equivalent to OBR:14</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SpecimenSource" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>OBR:15.1 e.g. serum, blood</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Duration" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<!-- TODO: Confirm This -->
+					<xs:documentation>OBR:27.3</xs:documentation>
+				</xs:annotation>
 			</xs:element>
 			<xs:element name="ResultItems" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
@@ -93,35 +65,10 @@
 								<xs:documentation>OBX:2 Value Type - ST/NM</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="ServiceId" minOccurs="0">
+						<xs:element name="ServiceId" type="CodedField" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>OBX:3 </xs:documentation>
 							</xs:annotation>
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="CodingStandard" minOccurs="0">
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:maxLength value="32000"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="Code" minOccurs="0">
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:maxLength value="32000"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="Description" minOccurs="0">
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:maxLength value="32000"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
 						</xs:element>
 						<xs:element name="SubId" minOccurs="0">
 							<xs:annotation>
@@ -200,6 +147,7 @@
 								<xs:documentation>??? Not sure where/if this is in HL7 or what the vocab is???</xs:documentation>
 							</xs:annotation>
 						</xs:element>
+						<xs:element name="EnteredOn" type="xs:dateTime" minOccurs="0"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -209,6 +157,11 @@
 				</xs:annotation>
 			</xs:element>
 			<!-- Note: UpdatedOn is down here (rather than at the top as usual) in the SDA -->
+			<xs:element name="EnteredOn" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Date Order entered</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:group ref="CommonMetadata"/>
 		</xs:sequence>
 	</xs:complexType>

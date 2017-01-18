@@ -71,7 +71,7 @@
 					<xs:documentation>Parent renal unit as national ODS code (e.g. RXF01)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="AdmitReason" type="xs:string" minOccurs="0">
+			<xs:element name="AdmitReason" type="CodedField" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Reason for change of care</xs:documentation>
 				</xs:annotation>

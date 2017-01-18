@@ -30,7 +30,5 @@
 			</xs:element>
 			<xs:group ref="CommonMetadata"/>
 		</xs:sequence>
-		<xs:attribute name="start" type="xs:date" use="required"/>
-		<xs:attribute name="stop" type="xs:date" use="required"/>
 	</xs:complexType>
 </xs:schema>

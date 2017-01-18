@@ -24,11 +24,6 @@
 										<xs:documentation>Vascular Access Site</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element name="QHD33" type="xs:string">
-									<xs:annotation>
-										<xs:documentation>Needling Method</xs:documentation>
-									</xs:annotation>
-								</xs:element>
 								<xs:element name="QHD22" type="xs:string">
 									<xs:annotation>
 										<xs:documentation>Access in two sites simultaneously</xs:documentation>
@@ -49,10 +44,17 @@
 										<xs:documentation>Sodium in Dialysate</xs:documentation>
 									</xs:annotation>
 								</xs:element>
+								<xs:element name="QHD33" type="xs:string">
+									<xs:annotation>
+										<xs:documentation>Needling Method</xs:documentation>
+									</xs:annotation>
+								</xs:element>
 							</xs:sequence>
 						</xs:complexType>
 					</xs:element>
 				</xs:sequence>
+				<xs:attribute name="start" type="xs:date" use="required"/>
+				<xs:attribute name="stop" type="xs:date" use="required"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
