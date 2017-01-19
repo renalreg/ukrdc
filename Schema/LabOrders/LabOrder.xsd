@@ -4,6 +4,7 @@
 	<xs:include schemaLocation="../Types/CF_HL7_0004.xsd"/>
 	<xs:include schemaLocation="../Types/CommonMetadata.xsd"/>
 	<xs:include schemaLocation="../Types/CodedField.xsd"/>
+	<xs:include schemaLocation="../Types/Location.xsd"/>
 	<xs:complexType name="LabOrder">
 		<xs:sequence>
 			<xs:element name="PlacerId" type="xs:string" minOccurs="0">
@@ -21,19 +22,10 @@
 					<xs:documentation>ORC:12 Requesting Physician as a nationally coded person. Use the description if this is not coded. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="OrderItem" minOccurs="0">
+			<xs:element name="OrderItem" type="CodedField" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The requested test</xs:documentation>
+					<xs:documentation>OBR:4 Service Id - the identity of the test ordered LOINC Code ???</xs:documentation>
 				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="ServiceId" type="CodedField">
-							<xs:annotation>
-								<xs:documentation>OBR:4 Service Id - the identity of the test ordered LOINC Code ???</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
 			</xs:element>
 			<xs:element name="OrderCategory" type="CodedField" minOccurs="0"/>
 			<xs:element name="SpecimenCollectedTime" type="xs:dateTime">
@@ -46,6 +38,12 @@
 					<xs:documentation>CCYYMMDDhhmm Equivalent to OBR:14</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="Status" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<!-- TODO: Confirm This -->
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Priority" type="CodedField" minOccurs="0"/>
 			<xs:element name="SpecimenSource" type="xs:string">
 				<xs:annotation>
 					<xs:documentation>OBR:15.1 e.g. serum, blood</xs:documentation>
@@ -60,9 +58,15 @@
 			<xs:element name="ResultItems" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="ObservationValueType" minOccurs="0">
+						<xs:element name="ResultType" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>OBX:2 Value Type - ST/NM</xs:documentation>
+								<xs:documentation>AT</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="EnteredOn" type="xs:dateTime" minOccurs="0"/>
+						<xs:element name="PrePost" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Was the sample taken Before (B) or After (A) dialysis</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="ServiceId" type="CodedField" minOccurs="0">
@@ -80,7 +84,7 @@
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
-						<xs:element name="ObservationValue" type="xs:string" minOccurs="0">
+						<xs:element name="ResultValue" type="xs:string" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>OBX:5</xs:documentation>
 							</xs:annotation>
@@ -142,12 +146,6 @@
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
-						<xs:element name="Assay" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>??? Not sure where/if this is in HL7 or what the vocab is???</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="EnteredOn" type="xs:dateTime" minOccurs="0"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -160,6 +158,11 @@
 			<xs:element name="EnteredOn" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Date Order entered</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EnteredAt" type="Location" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Location the procedure was performed at. Use National coding e.g. RXF01</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:group ref="CommonMetadata"/>
