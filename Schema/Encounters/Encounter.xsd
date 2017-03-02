@@ -96,7 +96,7 @@
 					<xs:documentation>National code for the hospital providing care - e.g. RXF01</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="VisitDescription" minOccurs="0">
+			<xs:element name="VisitDescription" type="xs:string" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Details of validation e.g. Date Done, by whom, who provided the info</xs:documentation>
 				</xs:annotation>

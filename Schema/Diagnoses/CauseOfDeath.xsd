@@ -6,7 +6,7 @@
 	<!-- SDA: Diagnosis -->
 	<xs:complexType name="CauseOfDeath">
 		<xs:sequence>
-			<xs:element name="DiagnosisType" minOccurs="0">
+			<xs:element name="DiagnosisType" type="xs:string" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The type of diagnosis: admitting, working, final, discharge</xs:documentation>
 				</xs:annotation>
@@ -21,7 +21,7 @@
 					<xs:documentation>Coded Caused of Death (EDTA)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="EnteredOn">
+			<xs:element name="EnteredOn" type="xs:dateTime">
 				<xs:annotation>
 					<xs:documentation>The date the COD was recorded in the medical record.</xs:documentation>
 				</xs:annotation>
