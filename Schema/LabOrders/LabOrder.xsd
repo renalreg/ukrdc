@@ -2,229 +2,172 @@
 
     <xs:include schemaLocation="../Types/Clinician.xsd"/>
     <xs:include schemaLocation="../Types/ActionCode.xsd"/>
-    <xs:include schemaLocation="../Types/CF_HL7_0004.xsd"/>
+    <xs:include schemaLocation="../Types/Order.xsd"/>
+    <xs:include schemaLocation="../Types/CodeTableDetail.xsd"/>
 
-    <xs:complexType name="LabOrder">
-        <xs:sequence>
-            <xs:element name="PlacerId" type="xs:string" minOccurs="0">
-                <xs:annotation>
-                    <xs:documentation>ORC:2 Placers Order Id</xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="FillerId" minOccurs="0">
-                <xs:annotation>
-                    <xs:documentation>ORC:3 Labs Order Id</xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="OrderedBy" type="Clinician" minOccurs="0">
-                <xs:annotation>
-                    <xs:documentation>ORC:12 Requesting Physician as a nationally coded person. Use the description if this is not coded. </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="OrderItem" minOccurs="0">
-                <xs:annotation>
-                    <xs:documentation>The requested test</xs:documentation>
-                </xs:annotation>
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="ServiceId">
-                            <xs:annotation>
-                                <xs:documentation>OBR:4 Service Id - the identity of the test ordered LOINC Code ???</xs:documentation>
-                            </xs:annotation>
-                            <xs:complexType>
-                                <xs:sequence>
-                                    <xs:element name="CodingStandard" minOccurs="0">
-                                        <xs:simpleType>
-                                            <xs:restriction base="xs:string">
-                                                <xs:maxLength value="32000"/>
-                                            </xs:restriction>
-                                        </xs:simpleType>
-                                    </xs:element>
-                                    <xs:element name="Code" minOccurs="0">
-                                        <xs:simpleType>
-                                            <xs:restriction base="xs:string">
-                                                <xs:maxLength value="32000"/>
-                                            </xs:restriction>
-                                        </xs:simpleType>
-                                    </xs:element>
-                                    <xs:element name="Description" minOccurs="0">
-                                        <xs:simpleType>
-                                            <xs:restriction base="xs:string">
-                                                <xs:maxLength value="32000"/>
-                                            </xs:restriction>
-                                        </xs:simpleType>
-                                    </xs:element>
-                                </xs:sequence>
-                            </xs:complexType>
-                        </xs:element>
-                        <xs:element name="SpecimenSource" type="xs:string">
-                            <xs:annotation>
-                                <xs:documentation>OBR:15.1 e.g. serum, blood</xs:documentation>
-                            </xs:annotation>
-                        </xs:element>
-                        <xs:element name="SpecimenAdditives">
-                            <xs:annotation>
-                                <xs:documentation>OBR:15.2 e.g. preservative ....</xs:documentation>
-                            </xs:annotation>
-                        </xs:element>
-                        <xs:element name="SpecimenReceivedTime" type="xs:dateTime">
-                            <xs:annotation>
-                                <xs:documentation>CCYYMMDDhhmm Equivalent to OBR:14</xs:documentation>
-                            </xs:annotation>
-                        </xs:element>
-                        <xs:element name="SpecimenCollectedTime" type="xs:dateTime">
-                            <xs:annotation>
-                                <xs:documentation>CCYYMMDDhhmm Equivalent to OBR:22</xs:documentation>
-                            </xs:annotation>
-                        </xs:element>
-                        <xs:element name="Duration" type="xs:string" minOccurs="0">
-                            <xs:annotation>
-                                <!-- TODO: Confirm This -->
-                                <xs:documentation>OBR:27.3</xs:documentation>
-                            </xs:annotation>
-                        </xs:element>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="ResultItems" minOccurs="0" maxOccurs="unbounded">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="ObservationValueType" minOccurs="0">
-                            <xs:annotation>
-                                <xs:documentation>OBX:2 Value Type - ST/NM</xs:documentation>
-                            </xs:annotation>
-                        </xs:element>
-                        <xs:element name="ServiceId" minOccurs="0">
-                            <xs:annotation>
-                                <xs:documentation>OBX:3 </xs:documentation>
-                            </xs:annotation>
-                            <xs:complexType>
-                                <xs:sequence>
-                                    <xs:element name="CodingStandard" minOccurs="0">
-                                        <xs:simpleType>
-                                            <xs:restriction base="xs:string">
-                                                <xs:maxLength value="32000"/>
-                                            </xs:restriction>
-                                        </xs:simpleType>
-                                    </xs:element>
-                                    <xs:element name="Code" minOccurs="0">
-                                        <xs:simpleType>
-                                            <xs:restriction base="xs:string">
-                                                <xs:maxLength value="32000"/>
-                                            </xs:restriction>
-                                        </xs:simpleType>
-                                    </xs:element>
-                                    <xs:element name="Description" minOccurs="0">
-                                        <xs:simpleType>
-                                            <xs:restriction base="xs:string">
-                                                <xs:maxLength value="32000"/>
-                                            </xs:restriction>
-                                        </xs:simpleType>
-                                    </xs:element>
-                                </xs:sequence>
-                            </xs:complexType>
-                        </xs:element>
-                        <xs:element name="SubId" minOccurs="0">
-                            <xs:annotation>
-                                <xs:documentation>OBX:4</xs:documentation>
-                            </xs:annotation>
-                            <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                    <xs:maxLength value="30"/>
-                                </xs:restriction>
-                            </xs:simpleType>
-                        </xs:element>
-                        <xs:element name="ObservationValue" type="xs:string" minOccurs="0">
-                            <xs:annotation>
-                                <xs:documentation>OBX:5</xs:documentation>
-                            </xs:annotation>
-                        </xs:element>
-                        <xs:element name="ResultValueUnits" minOccurs="0">
-                            <xs:annotation>
-                                <xs:documentation>OBX:6</xs:documentation>
-                            </xs:annotation>
-                            <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                    <xs:maxLength value="30"/>
-                                </xs:restriction>
-                            </xs:simpleType>
-                        </xs:element>
-                        <xs:element name="ReferenceRange" minOccurs="0">
-                            <xs:annotation>
-                                <xs:documentation>OBX:7</xs:documentation>
-                            </xs:annotation>
-                            <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                    <xs:maxLength value="220"/>
-                                </xs:restriction>
-                            </xs:simpleType>
-                        </xs:element>
-                        <xs:element name="AbnormalFlags" minOccurs="0">
-                            <xs:annotation>
-                                <xs:documentation>OBX:8 Abnormal Flags</xs:documentation>
-                            </xs:annotation>
-                            <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                    <xs:maxLength value="100"/>
-                                </xs:restriction>
-                            </xs:simpleType>
-                        </xs:element>
-                        <xs:element name="Status" minOccurs="0">
-                            <xs:annotation>
-                                <xs:documentation>OBX:11 F=FINAL, P=PRELIMINARY, D=DELETED</xs:documentation>
-                            </xs:annotation>
-                            <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                    <xs:maxLength value="100"/>
-                                </xs:restriction>
-                            </xs:simpleType>
-                        </xs:element>
-                        <xs:element name="ObservationTime" type="xs:dateTime" minOccurs="0">
-                            <xs:annotation>
-                                <xs:documentation>OBX:14</xs:documentation>
-                            </xs:annotation>
-                        </xs:element>
-                        <xs:element name="Comments" type="xs:string" minOccurs="0">
-                            <xs:annotation>
-                                <xs:documentation>From NTE:3</xs:documentation>
-                            </xs:annotation>
-                        </xs:element>
-                        <xs:element name="ReferenceComment" minOccurs="0">
-                            <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                    <xs:maxLength value="1000"/>
-                                </xs:restriction>
-                            </xs:simpleType>
-                        </xs:element>
-                        <xs:element name="Assay" minOccurs="0">
-                            <xs:annotation>
-                                <xs:documentation>??? Not sure where/if this is in HL7 or what the vocab is???</xs:documentation>
-                            </xs:annotation>
-                        </xs:element>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="PatientClass" type="CF_HL7_0004" minOccurs="0">
-                <xs:annotation>
-                    <xs:documentation>In patient / out patient - equivalent ot PV1:2 Patient Class or derivation thereiof Where can this map to in SDA????</xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element minOccurs="0" name="ActionCode" type="ActionCode">
-                <xs:annotation>
-                    <xs:documentation>Add/Update/Delete Control</xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <!-- Note: UpdatedOn is down here (rather than at the top as usual) in the SDA -->
-            <xs:element minOccurs="0" name="UpdatedOn" type="xs:dateTime">
-                <xs:annotation>
-                    <xs:documentation>Last Modified Date</xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element minOccurs="0" name="ExternalId" type="xs:string">
-                <xs:annotation>
-                    <xs:documentation>Unique Identifier</xs:documentation>
-                </xs:annotation>
-            </xs:element>
-        </xs:sequence>
-    </xs:complexType>
+<xs:complexType name="LabOrder">
+    <xs:sequence>
+        <xs:element minOccurs="0" name="PlacerId" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>The ID assigned to the order when it was placed</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="FillerId" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>The ID assigned to the order when it was filled</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="OrderItem" type="Order">
+            <xs:annotation>
+                <xs:documentation>What was ordered</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="OrderCategory" type="CodeTableDetail">
+            <xs:annotation>
+                <xs:documentation>This is used when you want a specific Order Category in order to group items in the viewer.</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="OrderedBy" type="Clinician">
+            <xs:annotation>
+                <xs:documentation>Who ordered it</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="Specimen" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Specimen code and description</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="SpecimenCollectedTime" type="xs:dateTime">
+            <xs:annotation>
+                <xs:documentation>Date/time the specimen was collected</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="SpecimenReceivedTime" type="xs:dateTime">
+            <xs:annotation>
+                <xs:documentation>Date/time the specimen was received</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="Frequency" type="Frequency">
+            <xs:annotation>
+                <xs:documentation>Frequency</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="Duration" type="Duration">
+            <xs:annotation>
+                <xs:documentation>Duration</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="Status" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>The current status of the order</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="Priority" type="Priority">
+            <xs:annotation>
+                <xs:documentation>The Priority of the Order</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="Condition" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Condition</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="TextInstruction" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Text instructions/directions</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="OrderGroup" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>This is a way to group related Orders together, such as a Prescription chain</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="Comments" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Order Comments and notes.</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="AuthorizationTime" type="xs:dateTime">
+            <xs:annotation>
+                <xs:documentation>Date/Time the Order was Authorized</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="ReceivingLocation" type="HealthCareFacility">
+            <xs:annotation>
+                <xs:documentation>Location or Facility receiving/performing the order.</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="VerifiedComments" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Verified Order Comments and notes.</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="GroupId" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>If this item was ordered as part of a group, this is the identifier of that group.</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="ActionCode" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Message action code</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="ActionScope" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Not used.</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="EnteredBy" type="User">
+            <xs:annotation>
+                <xs:documentation>EnteredBy</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="EnteredAt" type="Organization">
+            <xs:annotation>
+                <xs:documentation></xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="EnteredOn" type="TimeStamp">
+            <xs:annotation>
+                <xs:documentation></xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="FromTime" type="xs:dateTime">
+            <xs:annotation>
+                <xs:documentation>Start Date and Time of the Order</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="ToTime" type="xs:dateTime">
+            <xs:annotation>
+                <xs:documentation>End Date and Time of the Order</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="UpdatedOn" type="xs:dateTime">
+            <xs:annotation>
+                <xs:documentation></xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="ExternalId" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Identifier used by systems outside HealthShare.</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="EncounterNumber" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>EncounterNumber - used to find the (or create a new) Encounter</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="CustomPairs" type="ArrayOfNVPairNVPair">
+            <xs:annotation>
+                <xs:documentation>The generic container to hold all sorts of data about this object</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="Result" type="Result">
+            <xs:annotation>
+                <xs:documentation></xs:documentation>
+            </xs:annotation>
+        </xs:element>
+    </xs:sequence>
+</xs:complexType>
+
 </xs:schema>
