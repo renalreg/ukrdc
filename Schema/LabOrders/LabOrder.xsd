@@ -55,99 +55,12 @@
 					<xs:documentation>OBR:27.3</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ResultItems" minOccurs="0" maxOccurs="unbounded">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="ResultType" type="xs:string" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>AT</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="EnteredOn" type="xs:dateTime" minOccurs="0"/>
-						<xs:element name="PrePost" type="xs:string" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>Was the sample taken Before (B) or After (A) dialysis</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="ServiceId" type="CodedField" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>OBX:3 </xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="SubId" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>OBX:4</xs:documentation>
-							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:maxLength value="30"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:element>
-						<xs:element name="ResultValue" type="xs:string" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>OBX:5</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="ResultValueUnits" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>OBX:6</xs:documentation>
-							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:maxLength value="30"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:element>
-						<xs:element name="ReferenceRange" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>OBX:7</xs:documentation>
-							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:maxLength value="220"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:element>
-						<xs:element name="AbnormalFlags" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>OBX:8 Abnormal Flags</xs:documentation>
-							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:maxLength value="100"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:element>
-						<xs:element name="Status" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>OBX:11 F=FINAL, P=PRELIMINARY, D=DELETED</xs:documentation>
-							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:maxLength value="100"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:element>
-						<xs:element name="ObservationTime" type="xs:dateTime" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>OBX:14</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="Comments" type="xs:string" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>From NTE:3</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="ReferenceComment" minOccurs="0">
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:maxLength value="1000"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
+			<xs:element name="ResultItems">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ResultItem" type="ResultItem" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
 			</xs:element>
 			<xs:element name="PatientClass" type="CF_HL7_0004" minOccurs="0">
 				<xs:annotation>
@@ -166,6 +79,98 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:group ref="CommonMetadata"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResultItem">
+		<xs:sequence>
+			<xs:element name="ResultType" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>AT</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EnteredOn" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="PrePost" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Was the sample taken Before (B) or After (A) dialysis</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ServiceId" type="CodedField" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>OBX:3 </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SubId" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>OBX:4</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ResultValue" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>OBX:5</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResultValueUnits" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>OBX:6</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ReferenceRange" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>OBX:7</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="220"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="AbnormalFlags" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>OBX:8 Abnormal Flags</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Status" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>OBX:11 F=FINAL, P=PRELIMINARY, D=DELETED</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ObservationTime" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>OBX:14</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Comments" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>From NTE:3</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReferenceComment" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="1000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>
