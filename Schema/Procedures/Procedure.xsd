@@ -7,13 +7,17 @@
 	<xs:complexType name="Procedure">
 		<xs:sequence>
 			<!-- NOTE: This is Procedure in SDA -->
-			<xs:element name="ProcedureType" type="CF_SNOMED" minOccurs="0"/>
+			<xs:element name="ProcedureType" type="CF_SNOMED">
+				<xs:annotation>
+					<xs:documentation>At least code must be entered</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Clinician" type="Clinician" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>National Clinicial code where possible or other local code if not.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ProcedureTime" type="xs:dateTime" minOccurs="0">
+			<xs:element name="ProcedureTime" type="xs:dateTime">
 				<xs:annotation>
 					<xs:documentation>As CCYYMMDDhhmm</xs:documentation>
 				</xs:annotation>
