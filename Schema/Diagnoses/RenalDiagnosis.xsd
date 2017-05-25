@@ -1,8 +1,41 @@
 <xs:schema xmlns="http://www.rixg.org.uk/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.rixg.org.uk/">
-	<xs:include schemaLocation="Diagnosis.xsd"/>
+	<xs:include schemaLocation="../Types/Clinician.xsd"/>
+	<xs:include schemaLocation="../Types/CF_EDTA_PRD.xsd"/>
+	<xs:include schemaLocation="../Types/CommonMetadata.xsd"/>
+	<!-- SDA: Diagnosis -->
 	<xs:complexType name="RenalDiagnosis">
-		<xs:complexContent>
-			<xs:extension base="Diagnosis"/>
-		</xs:complexContent>
+		<xs:sequence>
+			<xs:element name="DiagnosisType" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The type of diagnosis: admitting, working, final, discharge</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DiagnosingClinician" type="Clinician" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Clinician Coding Death</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Diagnosis" type="CF_EDTA_PRD">
+				<xs:annotation>
+					<xs:documentation>Coded Caused of Death (EDTA)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IdentificationTime" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Date of initial diagnosis</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OnsetTime" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Date condition began. Can use approximate dates through truncation. CCYYMMDD or CCYYMM or CCYY</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EnteredOn" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>The date the diagnosis was recorded in the medical record.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:group ref="CommonMetadata"/>
+		</xs:sequence>
 	</xs:complexType>
 </xs:schema>
