@@ -49,7 +49,7 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Priority" type="CodedField" minOccurs="0"/>
-			<xs:element name="SpecimenSource" type="xs:string">
+			<xs:element name="SpecimenSource" type="xs:string" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>OBR:15.1 e.g. serum, blood</xs:documentation>
 				</xs:annotation>
