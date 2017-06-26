@@ -6,7 +6,7 @@
 
 	<xs:complexType name="DrugProduct">
 		<xs:sequence>
-			<xs:element name="Id" type="CF_DMD">
+			<xs:element name="Id" type="CF_DMD" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>dm + d code for the drug</xs:documentation>
 				</xs:annotation>
