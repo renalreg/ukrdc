@@ -33,12 +33,12 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="OrderCategory" type="CodedField" minOccurs="0"/>
-			<xs:element name="SpecimenCollectedTime" type="xs:dateTime">
+			<xs:element name="SpecimenCollectedTime" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>CCYYMMDDhhmm Equivalent to OBR:22</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SpecimenReceivedTime" type="xs:dateTime">
+			<xs:element name="SpecimenReceivedTime" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>CCYYMMDDhhmm Equivalent to OBR:14</xs:documentation>
 				</xs:annotation>
