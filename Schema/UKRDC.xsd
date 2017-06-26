@@ -25,7 +25,7 @@
 	<xs:element name="PatientRecord">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="SendingFacility">
+				<xs:element name="SendingFacility" minOccurs="1">
 					<xs:complexType>
 						<xs:simpleContent>
 							<xs:extension base="xs:string">
