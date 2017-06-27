@@ -83,7 +83,7 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="Scores">
+			<xs:element name="Scores" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="Score" minOccurs="0" maxOccurs="unbounded">
