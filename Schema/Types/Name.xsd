@@ -21,7 +21,7 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="Given" minOccurs="0" maxOccurs="2">
+			<xs:element name="Given" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Up to 2 given names. If the person has more than 2 concatenate in the 2nd occurrence. 1 occurrence is mandatory for a Usual name.</xs:documentation>
 				</xs:annotation>
