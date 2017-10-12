@@ -42,7 +42,7 @@
 				</xs:simpleType>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="use">
+		<xs:attribute name="use" use="required">
 			<xs:annotation>
 				<xs:documentation>Use codes from PDS L=Usual A=Alias (0..*) PREFERRED=Preferred PREVIOUS-BIRTH=Birth name</xs:documentation>
 			</xs:annotation>
