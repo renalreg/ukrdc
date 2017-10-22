@@ -31,10 +31,34 @@
 			</xs:element>
 			<xs:element name="BirthTime" type="xs:dateTime" minOccurs="0"/>
 			<xs:element name="DeathTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="Gender" type="xs:string" minOccurs="0">
+			<xs:element name="Gender" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>From NHS Dictionary 0=Not Known 1=Male 2=Female 9=Not Specified 1 instance of name must be present if an NHS Number or CHI Number is included.</xs:documentation>
+					<xs:documentation>From NHS Dictionary</xs:documentation>
 				</xs:annotation>
+                <xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="0">
+							<xs:annotation>
+								<xs:documentation>Not Known</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation>Male</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation>Female</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="9">
+							<xs:annotation>
+								<xs:documentation>Not Stated</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+                    </xs:restriction>
+                </xs:simpleType>
 			</xs:element>
 			<xs:element name="Addresses" minOccurs="0">
 				<xs:complexType>
