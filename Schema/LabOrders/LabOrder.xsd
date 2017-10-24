@@ -5,6 +5,7 @@
 	<xs:include schemaLocation="../Types/CommonMetadata.xsd"/>
 	<xs:include schemaLocation="../Types/CodedField.xsd"/>
 	<xs:include schemaLocation="../Types/Location.xsd"/>
+    <xs:include schemaLocation="../Types/ServiceId.xsd"/>
 	<xs:complexType name="LabOrder">
 		<xs:sequence>
 			<xs:element name="ReceivingLocation" type="Location" minOccurs="0">
@@ -94,19 +95,43 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EnteredOn" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="PrePost" type="xs:string" minOccurs="0">
+			<xs:element name="PrePost" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Was the sample taken Before (B) or After (A) dialysis</xs:documentation>
+					<xs:documentation>Was the sample taken PRE or POST dialysis</xs:documentation>
 				</xs:annotation>
+                <xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="PRE">
+							<xs:annotation>
+								<xs:documentation>Pre-Dialysis</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="POST">
+							<xs:annotation>
+								<xs:documentation>Post-Dialysis</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="UNK">
+							<xs:annotation>
+								<xs:documentation>Unknown</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="NA">
+							<xs:annotation>
+								<xs:documentation>Not Applicable</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+                    </xs:restriction>
+                </xs:simpleType>                
 			</xs:element>
-			<xs:element name="ServiceId" type="CodedField" minOccurs="0">
+			<xs:element name="ServiceId" type="ServiceId" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>OBX:3 </xs:documentation>
+					<xs:documentation>Test Code (OBX:3)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SubId" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>OBX:4</xs:documentation>
+					<xs:documentation>Sub-Test Code (OBX:4)</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
