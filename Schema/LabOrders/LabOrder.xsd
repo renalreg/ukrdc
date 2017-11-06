@@ -13,7 +13,13 @@
         </xs:sequence>
         <xs:attribute name="start" type="xs:date"/>
         <xs:attribute name="stop" type="xs:date"/>
-    </xs:complexType>   
+    </xs:complexType>    
+    <xs:complexType name="ResultItems">
+        <xs:sequence>
+            <xs:element name="ResultItem" type="ResultItem" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
 	<xs:complexType name="LabOrder">
 		<xs:sequence>
 			<xs:element name="ReceivingLocation" type="Location" minOccurs="0">
@@ -69,13 +75,7 @@
 					<xs:documentation>OBR:27.3</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ResultItems">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="ResultItem" type="ResultItem" minOccurs="0" maxOccurs="unbounded"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
+			<xs:element name="ResultItems" type="ResultItems"/>
 			<xs:element name="PatientClass" type="CF_HL7_0004" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>In patient / out patient - equivalent ot PV1:2 Patient Class or derivation thereiof Where can this map to in SDA????</xs:documentation>
