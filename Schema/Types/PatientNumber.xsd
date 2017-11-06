@@ -1,4 +1,11 @@
 <xs:schema xmlns="http://www.rixg.org.uk/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.rixg.org.uk/">
+
+    <xs:complexType name="PatientNumbers">
+        <xs:sequence>
+            <xs:element name="PatientNumber" type="PatientNumber" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
     <xs:complexType name="PatientNumber">
         <xs:sequence>
             <xs:element name="Number" minOccurs="0">

@@ -11,13 +11,7 @@
 	<xs:include schemaLocation="Types/CommonMetadata.xsd"/>
 	<xs:complexType name="Patient">
 		<xs:sequence>
-			<xs:element name="PatientNumbers" minOccurs="0">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="PatientNumber" type="PatientNumber" maxOccurs="unbounded"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
+			<xs:element name="PatientNumbers" type="PatientNumbers" minOccurs="0"/>
 			<xs:element name="Names">
 				<xs:complexType>
 					<xs:sequence>
