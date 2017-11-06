@@ -42,15 +42,7 @@
 				</xs:annotation>
 			</xs:element>
 				<xs:element name="Patient" type="Patient" minOccurs="1"/>
-				<xs:element name="LabOrders" type='LabOrders' minOccurs="0">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="LabOrder" type="LabOrder" minOccurs="0" maxOccurs="unbounded"/>
-						</xs:sequence>
-						<xs:attribute name="start" type="xs:date"/>
-						<xs:attribute name="stop" type="xs:date"/>
-					</xs:complexType>
-				</xs:element>
+				<xs:element name="LabOrders" type='LabOrders' minOccurs="0"/>
 				<xs:element name="SocialHistories" minOccurs="0">
 					<xs:complexType>
 						<xs:sequence>
