@@ -6,6 +6,14 @@
 	<xs:include schemaLocation="../Types/CodedField.xsd"/>
 	<xs:include schemaLocation="../Types/Location.xsd"/>
     <xs:include schemaLocation="../Types/ServiceId.xsd"/>
+    
+    <xs:complexType name="LabOrders">
+        <xs:sequence>
+            <xs:element name="LabOrder" type="LabOrder" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="start" type="xs:date"/>
+        <xs:attribute name="stop" type="xs:date"/>
+    </xs:complexType>   
 	<xs:complexType name="LabOrder">
 		<xs:sequence>
 			<xs:element name="ReceivingLocation" type="Location" minOccurs="0">

@@ -42,8 +42,8 @@
 				</xs:annotation>
 			</xs:element>
 				<xs:element name="Patient" type="Patient" minOccurs="1"/>
-				<xs:element name="LabOrders" minOccurs="0">
-					<xs:complexType name="LabOrders">
+				<xs:element name="LabOrders" type='LabOrders' minOccurs="0">
+					<xs:complexType>
 						<xs:sequence>
 							<xs:element name="LabOrder" type="LabOrder" minOccurs="0" maxOccurs="unbounded"/>
 						</xs:sequence>
