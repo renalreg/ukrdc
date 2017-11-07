@@ -25,7 +25,7 @@
 			</xs:element>
 			<xs:element name="BirthTime" type="xs:dateTime" minOccurs="0"/>
 			<xs:element name="DeathTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="Gender" minOccurs="0">
+			<xs:element name="Gender" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>From NHS Dictionary</xs:documentation>
 				</xs:annotation>
