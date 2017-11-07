@@ -8,7 +8,7 @@
 
     <xs:complexType name="PatientNumber">
         <xs:sequence>
-            <xs:element name="Number" minOccurs="0">
+            <xs:element name="Number" minOccurs="1">
                 <xs:annotation>
                     <xs:documentation>Patient Idenfitication Number</xs:documentation>
                 </xs:annotation>
@@ -19,7 +19,7 @@
                 </xs:simpleType>
             </xs:element>
 
-            <xs:element name="Organization" minOccurs="0">
+            <xs:element name="Organization" minOccurs="1">
                 <xs:annotation>
                     <xs:documentation>Organisation that issued the number</xs:documentation>
                 </xs:annotation>
@@ -75,7 +75,7 @@
                 </xs:simpleType>
             </xs:element>
 
-            <xs:element minOccurs="0" name="NumberType">
+            <xs:element minOccurs="1" name="NumberType">
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
                         <xs:enumeration value="MRN">
