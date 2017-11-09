@@ -5,7 +5,7 @@
     <xs:include schemaLocation="../Types/CommonMetadata.xsd"/>
     <xs:complexType name="Encounter">
         <xs:sequence>
-            <xs:element name="EncounterNumber" type="xs:string"/>
+            <xs:element name="EncounterNumber" type="xs:string" minOccurs='0'/>
             <xs:element name="EncounterType">
                 <xs:annotation>
                     <xs:documentation>General Encounter Type (PV1-2)</xs:documentation>
