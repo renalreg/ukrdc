@@ -3,6 +3,7 @@
 	<xs:include schemaLocation="Types/ContactDetail.xsd"/>
 	<xs:include schemaLocation="Types/EthnicGroup.xsd"/>
 	<xs:include schemaLocation="Types/FamilyDoctor.xsd"/>
+    <xs:include schemaLocation="Types/Gender.xsd"/>
 	<xs:include schemaLocation="Types/Name.xsd"/>
 	<xs:include schemaLocation="Types/Occupation.xsd"/>
 	<xs:include schemaLocation="Types/Language.xsd"/>
@@ -25,35 +26,7 @@
 			</xs:element>
 			<xs:element name="BirthTime" type="xs:dateTime" minOccurs="0"/>
 			<xs:element name="DeathTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="Gender" minOccurs="1">
-				<xs:annotation>
-					<xs:documentation>From NHS Dictionary</xs:documentation>
-				</xs:annotation>
-                <xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="0">
-							<xs:annotation>
-								<xs:documentation>Not Known</xs:documentation>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="1">
-							<xs:annotation>
-								<xs:documentation>Male</xs:documentation>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="2">
-							<xs:annotation>
-								<xs:documentation>Female</xs:documentation>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="9">
-							<xs:annotation>
-								<xs:documentation>Not Stated</xs:documentation>
-							</xs:annotation>
-						</xs:enumeration>
-                    </xs:restriction>
-                </xs:simpleType>
-			</xs:element>
+			<xs:element name="Gender" type="Gender" minOccurs="1"/>
 			<xs:element name="Addresses" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
