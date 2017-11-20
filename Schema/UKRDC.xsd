@@ -21,7 +21,7 @@
 	<xs:include schemaLocation="ClinicalRelationships/ClinicalRelationship.xsd"/>
 	<xs:include schemaLocation="Medications/Medication.xsd"/>
 	<xs:include schemaLocation="Surveys/Survey.xsd"/>
-	<!-- SDA: Container -->
+    <xs:include schemaLocation="Types/PVData.xsd"/>
 	<xs:element name="PatientRecord">
 		<xs:complexType>
 			<xs:sequence>
@@ -139,6 +139,7 @@
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
+                <xs:element name="PVData" type="PVData" minOccurs="0"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>

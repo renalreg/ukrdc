@@ -122,43 +122,43 @@
 				<xs:complexType>
 					<xs:sequence>
 						<!-- HD Dialysis Prescription Details -->
-						<xs:element name="HDP01" type="xs:string">
+						<xs:element name="HDP01" type="xs:string" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>Times Per Week</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="HDP02" type="xs:string">
+						<xs:element name="HDP02" type="xs:string" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>Time Dialysed in Minutes</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="HDP03" type="xs:string">
+						<xs:element name="HDP03" type="xs:string" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>Blood Flow Rate</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="HDP04" type="xs:string">
+						<xs:element name="HDP04" type="xs:string" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>Sodium in Dialysate</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="QBL05" type="xs:string">
+						<xs:element name="QBL05" type="xs:string" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>HD Treatment Location</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="QBL06" type="xs:string">
+						<xs:element name="QBL06" type="xs:string" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>HD Shared Care</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="QBL07" type="xs:string">
+						<xs:element name="QBL07" type="xs:string" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>Patient Participation</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<!-- Only for first RRT Treatment -->
-						<xs:element name="ERF61">
+						<xs:element name="ERF61" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>Assessed for suitability for Transplant by start of Dialysis Date</xs:documentation>
 							</xs:annotation>
@@ -193,7 +193,7 @@
 							</xs:simpleType>
 						</xs:element>
 						<!-- TODO: We should be using Referrals objects for this -->
-						<xs:element name="PAT35" type="xs:string">
+						<xs:element name="PAT35" type="xs:string" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>Date of referral to renal team (i.e. date letter received)</xs:documentation>
 							</xs:annotation>

@@ -3,7 +3,8 @@
     <xs:include schemaLocation="ContactDetail.xsd"/>
     <xs:complexType name="FamilyDoctor">
         <xs:sequence>
-            <xs:element name="GPPracticeId">
+            <xs:element name="GPName" minOccurs="0"/>
+            <xs:element name="GPPracticeId" minOccurs="0">
                 <xs:annotation>
                     <xs:documentation>National GP Practice Code</xs:documentation>
                 </xs:annotation>
@@ -18,12 +19,12 @@
                     <xs:documentation>National GP Code</xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element minOccurs="0" name="Address" type="Address">
+            <xs:element name="Address" type="Address" minOccurs="0" >
                 <xs:annotation>
                     <xs:documentation>Practice Address</xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element minOccurs="0" name="ContactDetail" type="ContactDetail">
+            <xs:element name="ContactDetail" type="ContactDetail" minOccurs="0" >
                 <xs:annotation>
                     <xs:documentation>Practice Contact Information</xs:documentation>
                 </xs:annotation>
