@@ -24,7 +24,7 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="BirthTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="BirthTime" type="xs:dateTime" minOccurs="1"/>
 			<xs:element name="DeathTime" type="xs:dateTime" minOccurs="0"/>
 			<xs:element name="Gender" type="Gender" minOccurs="1"/>
 			<xs:element name="Addresses" minOccurs="0">

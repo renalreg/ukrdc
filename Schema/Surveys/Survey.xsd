@@ -3,6 +3,32 @@
 	<xs:include schemaLocation="../Types/Location.xsd"/>
 	<xs:include schemaLocation="../Types/CodedField.xsd"/>
 	<xs:include schemaLocation="../Types/CommonMetadata.xsd"/>
+    
+    
+    <xs:complexType name="Question">
+        <xs:sequence>
+            <xs:element name="QuestionType" type="CodedField" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Question Type</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Response" type="xs:string" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="Score">
+        <xs:sequence>
+            <xs:element name="ScoreType" type="CodedField" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Score Type</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Value" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="Level" type="xs:string" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    
 	<xs:complexType name="Survey">
 		<xs:sequence>
 			<xs:element name="SurveyTime" type="xs:dateTime" minOccurs="1">
@@ -18,37 +44,14 @@
 			<xs:element name="Questions">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Question" minOccurs="0" maxOccurs="unbounded">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="QuestionType" type="CodedField" minOccurs="1" maxOccurs="1">
-										<xs:annotation>
-											<xs:documentation>Question Type</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="Response" type="xs:string" minOccurs="1" maxOccurs="1"/>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
+						<xs:element name="Question" type="Question" minOccurs="0" maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="Scores" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Score" minOccurs="0" maxOccurs="unbounded">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="ScoreType" type="CodedField" minOccurs="1" maxOccurs="1">
-										<xs:annotation>
-											<xs:documentation>Score Type</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="Value" type="xs:string" minOccurs="1" maxOccurs="1"/>
-									<xs:element name="Level" type="xs:string" minOccurs="0" maxOccurs="1"/>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
+						<xs:element name="Score" type="Score" minOccurs="0" maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -60,6 +63,22 @@
 			<xs:element name="EnteredAt" type="Location" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Where the Survey was completed</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+            <!-- YourHealth only Fields -->
+			<xs:element name="TypeOfTreatment" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Current Modality</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HDLocation" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>If Current Modality = HD, where is it performed?</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Template" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>This is currently only used to flag surveys which were submitted via the SharedHD project. Another field may be more appropriate.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:group ref="CommonMetadata"/>
