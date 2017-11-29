@@ -18,7 +18,7 @@
 			</xs:element>
 			<xs:element name="DocumentType" type="CodedField" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Always TEXT for now. For future use.</xs:documentation>
+					<xs:documentation>For future use.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Clinician" type="Clinician" minOccurs="0">
@@ -51,9 +51,14 @@
 					<xs:documentation>Location the procedure was performed at. Use National coding e.g. RXF01</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="FileType" type="CodedField" minOccurs="0">
+			<xs:element name="FileType" type="xs:string" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The type of data e.g PDF, DOC, RTF, TXT</xs:documentation>
+					<xs:documentation>The mime type of the data if supplied as a stream</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FileName" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The filename of the document</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Stream" type="xs:base64Binary" minOccurs="0">

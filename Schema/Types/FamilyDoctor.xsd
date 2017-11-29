@@ -3,7 +3,7 @@
     <xs:include schemaLocation="ContactDetail.xsd"/>
     <xs:complexType name="FamilyDoctor">
         <xs:sequence>
-            <xs:element name="GPName" minOccurs="0"/>
+            <xs:element name="GPName" type="xs:string" minOccurs="0"/>
             <xs:element name="GPPracticeId" minOccurs="0">
                 <xs:annotation>
                     <xs:documentation>National GP Practice Code</xs:documentation>
