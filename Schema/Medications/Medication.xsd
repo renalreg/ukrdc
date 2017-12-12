@@ -3,6 +3,7 @@
 	<xs:include schemaLocation="../Types/Clinician.xsd"/>
 	<xs:include schemaLocation="../Types/CodedField.xsd"/>
 	<xs:include schemaLocation="../Types/DrugProduct.xsd"/>
+    <xs:include schemaLocation="../Types/Location.xsd"/>
 	<xs:include schemaLocation="../Types/CommonMetadata.xsd"/>
 	<xs:complexType name="Medication">
 		<xs:sequence>
