@@ -3,7 +3,7 @@
 	<xs:include schemaLocation="Types/ContactDetail.xsd"/>
 	<xs:include schemaLocation="Types/EthnicGroup.xsd"/>
 	<xs:include schemaLocation="Types/FamilyDoctor.xsd"/>
-	<xs:include schemaLocation="Types/Gender.xsd"/>
+    <xs:include schemaLocation="Types/Gender.xsd"/>
 	<xs:include schemaLocation="Types/Name.xsd"/>
 	<xs:include schemaLocation="Types/Occupation.xsd"/>
 	<xs:include schemaLocation="Types/Language.xsd"/>
