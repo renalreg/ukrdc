@@ -21,7 +21,7 @@
 	<xs:include schemaLocation="ClinicalRelationships/ClinicalRelationship.xsd"/>
 	<xs:include schemaLocation="Medications/Medication.xsd"/>
 	<xs:include schemaLocation="Surveys/Survey.xsd"/>
-    <xs:include schemaLocation="Types/PVData.xsd"/>
+	<xs:include schemaLocation="Types/PVData.xsd"/>
 	<xs:element name="PatientRecord">
 		<xs:complexType>
 			<xs:sequence>
@@ -36,11 +36,11 @@
 						</xs:simpleContent>
 					</xs:complexType>
 				</xs:element>
-			<xs:element name="SendingExtract" type="xs:string">
-				<xs:annotation>
-					<xs:documentation>The extract process within the facility which produced this file.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+				<xs:element name="SendingExtract" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>The extract process within the facility which produced this file.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
 				<xs:element name="Patient" type="Patient" minOccurs="1"/>
 				<xs:element name="LabOrders" type='LabOrders' minOccurs="0"/>
 				<xs:element name="SocialHistories" minOccurs="0">
@@ -139,7 +139,7 @@
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-                <xs:element name="PVData" type="PVData" minOccurs="0"/>
+				<xs:element name="PVData" type="PVData" minOccurs="0"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
