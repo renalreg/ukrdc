@@ -3,7 +3,7 @@
 	<xs:include schemaLocation="Types/ContactDetail.xsd"/>
 	<xs:include schemaLocation="Types/EthnicGroup.xsd"/>
 	<xs:include schemaLocation="Types/FamilyDoctor.xsd"/>
-    <xs:include schemaLocation="Types/Gender.xsd"/>
+	<xs:include schemaLocation="Types/Gender.xsd"/>
 	<xs:include schemaLocation="Types/Name.xsd"/>
 	<xs:include schemaLocation="Types/Occupation.xsd"/>
 	<xs:include schemaLocation="Types/Language.xsd"/>
@@ -13,7 +13,7 @@
 	<xs:complexType name="Patient">
 		<xs:sequence>
 			<xs:element name="PatientNumbers" type="PatientNumbers" minOccurs="0"/>
-			<xs:element name="Names">
+			<xs:element name="Names" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="Name" type="Name" minOccurs="0" maxOccurs="unbounded">

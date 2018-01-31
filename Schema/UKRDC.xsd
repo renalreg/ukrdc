@@ -1,5 +1,5 @@
 <!-- edited with XMLSpy v2015 rel. 4 (x64) (http://www.altova.com) by Nick Jones (Agiloak Limited) -->
-<xs:schema xmlns="http://www.rixg.org.uk/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.rixg.org.uk/">
+<xs:schema targetNamespace="http://www.rixg.org.uk/" xmlns="http://www.rixg.org.uk/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	<xs:include schemaLocation="Patient.xsd"/>
 	<xs:include schemaLocation="LabOrders/LabOrder.xsd"/>
 	<xs:include schemaLocation="SocialHistories/SocialHistory.xsd"/>
@@ -21,11 +21,11 @@
 	<xs:include schemaLocation="ClinicalRelationships/ClinicalRelationship.xsd"/>
 	<xs:include schemaLocation="Medications/Medication.xsd"/>
 	<xs:include schemaLocation="Surveys/Survey.xsd"/>
-    <xs:include schemaLocation="Types/PVData.xsd"/>
+	<xs:include schemaLocation="Types/PVData.xsd"/>
 	<xs:element name="PatientRecord">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="SendingFacility" minOccurs="1">
+				<xs:element minOccurs="1" name="SendingFacility">
 					<xs:complexType>
 						<xs:simpleContent>
 							<xs:extension base="xs:string">
@@ -36,110 +36,110 @@
 						</xs:simpleContent>
 					</xs:complexType>
 				</xs:element>
-			<xs:element name="SendingExtract" type="xs:string">
-				<xs:annotation>
-					<xs:documentation>The extract process within the facility which produced this file.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-				<xs:element name="Patient" type="Patient" minOccurs="1"/>
-				<xs:element name="LabOrders" type='LabOrders' minOccurs="0"/>
-				<xs:element name="SocialHistories" minOccurs="0">
+				<xs:element name="SendingExtract" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>The extract process within the facility which produced this file.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="1" name="Patient" type="Patient"/>
+				<xs:element minOccurs="0" name="LabOrders" type="LabOrders"/>
+				<xs:element minOccurs="0" name="SocialHistories">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="SocialHistory" type="SocialHistory" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="SocialHistory" type="SocialHistory"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="FamilyHistories" minOccurs="0">
+				<xs:element minOccurs="0" name="FamilyHistories">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="FamilyHistory" type="FamilyHistory" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="FamilyHistory" type="FamilyHistory"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="Observations" minOccurs="0">
+				<xs:element minOccurs="0" name="Observations">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="Observation" type="Observation" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="Observation" type="Observation"/>
 						</xs:sequence>
-						<xs:attribute name="start" type="xs:date" use="required"/>
-						<xs:attribute name="stop" type="xs:date" use="required"/>
+						<xs:attribute name="start" type="xs:date"/>
+						<xs:attribute name="stop" type="xs:date"/>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="Allergies" minOccurs="0">
+				<xs:element minOccurs="0" name="Allergies">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="Allergy" type="Allergy" minOccurs="0" maxOccurs="unbounded"/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-				<xs:element name="Diagnoses" minOccurs="0">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="Diagnosis" type="Diagnosis" minOccurs="0" maxOccurs="unbounded"/>
-							<xs:element name="CauseOfDeath" type="CauseOfDeath" minOccurs="0" maxOccurs="unbounded"/>
-							<xs:element name="RenalDiagnosis" type="RenalDiagnosis" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="Allergy" type="Allergy"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="Medications" minOccurs="0">
+				<xs:element minOccurs="0" name="Diagnoses">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="Medication" type="Medication" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="Diagnosis" type="Diagnosis"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="CauseOfDeath" type="CauseOfDeath"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="RenalDiagnosis" type="RenalDiagnosis"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="Procedures" minOccurs="0">
+				<xs:element minOccurs="0" name="Medications">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="Procedure" type="Procedure" minOccurs="0" maxOccurs="unbounded"/>
-							<xs:element name="DialysisSession" type="DialysisSession" minOccurs="0" maxOccurs="unbounded"/>
-							<xs:element name="Transplant" type="TransplantProcedure" minOccurs="0" maxOccurs="unbounded"/>
-							<xs:element name="VascularAccess" type="VascularAccess" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="Medication" type="Medication"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="Documents" minOccurs="0">
+				<xs:element minOccurs="0" name="Procedures">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="Document" type="Document" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="Procedure" type="Procedure"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="DialysisSession" type="DialysisSession"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="Transplant" type="TransplantProcedure"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="VascularAccess" type="VascularAccess"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="Encounters" minOccurs="0">
+				<xs:element minOccurs="0" name="Documents">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="Encounter" type="Encounter" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="Document" type="Document"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element minOccurs="0" name="Encounters">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="Encounter" type="Encounter"/>
 							<!-- SDA: Encounter -->
-							<xs:element name="Treatment" type="Treatment" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="Treatment" type="Treatment"/>
 							<!-- SDA: Encounter -->
-							<xs:element name="TransplantList" type="TransplantList" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="TransplantList" type="TransplantList"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="ProgramMemberships" minOccurs="0">
+				<xs:element minOccurs="0" name="ProgramMemberships">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="ProgramMembership" type="ProgramMembership" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="ProgramMembership" type="ProgramMembership"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="ClinicalRelationships" minOccurs="0">
+				<xs:element minOccurs="0" name="ClinicalRelationships">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="ClinicalRelationship" type="ClinicalRelationship" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="ClinicalRelationship" type="ClinicalRelationship"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
 				<!-- Custom SDA below here -->
-				<xs:element name="Surveys" minOccurs="0">
+				<xs:element minOccurs="0" name="Surveys">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="Survey" type="Survey" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="Survey" type="Survey"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-                <xs:element name="PVData" type="PVData" minOccurs="0"/>
+				<xs:element minOccurs="0" name="PVData" type="PVData"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
