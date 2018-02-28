@@ -29,22 +29,26 @@
 			</xs:element>
 			<xs:element name="DiscoveryTime" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
+                    <xs:appinfo>allergy.discoverytime</xs:appinfo>
 					<xs:documentation>Reported Date</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ConfirmedTime" type="xs:dateTime" minOccurs="0"/>
 			<xs:element name="Comments" type="xs:string" minOccurs="0">
 				<xs:annotation>
+                    <xs:appinfo>allergy.commenttext</xs:appinfo>
 					<xs:documentation>Advice given to the patient</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="InactiveTime" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
+                    <xs:appinfo>allergy.inactivetime</xs:appinfo>
 					<xs:documentation>Resolved Time</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="FreeTextAllergy" minOccurs="0">
 				<xs:annotation>
+                    <xs:appinfo>allergy.freetextallergy</xs:appinfo>
 					<xs:documentation>AL1-5 Free text definition of what happened</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
@@ -55,6 +59,7 @@
 			</xs:element>
 			<xs:element name="QualifyingDetails" minOccurs="0">
 				<xs:annotation>
+                    <xs:appinfo>allergy.qualifyingdetails</xs:appinfo>
 					<xs:documentation>Details if patient or family reported</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>

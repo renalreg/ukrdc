@@ -27,13 +27,15 @@
 					<xs:documentation>Location or Facility receiving/performing the order. Code must be entered using national coding e.g. RXF01</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="PlacerId" type="xs:string" minOccurs="0">
+			<xs:element name="PlacerId" type="xs:string" minOccurs="1">
 				<xs:annotation>
+                    <xs:appinfo>laborder.placerid</xs:appinfo>
 					<xs:documentation>ORC:2 Placers Order Id</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="FillerId" type="xs:string" minOccurs="0">
 				<xs:annotation>
+                    <xs:appinfo>laborder.fillerid</xs:appinfo>
 					<xs:documentation>ORC:3 Labs Order Id</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -50,11 +52,13 @@
 			<xs:element name="OrderCategory" type="CodedField" minOccurs="0"/>
 			<xs:element name="SpecimenCollectedTime" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
+                    <xs:appinfo>laborder.specimencollectedtime</xs:appinfo>
 					<xs:documentation>CCYYMMDDhhmm Equivalent to OBR:22</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SpecimenReceivedTime" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
+                    <xs:appinfo>laborder.specimenreceivedtime</xs:appinfo>
 					<xs:documentation>CCYYMMDDhhmm Equivalent to OBR:14</xs:documentation>
 				</xs:annotation>
 			</xs:element>

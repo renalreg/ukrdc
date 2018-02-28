@@ -7,11 +7,13 @@
 		<xs:sequence>
 			<xs:element name="FromTime" type="xs:dateTime">
 				<xs:annotation>
+                    <xs:appinfo>clinicalrelationship.fromtime</xs:appinfo>
 					<xs:documentation>Start of the relationship</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ToTime" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
+                    <xs:appinfo>clinicalrelationship.totime</xs:appinfo>
 					<xs:documentation>End of the relationship</xs:documentation>
 				</xs:annotation>
 			</xs:element>

@@ -54,12 +54,12 @@
 			</xs:element>
 			<xs:element name="FromTime" type="xs:dateTime">
 				<xs:annotation>
-					<xs:documentation>Time that encounter starts as CCYYMMDD</xs:documentation>
+					<xs:documentation>Start of Registration</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ToTime" type="xs:dateTime">
 				<xs:annotation>
-					<xs:documentation>Time that encounter ends as CCYYMMDD</xs:documentation>
+					<xs:documentation>End of Registration</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="AdmittingClinician" type="Clinician" minOccurs="0">
@@ -69,7 +69,7 @@
 			</xs:element>
 			<xs:element name="HealthCareFacility" type="Location" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Parent renal unit as national ODS code (e.g. RXF01)</xs:documentation>
+					<xs:documentation>Transplant Unit</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="AdmitReason" type="CodedField" minOccurs="0">
@@ -79,12 +79,12 @@
 			</xs:element>
 			<xs:element name="AdmissionSource" type="Location" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Parent renal unit as national ODS code (e.g. RXF01)</xs:documentation>
+					<xs:documentation>Referring Unit</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DischargeReason" type="CodedField" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Reason for Discharge (Transplant, Removed from List etc.)</xs:documentation>
+					<xs:documentation>Registration End Status</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DischargeLocation" type="Location" minOccurs="0">

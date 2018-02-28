@@ -6,6 +6,7 @@
             <xs:element name="GPName" type="xs:string" minOccurs="0"/>
             <xs:element name="GPPracticeId" minOccurs="0">
                 <xs:annotation>
+                    <xs:appinfo>familydoctor.gppracticeid</xs:appinfo>
                     <xs:documentation>National GP Practice Code</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
@@ -16,6 +17,7 @@
             </xs:element>
             <xs:element name="GPId" type="xs:string" minOccurs="0">
                 <xs:annotation>
+                    <xs:appinfo>familydoctor.gpid</xs:appinfo>
                     <xs:documentation>National GP Code</xs:documentation>
                 </xs:annotation>
             </xs:element>
