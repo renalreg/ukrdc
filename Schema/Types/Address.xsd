@@ -9,7 +9,7 @@
 		<xs:sequence>
 			<xs:element name="FromTime" type="xs:date" minOccurs="0"/>
 			<xs:element name="ToTime" type="xs:date" minOccurs="0"/>
-			<xs:element name="Street">
+			<xs:element name="Street" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Everything prior to the Town in the Address</xs:documentation>
 				</xs:annotation>

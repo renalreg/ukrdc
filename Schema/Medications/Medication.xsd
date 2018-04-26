@@ -64,7 +64,7 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="DrugProduct" type="DrugProduct" minOccurs="0"/>
+			<xs:element name="DrugProduct" type="DrugProduct"/>
 			<xs:element name="Frequency" type="xs:string" minOccurs="0">
 				<xs:annotation>
                     <xs:appinfo>medication.frequency</xs:appinfo>

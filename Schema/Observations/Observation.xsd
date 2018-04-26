@@ -2,15 +2,15 @@
 	<xs:include schemaLocation="../Types/Clinician.xsd"/>
 	<xs:include schemaLocation="../Types/CommonMetadata.xsd"/>
     <xs:include schemaLocation="../Types/Location.xsd"/>
-    
+
     <xs:complexType name="Observations">
         <xs:sequence>
             <xs:element name="Observation" type="Observation" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
         <xs:attribute name="start" type="xs:date"/>
         <xs:attribute name="stop" type="xs:date"/>
-    </xs:complexType>  
-    
+    </xs:complexType>
+
 	<xs:complexType name="Observation">
 		<xs:sequence>
 			<xs:element name="ObservationTime" type="xs:dateTime" minOccurs="0">
@@ -50,15 +50,25 @@
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="ObservationValue" minOccurs="0">
+				<xs:annotation>
+                    <xs:appinfo>observation.observationvalue</xs:appinfo>
+					<xs:documentation></xs:documentation>
+				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
 						<xs:maxLength value="999"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="ObservationUnits" type="xs:string" minOccurs="0"/>
+			<xs:element name="ObservationUnits" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:appinfo>observation.observationunits</xs:appinfo>
+					<xs:documentation></xs:documentation>
+				</xs:annotation>
+            </xs:element>
 			<xs:element name="PrePost" minOccurs="0">
 				<xs:annotation>
+                    <xs:appinfo>observation.prepost</xs:appinfo>
 					<xs:documentation>Was the Observation made PRE or POST dialysis</xs:documentation>
 				</xs:annotation>
                 <xs:simpleType>
@@ -84,9 +94,13 @@
 							</xs:annotation>
 						</xs:enumeration>
                     </xs:restriction>
-                </xs:simpleType>                
+                </xs:simpleType>
 			</xs:element>
 			<xs:element name="Comments" minOccurs="0">
+				<xs:annotation>
+                    <xs:appinfo>observation.commenttext</xs:appinfo>
+					<xs:documentation></xs:documentation>
+				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
 						<xs:maxLength value="999"/>

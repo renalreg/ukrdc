@@ -36,10 +36,15 @@
 						</xs:simpleContent>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="SendingExtract" type="xs:string">
-					<xs:annotation>
-						<xs:documentation>The extract process within the facility which produced this file.</xs:documentation>
-					</xs:annotation>
+				<xs:element name="SendingExtract">
+					<xs:simpleType>
+						<xs:annotation>
+							<xs:documentation>The extract process within the facility which produced this file.</xs:documentation>
+						</xs:annotation>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="6"/>
+						</xs:restriction>
+					</xs:simpleType>
 				</xs:element>
 				<xs:element minOccurs="1" name="Patient" type="Patient"/>
 				<xs:element minOccurs="0" name="LabOrders" type="LabOrders"/>

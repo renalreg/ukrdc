@@ -64,18 +64,21 @@
 			</xs:element>
 			<xs:element name="Status" type="xs:string" minOccurs="0">
 				<xs:annotation>
-					<!-- TODO: Confirm This -->
+                    <xs:appinfo>laborder.status</xs:appinfo>
+					<xs:documentation></xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Priority" type="CodedField" minOccurs="0"/>
 			<xs:element name="SpecimenSource" type="xs:string" minOccurs="0">
 				<xs:annotation>
+                    <xs:appinfo>laborder.specimensource</xs:appinfo>
 					<xs:documentation>OBR:15.1 e.g. serum, blood</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Duration" type="xs:string" minOccurs="0">
 				<xs:annotation>
 					<!-- TODO: Confirm This -->
+                    <xs:appinfo>laborder.duration</xs:appinfo>
 					<xs:documentation>OBR:27.3</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -88,6 +91,7 @@
 			<!-- Note: UpdatedOn is down here (rather than at the top as usual) in the SDA -->
 			<xs:element name="EnteredOn" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
+                    <xs:appinfo>laborder.enteredon</xs:appinfo>
 					<xs:documentation>Date Order entered</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -104,16 +108,25 @@
 			<xs:group ref="CommonMetadata"/>
 		</xs:sequence>
 	</xs:complexType>
+    
+    
 	<xs:complexType name="ResultItem">
 		<xs:sequence>
 			<xs:element name="ResultType" type="xs:string" minOccurs="0">
 				<xs:annotation>
+                    <xs:appinfo>resultitem.resulttype</xs:appinfo>
 					<xs:documentation>AT</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="EnteredOn" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="EnteredOn" type="xs:dateTime" minOccurs="0">
+                <xs:annotation>
+                    <xs:appinfo>resultitem.enteredon</xs:appinfo>
+					<xs:documentation></xs:documentation>
+				</xs:annotation>
+            </xs:element>
 			<xs:element name="PrePost" minOccurs="0">
 				<xs:annotation>
+                    <xs:appinfo>resultitem.prepost</xs:appinfo>
 					<xs:documentation>Was the sample taken PRE or POST dialysis</xs:documentation>
 				</xs:annotation>
                 <xs:simpleType>
@@ -148,6 +161,7 @@
 			</xs:element>
 			<xs:element name="SubId" minOccurs="0">
 				<xs:annotation>
+                    <xs:appinfo>resultitem.subid</xs:appinfo>
 					<xs:documentation>Sub-Test Code (OBX:4)</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
@@ -158,11 +172,13 @@
 			</xs:element>
 			<xs:element name="ResultValue" type="xs:string" minOccurs="0">
 				<xs:annotation>
+                    <xs:appinfo>resultitem.resultvalue</xs:appinfo>
 					<xs:documentation>OBX:5</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ResultValueUnits" minOccurs="0">
 				<xs:annotation>
+                    <xs:appinfo>resultitem.resultvalueunits</xs:appinfo>
 					<xs:documentation>OBX:6</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
@@ -173,6 +189,7 @@
 			</xs:element>
 			<xs:element name="ReferenceRange" minOccurs="0">
 				<xs:annotation>
+                    <xs:appinfo>resultitem.referencerange</xs:appinfo>
 					<xs:documentation>OBX:7</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
@@ -183,6 +200,7 @@
 			</xs:element>
 			<xs:element name="AbnormalFlags" minOccurs="0">
 				<xs:annotation>
+                    <xs:appinfo>resultitem.abnormalflags</xs:appinfo>
 					<xs:documentation>OBX:8 Abnormal Flags</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
@@ -193,6 +211,7 @@
 			</xs:element>
 			<xs:element name="Status" minOccurs="0">
 				<xs:annotation>
+                    <xs:appinfo>resultitem.status</xs:appinfo>
 					<xs:documentation>OBX:11 F=FINAL, P=PRELIMINARY, D=DELETED</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
@@ -203,15 +222,21 @@
 			</xs:element>
 			<xs:element name="ObservationTime" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
+                    <xs:appinfo>resultitem.observationtime</xs:appinfo>
 					<xs:documentation>OBX:14</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Comments" type="xs:string" minOccurs="0">
 				<xs:annotation>
+                    <xs:appinfo>resultitem.commenttext</xs:appinfo>
 					<xs:documentation>From NTE:3</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ReferenceComment" minOccurs="0">
+				<xs:annotation>
+                    <xs:appinfo>resultitem.referencecomment</xs:appinfo>
+					<xs:documentation></xs:documentation>
+				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
 						<xs:maxLength value="1000"/>
