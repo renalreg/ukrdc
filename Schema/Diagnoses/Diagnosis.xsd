@@ -20,6 +20,11 @@
 					<xs:documentation>SNOMED CT coded diagnoses. Primary Renal Diagnosis should additionally be included with a EDTA code. PRD will therefore be represented twice (SNOMED and EDTA)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="Comments" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Free text about the Diagnosis</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="IdentificationTime" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Date of initial diagnosis</xs:documentation>

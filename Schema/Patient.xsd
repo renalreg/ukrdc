@@ -51,7 +51,7 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="FamilyDoctor" type="FamilyDoctor" minOccurs="0"/>
-			<xs:element name="PersonToContact" type="PersonalContactType" minOccurs="0"/>
+			<xs:element name="PersonToContact" type="PersonalContactType" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="EthnicGroup" type="EthnicGroup" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>From NHS Data Dictionary ETHNIC CATEGORY CODE which equates to RR18 (CodingStandard=ONS). From 2011 Scotland Census (CodingStandard=SCOT) </xs:documentation>
