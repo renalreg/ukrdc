@@ -20,6 +20,11 @@
 					<xs:documentation>Coded Caused of Death (EDTA)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="Comments" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Free text about the Diagnosis</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="IdentificationTime" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Date of initial diagnosis</xs:documentation>
