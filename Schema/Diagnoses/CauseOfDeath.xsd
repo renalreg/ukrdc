@@ -21,6 +21,11 @@
 					<xs:documentation>Coded Caused of Death (EDTA)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="Comments" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Free text about the Diagnosis</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="EnteredOn" type="xs:dateTime">
 				<xs:annotation>
 					<xs:documentation>The date the COD was recorded in the medical record.</xs:documentation>
