@@ -15,7 +15,7 @@
 					<xs:documentation>National Clinicial code where possible or other local code if not.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Diagnosis" type="CF_SNOMED">
+			<xs:element name="Diagnosis" type="CF_SNOMED" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>SNOMED CT coded diagnoses. Primary Renal Diagnosis should additionally be included with a EDTA code. PRD will therefore be represented twice (SNOMED and EDTA)</xs:documentation>
 				</xs:annotation>
@@ -35,7 +35,7 @@
 					<xs:documentation>Date condition began. Can use approximate dates through truncation. CCYYMMDD or CCYYMM or CCYY</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="EnteredOn" type="xs:dateTime">
+			<xs:element name="EnteredOn" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The date the diagnosis was recorded in the medical record.</xs:documentation>
 				</xs:annotation>
