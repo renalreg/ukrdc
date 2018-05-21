@@ -1,32 +1,56 @@
 <xs:schema xmlns="http://www.rixg.org.uk/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.rixg.org.uk/">
     <xs:complexType name="PVData">
         <xs:sequence>
-            <xs:element name="rrtstatus" type="xs:string" minOccurs="0">
+            <xs:element name="rrtstatus" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation></xs:documentation>
+                    <xs:appinfo>pvdata.rrtstatus</xs:appinfo>
+                    <xs:documentation/>
                 </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="100"/>
+                    </xs:restriction>
+                </xs:simpleType> 
             </xs:element>
-            <xs:element name="tpstatus" type="xs:string" minOccurs="0">
+            <xs:element name="tpstatus" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation></xs:documentation>
+                    <xs:appinfo>pvdata.tpstatus</xs:appinfo>
+                    <xs:documentation/>
                 </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="100"/>
+                    </xs:restriction>
+                </xs:simpleType> 
             </xs:element>
-            <xs:element name="diagnosisedta" type="xs:string" minOccurs="0">
+            <xs:element name="diagnosisedta" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation></xs:documentation>
+                    <xs:appinfo>pvdata.diagnosisedta</xs:appinfo>
+                    <xs:documentation/>
                 </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="100"/>
+                    </xs:restriction>
+                </xs:simpleType> 
             </xs:element>
             <xs:element name="diagnosisdate" type="xs:date" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation></xs:documentation>
+                    <xs:appinfo>pvdata.diagnosisdate</xs:appinfo>
+                    <xs:documentation/>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="bloodgroup" type="xs:string" minOccurs="0">
+            <xs:element name="bloodgroup" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation></xs:documentation>
+                    <xs:appinfo>pvdata.bloodgroup</xs:appinfo>
+                    <xs:documentation/>
                 </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="30"/>
+                    </xs:restriction>
+                </xs:simpleType>                
             </xs:element>             
         </xs:sequence>
     </xs:complexType>
 </xs:schema>
-            

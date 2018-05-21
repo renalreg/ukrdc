@@ -11,18 +11,25 @@
 					<xs:documentation>dm + d code for the drug</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Generic" type="xs:string">
+			<xs:element name="Generic">
 				<xs:annotation>
+                    <xs:appinfo>medication.drugproductgeneric</xs:appinfo>
 					<xs:documentation>Generic name</xs:documentation>
 				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="100"/>
+					</xs:restriction>
+				</xs:simpleType>                
 			</xs:element>
 			<xs:element name="LabelName" minOccurs="0">
 				<xs:annotation>
+                    <xs:appinfo>medication.drugproductlabelname</xs:appinfo>
 					<xs:documentation>Brand Name</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
-						<xs:maxLength value="220"/>
+						<xs:maxLength value="100"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>

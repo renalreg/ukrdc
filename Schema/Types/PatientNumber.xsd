@@ -10,11 +10,12 @@
         <xs:sequence>
             <xs:element name="Number" minOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>Patient Idenfitication Number</xs:documentation>
+                    <xs:documentation>Patient Identification Number</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
-                        <xs:maxLength value="220"/>
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="50"/>
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
