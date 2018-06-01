@@ -164,7 +164,7 @@
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element minOccurs="0" name="OptsOuts">
+                <xs:element minOccurs="0" name="OptOuts">
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element maxOccurs="unbounded" minOccurs="0" name="OptOut" type="OptOut"/>

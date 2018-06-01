@@ -2,7 +2,20 @@
 <xs:schema xmlns="http://www.rixg.org.uk/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.rixg.org.uk/">
 	<xs:simpleType name="PostCode">
 		<xs:restriction base="xs:string">
-			<xs:pattern value="([A-PR-UWYZ0-9][A-HK-Y0-9][AEHJKMNPRTUVXY0-9]?[ABEHMNPRVWXY0-9]? {0,}[0-9][ABD-HJLN-UW-Z]{2}|GIR 0AA)"/>
+			<xs:annotation>
+				<xs:documentation>
+					We are using the UK government provided regular expression, taken from wikipedia[*], with few modifications:
+					1. We expect all letters to be uppercase.
+					2. We allow ZZ99 postcodes, which do not follow guidelines, e.g. allows CIMKOV characters in the second part.
+					3. We drop GIR 0AA as a valid postcode, we don't expect receiving files with such postcode.
+					4. We allow 0 - 3 spaces between parts.
+					5. We allow outward code, without second part.
+					6. On the last "or" part of the first part making number non-optional.
+					[*] https://en.wikipedia.org/wiki/Postcodes_in_the_United_Kingdom#Validation
+				</xs:documentation>
+			</xs:annotation>
+			<xs:maxLength value="8"/>
+			<xs:pattern value="((([A-Z][0-9]{1,2})|(([A-Z][A-HJ-Y][0-9]{1,2})|(([A-Z][0-9][A-Z])|([A-Z][A-HJ-Y][0-9][A-Z])))) {0,3}([0-9][A-Z]{2})?|ZZ99 {0,1}([0-9][A-Z]Z)?)"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:complexType name="Address">
