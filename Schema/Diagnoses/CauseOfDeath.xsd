@@ -16,7 +16,7 @@
 					<xs:documentation>Clinician Coding Death</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Diagnosis" type="CF_EDTA_COD">
+			<xs:element name="Diagnosis" type="CF_EDTA_COD" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Coded Caused of Death (EDTA)</xs:documentation>
 				</xs:annotation>
@@ -26,7 +26,7 @@
 					<xs:documentation>Free text about the Diagnosis</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="EnteredOn" type="xs:dateTime">
+			<xs:element name="EnteredOn" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The date the COD was recorded in the medical record.</xs:documentation>
 				</xs:annotation>

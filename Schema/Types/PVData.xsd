@@ -23,17 +23,6 @@
                     </xs:restriction>
                 </xs:simpleType> 
             </xs:element>
-            <xs:element name="diagnosisedta" minOccurs="0">
-                <xs:annotation>
-                    <xs:appinfo>pvdata.diagnosisedta</xs:appinfo>
-                    <xs:documentation/>
-                </xs:annotation>
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:maxLength value="100"/>
-                    </xs:restriction>
-                </xs:simpleType> 
-            </xs:element>
             <xs:element name="diagnosisdate" type="xs:date" minOccurs="0">
                 <xs:annotation>
                     <xs:appinfo>pvdata.diagnosisdate</xs:appinfo>

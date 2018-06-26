@@ -12,12 +12,12 @@
 			</xs:element>
 			<xs:element name="DiagnosingClinician" type="Clinician" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Clinician Coding Death</xs:documentation>
+					<xs:documentation>Clinician Coding Diagnosis</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Diagnosis" type="CF_EDTA_PRD">
+			<xs:element name="Diagnosis" type="CF_EDTA_PRD" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Coded Caused of Death (EDTA)</xs:documentation>
+					<xs:documentation>Coded Primary Renal Diagnosis</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Comments" type="xs:string" minOccurs="0">
@@ -35,7 +35,7 @@
 					<xs:documentation>Date condition began. Can use approximate dates through truncation. CCYYMMDD or CCYYMM or CCYY</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="EnteredOn" type="xs:dateTime">
+			<xs:element name="EnteredOn" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The date the diagnosis was recorded in the medical record.</xs:documentation>
 				</xs:annotation>

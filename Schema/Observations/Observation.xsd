@@ -29,18 +29,18 @@
                             <xs:annotation>
                                 <xs:appinfo>observation.observationcodestd</xs:appinfo>
                                 <xs:documentation/>
-                            </xs:annotation>                        
+                            </xs:annotation>
                             <xs:simpleType>
                                 <xs:restriction base="xs:string">
                                     <xs:maxLength value="100"/>
                                 </xs:restriction>
-                            </xs:simpleType>                         
+                            </xs:simpleType>
                         </xs:element>
                         <xs:element name="Code" minOccurs="0">
                             <xs:annotation>
                                 <xs:appinfo>observation.observationcode</xs:appinfo>
                                 <xs:documentation/>
-                            </xs:annotation>                            
+                            </xs:annotation>
                             <xs:simpleType>
                                 <xs:restriction base="xs:string">
                                     <xs:maxLength value="100"/>
@@ -51,7 +51,7 @@
                             <xs:annotation>
                                 <xs:appinfo>observation.observationdesc</xs:appinfo>
                                 <xs:documentation/>
-                            </xs:annotation>    
+                            </xs:annotation>
                             <xs:simpleType>
                                 <xs:restriction base="xs:string">
                                     <xs:maxLength value="100"/>
@@ -68,7 +68,7 @@
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
-                        <xs:maxLength value="100"/>
+                        <xs:maxLength value="20"/>
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
@@ -79,9 +79,9 @@
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
-                        <xs:maxLength value="100"/>
+                        <xs:maxLength value="30"/>
                     </xs:restriction>
-                </xs:simpleType>                
+                </xs:simpleType>
             </xs:element>
             <xs:element name="PrePost" minOccurs="0">
                 <xs:annotation>
@@ -120,7 +120,7 @@
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
-                        <xs:maxLength value="100"/>
+                        <xs:maxLength value="1000"/>
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>

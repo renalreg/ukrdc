@@ -2,7 +2,7 @@
 <xs:schema xmlns="http://www.rixg.org.uk/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.rixg.org.uk/">
 	<xs:include schemaLocation="../Types/Clinician.xsd"/>
 	<xs:include schemaLocation="../Types/Location.xsd"/>
-	<xs:include schemaLocation="../Types/CommonMetadata.xsd"/>
+	<xs:include schemaLocation="../Types/ActionCode.xsd"/>
 	<xs:complexType name="ProgramMembership">
 		<xs:sequence>
 			<xs:element name="EnteredBy" type="Clinician" minOccurs="0">
@@ -40,7 +40,28 @@
 					<xs:documentation>Date Consent Withdrawn</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:group ref="CommonMetadata"/>
+			<xs:sequence>
+				<xs:element name="UpdatedOn" type="xs:dateTime" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Last Modified Date</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ActionCode" type="ActionCode" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>A/U/D for Add/Update/Delete</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ExternalId" minOccurs="1">
+					<xs:annotation>
+						<xs:documentation>Unique Identifier</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="100"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>
