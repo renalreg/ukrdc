@@ -50,7 +50,7 @@
 					<xs:documentation>Survey Type</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Questions">
+			<xs:element name="Questions" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="Question" type="Question" minOccurs="0" maxOccurs="unbounded"/>

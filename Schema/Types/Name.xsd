@@ -54,7 +54,7 @@
 		</xs:sequence>
 		<xs:attribute name="use" use="required">
 			<xs:annotation>
-				<xs:documentation>Use codes from PDS L=Usual A=Alias (0..*) PREFERRED=Preferred PREVIOUS-BIRTH=Birth name</xs:documentation>
+				<xs:documentation>L=Official, D=Usual, B=Birth Name - https://www.hl7.org/fhir/v2/0200/index.html</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>

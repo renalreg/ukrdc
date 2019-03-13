@@ -16,7 +16,7 @@
                             <xs:annotation>
                                 <xs:documentation>Cause of death uncertain / not determined</xs:documentation>
                             </xs:annotation>
-                        </xs:enumeration>                    
+                        </xs:enumeration>
                         <xs:enumeration value="11">
                             <xs:annotation>
                                 <xs:documentation>Myocardial Ischaemia and Infraction</xs:documentation>
@@ -61,7 +61,7 @@
                             <xs:annotation>
                                 <xs:documentation>Elevated PVR / Pulmonary hypertension</xs:documentation>
                             </xs:annotation>
-                        </xs:enumeration>                        
+                        </xs:enumeration>
                         <xs:enumeration value="21">
                             <xs:annotation>
                                 <xs:documentation>Pulmonary Embolus</xs:documentation>
@@ -197,6 +197,11 @@
                                 <xs:documentation>ERF TReatment withdrawn for medical reasons</xs:documentation>
                             </xs:annotation>
                         </xs:enumeration>
+                        <xs:enumeration value="61">
+                            <xs:annotation>
+                                <xs:documentation>Uremia caused by graph failure</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
                         <xs:enumeration value="62">
                             <xs:annotation>
                                 <xs:documentation>Pancreatitis</xs:documentation>
@@ -257,7 +262,7 @@
                             <xs:annotation>
                                 <xs:documentation>Multi-system failure</xs:documentation>
                             </xs:annotation>
-                        </xs:enumeration>                        
+                        </xs:enumeration>
                         <xs:enumeration value="81">
                             <xs:annotation>
                                 <xs:documentation>Accident related to ERF Treatment</xs:documentation>
@@ -327,7 +332,7 @@
                             <xs:annotation>
                                 <xs:documentation>Line Related Sepsis</xs:documentation>
                             </xs:annotation>
-                        </xs:enumeration>                        
+                        </xs:enumeration>
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
