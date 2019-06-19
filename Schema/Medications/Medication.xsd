@@ -15,7 +15,7 @@
 					<xs:restriction base="xs:string">
 						<xs:maxLength value="100"/>
 					</xs:restriction>
-				</xs:simpleType>                
+				</xs:simpleType>
 			</xs:element>
 			<xs:element name="FromTime" type="xs:dateTime">
 				<xs:annotation>
@@ -85,7 +85,7 @@
 					<xs:restriction base="xs:string">
 						<xs:maxLength value="1000"/>
 					</xs:restriction>
-				</xs:simpleType>                
+				</xs:simpleType>
 			</xs:element>
 			<xs:element name="DoseQuantity" type="xs:decimal" minOccurs="0">
 				<xs:annotation>
@@ -107,7 +107,7 @@
 					<xs:restriction base="xs:string">
 						<xs:maxLength value="100"/>
 					</xs:restriction>
-				</xs:simpleType>                
+				</xs:simpleType>
 			</xs:element>
 			<xs:group ref="CommonMetadata"/>
 		</xs:sequence>

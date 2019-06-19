@@ -1705,7 +1705,7 @@
                             <xs:annotation>
                                 <xs:documentation>Glomerulonephritis - No Histology</xs:documentation>
                             </xs:annotation>
-                        </xs:enumeration>                        
+                        </xs:enumeration>
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>

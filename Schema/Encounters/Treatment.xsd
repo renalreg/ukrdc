@@ -126,7 +126,6 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Attributes" minOccurs="0">
-				<!-- SDA: NVPairs -->
 				<xs:complexType>
 					<xs:sequence>
 						<!-- HD Dialysis Prescription Details -->

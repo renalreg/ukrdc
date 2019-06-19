@@ -2,8 +2,8 @@
 	<xs:include schemaLocation="../Types/Location.xsd"/>
 	<xs:include schemaLocation="../Types/CodedField.xsd"/>
 	<xs:include schemaLocation="../Types/CommonMetadata.xsd"/>
-    
-    
+
+
     <xs:complexType name="Question">
         <xs:sequence>
             <xs:element name="QuestionType" type="CodedField" minOccurs="1" maxOccurs="1">
@@ -15,7 +15,7 @@
             <xs:element name="QuestionText" type="xs:string" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
-    
+
     <xs:complexType name="Score">
         <xs:sequence>
             <xs:element name="ScoreType" type="CodedField" minOccurs="1" maxOccurs="1">
@@ -26,7 +26,7 @@
             <xs:element name="Value" type="xs:string" minOccurs="1" maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
-    
+
     <xs:complexType name="Level">
         <xs:sequence>
             <xs:element name="LevelType" type="CodedField" minOccurs="1" maxOccurs="1">
@@ -37,7 +37,7 @@
             <xs:element name="Value" type="xs:string" minOccurs="1" maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
-        
+
 	<xs:complexType name="Survey">
 		<xs:sequence>
 			<xs:element name="SurveyTime" type="xs:dateTime" minOccurs="1">
