@@ -70,11 +70,16 @@
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="DrugProduct" type="DrugProduct"/>
-			<xs:element name="Frequency" type="xs:string" minOccurs="0">
+			<xs:element name="Frequency" minOccurs="0">
 				<xs:annotation>
                     <xs:appinfo>medication.frequency</xs:appinfo>
 					<xs:documentation>Frequency</xs:documentation>
 				</xs:annotation>
+                <xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
 			</xs:element>
 			<xs:element name="Comments" minOccurs="0">
 				<xs:annotation>

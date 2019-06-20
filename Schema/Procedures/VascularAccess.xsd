@@ -7,32 +7,32 @@
 					<xs:element name="Attributes" minOccurs="0">
 						<xs:complexType>
 							<xs:sequence>
-								<xs:element name="ACC19" type="xs:string">
+								<xs:element name="ACC19" type="xs:string" minOccurs="0">
 									<xs:annotation>
 										<xs:documentation>Date Access first used for Dialysis</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element name="ACC20" type="xs:string">
+								<xs:element name="ACC20" type="xs:string" minOccurs="0">
 									<xs:annotation>
 										<xs:documentation>Date of Access Failure</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element name="ACC21" type="xs:string">
+								<xs:element name="ACC21" type="xs:string" minOccurs="0">
 									<xs:annotation>
 										<xs:documentation>Date of Removal</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element name="ACC22" type="xs:string">
+								<xs:element name="ACC22" type="xs:string" minOccurs="0">
 									<xs:annotation>
 										<xs:documentation>Reason for Removal of Haemodialysis Access (HD Only)</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element name="ACC30" type="xs:string">
+								<xs:element name="ACC30" type="xs:string" minOccurs="0">
 									<xs:annotation>
 										<xs:documentation>PD Catheter Insertion Technique (PD Only)</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element name="ACC40" type="xs:string">
+								<xs:element name="ACC40" type="xs:string" minOccurs="0">
 									<xs:annotation>
 										<xs:documentation>Reason for Removal of PD Catheter (PD Only)</xs:documentation>
 									</xs:annotation>
