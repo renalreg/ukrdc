@@ -122,6 +122,11 @@
                                 <xs:documentation>Pulmonary Infection (Fungal or Protozoal; parasitic)</xs:documentation>
                             </xs:annotation>
                         </xs:enumeration>
+                        <xs:enumeration value="34">
+                            <xs:annotation>
+                                <xs:documentation>Infections elsewhere (except viral hepatitis)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
                         <xs:enumeration value="35">
                             <xs:annotation>
                                 <xs:documentation>Septicaemia</xs:documentation>

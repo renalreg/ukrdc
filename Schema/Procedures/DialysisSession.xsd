@@ -15,12 +15,12 @@
 								</xs:element>
 								<xs:element name="QHD20" type="xs:string" minOccurs="0">
 									<xs:annotation>
-										<xs:documentation>Vascular Access Used</xs:documentation>
+										<xs:documentation>Vascular Access Used (RR02)</xs:documentation>
 									</xs:annotation>
 								</xs:element>
 								<xs:element name="QHD21" type="xs:string" minOccurs="0">
 									<xs:annotation>
-										<xs:documentation>Vascular Access Site</xs:documentation>
+										<xs:documentation>Vascular Access Site (RR41)</xs:documentation>
 									</xs:annotation>
 								</xs:element>
 								<xs:element name="QHD22" type="RRYesNo" minOccurs="0">
