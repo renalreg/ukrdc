@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.0 -2019-09-05
+### Changed
+- COD CodingStandard has been changed from EDTA to EDTA_COD
+
 ## 1.4.0 - 2019-07-12
 ### Added
 - 3847 / 3852 have been added to the EDTA PRD Code List

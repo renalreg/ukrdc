@@ -5,7 +5,7 @@
             <xs:element name="CodingStandard" minOccurs="0">
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
-                        <xs:enumeration value="EDTA"/>
+                        <xs:enumeration value="EDTA_COD"/>
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
