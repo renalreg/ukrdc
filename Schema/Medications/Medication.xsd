@@ -114,6 +114,7 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
+			<xs:element name="EncounterNumber" type="xs:string" minOccurs='0'/>
 			<xs:group ref="CommonMetadata"/>
 		</xs:sequence>
 	</xs:complexType>

@@ -14,10 +14,15 @@
 					<xs:documentation>National code for the trust recording the consent - e.g. RXF01</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ProgramName" type="xs:string">
+			<xs:element name="ProgramName" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Name of RDG or study</xs:documentation>
 				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
 			</xs:element>
 			<xs:element name="ProgramDescription" minOccurs="0">
 				<xs:annotation>
@@ -25,7 +30,7 @@
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
-						<xs:maxLength value="220"/>
+						<xs:maxLength value="100"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
