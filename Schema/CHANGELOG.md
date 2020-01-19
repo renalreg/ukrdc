@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.1.0 - 2020-01-19
+### Added
+- VerificationStatus added to Diagnosis to allow "negative" Diagnoses for UKRR purposes
+- EnteredAt/EncounterNumber added to Diagnosis - These are to support recording information via PatientView
+- EncounterNumber added to Diagnoss - This is to support recording information via PatientView
+### Changed
+- ProgramName/ProgramDescription have been limited to 100 characters in ProgramMembership
+
 ## 2.0.0 -2019-09-05
 ### Changed
 - COD CodingStandard has been changed from EDTA to EDTA_COD

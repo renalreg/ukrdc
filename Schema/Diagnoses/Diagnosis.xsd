@@ -35,7 +35,7 @@
                     <xs:documentation>Date condition began. Can use approximate dates through truncation. CCYYMMDD or CCYYMM or CCYY</xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="VerificationStatus">
+            <xs:element name="VerificationStatus" minOccurs="0">
                 <xs:annotation>
                     <xs:documentation>The verification status to support or decline the clinical status of the condition or diagnosis.</xs:documentation>
                 </xs:annotation>
