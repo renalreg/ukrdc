@@ -41,7 +41,7 @@
 			</xs:element>
 			<xs:element name="Route" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Medication Route from RR22 - Standard always RR22. Code is 1=Oral, 2=Topical, 3=Inhalation, 4=Injection, 5=Intra peritoneal, 9=Other - please specify in description. </xs:documentation>
+					<xs:documentation>Medication Route - Permitted values are UKRR RR22 Codes or SNOMED</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -55,7 +55,7 @@
 						<xs:element name="Code" minOccurs="0">
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
-									<xs:maxLength value="5"/>
+									<xs:maxLength value="10"/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
