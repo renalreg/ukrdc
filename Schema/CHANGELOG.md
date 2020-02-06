@@ -3,6 +3,7 @@
 ## 2.2.0 - 2020-02-06
 ### Changed
 - Increased size of Medication/Route/Code to 10 characters to support SNOMED
+- Make Encounter/ToTime non-Mandatory
 
 ## 2.1.0 - 2020-01-19
 ### Added
