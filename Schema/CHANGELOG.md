@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.0 - 2020-02-06
+### Changed
+- Increased size of Medication/Route/Code to 10 characters to support SNOMED
+
 ## 2.1.0 - 2020-01-19
 ### Added
 - VerificationStatus added to Diagnosis to allow "negative" Diagnoses for UKRR purposes
