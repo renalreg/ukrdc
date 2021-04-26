@@ -1,5 +1,17 @@
 # Changelog
 
+## 3.0.0 - 2021-02-12
+### Changed
+- Split out the Procedure Elements to allow Start/End dates to be added to the Dialysis Sessions.
+
+## 2.4.0 - 2021-04-19
+### Changed
+- Set the length of Medication/Comments to be 255 characters.
+
+## 2.3.0 - 2021-01-12
+### Changed
+- Set the length of DrugProduct/Generic to be 125 characters.
+
 ## 2.2.0 - 2020-02-06
 ### Changed
 - Increased size of Medication/Route/Code to 10 characters to support SNOMED

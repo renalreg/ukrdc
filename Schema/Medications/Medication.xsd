@@ -55,7 +55,7 @@
 						<xs:element name="Code" minOccurs="0">
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
-									<xs:maxLength value="10"/>
+									<xs:maxLength value="18"/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
@@ -88,7 +88,7 @@
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
-						<xs:maxLength value="1000"/>
+						<xs:maxLength value="255"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>

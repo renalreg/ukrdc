@@ -7,12 +7,12 @@
 		<xs:sequence>
 			<xs:element name="DocumentTime" type="xs:dateTime" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation>Document Creation as CCYYMMDDhhmm</xs:documentation>
+					<xs:documentation>Document Creation</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="NoteText" type="xs:string" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The body of the document as free text,</xs:documentation>
+					<xs:documentation>The body of the document as plain text</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DocumentType" type="CodedField" minOccurs="0">
@@ -47,12 +47,12 @@
 			</xs:element>
 			<xs:element name="EnteredAt" type="Location" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Location the procedure was performed at. Use National coding e.g. RXF01</xs:documentation>
+					<xs:documentation>Location the document was created at. Use National coding e.g. RXF01</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="FileType" type="xs:string" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The mime type of the data if supplied as a stream</xs:documentation>
+					<xs:documentation>The MIME type of the data if supplied as a stream</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="FileName" type="xs:string" minOccurs="0">
@@ -62,12 +62,12 @@
 			</xs:element>
 			<xs:element name="Stream" type="xs:base64Binary" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>This property is used when the Note is binary data, e.g DOC, PDF, JPG</xs:documentation>
+					<xs:documentation>This property is used when the Document is binary data, e.g DOC, PDF, JPG</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DocumentURL" type="xs:string" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The full URL where the document can be accessed.</xs:documentation>
+					<xs:documentation>URL to the document if notetext/stream is not supplied.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:group ref="CommonMetadata"/>

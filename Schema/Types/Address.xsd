@@ -70,7 +70,7 @@
 		<xs:attribute name="use">
 			<xs:annotation>
 				<xs:documentation>From National MIM H=Home TMP=Temporary PST=Postal</xs:documentation>
-				<!-- TODO: Get codes for this -->
+				<!-- TODO: Add an enumeration here -->
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>

@@ -7,11 +7,6 @@
 					<xs:documentation>Last Modified Date</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ActionCode" type="ActionCode" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>A/U/D for Add/Update/Delete</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="ExternalId" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Unique Identifier</xs:documentation>

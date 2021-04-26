@@ -21,7 +21,7 @@
             </xs:element>
             <xs:element name="ObservationCode" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation>What observation is being recorded - e.g. Height/Weight. Use LOINC codes. Coding Standard is 2.16.840.1.113883.4.642.2.115 (OID for LOINC) ?? Did we discuss using OIDs ??</xs:documentation>
+                    <xs:documentation>Code for the Observation - UKRR, PV or SNOMED Coding Standards.</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                     <xs:sequence>
@@ -126,7 +126,7 @@
             </xs:element>
             <xs:element name="Clinician" type="Clinician" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation>Requesting Physician as a nationally coded person. Use the description if this is not coded. </xs:documentation>
+                    <xs:documentation>Requesting Physician as a nationally coded person. Use the description if this is not coded.</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="EnteredAt" type="Location" minOccurs="0">

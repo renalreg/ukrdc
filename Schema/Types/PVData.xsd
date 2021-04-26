@@ -1,4 +1,5 @@
 <xs:schema xmlns="http://www.rixg.org.uk/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.rixg.org.uk/">
+<!-- This is used to hold some items when we convert PV XML to RDA XML -->
     <xs:complexType name="PVData">
         <xs:sequence>
             <xs:element name="rrtstatus" minOccurs="0">
