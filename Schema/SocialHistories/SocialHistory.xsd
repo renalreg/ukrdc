@@ -5,7 +5,7 @@
 		<xs:sequence>
 			<xs:element name="SocialHabit" type="CodedField">
 				<xs:annotation>
-					<xs:documentation>Currently only used for smoking for which CodingStandard=RRSMOKE Code=YES/NO/EX</xs:documentation>
+					<xs:documentation>Social Habits</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:group ref="CommonMetadata"/>

@@ -33,12 +33,17 @@
                     <xs:documentation>Practice Address</xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="ContactDetail" type="ContactDetail" minOccurs="0" >
+            <xs:element name="ContactDetail" type="ContactDetail" minOccurs="0">
                 <xs:annotation>
                     <xs:documentation>Practice Contact Information</xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="Email" type="xs:string" minOccurs="0"/>
+            <xs:element name="Email" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:appinfo>familydoctor.email</xs:appinfo>
+                    <xs:documentation>GP E-mail Address</xs:documentation>
+                </xs:annotation>
+            </xs:element>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>

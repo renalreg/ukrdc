@@ -52,7 +52,7 @@
 			</xs:element>
 			<xs:element name="FileType" type="xs:string" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The MIME type of the data if supplied as a stream</xs:documentation>
+					<xs:documentation>The MIME type of the data if supplied as a stream.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="FileName" type="xs:string" minOccurs="0">

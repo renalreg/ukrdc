@@ -1,90 +1,95 @@
 <xs:schema xmlns="http://www.rixg.org.uk/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.rixg.org.uk/">
-	<xs:include schemaLocation="Types/Address.xsd"/>
-	<xs:include schemaLocation="Types/ContactDetail.xsd"/>
-	<xs:include schemaLocation="Types/EthnicGroup.xsd"/>
-	<xs:include schemaLocation="Types/FamilyDoctor.xsd"/>
-	<xs:include schemaLocation="Types/Gender.xsd"/>
-	<xs:include schemaLocation="Types/Name.xsd"/>
-	<xs:include schemaLocation="Types/Occupation.xsd"/>
-	<xs:include schemaLocation="Types/Language.xsd"/>
-	<xs:include schemaLocation="Types/PatientNumber.xsd"/>
-	<xs:include schemaLocation="Types/PersonalContactType.xsd"/>
-	<xs:include schemaLocation="Types/CommonMetadata.xsd"/>
+    <xs:include schemaLocation="Types/Address.xsd"/>
+    <xs:include schemaLocation="Types/ContactDetail.xsd"/>
+    <xs:include schemaLocation="Types/EthnicGroup.xsd"/>
+    <xs:include schemaLocation="Types/FamilyDoctor.xsd"/>
+    <xs:include schemaLocation="Types/Gender.xsd"/>
+    <xs:include schemaLocation="Types/Name.xsd"/>
+    <xs:include schemaLocation="Types/Occupation.xsd"/>
+    <xs:include schemaLocation="Types/Language.xsd"/>
+    <xs:include schemaLocation="Types/PatientNumber.xsd"/>
+    <xs:include schemaLocation="Types/PersonalContactType.xsd"/>
+    <xs:include schemaLocation="Types/CommonMetadata.xsd"/>
     <xs:include schemaLocation="Types/BloodGroup.xsd"/>
     <xs:include schemaLocation="Types/BloodRhesus.xsd"/>
-	<xs:complexType name="Patient">
-		<xs:sequence>
-			<xs:element name="PatientNumbers" type="PatientNumbers" minOccurs="0"/>
-			<xs:element name="Names" minOccurs="0">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="Name" type="Name" minOccurs="1" maxOccurs="unbounded">
-							<xs:annotation>
-								<xs:documentation>1 instance of name must be present if an NHS Number or CHI Number is included.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="BirthTime" type="xs:dateTime" minOccurs="1"/>
-			<xs:element name="DeathTime" type="xs:dateTime" minOccurs="0"/>
-			<xs:element name="Gender" type="Gender" minOccurs="1"/>
-			<xs:element name="Addresses" minOccurs="0">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="Address" type="Address" maxOccurs="unbounded"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="ContactDetails" minOccurs="0">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="ContactDetail" type="ContactDetail" maxOccurs="4">
-							<xs:annotation>
-								<xs:documentation>Only 1 of each type should be sent.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="CountryOfBirth" type="xs:string" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>ISO 3166-1 3-char alphabetic code (as per NHS Data Dictionary)</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="FamilyDoctor" type="FamilyDoctor" minOccurs="0"/>
-			<xs:element name="PersonToContact" type="PersonalContactType" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="EthnicGroup" type="EthnicGroup" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Ethnicity</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Occupation" type="Occupation" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Current Occupation</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="PrimaryLanguage" type="Language" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Primary Language</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+    <xs:complexType name="Patient">
+        <xs:sequence>
+            <xs:element name="PatientNumbers" type="PatientNumbers" minOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Every Patient should have one MRN type PatientNumber. This should be the primary identifier for the Patient in the sending system and typically not change. If a National Identifier (such as NHS Number) is used as the MRN it should also be submitted as an NI type PatientNumber.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Names" minOccurs="1">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Name" type="Name" minOccurs="1" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="BirthTime" type="xs:dateTime" minOccurs="1"/>
+            <xs:element name="DeathTime" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="Gender" type="Gender" minOccurs="1"/>
+            <xs:element name="Addresses" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Address" type="Address" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ContactDetails" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ContactDetail" type="ContactDetail" maxOccurs="4">
+                            <xs:annotation>
+                                <xs:documentation>Only 1 of each type should be sent. This must only be used for the Patient's own Contact Details and not those of third parties.</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="CountryOfBirth" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>From NHS Data Dictionary ISO 3166-1 Use the 3-char alphabetic code.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="FamilyDoctor" type="FamilyDoctor" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Current GP / GP Practice</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="PersonToContact" type="PersonalContactType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Person to Contact about the Patient's Care. This element should not be submitted without prior discussion with the UKRR.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="EthnicGroup" type="EthnicGroup" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Ethnic Group</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Occupation" type="Occupation" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Occuptation</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="PrimaryLanguage" type="Language" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Primary Language</xs:documentation>
+                </xs:annotation>
+            </xs:element>
             <xs:element name="BloodGroup" type="BloodGroup" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation>Current Blood Type</xs:documentation>
+                    <xs:documentation>Blood Type (Current)</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="BloodRhesus" type="BloodRhesus" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation>Current Blood Rhesus</xs:documentation>
+                    <xs:documentation>Blood Rhesus (Current)</xs:documentation>
                 </xs:annotation>
             </xs:element>
-			<xs:element name="Death" type="xs:boolean" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Patient is Deceased</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:group ref="CommonMetadata"/>
-		</xs:sequence>
-	</xs:complexType>
+            <xs:element name="Death" type="xs:boolean" minOccurs="0"/>
+            <xs:group ref="CommonMetadata"/>
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>

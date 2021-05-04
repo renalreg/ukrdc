@@ -1,58 +1,224 @@
 <xs:schema xmlns="http://www.rixg.org.uk/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.rixg.org.uk/">
-	<xs:include schemaLocation="../Procedures/Procedure.xsd"/>
+    <xs:include schemaLocation="../Procedures/Procedure.xsd"/>
     <xs:include schemaLocation="../Types/RRTypes.xsd"/>
-	<xs:complexType name="DialysisSession">
-		<xs:complexContent>
-			<xs:extension base="Procedure">
-				<xs:sequence>
-					<xs:element name="Attributes" minOccurs="0">
-						<xs:complexType>
-							<xs:sequence>
-								<xs:element name="QHD19" type="RRYesNo" minOccurs="0">
-									<xs:annotation>
-										<xs:documentation>Symptomatic hypotension</xs:documentation>
-									</xs:annotation>
-								</xs:element>
-								<xs:element name="QHD20" type="xs:string" minOccurs="0">
-									<xs:annotation>
-										<xs:documentation>Vascular Access Used (RR02)</xs:documentation>
-									</xs:annotation>
-								</xs:element>
-								<xs:element name="QHD21" type="xs:string" minOccurs="0">
-									<xs:annotation>
-										<xs:documentation>Vascular Access Site (RR41)</xs:documentation>
-									</xs:annotation>
-								</xs:element>
-								<xs:element name="QHD22" type="RRYesNo" minOccurs="0">
-									<xs:annotation>
-										<xs:documentation>Access in two sites simultaneously</xs:documentation>
-									</xs:annotation>
-								</xs:element>
-								<xs:element name="QHD30" type="xs:string" minOccurs="0">
-									<xs:annotation>
-										<xs:documentation>Blood Flow Rate</xs:documentation>
-									</xs:annotation>
-								</xs:element>
-								<xs:element name="QHD31" type="xs:string" minOccurs="0">
-									<xs:annotation>
-										<xs:documentation>Time Dialysed in Minutes</xs:documentation>
-									</xs:annotation>
-								</xs:element>
-								<xs:element name="QHD32" type="xs:string" minOccurs="0">
-									<xs:annotation>
-										<xs:documentation>Sodium in Dialysate</xs:documentation>
-									</xs:annotation>
-								</xs:element>
-								<xs:element name="QHD33" type="xs:string" minOccurs="0">
-									<xs:annotation>
-										<xs:documentation>Needling Method</xs:documentation>
-									</xs:annotation>
-								</xs:element>
-							</xs:sequence>
-						</xs:complexType>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
+    
+    <xs:complexType name="DialysisSessions">
+        <xs:sequence>
+            <xs:element name="DialysisSession" type="DialysisSession" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="start" type="xs:date"/>
+        <xs:attribute name="stop" type="xs:date"/>
+    </xs:complexType>
+
+    <xs:complexType name="DialysisSession">
+        <xs:complexContent>
+            <xs:extension base="Procedure">
+                <xs:sequence>
+                    <xs:element name="Attributes" minOccurs="0">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="QHD19" type="RRYesNo" minOccurs="0">
+                                    <xs:annotation>
+                                        <xs:documentation>Symptomatic hypotension</xs:documentation>
+                                    </xs:annotation>
+                                </xs:element>
+                                <xs:element name="QHD20" minOccurs="0">
+                                    <xs:annotation>
+                                        <xs:documentation>Vascular Access Used (RR02)</xs:documentation>
+                                    </xs:annotation>
+                                    <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                            <xs:enumeration value="NLN">
+                                                <xs:annotation>
+                                                    <xs:documentation>Non-Tunneled Line</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                            <xs:enumeration value="TLN">
+                                                <xs:annotation>
+                                                    <xs:documentation>Tunneled Line</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                            <xs:enumeration value="AVF">
+                                                <xs:annotation>
+                                                    <xs:documentation>Arteriovenous Fistula</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                            <xs:enumeration value="AVG">
+                                                <xs:annotation>
+                                                    <xs:documentation>Arteriovenous Graft</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                            <xs:enumeration value="VLP">
+                                                <xs:annotation>
+                                                    <xs:documentation>Vein Loop</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                            <xs:enumeration value="PDC">
+                                                <xs:annotation>
+                                                    <xs:documentation>PD Catherer</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                            <xs:enumeration value="PDE">
+                                                <xs:annotation>
+                                                    <xs:documentation>PD Embedded Catherer</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                            <xs:enumeration value="PDT">
+                                                <xs:annotation>
+                                                    <xs:documentation>PD Catherer Temp</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                            <xs:enumeration value="HER">
+                                                <xs:annotation>
+                                                    <xs:documentation>HeRO Graft</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                        </xs:restriction>
+                                    </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="QHD21" minOccurs="0">
+                                    <xs:annotation>
+                                        <xs:documentation>Vascular Access Site (RR41)</xs:documentation>
+                                    </xs:annotation>
+                                    <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                            <xs:enumeration value="BB">
+                                                <xs:annotation>
+                                                    <xs:documentation>Brachio-Basilic</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                            <xs:enumeration value="BC">
+                                                <xs:annotation>
+                                                    <xs:documentation>Brachio-Cephalic</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                            <xs:enumeration value="LA">
+                                                <xs:annotation>
+                                                    <xs:documentation>Axillary Vein Line</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                            <xs:enumeration value="LF">
+                                                <xs:annotation>
+                                                    <xs:documentation>Femoral Vein Line</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                            <xs:enumeration value="LJ">
+                                                <xs:annotation>
+                                                    <xs:documentation>Intenal Jugular Line</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                            <xs:enumeration value="LS">
+                                                <xs:annotation>
+                                                    <xs:documentation>Subclavian Line</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                            <xs:enumeration value="PS">
+                                                <xs:annotation>
+                                                    <xs:documentation>Popliteal-Long Saphenous</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                            <xs:enumeration value="RC">
+                                                <xs:annotation>
+                                                    <xs:documentation>Radio-Cephalic Wrist</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                            <xs:enumeration value="RU">
+                                                <xs:annotation>
+                                                    <xs:documentation>Radio-Ulnar</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                            <xs:enumeration value="SB">
+                                                <xs:annotation>
+                                                    <xs:documentation>Radio-Cephalic Snuff Box</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                            <xs:enumeration value="TB">
+                                                <xs:annotation>
+                                                    <xs:documentation>Brachio-Basilic and Transposition</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                            <xs:enumeration value="TS">
+                                                <xs:annotation>
+                                                    <xs:documentation>Popliteal-Long Saphenous and Transposition</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                            <xs:enumeration value="UA">
+                                                <xs:annotation>
+                                                    <xs:documentation>Ankle</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                            <xs:enumeration value="UC">
+                                                <xs:annotation>
+                                                    <xs:documentation>Ulna-Cephalic</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                            <xs:enumeration value="UF">
+                                                <xs:annotation>
+                                                    <xs:documentation>Forearm NOS</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                            <xs:enumeration value="UO">
+                                                <xs:annotation>
+                                                    <xs:documentation>Other</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                            <xs:enumeration value="UT">
+                                                <xs:annotation>
+                                                    <xs:documentation>Thigh NOS</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                        </xs:restriction>
+                                    </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="QHD22" type="RRYesNo" minOccurs="0">
+                                    <xs:annotation>
+                                        <xs:documentation>Access in two sites simultaneously</xs:documentation>
+                                    </xs:annotation>
+                                </xs:element>
+                                <xs:element name="QHD30" type="xs:integer" minOccurs="0">
+                                    <xs:annotation>
+                                        <xs:documentation>Blood Flow Rate</xs:documentation>
+                                    </xs:annotation>
+                                </xs:element>
+                                <xs:element name="QHD31" type="xs:integer" minOccurs="0">
+                                    <xs:annotation>
+                                        <xs:documentation>Time Dialysed in Minutes</xs:documentation>
+                                    </xs:annotation>
+                                </xs:element>
+                                <xs:element name="QHD32" type="xs:integer" minOccurs="0">
+                                    <xs:annotation>
+                                        <xs:documentation>Sodium in Dialysate</xs:documentation>
+                                    </xs:annotation>
+                                </xs:element>
+                                <xs:element name="QHD33" minOccurs="0">
+                                    <xs:annotation>
+                                        <xs:documentation>Needling Method (RR50)</xs:documentation>
+                                    </xs:annotation>
+                                    <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                            <xs:enumeration value="L">
+                                                <xs:annotation>
+                                                    <xs:documentation>Rope Ladder</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                            <xs:enumeration value="B">
+                                                <xs:annotation>
+                                                    <xs:documentation>Button Hole</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                            <xs:enumeration value="U">
+                                                <xs:annotation>
+                                                    <xs:documentation>Unknown</xs:documentation>
+                                                </xs:annotation>
+                                            </xs:enumeration>
+                                        </xs:restriction>
+                                    </xs:simpleType>
+                                </xs:element>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
 </xs:schema>

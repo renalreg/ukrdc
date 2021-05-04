@@ -3,7 +3,7 @@
 		<xs:sequence>
 			<xs:element name="Value" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The contact detail = phome number or email id</xs:documentation>
+					<xs:documentation>The contact detail = phone number or email id</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">

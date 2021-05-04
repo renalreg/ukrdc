@@ -5,10 +5,10 @@
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
                         <xs:enumeration value="NHS_DATA_DICTIONARY">
-							<xs:annotation>
-                                <xs:documentation>https://datadictionary.nhs.uk/attributes/ethnic_category_code_2001.html</xs:documentation>
+                            <xs:annotation>
+                                <xs:documentation>https://datadictionary.nhs.uk/data_elements/ethnic_category.html</xs:documentation>
                             </xs:annotation>
-						</xs:enumeration>
+                        </xs:enumeration>
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>

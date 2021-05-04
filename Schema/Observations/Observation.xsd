@@ -13,13 +13,13 @@
 
     <xs:complexType name="Observation">
         <xs:sequence>
-            <xs:element name="ObservationTime" type="xs:dateTime" minOccurs="0">
+            <xs:element name="ObservationTime" type="xs:dateTime">
                 <xs:annotation>
                     <xs:appinfo>observation.observationtime</xs:appinfo>
                     <xs:documentation>When the Observation was made</xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="ObservationCode" minOccurs="0">
+            <xs:element name="ObservationCode">
                 <xs:annotation>
                     <xs:documentation>Code for the Observation - UKRR, PV or SNOMED Coding Standards.</xs:documentation>
                 </xs:annotation>

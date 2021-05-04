@@ -67,12 +67,12 @@
             </xs:element>
             <xs:element name="FromTime" type="xs:dateTime">
                 <xs:annotation>
-                    <xs:documentation>Time that encounter starts as CCYYMMDD</xs:documentation>
+                    <xs:documentation>Time that encounter starts</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="ToTime" type="xs:dateTime" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation>Time that encounter ends as CCYYMMDD</xs:documentation>
+                    <xs:documentation>Time that encounter ends</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="AdmittingClinician" type="Clinician" minOccurs="0">

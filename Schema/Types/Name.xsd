@@ -1,61 +1,80 @@
 <xs:schema xmlns="http://www.rixg.org.uk/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.rixg.org.uk/">
-	<xs:complexType name="Name">
-		<xs:sequence>
-			<xs:element name="Prefix" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Prefix or title e.g. Mr, Mrs etc</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="220"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="Family" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Surname or family name. Mandatory on Usual name</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="60"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="Given" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Given name. Mandatory for a Usual name.</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="60"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="OtherGivenNames" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>2nd and other given name</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="60"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="Suffix" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Suffix e.g. Jnr, Snr etc.</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="10"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-		</xs:sequence>
-		<xs:attribute name="use" use="required">
-			<xs:annotation>
-				<xs:documentation>L=Official, D=Usual, B=Birth Name - https://www.hl7.org/fhir/v2/0200/index.html</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-	</xs:complexType>
+    <xs:complexType name="Name">
+        <xs:sequence>
+            <xs:element name="Prefix" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Prefix or title e.g. Mr, Mrs etc</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="220"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Family" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Surname or family name. Mandatory on Usual name</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="60"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Given" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Given name. Mandatory for a Usual name.</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="60"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="OtherGivenNames" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>2nd and other given name</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="60"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Suffix" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Suffix e.g. Jnr, Snr etc.</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="10"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="use" use="required">
+            <xs:annotation>
+                <xs:documentation>https://www.hl7.org/fhir/v2/0200/index.html</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="B">
+                        <xs:annotation>
+                            <xs:documentation>Birth Name</xs:documentation>
+                        </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="D">
+                        <xs:annotation>
+                            <xs:documentation>Usual</xs:documentation>
+                        </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="L">
+                        <xs:annotation>
+                            <xs:documentation>Official</xs:documentation>
+                        </xs:annotation>
+                    </xs:enumeration>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
 </xs:schema>

@@ -1,8 +1,9 @@
 <xs:schema xmlns="http://www.rixg.org.uk/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.rixg.org.uk/">
 
-<!-- See https://www.datadictionary.nhs.uk/data_dictionary/attributes/p/person/person_rhesus_factor_de.asp -->
-
 <xs:simpleType name='BloodRhesus'>
+    <xs:annotation>
+        <xs:documentation>See https://www.datadictionary.nhs.uk/data_dictionary/attributes/p/person/person_rhesus_factor_de.asp</xs:documentation>
+    </xs:annotation>
     <xs:restriction base="xs:string">
         <xs:enumeration value="POS">
             <xs:annotation>

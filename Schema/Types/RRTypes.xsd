@@ -6,6 +6,12 @@
     </xs:restriction>
 </xs:simpleType>
 
+<xs:simpleType name='RRYesNoUnk'>
+    <xs:restriction base="xs:string">
+        <xs:pattern value="Y|N|U"/>
+    </xs:restriction>
+</xs:simpleType>
+
 <xs:simpleType name='RROneTwo'>
     <xs:restriction base="xs:string">
         <xs:pattern value="1|2"/>

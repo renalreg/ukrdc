@@ -7,6 +7,7 @@
                     <xs:restriction base="xs:string">
                         <xs:enumeration value="EDTA"/>
                         <xs:enumeration value="EDTA2"/>
+                        <xs:enumeration value="SNOMED"/>
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
