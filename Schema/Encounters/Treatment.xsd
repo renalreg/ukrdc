@@ -1,9 +1,11 @@
 <xs:schema xmlns="http://www.rixg.org.uk/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.rixg.org.uk/">
-    <xs:include schemaLocation="../Types/Clinician.xsd"/>
-    <xs:include schemaLocation="../Types/Location.xsd"/>
-    <xs:include schemaLocation="../Types/CF_RR7_Treatment.xsd"/>
     <xs:include schemaLocation="../Types/CF_RR7_Discharge.xsd"/>
+    <xs:include schemaLocation="../Types/CF_RR7_Treatment.xsd"/>
+    <xs:include schemaLocation="../Types/Clinician.xsd"/>
     <xs:include schemaLocation="../Types/CommonMetadata.xsd"/>
+    <xs:include schemaLocation="../Types/Location.xsd"/>
+    <xs:include schemaLocation="../Types/RRTypes.xsd"/>
+
     <xs:complexType name="Treatment">
         <xs:sequence>
             <xs:element name="EncounterNumber" type="xs:string" minOccurs="0">
