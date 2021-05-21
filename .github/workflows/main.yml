@@ -22,7 +22,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Export API docs
-        run: python gen.py
+        run: python gen.py && mv docs/Schema/* docs
 
       - name: Deploy API docs
         uses: peaceiris/actions-gh-pages@v3
