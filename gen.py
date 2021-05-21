@@ -11,21 +11,49 @@ if not os.path.isdir(out_path):
 xslt = ET.parse(xsl_path)
 transform = ET.XSLT(xslt)
 
+
+def make_index(title: str, dir_links: list[str], file_links: list[str]):
+    content = f"<html><h1>{title}</h1>"
+
+    content += "<h2>Directories</h2>"
+    content += "<ul>"
+    for link in dir_links:
+        content += f"<li><a href='{link}'>{link}</a></li>"
+    content += "</ul>"
+
+    content += "<h2>Files</h2>"
+    content += "<ul>"
+    for link in file_links:
+        basename = link.split(".")[0]
+        content += f"<li><a href='{link}'>{basename}</a></li>"
+    content += "</ul>"
+
+    content += "</html>"
+    return content
+
+
 for path, dirs, files in os.walk(in_path):
-    # Skip root
-    if path != in_path:
-        page_dir = os.path.join(out_path, path)
-        if not os.path.isdir(page_dir):
-            os.makedirs(page_dir)
 
-        for xsd_file in [f for f in files if f.endswith(".xsd")]:
-            base_name = xsd_file.split(".xsd")[0]
-            in_file = os.path.join(path, xsd_file)
-            out_file = os.path.join(out_path, path, f"{base_name}.html")
-            print(out_file)
+    page_dir = os.path.join(out_path, path)
+    if not os.path.isdir(page_dir):
+        os.makedirs(page_dir)
 
-            dom = ET.parse(in_file)
-            newdom = transform(dom)
+    file_links = []
 
-            with open(out_file, "wb") as html:
-                html.write(ET.tostring(newdom, pretty_print=True))
+    for xsd_file in [f for f in files if f.endswith(".xsd")]:
+        base_name = xsd_file.split(".xsd")[0]
+        in_file = os.path.join(path, xsd_file)
+        html_filename = f"{base_name}.html"
+        out_file = os.path.join(out_path, path, html_filename)
+        file_links.append(html_filename)
+
+        print(out_file)
+
+        dom = ET.parse(in_file)
+        newdom = transform(dom)
+
+        with open(out_file, "wb") as html:
+            html.write(ET.tostring(newdom, pretty_print=True))
+
+    with open(os.path.join(out_path, path, "index.html"), "w") as html:
+        html.write(make_index(path, dirs, file_links))
