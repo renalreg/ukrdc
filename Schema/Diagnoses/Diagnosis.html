@@ -1,0 +1,68 @@
+<html xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <head>
+    <title>Entities</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+  </head>
+  <body>
+    <div class="container">
+    
+    
+    
+    
+    <h2>Diagnosis</h2><p/><table class="table table-striped table-bordered table-hover"><tr><th>Name</th><th>Type</th><th>Occurence</th><th>Description</th></tr>
+            <tr><td>DiagnosisType</td><td>xs:string</td><td>0
+                ..
+                
+						1
+					</td><td/></tr>
+            <tr><td>DiagnosingClinician</td><td>Clinician</td><td>0
+                ..
+                
+						1
+					</td><td>National Clinicial code where possible or other local code if not.</td></tr>
+            <tr><td>Diagnosis</td><td>CF_SNOMED</td><td>0
+                ..
+                
+						1
+					</td><td>SNOMED CT coded diagnoses. This should also include any diagnosis that has been submitted elsewhere as a Primary Renal Diagnosis.</td></tr>
+            <tr><td>Comments</td><td>xs:string</td><td>0
+                ..
+                
+						1
+					</td><td>Free text about the Diagnosis</td></tr>
+            <tr><td>IdentificationTime</td><td>xs:dateTime</td><td>0
+                ..
+                
+						1
+					</td><td>Date of initial diagnosis</td></tr>
+            <tr><td>OnsetTime</td><td>xs:dateTime</td><td>0
+                ..
+                
+						1
+					</td><td>Date condition began.</td></tr>
+            <tr><td>VerificationStatus</td><td>xs:string<ul><li>Enumeration</li><ul><li>unconfirmed</li><li>provisional</li><li>differential</li><li>confirmed</li><li>refuted</li><li>entered-in-error</li></ul></ul></td><td>0
+                ..
+                
+						1
+					</td><td>The verification status to support or decline the clinical status of the condition or diagnosis.</td></tr>
+            <tr><td>EnteredOn</td><td>xs:dateTime</td><td>0
+                ..
+                
+						1
+					</td><td>The date the diagnosis was recorded in the medical record.</td></tr>
+            <tr><td>EncounterNumber</td><td>xs:string</td><td>0
+                ..
+                
+						1
+					</td><td>This is used to associate a Diagnosis with the activity in a particular Encounter record. This element should not be submitted without prior discussion with the UKRR.
+                    </td></tr>
+            <tr><td>EnteredAt</td><td>Location</td><td>0
+                ..
+                
+						1
+					</td><td>National code for the hospital providing care - e.g. RXF01</td></tr>
+            
+        </table>
+</div>
+  </body>
+</html>

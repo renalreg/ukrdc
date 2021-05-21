@@ -1,0 +1,38 @@
+<html xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <head>
+    <title>Entities</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+  </head>
+  <body>
+    <div class="container">
+    
+    
+    
+    <h2>ClinicalRelationship</h2><p/><table class="table table-striped table-bordered table-hover"><tr><th>Name</th><th>Type</th><th>Occurence</th><th>Description</th></tr>
+            <tr><td>FromTime</td><td>xs:dateTime</td><td>
+						1
+					
+                ..
+                
+						1
+					</td><td>Start of the relationship</td></tr>
+            <tr><td>ToTime</td><td>xs:dateTime</td><td>0
+                ..
+                
+						1
+					</td><td>End of the relationship</td></tr>
+            <tr><td>Clinician</td><td>Clinician</td><td>0
+                ..
+                
+						1
+					</td><td/></tr>
+            <tr><td>FacilityCode</td><td>Location</td><td>0
+                ..
+                
+						1
+					</td><td/></tr>
+            
+        </table>
+</div>
+  </body>
+</html>

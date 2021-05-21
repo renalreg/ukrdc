@@ -1,0 +1,97 @@
+<html xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <head>
+    <title>Entities</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+  </head>
+  <body>
+    <div class="container">
+	
+	
+	
+
+
+    <h2>Question</h2><p/><table class="table table-striped table-bordered table-hover"><tr><th>Name</th><th>Type</th><th>Occurence</th><th>Description</th></tr>
+            <tr><td>QuestionType</td><td>CodedField</td><td>1
+                ..
+                1</td><td>Question Type</td></tr>
+            <tr><td>Response</td><td>xs:string</td><td>1
+                ..
+                1</td><td/></tr>
+            <tr><td>QuestionText</td><td>xs:string</td><td>0
+                ..
+                1</td><td/></tr>
+        </table>
+
+    <h2>Score</h2><p/><table class="table table-striped table-bordered table-hover"><tr><th>Name</th><th>Type</th><th>Occurence</th><th>Description</th></tr>
+            <tr><td>ScoreType</td><td>CodedField</td><td>1
+                ..
+                1</td><td>Score Type</td></tr>
+            <tr><td>Value</td><td>xs:string</td><td>1
+                ..
+                1</td><td/></tr>
+        </table>
+
+    <h2>Level</h2><p/><table class="table table-striped table-bordered table-hover"><tr><th>Name</th><th>Type</th><th>Occurence</th><th>Description</th></tr>
+            <tr><td>LevelType</td><td>CodedField</td><td>1
+                ..
+                1</td><td>Score Type</td></tr>
+            <tr><td>Value</td><td>xs:string</td><td>1
+                ..
+                1</td><td/></tr>
+        </table>
+
+	<h2>Survey</h2><p/><table class="table table-striped table-bordered table-hover"><tr><th>Name</th><th>Type</th><th>Occurence</th><th>Description</th></tr>
+			<tr><td>SurveyTime</td><td>xs:dateTime</td><td>1
+                ..
+                
+						1
+					</td><td>When the survey was completed.</td></tr>
+			<tr><td>SurveyType</td><td>CodedField</td><td>1
+                ..
+                1</td><td>Survey Type</td></tr>
+			<tr><td>Questions</td><td><ul/></td><td>0
+                ..
+                
+						1
+					</td><td/></tr>
+			<tr><td>Scores</td><td><ul/></td><td>0
+                ..
+                
+						1
+					</td><td/></tr>
+			<tr><td>Levels</td><td><ul/></td><td>0
+                ..
+                
+						1
+					</td><td/></tr>
+			<tr><td>EnteredBy</td><td>CodedField</td><td>0
+                ..
+                
+						1
+					</td><td>Who completed the survey</td></tr>
+			<tr><td>EnteredAt</td><td>Location</td><td>0
+                ..
+                
+						1
+					</td><td>Where the Survey was completed</td></tr>
+            
+			<tr><td>TypeOfTreatment</td><td>xs:string</td><td>0
+                ..
+                
+						1
+					</td><td>Current Modality</td></tr>
+			<tr><td>HDLocation</td><td>xs:string</td><td>0
+                ..
+                
+						1
+					</td><td>If Current Modality = HD, where is it performed?</td></tr>
+			<tr><td>Template</td><td>xs:string</td><td>0
+                ..
+                
+						1
+					</td><td>This is currently only used to flag surveys which were submitted via the SharedHD project. Another field may be more appropriate.</td></tr>
+			
+		</table>
+</div>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<html xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <head>
+    <title>Entities</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+  </head>
+  <body>
+    <div class="container">
+    
+    
+    
+
+    <h2>Observations</h2><p/><table class="table table-striped table-bordered table-hover"><tr><th>Name</th><th>Type</th><th>Occurence</th><th>Description</th></tr>
+            <tr><td>Observation</td><td>Observation</td><td>0
+                ..
+                unbounded</td><td/></tr>
+        </table>
+
+    <h2>Observation</h2><p/><table class="table table-striped table-bordered table-hover"><tr><th>Name</th><th>Type</th><th>Occurence</th><th>Description</th></tr>
+            <tr><td>ObservationTime</td><td>xs:dateTime</td><td>
+						1
+					
+                ..
+                
+						1
+					</td><td>When the Observation was made</td></tr>
+            <tr><td>ObservationCode</td><td><ul/></td><td>
+						1
+					
+                ..
+                
+						1
+					</td><td>Code for the Observation - UKRR, PV or SNOMED Coding Standards.</td></tr>
+            <tr><td>ObservationValue</td><td>xs:string<ul><li>
+                                    maxLength:
+                                    20</li></ul></td><td>0
+                ..
+                
+						1
+					</td><td/></tr>
+            <tr><td>ObservationUnits</td><td>xs:string<ul><li>
+                                    maxLength:
+                                    30</li></ul></td><td>0
+                ..
+                
+						1
+					</td><td/></tr>
+            <tr><td>PrePost</td><td>xs:string<ul><li>Enumeration</li><ul><li>PRE</li><li>POST</li><li>UNK</li><li>NA</li></ul></ul></td><td>0
+                ..
+                
+						1
+					</td><td>Was the Observation made PRE or POST dialysis</td></tr>
+            <tr><td>Comments</td><td>xs:string<ul><li>
+                                    maxLength:
+                                    1000</li></ul></td><td>0
+                ..
+                
+						1
+					</td><td/></tr>
+            <tr><td>Clinician</td><td>Clinician</td><td>0
+                ..
+                
+						1
+					</td><td>Requesting Physician as a nationally coded person. Use the description if this is not coded.</td></tr>
+            <tr><td>EnteredAt</td><td>Location</td><td>0
+                ..
+                
+						1
+					</td><td/></tr>
+            <tr><td>EnteringOrganization</td><td>Location</td><td>0
+                ..
+                
+						1
+					</td><td/></tr>
+            
+        </table>
+</div>
+  </body>
+</html>

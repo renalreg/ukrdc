@@ -1,0 +1,46 @@
+<html xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <head>
+    <title>Entities</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+  </head>
+  <body>
+    <div class="container">
+    
+    
+    
+    
+    <h2>Procedure</h2><p/><table class="table table-striped table-bordered table-hover"><tr><th>Name</th><th>Type</th><th>Occurence</th><th>Description</th></tr>
+            <tr><td>ProcedureType</td><td>CF_SNOMED</td><td>
+						1
+					
+                ..
+                
+						1
+					</td><td>At least code must be entered</td></tr>
+            <tr><td>Clinician</td><td>Clinician</td><td>0
+                ..
+                
+						1
+					</td><td>National Clinicial code where possible or other local code if not.</td></tr>
+            <tr><td>ProcedureTime</td><td>xs:dateTime</td><td>
+						1
+					
+                ..
+                
+						1
+					</td><td>The time the Procedure started.</td></tr>
+            <tr><td>EnteredBy</td><td>Clinician</td><td>0
+                ..
+                
+						1
+					</td><td>Person entering the diagnosis as a National Clinicial code where possible or other local code if not.</td></tr>
+            <tr><td>EnteredAt</td><td>Location</td><td>0
+                ..
+                
+						1
+					</td><td>Location the procedure was performed at. Use National coding e.g. RXF01</td></tr>
+            
+        </table>
+</div>
+  </body>
+</html>

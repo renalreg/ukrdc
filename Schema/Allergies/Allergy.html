@@ -1,0 +1,76 @@
+<html xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <head>
+    <title>Entities</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+  </head>
+  <body>
+    <div class="container">
+    
+    
+    
+    
+    
+    <h2>Allergy</h2><p/><table class="table table-striped table-bordered table-hover"><tr><th>Name</th><th>Type</th><th>Occurence</th><th>Description</th></tr>
+            <tr><td>Allergy</td><td>CF_SNOMED</td><td>
+						1
+					
+                ..
+                
+						1
+					</td><td>Substance to which the patient is allergic. (SNOMED)</td></tr>
+            <tr><td>AllergyCategory</td><td>CF_HL7_00204</td><td>0
+                ..
+                
+						1
+					</td><td>Type of Allergy (HL7 00204)</td></tr>
+            <tr><td>Severity</td><td>CF_HL7_00206</td><td>0
+                ..
+                
+						1
+					</td><td>Severity (HL7 00206)</td></tr>
+            <tr><td>Clinician</td><td>Clinician</td><td>0
+                ..
+                
+						1
+					</td><td>Diagnosing Clinician</td></tr>
+            <tr><td>DiscoveryTime</td><td>xs:dateTime</td><td>0
+                ..
+                
+						1
+					</td><td>Reported Date</td></tr>
+            <tr><td>ConfirmedTime</td><td>xs:dateTime</td><td>0
+                ..
+                
+						1
+					</td><td/></tr>
+            <tr><td>Comments</td><td>xs:string<ul><li>
+                                    maxLength:
+                                    500</li></ul></td><td>0
+                ..
+                
+						1
+					</td><td>Advice given to the patient</td></tr>
+            <tr><td>InactiveTime</td><td>xs:dateTime</td><td>0
+                ..
+                
+						1
+					</td><td>Resolved Time</td></tr>
+            <tr><td>FreeTextAllergy</td><td>xs:string<ul><li>
+                                    maxLength:
+                                    500</li></ul></td><td>0
+                ..
+                
+						1
+					</td><td>AL1-5 Free text definition of what happened</td></tr>
+            <tr><td>QualifyingDetails</td><td>xs:string<ul><li>
+                                    maxLength:
+                                    500</li></ul></td><td>0
+                ..
+                
+						1
+					</td><td>Details if patient or family reported</td></tr>
+            
+        </table>
+</div>
+  </body>
+</html>

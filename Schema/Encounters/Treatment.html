@@ -1,0 +1,87 @@
+<html xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <head>
+    <title>Entities</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+  </head>
+  <body>
+    <div class="container">
+    
+    
+    
+    
+    
+    
+
+    <h2>Treatment</h2><p/><table class="table table-striped table-bordered table-hover"><tr><th>Name</th><th>Type</th><th>Occurence</th><th>Description</th></tr>
+            <tr><td>EncounterNumber</td><td>xs:string</td><td>0
+                ..
+                
+						1
+					</td><td/></tr>
+            <tr><td>EncounterType</td><td>xs:string<ul><li>Enumeration</li><ul><li>E</li><li>I</li><li>N</li><li>G</li><li>P</li><li>S</li><li>R</li><li>B</li><li>C</li><li>U</li></ul></ul></td><td>0
+                ..
+                
+						1
+					</td><td>General Encounter Type (PV1-2)</td></tr>
+            <tr><td>FromTime</td><td>xs:date</td><td>
+						1
+					
+                ..
+                
+						1
+					</td><td>Start of Treatment (TXT00)</td></tr>
+            <tr><td>ToTime</td><td>xs:date</td><td>0
+                ..
+                
+						1
+					</td><td>End of Treatment (TXT01)</td></tr>
+            <tr><td>AdmittingClinician</td><td>Clinician</td><td>0
+                ..
+                
+						1
+					</td><td>Responsible Clinician as a National Clinicial code where possible or other local code if not.</td></tr>
+            <tr><td>HealthCareFacility</td><td>Location</td><td>0
+                ..
+                
+						1
+					</td><td>Treatment Centre (TXT20)</td></tr>
+            <tr><td>AdmitReason</td><td>CF_RR7_TREATMENT</td><td>0
+                ..
+                
+						1
+					</td><td>Modality</td></tr>
+            <tr><td>AdmissionSource</td><td>Location</td><td>0
+                ..
+                
+						1
+					</td><td>Prior Main Renal Unit</td></tr>
+            <tr><td>DischargeReason</td><td>CF_RR7_DISCHARGE</td><td>0
+                ..
+                
+						1
+					</td><td>Reason for Discharge</td></tr>
+            <tr><td>DischargeLocation</td><td>Location</td><td>0
+                ..
+                
+						1
+					</td><td>Destination Main Renal Unit</td></tr>
+            <tr><td>EnteredAt</td><td>Location</td><td>0
+                ..
+                
+						1
+					</td><td>National code for the hospital providing care - e.g. RXF01</td></tr>
+            <tr><td>VisitDescription</td><td>xs:string</td><td>0
+                ..
+                
+						1
+					</td><td>Free text about the Treatment record.</td></tr>
+            <tr><td>Attributes</td><td><ul/></td><td>0
+                ..
+                
+						1
+					</td><td/></tr>
+            
+        </table>
+</div>
+  </body>
+</html>

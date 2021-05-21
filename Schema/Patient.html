@@ -1,0 +1,105 @@
+<html xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <head>
+    <title>Entities</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+  </head>
+  <body>
+    <div class="container">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <h2>Patient</h2><p/><table class="table table-striped table-bordered table-hover"><tr><th>Name</th><th>Type</th><th>Occurence</th><th>Description</th></tr>
+            <tr><td>PatientNumbers</td><td>PatientNumbers</td><td>1
+                ..
+                
+						1
+					</td><td>Every Patient should have one MRN type PatientNumber. This should be the primary identifier for the Patient in the sending system and typically not change. If a National Identifier (such as NHS Number) is used as the MRN it should also be submitted as an NI type PatientNumber.
+                    </td></tr>
+            <tr><td>Names</td><td><ul/></td><td>1
+                ..
+                
+						1
+					</td><td/></tr>
+            <tr><td>BirthTime</td><td>xs:dateTime</td><td>1
+                ..
+                
+						1
+					</td><td/></tr>
+            <tr><td>DeathTime</td><td>xs:dateTime</td><td>0
+                ..
+                
+						1
+					</td><td/></tr>
+            <tr><td>Gender</td><td>Gender</td><td>1
+                ..
+                
+						1
+					</td><td/></tr>
+            <tr><td>Addresses</td><td><ul/></td><td>0
+                ..
+                
+						1
+					</td><td/></tr>
+            <tr><td>ContactDetails</td><td><ul/></td><td>0
+                ..
+                
+						1
+					</td><td/></tr>
+            <tr><td>CountryOfBirth</td><td>xs:string</td><td>0
+                ..
+                
+						1
+					</td><td>From NHS Data Dictionary ISO 3166-1 Use the 3-char alphabetic code.</td></tr>
+            <tr><td>FamilyDoctor</td><td>FamilyDoctor</td><td>0
+                ..
+                
+						1
+					</td><td>Current GP / GP Practice</td></tr>
+            <tr><td>PersonToContact</td><td>PersonalContactType</td><td>0
+                ..
+                1</td><td>Person to Contact about the Patient's Care. This element should not be submitted without prior discussion with the UKRR.</td></tr>
+            <tr><td>EthnicGroup</td><td>EthnicGroup</td><td>0
+                ..
+                
+						1
+					</td><td>Ethnic Group</td></tr>
+            <tr><td>Occupation</td><td>Occupation</td><td>0
+                ..
+                
+						1
+					</td><td>Occuptation</td></tr>
+            <tr><td>PrimaryLanguage</td><td>Language</td><td>0
+                ..
+                
+						1
+					</td><td>Primary Language</td></tr>
+            <tr><td>BloodGroup</td><td>BloodGroup</td><td>0
+                ..
+                
+						1
+					</td><td>Blood Type (Current)</td></tr>
+            <tr><td>BloodRhesus</td><td>BloodRhesus</td><td>0
+                ..
+                
+						1
+					</td><td>Blood Rhesus (Current)</td></tr>
+            <tr><td>Death</td><td>xs:boolean</td><td>0
+                ..
+                
+						1
+					</td><td/></tr>
+            
+        </table>
+</div>
+  </body>
+</html>
