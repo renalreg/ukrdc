@@ -1,50 +1,265 @@
-<html xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<html xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <head>
-    <title>Entities</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <title>XNAT 1.6.4 data schema</title>
+    <style>
+                    .restriction {
+                        color: darkred;
+                    }
+                    .documentation {
+                        color: grey;
+                    }
+                    .childrefs {
+                        background-color: #EEE;
+                    }
+                    .parentref {
+                        background-color: #DDD;
+                    }
+                    table, th, td {
+                        border: 2px solid grey;
+                    }
+                </style>
   </head>
-  <body>
-    <div class="container">
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-        
-            
-            
-        
-    
-
-    <tr><td>PatientRecord</td><td><ul/></td><td>
-						1
-					
-                ..
-                
-						1
-					</td><td/></tr>
-</div>
+  <body style="font-family: sans; font-color: #222222;">
+    <h3>UKRDC data schema</h3>
+    <h4>Types</h4>
+    <table border="1" cellspacing="0" cellpadding="4">
+      <tr>
+        <td colspan="2">
+          <strong>SendingFacility</strong>
+        </td>
+        <td>
+          <table border="1" cellspacing="0" cellpadding="4">
+            <TR class="parentref">
+              <TD colspan="3">
+                <em>
+                    extends
+                    SendingFacility</em>
+              </TD>
+            </TR>
+            <tr>
+              <td colspan="2">
+                        @
+                        channelName</td>
+              <td/>
+            </tr>
+            <tr>
+              <td colspan="2">
+                        @
+                        channelId</td>
+              <td/>
+            </tr>
+            <tr>
+              <td colspan="2">
+                        @
+                        time</td>
+              <td/>
+            </tr>
+            <tr>
+              <td colspan="2">
+                        @
+                        schemaVersion</td>
+              <td/>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <strong>SendingExtract</strong>
+        </td>
+        <td><div class="documentation">The extract process within the facility which produced this file.</div>SendingExtract</td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <strong>Patient</strong>
+        </td>
+        <td>Patient</td>
+      </tr>
+      <tr>
+        <td colspan="2">LabOrders</td>
+        <td><div class="documentation">Lab Orders. These are measurements taken about a patient that have been processed by a Laboratory. Our EHR structure requires that all test results are associated with a lab order. If the details of the lab order are not received by the renal system then a generic lab order should be created to contain all results with a common sample time.</div>LabOrders</td>
+      </tr>
+      <tr>
+        <td colspan="2">SocialHistories</td>
+        <td>
+          <div class="documentation">Other Health Related Behaviours.</div>
+          <table border="1" cellspacing="0" cellpadding="4">
+            <tr>
+              <td colspan="2">SocialHistory*</td>
+              <td>SocialHistory</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">FamilyHistories</td>
+        <td>
+          <div class="documentation">This is used to record information about conditions diagnosed in the Patient's relatives. This element should not be submitted without prior discussion with the UKRR</div>
+          <table border="1" cellspacing="0" cellpadding="4">
+            <tr>
+              <td colspan="2">FamilyHistory*</td>
+              <td>FamilyHistory</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">Observations</td>
+        <td><div class="documentation">Observations. These are measurements taken about a patient that do not involve a Laboratory.</div>Observations</td>
+      </tr>
+      <tr>
+        <td colspan="2">Allergies</td>
+        <td>
+          <div class="documentation">Allergies</div>
+          <table border="1" cellspacing="0" cellpadding="4">
+            <tr>
+              <td colspan="2">Allergy*</td>
+              <td>Allergy</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">Diagnoses</td>
+        <td>
+          <table border="1" cellspacing="0" cellpadding="4">
+            <tr>
+              <td colspan="2">Diagnosis*</td>
+              <td><div class="documentation">Co-Morbidities</div>Diagnosis</td>
+            </tr>
+            <tr>
+              <td colspan="2">CauseOfDeath</td>
+              <td><div class="documentation">Cause of Death</div>CauseOfDeath</td>
+            </tr>
+            <tr>
+              <td colspan="2">RenalDiagnosis</td>
+              <td><div class="documentation">Primary Renal Diagnosis. These should be used to record the Primary Renal Disease (defined in the ERA-EDTA PRD spreadsheet, notes for users, sections: 'Description of PRD' and 'Selection of the most appropriate PRD' http://www.era-edta-reg.org/prd.jsp ) for analysis by the UKRR, SRR and ERA. In order for the data to be comparable across countries it needs to be coded in using the EDTA code lists. Consequently we expect that some conditions may appear both as PRD objects and as generic diagnoses coded in SNOMED. Patients who started RRT after 01/01/2014 should be coded using the 2012 "EDTA2" code list. Patients who started before then can continue to be submitted using the older EDTA list. Systems should not automatically convert the older codes to the newer ones as this results in a loss of accuracy.
+</div>RenalDiagnosis</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">Medications</td>
+        <td>
+          <div class="documentation">Medications. All recorded medications should be submitted whether or not prescribed for the purposes of renal care.</div>
+          <table border="1" cellspacing="0" cellpadding="4">
+            <tr>
+              <td colspan="2">Medication*</td>
+              <td>Medication</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">Procedures</td>
+        <td>
+          <div class="documentation">Procedures</div>
+          <table border="1" cellspacing="0" cellpadding="4">
+            <tr>
+              <td colspan="2">Procedure*</td>
+              <td>Procedure</td>
+            </tr>
+            <tr>
+              <td colspan="2">DialysisSessions*</td>
+              <td><div class="documentation">Dialysis Sessions</div>DialysisSessions</td>
+            </tr>
+            <tr>
+              <td colspan="2">Transplant*</td>
+              <td><div class="documentation">Transplant Procedures.These should be used to record any Transplants. A single Procedure should be recorded for each organ being transplanted, with multiple organ transplants being identified by multiple transplants occurring on the same day. The record also contains information about the source donor for each transplant.</div>TransplantProcedure</td>
+            </tr>
+            <tr>
+              <td colspan="2">VascularAccess*</td>
+              <td><div class="documentation">Vascular Access Constructions</div>VascularAccess</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">Documents</td>
+        <td>
+          <div class="documentation">Documents</div>
+          <table border="1" cellspacing="0" cellpadding="4">
+            <tr>
+              <td colspan="2">Document*</td>
+              <td>Document</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">Encounters</td>
+        <td>
+          <table border="1" cellspacing="0" cellpadding="4">
+            <tr>
+              <td colspan="2">Encounter*</td>
+              <td><div class="documentation">This is used to record the duration of something other than a Treatment. This element should not be submitted without prior discussion with the UKRR.</div>Encounter</td>
+            </tr>
+            <tr>
+              <td colspan="2">Treatment*</td>
+              <td><div class="documentation">This is used to record the duration a Patient received a particular type of Care/Treatment at a particular Treatment Facility. It is similar in concept to the UKRR TXT records however at the end of the period it should be end-dated rather than an additional record being sent. It is possible for treatment records to overlap if a patient has multiple treatments (such as post-transplant dialysis). A treatment record should exist for any period of time where they would be considered a patient (so for example code 900 record for pre-RRT CKD and a code 94 record for post-RRT Conservative care). Details of Transplants themselves should be recorded as Procedures but Treatment records should be used to record periods of Transplant related Inpatient/Outpatient care.</div>Treatment</td>
+            </tr>
+            <tr>
+              <td colspan="2">TransplantList*</td>
+              <td><div class="documentation">This is only for NHSBT supplied Transplant Waiting List data.</div>TransplantList</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">ProgramMemberships</td>
+        <td>
+          <div class="documentation">Program Memberships. These are used to record whether or not a patient wishes to participate in one of the UKRDC&#8217;s member projects. In the case of projects such as RADAR the Program Membership record should only be closed if the patient actively wishes to withdraw. It should not be end dated when they leave the unit or die. If a patient decides to leave a project and then re-joins a new Program Membership record should be created (with a different ExternalID) rather than re-opening the original one.</div>
+          <table border="1" cellspacing="0" cellpadding="4">
+            <tr>
+              <td colspan="2">ProgramMembership*</td>
+              <td>ProgramMembership</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">OptOuts</td>
+        <td>
+          <div class="documentation">Opt-Outs</div>
+          <table border="1" cellspacing="0" cellpadding="4">
+            <tr>
+              <td colspan="2">OptOut*</td>
+              <td>OptOut</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">ClinicalRelationships</td>
+        <td>
+          <div class="documentation">This is used to record the relationship between a Patient and a Clinician or Care Facility. This element should not be submitted without prior discussion with the UKRR.</div>
+          <table border="1" cellspacing="0" cellpadding="4">
+            <tr>
+              <td colspan="2">ClinicalRelationship*</td>
+              <td>ClinicalRelationship</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">Surveys</td>
+        <td>
+          <div class="documentation">Surveys</div>
+          <table border="1" cellspacing="0" cellpadding="4">
+            <tr>
+              <td colspan="2">Survey*</td>
+              <td>Survey</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">PVData</td>
+        <td><div class="documentation">This is used internally to hold data items sent in PV XML files and should not be sent by external parties.</div>PVData</td>
+      </tr>
+    </table>
+    <hr/>
+    <hr/>
   </body>
 </html>

@@ -1,43 +1,135 @@
-<html xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<html xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <head>
-    <title>Entities</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <title>XNAT 1.6.4 data schema</title>
+    <style>
+                    .restriction {
+                        color: darkred;
+                    }
+                    .documentation {
+                        color: grey;
+                    }
+                    .childrefs {
+                        background-color: #EEE;
+                    }
+                    .parentref {
+                        background-color: #DDD;
+                    }
+                    table, th, td {
+                        border: 2px solid grey;
+                    }
+                </style>
   </head>
-  <body>
-    <div class="container">
-
-    <h2>PatientNumbers</h2><p/><table class="table table-striped table-bordered table-hover"><tr><th>Name</th><th>Type</th><th>Occurence</th><th>Description</th></tr>
-            <tr><td>PatientNumber</td><td>PatientNumber</td><td>
-						1
-					
-                ..
-                unbounded</td><td/></tr>
-        </table>
-
-    <h2>PatientNumber</h2><p/><table class="table table-striped table-bordered table-hover"><tr><th>Name</th><th>Type</th><th>Occurence</th><th>Description</th></tr>
-            <tr><td>Number</td><td>xs:string<ul><li>
-                                    minLength:
-                                    1</li><li>
-                                    maxLength:
-                                    50</li></ul></td><td>1
-                ..
+  <body style="font-family: sans; font-color: #222222;">
+    <h3>UKRDC data schema</h3>
+    <h4>Types</h4>
+    <a href="">PatientNumber</a>
+    <a href="">PatientNumbers</a>
+    <hr/>
+    <table border="1" cellspacing="0" cellpadding="4">
+      <tr bgcolor="#CCC">
+        <td colspan="3">
+          <a name="">PatientNumbers</a>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2"><strong>PatientNumber</strong>*</td>
+        <td>PatientNumber</td>
+      </tr>
+    </table>
+    <hr/>
+    <table border="1" cellspacing="0" cellpadding="4">
+      <tr bgcolor="#CCC">
+        <td colspan="3">
+          <a name="">PatientNumber</a>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <strong>Number</strong>
+        </td>
+        <td><div class="documentation">Patient Identification Number</div>xs:string
+        (restricted)
+        <div class="restriction">
+                maxLength:
+                50</div></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <strong>Organization</strong>
+        </td>
+        <td><div class="documentation">Organisation that issued the number</div>xs:string
+        (restricted)
+        <div class="restriction">
+                enumeration: {
                 
-						1
-					</td><td>Patient Identification Number</td></tr>
-
-            <tr><td>Organization</td><td>xs:string<ul><li>Enumeration</li><ul><li>NHS</li><li>CHI</li><li>HSC</li><li>UKRR</li><li>SRR</li><li>NHSBT</li><li>RADAR</li><li>BAPN</li><li>LOCALHOSP</li><li>UKRR_UID</li><li>STUDYNO</li></ul></ul></td><td>1
-                ..
+                    '
+                    NHS
+                    '
+                    ,
+                    '
+                    CHI
+                    '
+                    ,
+                    '
+                    HSC
+                    '
+                    ,
+                    '
+                    UKRR
+                    '
+                    ,
+                    '
+                    SRR
+                    '
+                    ,
+                    '
+                    NHSBT
+                    '
+                    ,
+                    '
+                    RADAR
+                    '
+                    ,
+                    '
+                    BAPN
+                    '
+                    ,
+                    '
+                    LOCALHOSP
+                    '
+                    ,
+                    '
+                    UKRR_UID
+                    '
+                    ,
+                    '
+                    STUDYNO
+                    '
+                    
+                }
+            </div></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <strong>NumberType</strong>
+        </td>
+        <td>xs:string
+        (restricted)
+        <div class="restriction">
+                enumeration: {
                 
-						1
-					</td><td>Organisation that issued the number</td></tr>
-
-            <tr><td>NumberType</td><td>xs:string<ul><li>Enumeration</li><ul><li>MRN</li><li>NI</li></ul></ul></td><td>1
-                ..
-                
-						1
-					</td><td/></tr>
-
-        </table>
-</div>
+                    '
+                    MRN
+                    '
+                    ,
+                    '
+                    NI
+                    '
+                    
+                }
+            </div></td>
+      </tr>
+    </table>
+    <hr/>
   </body>
 </html>

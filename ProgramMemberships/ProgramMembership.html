@@ -1,52 +1,70 @@
-<html xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<html xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <head>
-    <title>Entities</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <title>XNAT 1.6.4 data schema</title>
+    <style>
+                    .restriction {
+                        color: darkred;
+                    }
+                    .documentation {
+                        color: grey;
+                    }
+                    .childrefs {
+                        background-color: #EEE;
+                    }
+                    .parentref {
+                        background-color: #DDD;
+                    }
+                    table, th, td {
+                        border: 2px solid grey;
+                    }
+                </style>
   </head>
-  <body>
-    <div class="container">
-    
-    
-    
-    <h2>ProgramMembership</h2><p/><table class="table table-striped table-bordered table-hover"><tr><th>Name</th><th>Type</th><th>Occurence</th><th>Description</th></tr>
-            <tr><td>EnteredBy</td><td>Clinician</td><td>0
-                ..
-                
-						1
-					</td><td>Person entering the consent as a National Clinicial code where possible or other local code if not.</td></tr>
-            <tr><td>EnteredAt</td><td>Location</td><td>0
-                ..
-                
-						1
-					</td><td>National code for the trust recording the consent - e.g. RXF01</td></tr>
-            <tr><td>ProgramName</td><td>xs:string<ul><li>
-                                    maxLength:
-                                    100</li></ul></td><td>0
-                ..
-                
-						1
-					</td><td>Name of RDG or study</td></tr>
-            <tr><td>ProgramDescription</td><td>xs:string<ul><li>
-                                    maxLength:
-                                    100</li></ul></td><td>0
-                ..
-                
-						1
-					</td><td>Free text</td></tr>
-            <tr><td>FromTime</td><td>xs:date</td><td>
-						1
-					
-                ..
-                
-						1
-					</td><td>Date Consent Given</td></tr>
-            <tr><td>ToTime</td><td>xs:date</td><td>0
-                ..
-                
-						1
-					</td><td>Date Consent Withdrawn</td></tr>
-            
-        </table>
-</div>
+  <body style="font-family: sans; font-color: #222222;">
+    <h3>UKRDC data schema</h3>
+    <h4>Types</h4>
+    <a href="">ProgramMembership</a>
+    <hr/>
+    <table border="1" cellspacing="0" cellpadding="4">
+      <tr bgcolor="#CCC">
+        <td colspan="3">
+          <a name="">ProgramMembership</a>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">EnteredBy</td>
+        <td><div class="documentation">Person entering the consent as a National Clinicial code where possible or other local code if not.</div>Clinician</td>
+      </tr>
+      <tr>
+        <td colspan="2">EnteredAt</td>
+        <td><div class="documentation">National code for the trust recording the consent - e.g. RXF01</div>Location</td>
+      </tr>
+      <tr>
+        <td colspan="2">ProgramName</td>
+        <td><div class="documentation">Name of RDG or study</div>xs:string
+        (restricted)
+        <div class="restriction">
+                maxLength:
+                100</div></td>
+      </tr>
+      <tr>
+        <td colspan="2">ProgramDescription</td>
+        <td><div class="documentation">Free text</div>xs:string
+        (restricted)
+        <div class="restriction">
+                maxLength:
+                100</div></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <strong>FromTime</strong>
+        </td>
+        <td><div class="documentation">Date Consent Given</div>xs:date</td>
+      </tr>
+      <tr>
+        <td colspan="2">ToTime</td>
+        <td><div class="documentation">Date Consent Withdrawn</div>xs:date</td>
+      </tr>
+    </table>
+    <hr/>
   </body>
 </html>

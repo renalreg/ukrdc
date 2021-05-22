@@ -1,30 +1,241 @@
-<html xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<html xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <head>
-    <title>Entities</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <title>XNAT 1.6.4 data schema</title>
+    <style>
+                    .restriction {
+                        color: darkred;
+                    }
+                    .documentation {
+                        color: grey;
+                    }
+                    .childrefs {
+                        background-color: #EEE;
+                    }
+                    .parentref {
+                        background-color: #DDD;
+                    }
+                    table, th, td {
+                        border: 2px solid grey;
+                    }
+                </style>
   </head>
-  <body>
-    <div class="container">
-    
-    
-    
-    <h2>DialysisSessions</h2><p/><table class="table table-striped table-bordered table-hover"><tr><th>Name</th><th>Type</th><th>Occurence</th><th>Description</th></tr>
-            <tr><td>DialysisSession</td><td>DialysisSession</td><td>0
-                ..
-                unbounded</td><td/></tr>
-        </table>
-
-    <h2>DialysisSession</h2><p/><table class="table table-striped table-bordered table-hover"><tr><th>Name</th><th>Type</th><th>Occurence</th><th>Description</th></tr>
-            
+  <body style="font-family: sans; font-color: #222222;">
+    <h3>UKRDC data schema</h3>
+    <h4>Types</h4>
+    <a href="">DialysisSession</a>
+    <a href="">DialysisSessions</a>
+    <hr/>
+    <table border="1" cellspacing="0" cellpadding="4">
+      <tr bgcolor="#CCC">
+        <td colspan="3">
+          <a name="">DialysisSessions</a>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+                        @
+                        start</td>
+        <td>xs:date</td>
+      </tr>
+      <tr>
+        <td colspan="2">
+                        @
+                        stop</td>
+        <td>xs:date</td>
+      </tr>
+      <tr>
+        <td colspan="2">DialysisSession*</td>
+        <td>DialysisSession</td>
+      </tr>
+    </table>
+    <hr/>
+    <table border="1" cellspacing="0" cellpadding="4">
+      <tr bgcolor="#CCC">
+        <td colspan="3">
+          <a name="">DialysisSession</a>
+        </td>
+      </tr>
+      <TR class="parentref">
+        <TD colspan="3">
+          <em>
+                    extends
+                    Procedure</em>
+        </TD>
+      </TR>
+      <tr>
+        <td colspan="2">Attributes</td>
+        <td>
+          <table border="1" cellspacing="0" cellpadding="4">
+            <tr>
+              <td colspan="2">QHD19</td>
+              <td><div class="documentation">Symptomatic hypotension</div>RRYesNo</td>
+            </tr>
+            <tr>
+              <td colspan="2">QHD20</td>
+              <td><div class="documentation">Vascular Access Used (RR02)</div>xs:string
+        (restricted)
+        <div class="restriction">
+                enumeration: {
                 
-                    <tr><td>Attributes</td><td><ul/></td><td>0
-                ..
+                    '
+                    NLN
+                    '
+                    ,
+                    '
+                    TLN
+                    '
+                    ,
+                    '
+                    AVF
+                    '
+                    ,
+                    '
+                    AVG
+                    '
+                    ,
+                    '
+                    VLP
+                    '
+                    ,
+                    '
+                    PDC
+                    '
+                    ,
+                    '
+                    PDE
+                    '
+                    ,
+                    '
+                    PDT
+                    '
+                    ,
+                    '
+                    HER
+                    '
+                    
+                }
+            </div></td>
+            </tr>
+            <tr>
+              <td colspan="2">QHD21</td>
+              <td><div class="documentation">Vascular Access Site (RR41)</div>xs:string
+        (restricted)
+        <div class="restriction">
+                enumeration: {
                 
-						1
-					</td><td/></tr>
+                    '
+                    BB
+                    '
+                    ,
+                    '
+                    BC
+                    '
+                    ,
+                    '
+                    LA
+                    '
+                    ,
+                    '
+                    LF
+                    '
+                    ,
+                    '
+                    LJ
+                    '
+                    ,
+                    '
+                    LS
+                    '
+                    ,
+                    '
+                    PS
+                    '
+                    ,
+                    '
+                    RC
+                    '
+                    ,
+                    '
+                    RU
+                    '
+                    ,
+                    '
+                    SB
+                    '
+                    ,
+                    '
+                    TB
+                    '
+                    ,
+                    '
+                    TS
+                    '
+                    ,
+                    '
+                    UA
+                    '
+                    ,
+                    '
+                    UC
+                    '
+                    ,
+                    '
+                    UF
+                    '
+                    ,
+                    '
+                    UO
+                    '
+                    ,
+                    '
+                    UT
+                    '
+                    
+                }
+            </div></td>
+            </tr>
+            <tr>
+              <td colspan="2">QHD22</td>
+              <td><div class="documentation">Access in two sites simultaneously</div>RRYesNo</td>
+            </tr>
+            <tr>
+              <td colspan="2">QHD30</td>
+              <td><div class="documentation">Blood Flow Rate</div>xs:integer</td>
+            </tr>
+            <tr>
+              <td colspan="2">QHD31</td>
+              <td><div class="documentation">Time Dialysed in Minutes</div>xs:integer</td>
+            </tr>
+            <tr>
+              <td colspan="2">QHD32</td>
+              <td><div class="documentation">Sodium in Dialysate</div>xs:integer</td>
+            </tr>
+            <tr>
+              <td colspan="2">QHD33</td>
+              <td><div class="documentation">Needling Method (RR50)</div>xs:string
+        (restricted)
+        <div class="restriction">
+                enumeration: {
                 
-            
-        </table>
-</div>
+                    '
+                    L
+                    '
+                    ,
+                    '
+                    B
+                    '
+                    ,
+                    '
+                    U
+                    '
+                    
+                }
+            </div></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <hr/>
   </body>
 </html>

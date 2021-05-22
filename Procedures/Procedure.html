@@ -1,46 +1,60 @@
-<html xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<html xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <head>
-    <title>Entities</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <title>XNAT 1.6.4 data schema</title>
+    <style>
+                    .restriction {
+                        color: darkred;
+                    }
+                    .documentation {
+                        color: grey;
+                    }
+                    .childrefs {
+                        background-color: #EEE;
+                    }
+                    .parentref {
+                        background-color: #DDD;
+                    }
+                    table, th, td {
+                        border: 2px solid grey;
+                    }
+                </style>
   </head>
-  <body>
-    <div class="container">
-    
-    
-    
-    
-    <h2>Procedure</h2><p/><table class="table table-striped table-bordered table-hover"><tr><th>Name</th><th>Type</th><th>Occurence</th><th>Description</th></tr>
-            <tr><td>ProcedureType</td><td>CF_SNOMED</td><td>
-						1
-					
-                ..
-                
-						1
-					</td><td>At least code must be entered</td></tr>
-            <tr><td>Clinician</td><td>Clinician</td><td>0
-                ..
-                
-						1
-					</td><td>National Clinicial code where possible or other local code if not.</td></tr>
-            <tr><td>ProcedureTime</td><td>xs:dateTime</td><td>
-						1
-					
-                ..
-                
-						1
-					</td><td>The time the Procedure started.</td></tr>
-            <tr><td>EnteredBy</td><td>Clinician</td><td>0
-                ..
-                
-						1
-					</td><td>Person entering the diagnosis as a National Clinicial code where possible or other local code if not.</td></tr>
-            <tr><td>EnteredAt</td><td>Location</td><td>0
-                ..
-                
-						1
-					</td><td>Location the procedure was performed at. Use National coding e.g. RXF01</td></tr>
-            
-        </table>
-</div>
+  <body style="font-family: sans; font-color: #222222;">
+    <h3>UKRDC data schema</h3>
+    <h4>Types</h4>
+    <a href="">Procedure</a>
+    <hr/>
+    <table border="1" cellspacing="0" cellpadding="4">
+      <tr bgcolor="#CCC">
+        <td colspan="3">
+          <a name="">Procedure</a>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <strong>ProcedureType</strong>
+        </td>
+        <td><div class="documentation">At least code must be entered</div>CF_SNOMED</td>
+      </tr>
+      <tr>
+        <td colspan="2">Clinician</td>
+        <td><div class="documentation">National Clinicial code where possible or other local code if not.</div>Clinician</td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <strong>ProcedureTime</strong>
+        </td>
+        <td><div class="documentation">The time the Procedure started.</div>xs:dateTime</td>
+      </tr>
+      <tr>
+        <td colspan="2">EnteredBy</td>
+        <td><div class="documentation">Person entering the diagnosis as a National Clinicial code where possible or other local code if not.</div>Clinician</td>
+      </tr>
+      <tr>
+        <td colspan="2">EnteredAt</td>
+        <td><div class="documentation">Location the procedure was performed at. Use National coding e.g. RXF01</div>Location</td>
+      </tr>
+    </table>
+    <hr/>
   </body>
 </html>

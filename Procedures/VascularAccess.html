@@ -1,22 +1,74 @@
-<html xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<html xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <head>
-    <title>Entities</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <title>XNAT 1.6.4 data schema</title>
+    <style>
+                    .restriction {
+                        color: darkred;
+                    }
+                    .documentation {
+                        color: grey;
+                    }
+                    .childrefs {
+                        background-color: #EEE;
+                    }
+                    .parentref {
+                        background-color: #DDD;
+                    }
+                    table, th, td {
+                        border: 2px solid grey;
+                    }
+                </style>
   </head>
-  <body>
-    <div class="container">
-	
-	<h2>VascularAccess</h2><p/><table class="table table-striped table-bordered table-hover"><tr><th>Name</th><th>Type</th><th>Occurence</th><th>Description</th></tr>
-			
-				
-					<tr><td>Attributes</td><td><ul/></td><td>0
-                ..
-                
-						1
-					</td><td/></tr>
-				
-			
-		</table>
-</div>
+  <body style="font-family: sans; font-color: #222222;">
+    <h3>UKRDC data schema</h3>
+    <h4>Types</h4>
+    <a href="">VascularAccess</a>
+    <hr/>
+    <table border="1" cellspacing="0" cellpadding="4">
+      <tr bgcolor="#CCC">
+        <td colspan="3">
+          <a name="">VascularAccess</a>
+        </td>
+      </tr>
+      <TR class="parentref">
+        <TD colspan="3">
+          <em>
+                    extends
+                    Procedure</em>
+        </TD>
+      </TR>
+      <tr>
+        <td colspan="2">Attributes</td>
+        <td>
+          <table border="1" cellspacing="0" cellpadding="4">
+            <tr>
+              <td colspan="2">ACC19</td>
+              <td><div class="documentation">Date Access first used for Dialysis</div>xs:string</td>
+            </tr>
+            <tr>
+              <td colspan="2">ACC20</td>
+              <td><div class="documentation">Date of Access Failure</div>xs:string</td>
+            </tr>
+            <tr>
+              <td colspan="2">ACC21</td>
+              <td><div class="documentation">Date of Removal</div>xs:string</td>
+            </tr>
+            <tr>
+              <td colspan="2">ACC22</td>
+              <td><div class="documentation">Reason for Removal of Haemodialysis Access (HD Only)</div>xs:string</td>
+            </tr>
+            <tr>
+              <td colspan="2">ACC30</td>
+              <td><div class="documentation">PD Catheter Insertion Technique (PD Only)</div>xs:string</td>
+            </tr>
+            <tr>
+              <td colspan="2">ACC40</td>
+              <td><div class="documentation">Reason for Removal of PD Catheter (PD Only)</div>xs:string</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <hr/>
   </body>
 </html>

@@ -1,38 +1,54 @@
-<html xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<html xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <head>
-    <title>Entities</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <title>XNAT 1.6.4 data schema</title>
+    <style>
+                    .restriction {
+                        color: darkred;
+                    }
+                    .documentation {
+                        color: grey;
+                    }
+                    .childrefs {
+                        background-color: #EEE;
+                    }
+                    .parentref {
+                        background-color: #DDD;
+                    }
+                    table, th, td {
+                        border: 2px solid grey;
+                    }
+                </style>
   </head>
-  <body>
-    <div class="container">
-    
-    
-    
-    <h2>ClinicalRelationship</h2><p/><table class="table table-striped table-bordered table-hover"><tr><th>Name</th><th>Type</th><th>Occurence</th><th>Description</th></tr>
-            <tr><td>FromTime</td><td>xs:dateTime</td><td>
-						1
-					
-                ..
-                
-						1
-					</td><td>Start of the relationship</td></tr>
-            <tr><td>ToTime</td><td>xs:dateTime</td><td>0
-                ..
-                
-						1
-					</td><td>End of the relationship</td></tr>
-            <tr><td>Clinician</td><td>Clinician</td><td>0
-                ..
-                
-						1
-					</td><td/></tr>
-            <tr><td>FacilityCode</td><td>Location</td><td>0
-                ..
-                
-						1
-					</td><td/></tr>
-            
-        </table>
-</div>
+  <body style="font-family: sans; font-color: #222222;">
+    <h3>UKRDC data schema</h3>
+    <h4>Types</h4>
+    <a href="">ClinicalRelationship</a>
+    <hr/>
+    <table border="1" cellspacing="0" cellpadding="4">
+      <tr bgcolor="#CCC">
+        <td colspan="3">
+          <a name="">ClinicalRelationship</a>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <strong>FromTime</strong>
+        </td>
+        <td><div class="documentation">Start of the relationship</div>xs:dateTime</td>
+      </tr>
+      <tr>
+        <td colspan="2">ToTime</td>
+        <td><div class="documentation">End of the relationship</div>xs:dateTime</td>
+      </tr>
+      <tr>
+        <td colspan="2">Clinician</td>
+        <td>Clinician</td>
+      </tr>
+      <tr>
+        <td colspan="2">FacilityCode</td>
+        <td>Location</td>
+      </tr>
+    </table>
+    <hr/>
   </body>
 </html>

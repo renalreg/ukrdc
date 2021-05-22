@@ -1,25 +1,98 @@
-<html xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<html xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <head>
-    <title>Entities</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <title>XNAT 1.6.4 data schema</title>
+    <style>
+                    .restriction {
+                        color: darkred;
+                    }
+                    .documentation {
+                        color: grey;
+                    }
+                    .childrefs {
+                        background-color: #EEE;
+                    }
+                    .parentref {
+                        background-color: #DDD;
+                    }
+                    table, th, td {
+                        border: 2px solid grey;
+                    }
+                </style>
   </head>
-  <body>
-    <div class="container">
-	
-    
-	<h2>DialysisSession</h2><p/><table class="table table-striped table-bordered table-hover"><tr><th>Name</th><th>Type</th><th>Occurence</th><th>Description</th></tr>
-			
-				
-					<tr><td>Attributes</td><td><ul/></td><td>0
-                ..
-                
-						1
-					</td><td/></tr>
-				
-				
-				
-			
-		</table>
-</div>
+  <body style="font-family: sans; font-color: #222222;">
+    <h3>UKRDC data schema</h3>
+    <h4>Types</h4>
+    <a href="">DialysisSession</a>
+    <hr/>
+    <table border="1" cellspacing="0" cellpadding="4">
+      <tr bgcolor="#CCC">
+        <td colspan="3">
+          <a name="">DialysisSession</a>
+        </td>
+      </tr>
+      <TR class="parentref">
+        <TD colspan="3">
+          <em>
+                    extends
+                    Procedure</em>
+        </TD>
+      </TR>
+      <tr>
+        <td colspan="2">
+          <strong>
+                            @
+                            start</strong>
+        </td>
+        <td>xs:date</td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <strong>
+                            @
+                            stop</strong>
+        </td>
+        <td>xs:date</td>
+      </tr>
+      <tr>
+        <td colspan="2">Attributes</td>
+        <td>
+          <table border="1" cellspacing="0" cellpadding="4">
+            <tr>
+              <td colspan="2">QHD19</td>
+              <td><div class="documentation">Symptomatic hypotension</div>RRYesNo</td>
+            </tr>
+            <tr>
+              <td colspan="2">QHD20</td>
+              <td><div class="documentation">Vascular Access Used (RR02)</div>xs:string</td>
+            </tr>
+            <tr>
+              <td colspan="2">QHD21</td>
+              <td><div class="documentation">Vascular Access Site (RR41)</div>xs:string</td>
+            </tr>
+            <tr>
+              <td colspan="2">QHD22</td>
+              <td><div class="documentation">Access in two sites simultaneously</div>RRYesNo</td>
+            </tr>
+            <tr>
+              <td colspan="2">QHD30</td>
+              <td><div class="documentation">Blood Flow Rate</div>xs:string</td>
+            </tr>
+            <tr>
+              <td colspan="2">QHD31</td>
+              <td><div class="documentation">Time Dialysed in Minutes</div>xs:string</td>
+            </tr>
+            <tr>
+              <td colspan="2">QHD32</td>
+              <td><div class="documentation">Sodium in Dialysate</div>xs:string</td>
+            </tr>
+            <tr>
+              <td colspan="2">QHD33</td>
+              <td><div class="documentation">Needling Method</div>xs:string</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <hr/>
   </body>
 </html>

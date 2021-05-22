@@ -1,79 +1,90 @@
-<html xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<html xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <head>
-    <title>Entities</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <title>XNAT 1.6.4 data schema</title>
+    <style>
+                    .restriction {
+                        color: darkred;
+                    }
+                    .documentation {
+                        color: grey;
+                    }
+                    .childrefs {
+                        background-color: #EEE;
+                    }
+                    .parentref {
+                        background-color: #DDD;
+                    }
+                    table, th, td {
+                        border: 2px solid grey;
+                    }
+                </style>
   </head>
-  <body>
-    <div class="container">
-	
-	
-	
-	
-	<h2>Document</h2><p/><table class="table table-striped table-bordered table-hover"><tr><th>Name</th><th>Type</th><th>Occurence</th><th>Description</th></tr>
-			<tr><td>DocumentTime</td><td>xs:dateTime</td><td>1
-                ..
-                
-						1
-					</td><td>Document Creation</td></tr>
-			<tr><td>NoteText</td><td>xs:string</td><td>0
-                ..
-                
-						1
-					</td><td>The body of the document as plain text</td></tr>
-			<tr><td>DocumentType</td><td>CodedField</td><td>0
-                ..
-                
-						1
-					</td><td>For future use.</td></tr>
-			<tr><td>Clinician</td><td>Clinician</td><td>0
-                ..
-                
-						1
-					</td><td>The person responsibile for the content of the document</td></tr>
-			<tr><td>DocumentName</td><td>xs:string<ul><li>
-                                    maxLength:
-                                    220</li></ul></td><td>0
-                ..
-                
-						1
-					</td><td>Document title</td></tr>
-			<tr><td>Status</td><td>CodedField</td><td>0
-                ..
-                
-						1
-					</td><td>ACTIVE or INACTIVE</td></tr>
-			<tr><td>EnteredBy</td><td>Clinician</td><td>0
-                ..
-                
-						1
-					</td><td>Person entering the document as a National Clinicial code where possible or other local code if not.</td></tr>
-			<tr><td>EnteredAt</td><td>Location</td><td>0
-                ..
-                
-						1
-					</td><td>Location the document was created at. Use National coding e.g. RXF01</td></tr>
-			<tr><td>FileType</td><td>xs:string</td><td>0
-                ..
-                
-						1
-					</td><td>The MIME type of the data if supplied as a stream.</td></tr>
-			<tr><td>FileName</td><td>xs:string</td><td>0
-                ..
-                
-						1
-					</td><td>The filename of the document</td></tr>
-			<tr><td>Stream</td><td>xs:base64Binary</td><td>0
-                ..
-                
-						1
-					</td><td>This property is used when the Document is binary data, e.g DOC, PDF, JPG</td></tr>
-			<tr><td>DocumentURL</td><td>xs:string</td><td>0
-                ..
-                
-						1
-					</td><td>URL to the document if notetext/stream is not supplied.</td></tr>
-			
-		</table>
-</div>
+  <body style="font-family: sans; font-color: #222222;">
+    <h3>UKRDC data schema</h3>
+    <h4>Types</h4>
+    <a href="">Document</a>
+    <hr/>
+    <table border="1" cellspacing="0" cellpadding="4">
+      <tr bgcolor="#CCC">
+        <td colspan="3">
+          <a name="">Document</a>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <strong>DocumentTime</strong>
+        </td>
+        <td><div class="documentation">Document Creation</div>xs:dateTime</td>
+      </tr>
+      <tr>
+        <td colspan="2">NoteText</td>
+        <td><div class="documentation">The body of the document as plain text</div>xs:string</td>
+      </tr>
+      <tr>
+        <td colspan="2">DocumentType</td>
+        <td><div class="documentation">For future use.</div>CodedField</td>
+      </tr>
+      <tr>
+        <td colspan="2">Clinician</td>
+        <td><div class="documentation">The person responsibile for the content of the document</div>Clinician</td>
+      </tr>
+      <tr>
+        <td colspan="2">DocumentName</td>
+        <td><div class="documentation">Document title</div>xs:string
+        (restricted)
+        <div class="restriction">
+                maxLength:
+                220</div></td>
+      </tr>
+      <tr>
+        <td colspan="2">Status</td>
+        <td><div class="documentation">ACTIVE or INACTIVE</div>CodedField</td>
+      </tr>
+      <tr>
+        <td colspan="2">EnteredBy</td>
+        <td><div class="documentation">Person entering the document as a National Clinicial code where possible or other local code if not.</div>Clinician</td>
+      </tr>
+      <tr>
+        <td colspan="2">EnteredAt</td>
+        <td><div class="documentation">Location the document was created at. Use National coding e.g. RXF01</div>Location</td>
+      </tr>
+      <tr>
+        <td colspan="2">FileType</td>
+        <td><div class="documentation">The MIME type of the data if supplied as a stream.</div>xs:string</td>
+      </tr>
+      <tr>
+        <td colspan="2">FileName</td>
+        <td><div class="documentation">The filename of the document</div>xs:string</td>
+      </tr>
+      <tr>
+        <td colspan="2">Stream</td>
+        <td><div class="documentation">This property is used when the Document is binary data, e.g DOC, PDF, JPG</div>xs:base64Binary</td>
+      </tr>
+      <tr>
+        <td colspan="2">DocumentURL</td>
+        <td><div class="documentation">URL to the document if notetext/stream is not supplied.</div>xs:string</td>
+      </tr>
+    </table>
+    <hr/>
   </body>
 </html>

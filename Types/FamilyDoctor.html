@@ -1,48 +1,68 @@
-<html xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<html xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <head>
-    <title>Entities</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <title>XNAT 1.6.4 data schema</title>
+    <style>
+                    .restriction {
+                        color: darkred;
+                    }
+                    .documentation {
+                        color: grey;
+                    }
+                    .childrefs {
+                        background-color: #EEE;
+                    }
+                    .parentref {
+                        background-color: #DDD;
+                    }
+                    table, th, td {
+                        border: 2px solid grey;
+                    }
+                </style>
   </head>
-  <body>
-    <div class="container">
-    
-    
-    <h2>FamilyDoctor</h2><p/><table class="table table-striped table-bordered table-hover"><tr><th>Name</th><th>Type</th><th>Occurence</th><th>Description</th></tr>
-            <tr><td>GPName</td><td>xs:string</td><td>0
-                ..
-                
-						1
-					</td><td/></tr>
-            <tr><td>GPPracticeId</td><td>xs:string<ul><li>
-                                    maxLength:
-                                    6</li></ul></td><td>0
-                ..
-                
-						1
-					</td><td>National GP Practice Code</td></tr>
-            <tr><td>GPId</td><td>xs:string<ul><li>
-                                    maxLength:
-                                    8</li></ul></td><td>0
-                ..
-                
-						1
-					</td><td>National GP Code</td></tr>
-            <tr><td>Address</td><td>Address</td><td>0
-                ..
-                
-						1
-					</td><td>Practice Address</td></tr>
-            <tr><td>ContactDetail</td><td>ContactDetail</td><td>0
-                ..
-                
-						1
-					</td><td>Practice Contact Information</td></tr>
-            <tr><td>Email</td><td>xs:string</td><td>0
-                ..
-                
-						1
-					</td><td>GP E-mail Address</td></tr>
-        </table>
-</div>
+  <body style="font-family: sans; font-color: #222222;">
+    <h3>UKRDC data schema</h3>
+    <h4>Types</h4>
+    <a href="">FamilyDoctor</a>
+    <hr/>
+    <table border="1" cellspacing="0" cellpadding="4">
+      <tr bgcolor="#CCC">
+        <td colspan="3">
+          <a name="">FamilyDoctor</a>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">GPName</td>
+        <td>xs:string</td>
+      </tr>
+      <tr>
+        <td colspan="2">GPPracticeId</td>
+        <td><div class="documentation">National GP Practice Code</div>xs:string
+        (restricted)
+        <div class="restriction">
+                maxLength:
+                6</div></td>
+      </tr>
+      <tr>
+        <td colspan="2">GPId</td>
+        <td><div class="documentation">National GP Code</div>xs:string
+        (restricted)
+        <div class="restriction">
+                maxLength:
+                8</div></td>
+      </tr>
+      <tr>
+        <td colspan="2">Address</td>
+        <td><div class="documentation">Practice Address</div>Address</td>
+      </tr>
+      <tr>
+        <td colspan="2">ContactDetail</td>
+        <td><div class="documentation">Practice Contact Information</div>ContactDetail</td>
+      </tr>
+      <tr>
+        <td colspan="2">Email</td>
+        <td><div class="documentation">GP E-mail Address</div>xs:string</td>
+      </tr>
+    </table>
+    <hr/>
   </body>
 </html>

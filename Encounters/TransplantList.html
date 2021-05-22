@@ -1,82 +1,122 @@
-<html xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<html xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <head>
-    <title>Entities</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <title>XNAT 1.6.4 data schema</title>
+    <style>
+                    .restriction {
+                        color: darkred;
+                    }
+                    .documentation {
+                        color: grey;
+                    }
+                    .childrefs {
+                        background-color: #EEE;
+                    }
+                    .parentref {
+                        background-color: #DDD;
+                    }
+                    table, th, td {
+                        border: 2px solid grey;
+                    }
+                </style>
   </head>
-  <body>
-    <div class="container">
-	
-	
-	
-	
-	
-	<h2>TransplantList</h2><p/><table class="table table-striped table-bordered table-hover"><tr><th>Name</th><th>Type</th><th>Occurence</th><th>Description</th></tr>
-			<tr><td>EncounterNumber</td><td>xs:string</td><td>
-						1
-					
-                ..
+  <body style="font-family: sans; font-color: #222222;">
+    <h3>UKRDC data schema</h3>
+    <h4>Types</h4>
+    <a href="">TransplantList</a>
+    <hr/>
+    <table border="1" cellspacing="0" cellpadding="4">
+      <tr bgcolor="#CCC">
+        <td colspan="3">
+          <a name="">TransplantList</a>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <strong>EncounterNumber</strong>
+        </td>
+        <td>xs:string</td>
+      </tr>
+      <tr>
+        <td colspan="2">EncounterType</td>
+        <td><div class="documentation">General Encounter Type (PV1-2)</div>xs:string
+        (restricted)
+        <div class="restriction">
+                enumeration: {
                 
-						1
-					</td><td/></tr>
-			<tr><td>EncounterType</td><td>xs:string<ul><li>Enumeration</li><ul><li>E</li><li>I</li><li>O</li><li>N</li><li>G</li><li>P</li><li>S</li></ul></ul></td><td>0
-                ..
-                
-						1
-					</td><td>General Encounter Type (PV1-2)</td></tr>
-			<tr><td>FromTime</td><td>xs:dateTime</td><td>
-						1
-					
-                ..
-                
-						1
-					</td><td>Start of Registration</td></tr>
-			<tr><td>ToTime</td><td>xs:dateTime</td><td>0
-                ..
-                
-						1
-					</td><td>End of Registration</td></tr>
-			<tr><td>AdmittingClinician</td><td>Clinician</td><td>0
-                ..
-                
-						1
-					</td><td>Responsible Clinician as a National Clinicial code where possible or other local code if not.</td></tr>
-			<tr><td>HealthCareFacility</td><td>Location</td><td>0
-                ..
-                
-						1
-					</td><td>Transplant Unit</td></tr>
-			<tr><td>AdmitReason</td><td>CodedField</td><td>0
-                ..
-                
-						1
-					</td><td>Type of Organ</td></tr>
-			<tr><td>AdmissionSource</td><td>Location</td><td>0
-                ..
-                
-						1
-					</td><td>Referring Unit</td></tr>
-			<tr><td>DischargeReason</td><td>CodedField</td><td>0
-                ..
-                
-						1
-					</td><td>Registration End Status</td></tr>
-			<tr><td>DischargeLocation</td><td>Location</td><td>0
-                ..
-                
-						1
-					</td><td>Parent renal unit as national ODS code (e.g. RXF01)</td></tr>
-			<tr><td>EnteredAt</td><td>Location</td><td>0
-                ..
-                
-						1
-					</td><td>National code for the hospital providing care - e.g. RXF01</td></tr>
-			<tr><td>VisitDescription</td><td>xs:string</td><td>0
-                ..
-                
-						1
-					</td><td>Details of validation e.g. Date Done, by whom, who provided the info</td></tr>
-			
-		</table>
-</div>
+                    '
+                    E
+                    '
+                    ,
+                    '
+                    I
+                    '
+                    ,
+                    '
+                    O
+                    '
+                    ,
+                    '
+                    N
+                    '
+                    ,
+                    '
+                    G
+                    '
+                    ,
+                    '
+                    P
+                    '
+                    ,
+                    '
+                    S
+                    '
+                    
+                }
+            </div></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <strong>FromTime</strong>
+        </td>
+        <td><div class="documentation">Start of Registration</div>xs:dateTime</td>
+      </tr>
+      <tr>
+        <td colspan="2">ToTime</td>
+        <td><div class="documentation">End of Registration</div>xs:dateTime</td>
+      </tr>
+      <tr>
+        <td colspan="2">AdmittingClinician</td>
+        <td><div class="documentation">Responsible Clinician as a National Clinicial code where possible or other local code if not.</div>Clinician</td>
+      </tr>
+      <tr>
+        <td colspan="2">HealthCareFacility</td>
+        <td><div class="documentation">Transplant Unit</div>Location</td>
+      </tr>
+      <tr>
+        <td colspan="2">AdmitReason</td>
+        <td><div class="documentation">Type of Organ</div>CodedField</td>
+      </tr>
+      <tr>
+        <td colspan="2">AdmissionSource</td>
+        <td><div class="documentation">Referring Unit</div>Location</td>
+      </tr>
+      <tr>
+        <td colspan="2">DischargeReason</td>
+        <td><div class="documentation">Registration End Status</div>CodedField</td>
+      </tr>
+      <tr>
+        <td colspan="2">DischargeLocation</td>
+        <td><div class="documentation">Parent renal unit as national ODS code (e.g. RXF01)</div>Location</td>
+      </tr>
+      <tr>
+        <td colspan="2">EnteredAt</td>
+        <td><div class="documentation">National code for the hospital providing care - e.g. RXF01</div>Location</td>
+      </tr>
+      <tr>
+        <td colspan="2">VisitDescription</td>
+        <td><div class="documentation">Details of validation e.g. Date Done, by whom, who provided the info</div>xs:string</td>
+      </tr>
+    </table>
+    <hr/>
   </body>
 </html>
