@@ -44,6 +44,11 @@
                                     <xsl:for-each select="xsd:simpleType/xsd:restriction/xsd:enumeration">
                                         <li>
                                             <xsl:value-of select="@value" />
+                                            <ul>
+                                                <li>
+                                                    <xsl:value-of select="xsd:annotation/xsd:documentation" />
+                                                </li>
+                                            </ul>
                                         </li>
 
                                     </xsl:for-each>
