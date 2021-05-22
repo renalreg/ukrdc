@@ -3,7 +3,7 @@ import lxml.etree as ET
 
 in_path = "Schema"
 out_path = "docs"
-xsl_path = "doc.xsl"
+xsl_path = "matt.xsl"
 
 if not os.path.isdir(out_path):
     os.makedirs(out_path)
