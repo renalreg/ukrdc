@@ -14,9 +14,6 @@
             <head>
                 <title>UKRDC data schema</title>
                 <style>
-                    body {
-                        padding: 8px;
-                    }
                     .restriction {
                         color: darkred;
                     }
