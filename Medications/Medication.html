@@ -2,6 +2,10 @@
   <head>
     <title>UKRDC data schema</title>
     <style>
+                    body {
+                        margin: 0;
+                        font-family: Helvetica, Arial, Sans-Serif;
+                    }
                     .restriction {
                         color: darkred;
                     }
@@ -14,14 +18,22 @@
                     .parentref {
                         background-color: #DDD;
                     }
-                    table, th, td {
-                        border: 2px solid grey;
+                    table {
+                        border-spacing: 0;
+                        border-collapse:collapse
+                    }
+                    td, th {
+                        padding:0
+                    }
+                    td {
+                        border: 2px solid #b0b0b0;
                         padding: 8px !important;
+                    }
+                    table, th, td {
                         margin-top: 2px;
                         font-size: 12px !important;
                     }
                 </style>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
   </head>
   <body>
     <h4>Types</h4>
