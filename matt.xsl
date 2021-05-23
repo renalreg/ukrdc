@@ -12,8 +12,11 @@
     <xsl:template match="/xs:schema">
         <html>
             <head>
-                <title>XNAT 1.6.4 data schema</title>
+                <title>UKRDC data schema</title>
                 <style>
+                    body {
+                        padding: 8px;
+                    }
                     .restriction {
                         color: darkred;
                     }
@@ -28,16 +31,21 @@
                     }
                     table, th, td {
                         border: 2px solid grey;
+                        padding: 8px !important;
+                        margin-top: 2px;
+                        font-size: 12px !important;
                     }
                 </style>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
             </head>
-            <body style="font-family: sans; font-color: #222222;">
-                <h3>UKRDC data schema</h3>
+            <body>
                 <h4>Types</h4>
                 <xsl:for-each select="xs:complexType">
                     <xsl:sort select="@name" />
                     <xsl:call-template name="link" />
                 </xsl:for-each>
+
+                <!-- show detail -->
 
                 <xsl:for-each select="xs:element">
                     <xsl:for-each select="xs:complexType">
@@ -47,7 +55,7 @@
                 </xsl:for-each>
 
                 <hr />
-                <!-- show detail -->
+                
                 <xsl:for-each select="xs:complexType">
                     <xsl:apply-templates select="." />
                     <hr />
