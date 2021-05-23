@@ -83,14 +83,12 @@
         </xsl:if>
         <xsl:if test="xs:simpleType/xs:restriction/xs:enumeration">
             <div class="restriction">
-                enumeration: {
+                Enumeration:
+                <ul>
                 <xsl:for-each select="xs:simpleType/xs:restriction/xs:enumeration">
-                    '
-                    <xsl:value-of select="@value" />
-                    '
-                    <xsl:if test="position() != last()">,</xsl:if>
+                    <li><xsl:value-of select="@value" /> (<xsl:value-of select="xs:annotation/xs:documentation" />)</li>
                 </xsl:for-each>
-                }
+                </ul>
             </div>
         </xsl:if>
         <xsl:if test="xs:simpleType/xs:restriction/xs:minInclusive or xs:simpleType/xs:restriction/xs:maxInclusive">
