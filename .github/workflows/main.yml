@@ -32,6 +32,7 @@ jobs:
           wget http://xsdvi.sourceforge.net/xsdvi-20080430-1405.zip
           unzip xsdvi-20080430-1405.zip -d xsdvi
           java -jar xsdvi/lib/xsdvi.jar Schema/UKRDC.xsd
+          patch -p0 < collapse-nodes.patch
           mv UKRDC.svg docs/diagram.svg
 
       - name: Deploy API docs
