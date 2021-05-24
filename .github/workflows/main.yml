@@ -28,7 +28,7 @@ jobs:
         with:
           distribution: 'adopt' # See 'Supported distributions' for available options
           java-version: '11'
-        run: |
+      - run: |
           wget http://xsdvi.sourceforge.net/xsdvi-20080430-1405.zip
           unzip xsdvi-20080430-1405.zip -d xsdvi
           java -jar xsdvi/lib/xsdvi.jar Schema/UKRDC.xsd docs/diagram.svg 
