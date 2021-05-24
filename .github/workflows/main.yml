@@ -31,7 +31,8 @@ jobs:
       - run: |
           wget http://xsdvi.sourceforge.net/xsdvi-20080430-1405.zip
           unzip xsdvi-20080430-1405.zip -d xsdvi
-          java -jar xsdvi/lib/xsdvi.jar Schema/UKRDC.xsd docs/diagram.svg 
+          java -jar xsdvi/lib/xsdvi.jar Schema/UKRDC.xsd
+          mv UKRDC.svg docs/diagram.svg
 
       - name: Deploy API docs
         uses: peaceiris/actions-gh-pages@v3
