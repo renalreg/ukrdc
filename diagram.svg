@@ -12,7 +12,13 @@
   function loadSVG() {
     efBoxes = getElementsByClassName('box', document.getElementsByTagName('g'));
     eSvg = document.getElementById('svg');
-    expandAll();
+    collapseAll();
+    var nodes = [1, 1, 1];
+    var nodeId = '';
+    for(var i = 0; i < nodes.length; i++) {
+        nodeId += '_' + nodes[i];
+        show(nodeId);
+    }
   }
 
 ////////// getElementsByClassName(string, nodeList)
