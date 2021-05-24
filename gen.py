@@ -13,6 +13,9 @@ transform = ET.XSLT(xslt)
 
 
 def make_index(title: str, dir_links: list[str], file_links: list[str]):
+    file_links.sort()
+    dir_links.sort()
+
     content = f"<html><head><title>{title}</title><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css' /></head><h1>{title}</h1>"
 
     content += "<h2>Directories</h2>"
