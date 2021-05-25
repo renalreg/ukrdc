@@ -1,1 +1,7 @@
 .idea
+.venv
+.vscode
+docs/
+*.log
+*.svg
+*.svg.*
