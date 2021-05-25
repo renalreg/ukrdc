@@ -3,7 +3,7 @@ import lxml.etree as ET
 
 in_path = "Schema"
 out_path = "docs"
-xsl_path = "matt.xsl"
+xsl_path = "stylesheet.xsl"
 
 if not os.path.isdir(out_path):
     os.makedirs(out_path)
@@ -20,6 +20,8 @@ def make_index(title: str, dir_links: list[str], file_links: list[str]):
 
     content += "<h2>Directories</h2>"
     content += "<ul>"
+    if title != in_path:
+        content += "<li><a href='../'>..</a></li>"
     for link in dir_links:
         content += f"<li><a href='{link}'>{link}</a></li>"
     content += "</ul>"
