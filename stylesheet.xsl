@@ -2,12 +2,10 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
     <!-- 
     Notes:
-        created-by: MJS (matthew.south@psych.ox.ac.uk)
+        originally-created-by: MJS (matthew.south@psych.ox.ac.uk)
+        modifications-by: JTC (joel.collins@renalregistry.nhs.uk)
         created-on: 1st May 2015
-        Need to insert this line to 2nd line of xnat schema to instruct XSLT Processor:
-        <?xml-stylesheet type="text/xsl" href="[insert-url]/schema-heirarchy.xslt"?>
-    todo:
-        provide option to show xdat database mapping annotations?
+        modified-on: 25th May 2021
     -->
     <xsl:template match="/xs:schema">
         <html>
