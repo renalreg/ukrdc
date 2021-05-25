@@ -5,6 +5,7 @@
                     body {
                         margin: 0;
                         font-family: Helvetica, Arial, Sans-Serif;
+                        font-size: 14px;
                     }
                     .restriction {
                         color: darkred;
@@ -37,6 +38,25 @@
   </head>
   <body>
     <h4>Types</h4>
-    <hr/>
+    <ul>
+      <li>
+        <a href="#ActionCode">ActionCode</a>
+      </li>
+    </ul>
+    <h4>Simple Types</h4>
+    <table border="1" cellspacing="0" cellpadding="4">
+      <tr bgcolor="#CCC">
+        <td colspan="3">
+          <a name="ActionCode">ActionCode</a>
+        </td>
+      </tr>
+      <tr>
+        <td>xs:string
+        (restricted)
+        <div class="restriction">
+                Enumeration:
+                <ul><li>D (Delete)</li><li>E (Delete if Empty)</li><li>I (Inactivate All)</li><li>C (Clear All)</li><li>R (Replace (Patient and Encounter only))</li><li>A (Add or Update)</li></ul></div></td>
+      </tr>
+    </table>
   </body>
 </html>

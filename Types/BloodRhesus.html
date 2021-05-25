@@ -5,6 +5,7 @@
                     body {
                         margin: 0;
                         font-family: Helvetica, Arial, Sans-Serif;
+                        font-size: 14px;
                     }
                     .restriction {
                         color: darkred;
@@ -37,6 +38,28 @@
   </head>
   <body>
     <h4>Types</h4>
-    <hr/>
+    <ul>
+      <li>
+        <a href="#BloodRhesus">BloodRhesus</a>
+      </li>
+    </ul>
+    <h4>Simple Types</h4>
+    <table border="1" cellspacing="0" cellpadding="4">
+      <tr bgcolor="#CCC">
+        <td colspan="3">
+          <a name="BloodRhesus">BloodRhesus</a>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" class="documentation">See https://www.datadictionary.nhs.uk/data_dictionary/attributes/p/person/person_rhesus_factor_de.asp</td>
+      </tr>
+      <tr>
+        <td>xs:string
+        (restricted)
+        <div class="restriction">
+                Enumeration:
+                <ul><li>POS (RhD-Positive (does have the Rh D antigen))</li><li>NEG (RhD-Negative (does not have the antigen))</li></ul></div></td>
+      </tr>
+    </table>
   </body>
 </html>

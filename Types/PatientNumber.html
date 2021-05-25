@@ -5,6 +5,7 @@
                     body {
                         margin: 0;
                         font-family: Helvetica, Arial, Sans-Serif;
+                        font-size: 14px;
                     }
                     .restriction {
                         color: darkred;
@@ -37,13 +38,19 @@
   </head>
   <body>
     <h4>Types</h4>
-    <a href="">PatientNumber</a>
-    <a href="">PatientNumbers</a>
-    <hr/>
+    <ul>
+      <li>
+        <a href="#PatientNumber">PatientNumber</a>
+      </li>
+      <li>
+        <a href="#PatientNumbers">PatientNumbers</a>
+      </li>
+    </ul>
+    <h4>Complex Types</h4>
     <table border="1" cellspacing="0" cellpadding="4">
       <tr bgcolor="#CCC">
         <td colspan="3">
-          <a name="">PatientNumbers</a>
+          <a name="PatientNumbers">PatientNumbers</a>
         </td>
       </tr>
       <tr>
@@ -51,11 +58,10 @@
         <td>PatientNumber</td>
       </tr>
     </table>
-    <hr/>
     <table border="1" cellspacing="0" cellpadding="4">
       <tr bgcolor="#CCC">
         <td colspan="3">
-          <a name="">PatientNumber</a>
+          <a name="PatientNumber">PatientNumber</a>
         </td>
       </tr>
       <tr>
@@ -89,6 +95,5 @@
                 <ul><li>MRN (Primary Identifier for that Organisation)</li><li>NI (For 3rd-Party Identifiers such as NHS Numbers)</li></ul></div></td>
       </tr>
     </table>
-    <hr/>
   </body>
 </html>

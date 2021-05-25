@@ -5,6 +5,7 @@
                     body {
                         margin: 0;
                         font-family: Helvetica, Arial, Sans-Serif;
+                        font-size: 14px;
                     }
                     .restriction {
                         color: darkred;
@@ -37,15 +38,25 @@
   </head>
   <body>
     <h4>Types</h4>
-    <a href="">Level</a>
-    <a href="">Question</a>
-    <a href="">Score</a>
-    <a href="">Survey</a>
-    <hr/>
+    <ul>
+      <li>
+        <a href="#Level">Level</a>
+      </li>
+      <li>
+        <a href="#Question">Question</a>
+      </li>
+      <li>
+        <a href="#Score">Score</a>
+      </li>
+      <li>
+        <a href="#Survey">Survey</a>
+      </li>
+    </ul>
+    <h4>Complex Types</h4>
     <table border="1" cellspacing="0" cellpadding="4">
       <tr bgcolor="#CCC">
         <td colspan="3">
-          <a name="">Question</a>
+          <a name="Question">Question</a>
         </td>
       </tr>
       <tr>
@@ -65,11 +76,10 @@
         <td>xs:string</td>
       </tr>
     </table>
-    <hr/>
     <table border="1" cellspacing="0" cellpadding="4">
       <tr bgcolor="#CCC">
         <td colspan="3">
-          <a name="">Score</a>
+          <a name="Score">Score</a>
         </td>
       </tr>
       <tr>
@@ -85,11 +95,10 @@
         <td>xs:string</td>
       </tr>
     </table>
-    <hr/>
     <table border="1" cellspacing="0" cellpadding="4">
       <tr bgcolor="#CCC">
         <td colspan="3">
-          <a name="">Level</a>
+          <a name="Level">Level</a>
         </td>
       </tr>
       <tr>
@@ -105,11 +114,10 @@
         <td>xs:string</td>
       </tr>
     </table>
-    <hr/>
     <table border="1" cellspacing="0" cellpadding="4">
       <tr bgcolor="#CCC">
         <td colspan="3">
-          <a name="">Survey</a>
+          <a name="Survey">Survey</a>
         </td>
       </tr>
       <tr>
@@ -178,6 +186,5 @@
         <td><div class="documentation">This is currently only used to flag surveys which were submitted via the SharedHD project. Another field may be more appropriate.</div>xs:string</td>
       </tr>
     </table>
-    <hr/>
   </body>
 </html>

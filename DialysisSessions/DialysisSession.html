@@ -5,6 +5,7 @@
                     body {
                         margin: 0;
                         font-family: Helvetica, Arial, Sans-Serif;
+                        font-size: 14px;
                     }
                     .restriction {
                         color: darkred;
@@ -37,13 +38,19 @@
   </head>
   <body>
     <h4>Types</h4>
-    <a href="">DialysisSession</a>
-    <a href="">DialysisSessions</a>
-    <hr/>
+    <ul>
+      <li>
+        <a href="#DialysisSession">DialysisSession</a>
+      </li>
+      <li>
+        <a href="#DialysisSessions">DialysisSessions</a>
+      </li>
+    </ul>
+    <h4>Complex Types</h4>
     <table border="1" cellspacing="0" cellpadding="4">
       <tr bgcolor="#CCC">
         <td colspan="3">
-          <a name="">DialysisSessions</a>
+          <a name="DialysisSessions">DialysisSessions</a>
         </td>
       </tr>
       <tr>
@@ -63,18 +70,17 @@
         <td>DialysisSession</td>
       </tr>
     </table>
-    <hr/>
     <table border="1" cellspacing="0" cellpadding="4">
       <tr bgcolor="#CCC">
         <td colspan="3">
-          <a name="">DialysisSession</a>
+          <a name="DialysisSession">DialysisSession</a>
         </td>
       </tr>
       <TR class="parentref">
         <TD colspan="3">
           <em>
                     extends
-                    Procedure</em>
+                    <a href="#Procedure">Procedure</a></em>
         </TD>
       </TR>
       <tr>
@@ -129,6 +135,5 @@
         </td>
       </tr>
     </table>
-    <hr/>
   </body>
 </html>

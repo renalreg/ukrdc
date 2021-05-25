@@ -5,6 +5,7 @@
                     body {
                         margin: 0;
                         font-family: Helvetica, Arial, Sans-Serif;
+                        font-size: 14px;
                     }
                     .restriction {
                         color: darkred;
@@ -37,12 +38,34 @@
   </head>
   <body>
     <h4>Types</h4>
-    <a href="">Address</a>
-    <hr/>
+    <ul>
+      <li>
+        <a href="#Address">Address</a>
+      </li>
+      <li>
+        <a href="#PostCode">PostCode</a>
+      </li>
+    </ul>
+    <h4>Simple Types</h4>
     <table border="1" cellspacing="0" cellpadding="4">
       <tr bgcolor="#CCC">
         <td colspan="3">
-          <a name="">Address</a>
+          <a name="PostCode">PostCode</a>
+        </td>
+      </tr>
+      <tr>
+        <td>xs:string
+        (restricted)
+        <div class="restriction">
+                maxLength:
+                8</div></td>
+      </tr>
+    </table>
+    <h4>Complex Types</h4>
+    <table border="1" cellspacing="0" cellpadding="4">
+      <tr bgcolor="#CCC">
+        <td colspan="3">
+          <a name="Address">Address</a>
         </td>
       </tr>
       <tr>
@@ -115,6 +138,5 @@
         </td>
       </tr>
     </table>
-    <hr/>
   </body>
 </html>
