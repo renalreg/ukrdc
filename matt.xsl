@@ -17,6 +17,7 @@
                     body {
                         margin: 0;
                         font-family: Helvetica, Arial, Sans-Serif;
+                        font-size: 14px;
                     }
                     .restriction {
                         color: darkred;
@@ -49,36 +50,42 @@
             </head>
             <body>
                 <h4>Types</h4>
-                <xsl:for-each select="xs:complexType">
-                    <xsl:sort select="@name" />
-                    <xsl:call-template name="link" />
-                </xsl:for-each>
+                <ul>
+                    <xsl:for-each select="xs:complexType | xs:simpleType">
+                        <xsl:sort select="@name" />
+                        <li><xsl:call-template name="link" /></li>
+                    </xsl:for-each>
+                </ul>
 
                 <!-- show detail -->
+                <xsl:if test="xs:simpleType">
+                    <h4>Simple Types</h4>
+                    <xsl:for-each select="xs:simpleType">
+                        <xsl:apply-templates select="." />
+                    </xsl:for-each>
+                </xsl:if>
+
+                <xsl:if test="xs:complexType or xs:element/xs:complexType">
+                    <h4>Complex Types</h4>
+                </xsl:if>  
 
                 <xsl:for-each select="xs:element">
                     <xsl:for-each select="xs:complexType">
                         <xsl:apply-templates select="." />
-                        <hr />
                     </xsl:for-each>
                 </xsl:for-each>
-
-                <hr />
                 
                 <xsl:for-each select="xs:complexType">
                     <xsl:apply-templates select="." />
-                    <hr />
                 </xsl:for-each>
             </body>
         </html>
     </xsl:template>
 
     <xsl:template name="link">
-        <a>
-            <xsl:attribute name="href" select="concat('#xnat:',@name)" />
+        <a href="{concat('#',@name)}">
             <xsl:value-of select="@name" />
         </a>
-        <xsl:text></xsl:text>
     </xsl:template>
 
     <!-- Found under xs:complexType, xs:element, xs:attribute -->
@@ -90,42 +97,47 @@
 
     <!-- Found under xs:element or xs:attribute -->
     <xsl:template name="restriction">
-        <xsl:value-of select="xs:simpleType/xs:restriction/@base" />
+        <xsl:apply-templates select="xs:simpleType/xs:restriction"/>
+    </xsl:template>
+
+    <!-- Found under xs:element or xs:attribute -->
+    <xsl:template match="xs:simpleType/xs:restriction">
+        <xsl:value-of select="@base" />
         (restricted)
-        <xsl:if test="xs:simpleType/xs:restriction/xs:maxLength">
+        <xsl:if test="xs:maxLength">
             <div class="restriction">
                 maxLength:
-                <xsl:value-of select="xs:simpleType/xs:restriction/xs:maxLength/@value" />
+                <xsl:value-of select="xs:maxLength/@value" />
             </div>
         </xsl:if>
-        <xsl:if test="xs:simpleType/xs:restriction/xs:enumeration">
+        <xsl:if test="xs:enumeration">
             <div class="restriction">
                 Enumeration:
                 <ul>
-                <xsl:for-each select="xs:simpleType/xs:restriction/xs:enumeration">
+                <xsl:for-each select="xs:enumeration">
                     <li><xsl:value-of select="@value" /> (<xsl:value-of select="xs:annotation/xs:documentation" />)</li>
                 </xsl:for-each>
                 </ul>
             </div>
         </xsl:if>
-        <xsl:if test="xs:simpleType/xs:restriction/xs:minInclusive or xs:simpleType/xs:restriction/xs:maxInclusive">
+        <xsl:if test="xs:minInclusive or xs:maxInclusive">
             <div class="restriction">
                 value:
                 <xsl:choose>
-                    <xsl:when test="xs:simpleType/xs:restriction/xs:minInclusive and xs:simpleType/xs:restriction/xs:maxInclusive">
+                    <xsl:when test="s:minInclusive and xs:simpleType/xs:restriction/xs:maxInclusive">
                         &gt;=
-                        <xsl:value-of select="xs:simpleType/xs:restriction/xs:minInclusive/@value" />
+                        <xsl:value-of select="xs:minInclusive/@value" />
                         , &lt;=
-                        <xsl:value-of select="xs:simpleType/xs:restriction/xs:maxInclusive/@value" />
+                        <xsl:value-of select="xs:maxInclusive/@value" />
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:if test="xs:simpleType/xs:restriction/xs:minInclusive">
+                        <xsl:if test="xs:minInclusive">
                             &gt;=
-                            <xsl:value-of select="xs:simpleType/xs:restriction/xs:minInclusive/@value" />
+                            <xsl:value-of select="xs:minInclusive/@value" />
                         </xsl:if>
-                        <xsl:if test="xs:simpleType/xs:restriction/xs:maxInclusive">
+                        <xsl:if test="xs:maxInclusive">
                             &lt;=
-                            <xsl:value-of select="xs:simpleType/xs:restriction/xs:maxInclusive/@value" />
+                            <xsl:value-of select="xs:maxInclusive/@value" />
                         </xsl:if>
                     </xsl:otherwise>
                 </xsl:choose>
@@ -165,9 +177,8 @@
 
     <xsl:template name="general-link">
         <xsl:choose>
-            <xsl:when test="starts-with(@base, 'xnat:')">
-                <a>
-                    <xsl:attribute name="href" select="concat('#',@base)" />
+            <xsl:when test="not(starts-with(@base, 'xs:'))">
+                <a href="{concat('#',@base)}">
                     <xsl:value-of select="@base" />
                 </a>
             </xsl:when>
@@ -197,9 +208,7 @@
                 <TD colspan="3">
                     extended by:
                     <xsl:for-each select="//xs:extension[contains(@base,$nametomatch)]">
-                        <a>
-                            <xsl:attribute name="href" select="concat('#xnat:',../../@name)" />
-                            xnat:
+                        <a href="{concat('#',../../@name)}">
                             <xsl:value-of select="../../@name" />
                         </a>
                         <xsl:if test="position()!=last()">, </xsl:if>
@@ -231,8 +240,7 @@
             <xsl:when test="@type">
                 <xsl:choose>
                     <xsl:when test="starts-with(@type, 'xnat:')">
-                        <a>
-                            <xsl:attribute name="href" select="concat('#', @type)" />
+                        <a href="{concat('#', @type)}">
                             <xsl:value-of select="@type" />
                         </a>
                     </xsl:when>
@@ -295,8 +303,7 @@
             <xsl:if test="@name">
                 <tr bgcolor="#CCC">
                     <td colspan="3">
-                        <a>
-                            <xsl:attribute name="name" select="concat('xnat:', @name)" />
+                        <a name="{@name}">
                             <xsl:value-of select="@name" />
                         </a>
                     </td>
@@ -317,4 +324,36 @@
             <xsl:apply-templates select="xs:sequence" />
         </table>
     </xsl:template>
+
+    <xsl:template match="xs:simpleType">
+        <table border="1" cellspacing="0" cellpadding="4">
+            <xsl:if test="@name">
+                <tr bgcolor="#CCC">
+                    <td colspan="3">
+                        <a name="{@name}">
+                            <xsl:value-of select="@name" />
+                        </a>
+                    </td>
+                </tr>
+            </xsl:if>
+            <xsl:if test="xs:annotation/xs:documentation">
+                <tr>
+                    <td colspan="3" class="documentation">
+                        <xsl:value-of select="xs:annotation/xs:documentation" />
+                    </td>
+                </tr>
+            </xsl:if>
+
+            <xsl:if test="xs:restriction">
+                <tr>
+                    <td>
+                        <xsl:apply-templates select="xs:restriction"/>
+                    </td>
+                </tr>
+            </xsl:if>
+
+        </table>
+
+    </xsl:template>
+
 </xsl:stylesheet>
