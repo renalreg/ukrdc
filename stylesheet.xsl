@@ -60,6 +60,7 @@
                     <h4>Simple Types</h4>
                     <xsl:for-each select="xs:simpleType">
                         <xsl:apply-templates select="." />
+                        <br/>
                     </xsl:for-each>
                 </xsl:if>
 
@@ -70,11 +71,13 @@
                 <xsl:for-each select="xs:element">
                     <xsl:for-each select="xs:complexType">
                         <xsl:apply-templates select="." />
+                        <br/>
                     </xsl:for-each>
                 </xsl:for-each>
                 
                 <xsl:for-each select="xs:complexType">
                     <xsl:apply-templates select="." />
+                    <br/>
                 </xsl:for-each>
             </body>
         </html>
