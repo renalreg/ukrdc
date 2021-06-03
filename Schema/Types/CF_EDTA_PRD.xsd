@@ -339,9 +339,7 @@
                                 <xs:documentation>Other identified Renal Disorders - Please Specify</xs:documentation>
                             </xs:annotation>
                         </xs:enumeration>
-
                         <!-- EDTA2 Codes-->
-
                         <xs:enumeration value="1003">
                             <xs:annotation>
                                 <xs:documentation>Adult Nephrotic Syndrome - No Histology</xs:documentation>
@@ -1715,6 +1713,1186 @@
                         <xs:enumeration value="3852">
                             <xs:annotation>
                                 <xs:documentation>Systemic vasculitis - ANCA positive - histologically proven</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="36171008">
+                            <xs:annotation>
+                                <xs:documentation>Glomerulonephritis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="52254009">
+                            <xs:annotation>
+                                <xs:documentation>Nephrotic syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="445119005">
+                            <xs:annotation>
+                                <xs:documentation>Steroid sensitive nephrotic syndrome of childhood (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="449820008">
+                            <xs:annotation>
+                                <xs:documentation>Steroid resistant nephrotic syndrome of childhood (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="705065000">
+                            <xs:annotation>
+                                <xs:documentation>Childhood nephrotic syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="48796009">
+                            <xs:annotation>
+                                <xs:documentation>Congenital nephrotic syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="197601003">
+                            <xs:annotation>
+                                <xs:documentation>Finnish congenital nephrotic syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="722369003">
+                            <xs:annotation>
+                                <xs:documentation>Congenital nephrotic syndrome due to diffuse mesangial sclerosis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="236384008">
+                            <xs:annotation>
+                                <xs:documentation>Congenital nephrotic syndrome with focal glomerulosclerosis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="236385009">
+                            <xs:annotation>
+                                <xs:documentation>Drash syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="722118005">
+                            <xs:annotation>
+                                <xs:documentation>Congenital nephrotic syndrome due to congenital infection (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="44785005">
+                            <xs:annotation>
+                                <xs:documentation>Minimal change disease (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="236407003">
+                            <xs:annotation>
+                                <xs:documentation>Immunoglobulin A nephropathy (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="445404003">
+                            <xs:annotation>
+                                <xs:documentation>Familial immunoglobulin A nephropathy (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="282364005">
+                            <xs:annotation>
+                                <xs:documentation>Immunoglobulin A nephropathy associated with liver disease (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="236411009">
+                            <xs:annotation>
+                                <xs:documentation>Immunoglobulin M nephropathy (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="722119002">
+                            <xs:annotation>
+                                <xs:documentation>Idiopathic membranous glomerulonephritis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="722086002">
+                            <xs:annotation>
+                                <xs:documentation>Membranous glomerulonephritis due to malignant neoplastic disease (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="722120008">
+                            <xs:annotation>
+                                <xs:documentation>Membranous glomerulonephritis caused by drug (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="722168002">
+                            <xs:annotation>
+                                <xs:documentation>Membranous glomerulonephritis co-occurrent with infectious disease (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="75888001">
+                            <xs:annotation>
+                                <xs:documentation>Mesangiocapillary glomerulonephritis, type I (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="59479006">
+                            <xs:annotation>
+                                <xs:documentation>Mesangiocapillary glomerulonephritis, type II (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="236409000">
+                            <xs:annotation>
+                                <xs:documentation>Mesangiocapillary glomerulonephritis type III (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="236398000">
+                            <xs:annotation>
+                                <xs:documentation>Crescentic glomerulonephritis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="236403004">
+                            <xs:annotation>
+                                <xs:documentation>Focal segmental glomerulosclerosis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="445388002">
+                            <xs:annotation>
+                                <xs:documentation>Autosomal recessive focal segmental glomerulosclerosis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="445388002">
+                            <xs:annotation>
+                                <xs:documentation>Autosomal recessive focal segmental glomerulosclerosis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="444977005">
+                            <xs:annotation>
+                                <xs:documentation>Autosomal dominant focal segmental glomerulosclerosis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="444977005">
+                            <xs:annotation>
+                                <xs:documentation>Autosomal dominant focal segmental glomerulosclerosis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="236403004">
+                            <xs:annotation>
+                                <xs:documentation>Focal segmental glomerulosclerosis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="713887002">
+                            <xs:annotation>
+                                <xs:documentation>FSGS co-occurrent with human immunodefiency virus infection (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="722139003">
+                            <xs:annotation>
+                                <xs:documentation>Focal segmental glomerulosclerosis caused by lithium (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="722147003">
+                            <xs:annotation>
+                                <xs:documentation>Focal segmental glomerulosclerosis due to sickle cell disease (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="3704008">
+                            <xs:annotation>
+                                <xs:documentation>Diffuse endocapillary proliferative glomerulonephritis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="35546006">
+                            <xs:annotation>
+                                <xs:documentation>Mesangial proliferative glomerulonephritis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="83866005">
+                            <xs:annotation>
+                                <xs:documentation>Focal AND segmental proliferative glomerulonephritis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="36171008">
+                            <xs:annotation>
+                                <xs:documentation>Glomerulonephritis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="46956008">
+                            <xs:annotation>
+                                <xs:documentation>Systemic vasculitis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="195353004">
+                            <xs:annotation>
+                                <xs:documentation>Wegener's granulomatosis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="239928004">
+                            <xs:annotation>
+                                <xs:documentation>Microscopic polyarteritis nodosa (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="82275008">
+                            <xs:annotation>
+                                <xs:documentation>Allergic granulomatosis angiitis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="155441006">
+                            <xs:annotation>
+                                <xs:documentation>Polyarteritis nodosa (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="236506009">
+                            <xs:annotation>
+                                <xs:documentation>Goodpasture's disease (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="50581000">
+                            <xs:annotation>
+                                <xs:documentation>Goodpasture's syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="68815009">
+                            <xs:annotation>
+                                <xs:documentation>Systemic lupus erythematosus glomerulonephritis syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="68815009">
+                            <xs:annotation>
+                                <xs:documentation>Systemic lupus erythematosus glomerulonephritis syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="191306005">
+                            <xs:annotation>
+                                <xs:documentation>Henoch-Schönlein purpura (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="236502006">
+                            <xs:annotation>
+                                <xs:documentation>Renal involvement in scleroderma (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="239947001">
+                            <xs:annotation>
+                                <xs:documentation>Essential mixed cryoglobulinemia (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="239947001">
+                            <xs:annotation>
+                                <xs:documentation>Essential mixed cryoglobulinemia (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="128971000119101">
+                            <xs:annotation>
+                                <xs:documentation>Cryoglobulinemia due to chronic hepatitis C (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="28807005">
+                            <xs:annotation>
+                                <xs:documentation>Secondary cryoglobulinemia (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="197764002">
+                            <xs:annotation>
+                                <xs:documentation>Non-obstructive reflux-associated chronic pyelonephritis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="707208009">
+                            <xs:annotation>
+                                <xs:documentation>Familial non-obstructive reflux-associated chronic pyelonephritis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="204949001">
+                            <xs:annotation>
+                                <xs:documentation>Renal dysplasia (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="737562008">
+                            <xs:annotation>
+                                <xs:documentation>Multicystic renal dysplasia (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="710571007">
+                            <xs:annotation>
+                                <xs:documentation>Renal dysplasia due to fetal exposure to angiotensin converting enzyme inhibitor (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="609572000">
+                            <xs:annotation>
+                                <xs:documentation>Maturity-onset diabetes of the young, type 5 (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="253864004">
+                            <xs:annotation>
+                                <xs:documentation>Familial hypoplastic, glomerulocystic kidney (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="373584008">
+                            <xs:annotation>
+                                <xs:documentation>Congenital pelviureteric junction obstruction (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="373585009">
+                            <xs:annotation>
+                                <xs:documentation>Congenital ureterovesical obstruction (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="253900005">
+                            <xs:annotation>
+                                <xs:documentation>Congenital posterior urethral valves (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="5187006">
+                            <xs:annotation>
+                                <xs:documentation>Prune belly syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="445387007">
+                            <xs:annotation>
+                                <xs:documentation>Congenital neurogenic urinary bladder (finding)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="61758007">
+                            <xs:annotation>
+                                <xs:documentation>Exstrophy of bladder sequence (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="253904001">
+                            <xs:annotation>
+                                <xs:documentation>Megacystis-megaureter syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="18417009">
+                            <xs:annotation>
+                                <xs:documentation>Oligomeganephronic hypoplasia of kidney (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="90241004">
+                            <xs:annotation>
+                                <xs:documentation>Papillary necrosis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="723074006">
+                            <xs:annotation>
+                                <xs:documentation>Renal papillary necrosis due to diabetes mellitus (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="722077007">
+                            <xs:annotation>
+                                <xs:documentation>Renal papillary necrosis caused by analgesic drug (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="722085003">
+                            <xs:annotation>
+                                <xs:documentation>Renal papillary necrosis due to sickle cell disease (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="698757009">
+                            <xs:annotation>
+                                <xs:documentation>Nephropathy due to acquired urinary tract obstruction (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="722078002">
+                            <xs:annotation>
+                                <xs:documentation>Obstructive nephropathy due to neurogenic bladder (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="722082000">
+                            <xs:annotation>
+                                <xs:documentation>Obstructive nephropathy due to benign prostatic hyperplasia (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="722081007">
+                            <xs:annotation>
+                                <xs:documentation>Obstructive nephropathy due to carcinoma of prostate (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="722089009">
+                            <xs:annotation>
+                                <xs:documentation>Obstructive nephropathy due to bladder cancer (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="722088001">
+                            <xs:annotation>
+                                <xs:documentation>Obstructive nephropathy due to malignancy (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="197808006">
+                            <xs:annotation>
+                                <xs:documentation>Idiopathic retroperitoneal fibrosis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="236017004">
+                            <xs:annotation>
+                                <xs:documentation>Malignant retroperitoneal fibrosis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="236015007">
+                            <xs:annotation>
+                                <xs:documentation>Drug-induced retroperitoneal fibrosis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="49120005">
+                            <xs:annotation>
+                                <xs:documentation>Retroperitoneal fibrosis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="95566004">
+                            <xs:annotation>
+                                <xs:documentation>Urolithiasis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="444717006">
+                            <xs:annotation>
+                                <xs:documentation>Calcium oxalate urolithiasis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="37497004">
+                            <xs:annotation>
+                                <xs:documentation>Enteric hyperoxaluria (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="444690001">
+                            <xs:annotation>
+                                <xs:documentation>Magnesium ammonium phosphate urolithiasis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="267441009">
+                            <xs:annotation>
+                                <xs:documentation>Uric acid urolithiasis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="28689008">
+                            <xs:annotation>
+                                <xs:documentation>Interstitial nephritis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="428255004">
+                            <xs:annotation>
+                                <xs:documentation>Tubulointerstitial nephritis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="37061001">
+                            <xs:annotation>
+                                <xs:documentation>Granulomatous sarcoid nephropathy (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="236514003">
+                            <xs:annotation>
+                                <xs:documentation>Toxic nephropathy (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="439990003">
+                            <xs:annotation>
+                                <xs:documentation>Drug-induced interstitial nephritis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="59400006">
+                            <xs:annotation>
+                                <xs:documentation>Analgesic nephropathy (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="704203009">
+                            <xs:annotation>
+                                <xs:documentation>Nephropathy induced by ciclosporin (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="704205002">
+                            <xs:annotation>
+                                <xs:documentation>Nephropathy induced by tacrolimus (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="704206001">
+                            <xs:annotation>
+                                <xs:documentation>Nephropathy induced by aminoglycoside (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="704055002">
+                            <xs:annotation>
+                                <xs:documentation>Nephropathy induced by amphotericin (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="53556002">
+                            <xs:annotation>
+                                <xs:documentation>Cis-platinum nephropathy (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="4390004">
+                            <xs:annotation>
+                                <xs:documentation>Lithium nephropathy (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="704204003">
+                            <xs:annotation>
+                                <xs:documentation>Nephropathy induced by lead (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="236496000">
+                            <xs:annotation>
+                                <xs:documentation>Acute urate nephropathy (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="190829000">
+                            <xs:annotation>
+                                <xs:documentation>Chronic urate nephropathy (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="33763006">
+                            <xs:annotation>
+                                <xs:documentation>Hypercalcemic nephropathy (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="7725007">
+                            <xs:annotation>
+                                <xs:documentation>Radiation nephritis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="3321001">
+                            <xs:annotation>
+                                <xs:documentation>Renal abscess (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="80640009">
+                            <xs:annotation>
+                                <xs:documentation>Perirenal abscess (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="44323002">
+                            <xs:annotation>
+                                <xs:documentation>Tuberculosis of kidney (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="77377001">
+                            <xs:annotation>
+                                <xs:documentation>Leptospirosis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="102455002">
+                            <xs:annotation>
+                                <xs:documentation>Hemorrhagic nephroso-nephritis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="38898003">
+                            <xs:annotation>
+                                <xs:documentation>Xanthogranulomatous pyelonephritis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="713504001">
+                            <xs:annotation>
+                                <xs:documentation>Disorder of kidney co-occurrent with human immunodeficiency virus infection (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="236706006">
+                            <xs:annotation>
+                                <xs:documentation>Urinary schistosomiasis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="40733004">
+                            <xs:annotation>
+                                <xs:documentation>Infectious disease (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="421893009">
+                            <xs:annotation>
+                                <xs:documentation>Renal disorder associated with type I diabetes mellitus (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="420279001">
+                            <xs:annotation>
+                                <xs:documentation>Renal disorder due to type 2 diabetes mellitus (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="38481006">
+                            <xs:annotation>
+                                <xs:documentation>Hypertensive renal disease (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="65443008">
+                            <xs:annotation>
+                                <xs:documentation>Malignant hypertensive renal disease (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="65443008">
+                            <xs:annotation>
+                                <xs:documentation>Malignant hypertensive renal disease (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="445108007">
+                            <xs:annotation>
+                                <xs:documentation>Age related reduction of renal function (finding)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="710565001">
+                            <xs:annotation>
+                                <xs:documentation>Nephropathy due to ischemia (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="302233006">
+                            <xs:annotation>
+                                <xs:documentation>Renal artery stenosis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="51677000">
+                            <xs:annotation>
+                                <xs:documentation>Atheroembolism of renal arteries (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="51677000">
+                            <xs:annotation>
+                                <xs:documentation>Atheroembolism of renal arteries (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="2900003">
+                            <xs:annotation>
+                                <xs:documentation>Hyperplasia of renal artery (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="236488005">
+                            <xs:annotation>
+                                <xs:documentation>Renal artery occlusion (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="15842009">
+                            <xs:annotation>
+                                <xs:documentation>Thrombosis of renal vein (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="445236007">
+                            <xs:annotation>
+                                <xs:documentation>Cardiorenal syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="51292008">
+                            <xs:annotation>
+                                <xs:documentation>Hepatorenal syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="48713002">
+                            <xs:annotation>
+                                <xs:documentation>Amyloid nephropathy (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="274945004">
+                            <xs:annotation>
+                                <xs:documentation>AA amyloidosis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="23132008">
+                            <xs:annotation>
+                                <xs:documentation>AL amyloidosis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="66451004">
+                            <xs:annotation>
+                                <xs:documentation>Familial visceral amyloidosis, Ostertag type (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="367528006">
+                            <xs:annotation>
+                                <xs:documentation>Amyloid of familial Mediterranean fever (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="32278006">
+                            <xs:annotation>
+                                <xs:documentation>Myeloma kidney (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="373604002">
+                            <xs:annotation>
+                                <xs:documentation>Light chain deposition disease (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="73305009">
+                            <xs:annotation>
+                                <xs:documentation>Fibrillary glomerulonephritis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="373421000">
+                            <xs:annotation>
+                                <xs:documentation>Diarrhea-associated hemolytic uremic syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="373422007">
+                            <xs:annotation>
+                                <xs:documentation>Diarrhea-negative hemolytic uremic syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="78129009">
+                            <xs:annotation>
+                                <xs:documentation>Thrombotic thrombocytopenic purpura (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="111407006">
+                            <xs:annotation>
+                                <xs:documentation>Hemolytic uremic syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="444976001">
+                            <xs:annotation>
+                                <xs:documentation>Congenital hemolytic uremic syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="722721004">
+                            <xs:annotation>
+                                <xs:documentation>Familial hemolytic uremic syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="373420004">
+                            <xs:annotation>
+                                <xs:documentation>Upshaw-Schulman syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="736993008">
+                            <xs:annotation>
+                                <xs:documentation>Nephropathy following eclampsia (disorder) </xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="736992003">
+                            <xs:annotation>
+                                <xs:documentation>Nephropathy following pre-eclampsia (disorder)  </xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="13886001">
+                            <xs:annotation>
+                                <xs:documentation>Sickle cell nephropathy (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="28728008">
+                            <xs:annotation>
+                                <xs:documentation>Polycystic kidney disease, adult type (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="253878003">
+                            <xs:annotation>
+                                <xs:documentation>Adult type polycystic kidney disease type 1 (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="253879006">
+                            <xs:annotation>
+                                <xs:documentation>Adult type polycystic kidney disease type 2 (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="28770003">
+                            <xs:annotation>
+                                <xs:documentation>Polycystic kidney disease, infantile type (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="399340005">
+                            <xs:annotation>
+                                <xs:documentation>Hereditary nephritis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="236421001">
+                            <xs:annotation>
+                                <xs:documentation>Benign familial hematuria (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="236418003">
+                            <xs:annotation>
+                                <xs:documentation>Thin basement membrane disease (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="236439005">
+                            <xs:annotation>
+                                <xs:documentation>Cystic disease of kidney (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="726017001">
+                            <xs:annotation>
+                                <xs:documentation>Mucin 1 related autosomal dominant tubulointerstitial kidney disease (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="723373006">
+                            <xs:annotation>
+                                <xs:documentation>Autosomal dominant medullary cystic kidney disease with hyperuricemia (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="46785007">
+                            <xs:annotation>
+                                <xs:documentation>Familial juvenile gout (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="204958008">
+                            <xs:annotation>
+                                <xs:documentation>Nephronophthisis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="444830001">
+                            <xs:annotation>
+                                <xs:documentation>Juvenile nephronophthisis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="444558002">
+                            <xs:annotation>
+                                <xs:documentation>Infantile nephronophthisis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="444749006">
+                            <xs:annotation>
+                                <xs:documentation>Adolescent nephronophthisis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="446989009">
+                            <xs:annotation>
+                                <xs:documentation>Nephronophthisis type 4 (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="446991001">
+                            <xs:annotation>
+                                <xs:documentation>Nephronophthisis type 5 (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="447335007">
+                            <xs:annotation>
+                                <xs:documentation>Nephronophthisis type 6 (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="236466005">
+                            <xs:annotation>
+                                <xs:documentation>Congenital Fanconi syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="197744007">
+                            <xs:annotation>
+                                <xs:documentation>Renal tubulo-interstitial disorders in metabolic diseases (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="444645005">
+                            <xs:annotation>
+                                <xs:documentation>Dent's disease (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="79385002">
+                            <xs:annotation>
+                                <xs:documentation>Lowe syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="698953004">
+                            <xs:annotation>
+                                <xs:documentation>Inherited aminoaciduria (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="85020001">
+                            <xs:annotation>
+                                <xs:documentation>Cystinuria (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="190681003">
+                            <xs:annotation>
+                                <xs:documentation>Cystinosis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="226309007">
+                            <xs:annotation>
+                                <xs:documentation>Familial renal glucosuria (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="82236004">
+                            <xs:annotation>
+                                <xs:documentation>Familial x-linked hypophosphatemic vitamin D refractory rickets (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="90505000">
+                            <xs:annotation>
+                                <xs:documentation>Autosomal recessive hypophosphatemic vitamin D refractory rickets (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="1776003">
+                            <xs:annotation>
+                                <xs:documentation>Renal tubular acidosis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="24790002">
+                            <xs:annotation>
+                                <xs:documentation>Proximal renal tubular acidosis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="236461000">
+                            <xs:annotation>
+                                <xs:documentation>Distal renal tubular acidosis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="722468005">
+                            <xs:annotation>
+                                <xs:documentation>Distal renal tubular acidosis co-occurrent with sensorineural deafness (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="111395007">
+                            <xs:annotation>
+                                <xs:documentation>Nephrogenic diabetes insipidus (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="10406007">
+                            <xs:annotation>
+                                <xs:documentation>Lesch-Nyhan syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="35759001">
+                            <xs:annotation>
+                                <xs:documentation>Ribose-phosphate pyrophosphokinase overactivity (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="124274002">
+                            <xs:annotation>
+                                <xs:documentation>Deficiency of adenine phosphoribosyl transferase (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="31742004">
+                            <xs:annotation>
+                                <xs:documentation>Arteriohepatic dysplasia (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="707742001">
+                            <xs:annotation>
+                                <xs:documentation>Bartter syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="707756004">
+                            <xs:annotation>
+                                <xs:documentation>Gitelman syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="707747007">
+                            <xs:annotation>
+                                <xs:documentation>Pseudoprimary hyperaldosteronism (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="237770005">
+                            <xs:annotation>
+                                <xs:documentation>Syndrome of apparent mineralocorticoid excess (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="237743003">
+                            <xs:annotation>
+                                <xs:documentation>Glucocorticoid-suppressible hyperaldosteronism (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="237604008">
+                            <xs:annotation>
+                                <xs:documentation>Maturity onset diabetes of the young, type 2 (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="43941006">
+                            <xs:annotation>
+                                <xs:documentation>Pseudohypoaldosteronism, type 1 (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="15689008">
+                            <xs:annotation>
+                                <xs:documentation>Pseudohypoaldosteronism, type 2 (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="237885008">
+                            <xs:annotation>
+                                <xs:documentation>Familial hypocalciuric hypercalcemia (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="711152006">
+                            <xs:annotation>
+                                <xs:documentation>Autosomal dominant hypocalcemia (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="80710001">
+                            <xs:annotation>
+                                <xs:documentation>Primary hypomagnesemia (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="17901006">
+                            <xs:annotation>
+                                <xs:documentation>Primary hyperoxaluria (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="65520001">
+                            <xs:annotation>
+                                <xs:documentation>Primary hyperoxaluria, type I (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="40951006">
+                            <xs:annotation>
+                                <xs:documentation>Primary hyperoxaluria, type II (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="734990008">
+                            <xs:annotation>
+                                <xs:documentation>Primary hyperoxaluria, type III (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="16652001">
+                            <xs:annotation>
+                                <xs:documentation>Fabry's disease (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="190919008">
+                            <xs:annotation>
+                                <xs:documentation>Xanthinuria (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="236527004">
+                            <xs:annotation>
+                                <xs:documentation>Nail patella-like renal disease (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="45582004">
+                            <xs:annotation>
+                                <xs:documentation>Rubinstein-Taybi syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="7199000">
+                            <xs:annotation>
+                                <xs:documentation>Tuberous sclerosis syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="46659004">
+                            <xs:annotation>
+                                <xs:documentation>Von Hippel-Lindau syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="236443009">
+                            <xs:annotation>
+                                <xs:documentation>Medullary sponge kidney (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="41729002">
+                            <xs:annotation>
+                                <xs:documentation>Horseshoe kidney (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="445431000">
+                            <xs:annotation>
+                                <xs:documentation>Frasier syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="446449009">
+                            <xs:annotation>
+                                <xs:documentation>Renal coloboma syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="290006">
+                            <xs:annotation>
+                                <xs:documentation>Melnick-Fraser syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="63247009">
+                            <xs:annotation>
+                                <xs:documentation>Williams syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="24750000">
+                            <xs:annotation>
+                                <xs:documentation>Townes syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="232059000">
+                            <xs:annotation>
+                                <xs:documentation>Laurence-Moon syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="240096000">
+                            <xs:annotation>
+                                <xs:documentation>Mitochondrial cytopathy (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="236419006">
+                            <xs:annotation>
+                                <xs:documentation>Progressive hereditary glomerulonephritis without deafness (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="14669001">
+                            <xs:annotation>
+                                <xs:documentation>Acute renal failure syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="722096006">
+                            <xs:annotation>
+                                <xs:documentation>Acute kidney injury due to hypovolemia (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="722095005">
+                            <xs:annotation>
+                                <xs:documentation>Acute kidney injury due to circulatory failure (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="722278006">
+                            <xs:annotation>
+                                <xs:documentation>Acute kidney injury due to sepsis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="23697004">
+                            <xs:annotation>
+                                <xs:documentation>Crush syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="236428007">
+                            <xs:annotation>
+                                <xs:documentation>Nephrotoxic acute renal failure (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="444794000">
+                            <xs:annotation>
+                                <xs:documentation>Acute necrosis of cortex of kidney (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="36689008">
+                            <xs:annotation>
+                                <xs:documentation>Acute pyelonephritis (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="126880001">
+                            <xs:annotation>
+                                <xs:documentation>Neoplasm of kidney (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="254915003">
+                            <xs:annotation>
+                                <xs:documentation>Clear cell carcinoma of kidney (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="408642003">
+                            <xs:annotation>
+                                <xs:documentation>Transitional cell carcinoma of kidney (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="302849000">
+                            <xs:annotation>
+                                <xs:documentation>Nephroblastoma (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="307604008">
+                            <xs:annotation>
+                                <xs:documentation>Mesoblastic nephroma (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="236513009">
+                            <xs:annotation>
+                                <xs:documentation>Lymphomatous infiltrate of kidney</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="249582007">
+                            <xs:annotation>
+                                <xs:documentation>Absent kidney (finding)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="722149000">
+                            <xs:annotation>
+                                <xs:documentation> Chronic kidney disease following excision of renal neoplasm (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="722467000">
+                            <xs:annotation>
+                                <xs:documentation>Chronic kidney disease due to traumatic loss of kidney (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="722098007">
+                            <xs:annotation>
+                                <xs:documentation>Chronic kidney disease following donor nephrectomy (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="90688005">
+                            <xs:annotation>
+                                <xs:documentation>Chronic renal failure syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="53298000">
+                            <xs:annotation>
+                                <xs:documentation>Hematuria syndrome (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="29738008">
+                            <xs:annotation>
+                                <xs:documentation>Proteinuria (finding)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="722150000">
+                            <xs:annotation>
+                                <xs:documentation>Chronic kidney disease due to systemic infection (disorder)</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="42399005">
+                            <xs:annotation>
+                                <xs:documentation>Renal failure syndrome (disorder)</xs:documentation>
                             </xs:annotation>
                         </xs:enumeration>
                     </xs:restriction>

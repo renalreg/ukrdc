@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.1.0 - 2021-06-03
+### Changed
+- SNOMED Codes added to the PRD Enumeration.
+
 ## 3.0.0 - 2021-02-12
 ### Changed
 - Split out the Procedure Elements to allow Start/End dates to be added to the Dialysis Sessions.
