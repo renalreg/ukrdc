@@ -2,10 +2,10 @@
 
 ## Documentation
 
-Project Website (https://confluence.ukrdc.org/display/UKRDC/UKRDC)
+Project Website (https://renalregistry.atlassian.net/wiki/spaces/UKRDC/overview)
 
-Schema Documentation (https://confluence.ukrdc.org/display/UD/UKRDC+Dataset+Feed)
+Schema Documentation (https://renalregistry.atlassian.net/wiki/spaces/UD/overview)
 
-Instructions (https://confluence.ukrdc.org/display/UD/UKRDC+File+Transmission)
+Instructions (https://renalregistry.atlassian.net/wiki/spaces/UD/pages/2044133823/UKRDC+File+Transmission)
 
 ##
