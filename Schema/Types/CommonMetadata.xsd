@@ -1,5 +1,4 @@
 <xs:schema xmlns="http://www.rixg.org.uk/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.rixg.org.uk/">
-    <xs:include schemaLocation="../Types/ActionCode.xsd"/>
     <xs:group name="CommonMetadata">
         <xs:sequence>
             <xs:element name="UpdatedOn" type="xs:dateTime" minOccurs="0">

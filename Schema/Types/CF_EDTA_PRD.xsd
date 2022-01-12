@@ -56,7 +56,7 @@
                         </xs:enumeration>
                         <xs:enumeration value="17">
                             <xs:annotation>
-                                <xs:documentation>Focal segmental glomeruloscerosis with nephrotic syndrome in adults </xs:documentation>
+                                <xs:documentation>Focal segmental glomeruloscerosis with nephrotic syndrome in adults</xs:documentation>
                             </xs:annotation>
                         </xs:enumeration>
                         <xs:enumeration value="19">
@@ -512,7 +512,7 @@
                         </xs:enumeration>
                         <xs:enumeration value="1349">
                             <xs:annotation>
-                                <xs:documentation>Mesangial Proliferative Glomerulonephritis </xs:documentation>
+                                <xs:documentation>Mesangial Proliferative Glomerulonephritis</xs:documentation>
                             </xs:annotation>
                         </xs:enumeration>
                         <xs:enumeration value="1354">
@@ -767,7 +767,7 @@
                         </xs:enumeration>
                         <xs:enumeration value="1850">
                             <xs:annotation>
-                                <xs:documentation>Enteric Hyperoxaluria </xs:documentation>
+                                <xs:documentation>Enteric Hyperoxaluria</xs:documentation>
                             </xs:annotation>
                         </xs:enumeration>
                         <xs:enumeration value="1866">
@@ -1167,7 +1167,7 @@
                         </xs:enumeration>
                         <xs:enumeration value="2652">
                             <xs:annotation>
-                                <xs:documentation>Congenital Haemolytic Uraemic Syndrome (Hus) </xs:documentation>
+                                <xs:documentation>Congenital Haemolytic Uraemic Syndrome (Hus)</xs:documentation>
                             </xs:annotation>
                         </xs:enumeration>
                         <xs:enumeration value="2668">
@@ -1367,7 +1367,7 @@
                         </xs:enumeration>
                         <xs:enumeration value="3059">
                             <xs:annotation>
-                                <xs:documentation>Lesch Nyhan Syndrome - Hypoxanthine Guanine Phosphoribosyl Transferase Deficiency </xs:documentation>
+                                <xs:documentation>Lesch Nyhan Syndrome - Hypoxanthine Guanine Phosphoribosyl Transferase Deficiency</xs:documentation>
                             </xs:annotation>
                         </xs:enumeration>
                         <xs:enumeration value="3063">
@@ -1537,7 +1537,7 @@
                         </xs:enumeration>
                         <xs:enumeration value="3398">
                             <xs:annotation>
-                                <xs:documentation>Acute Kidney Injury Due To Hypovolaemia </xs:documentation>
+                                <xs:documentation>Acute Kidney Injury Due To Hypovolaemia</xs:documentation>
                             </xs:annotation>
                         </xs:enumeration>
                         <xs:enumeration value="3403">
@@ -1662,7 +1662,7 @@
                         </xs:enumeration>
                         <xs:enumeration value="3662">
                             <xs:annotation>
-                                <xs:documentation>Hypercalcaemic Nephropathy </xs:documentation>
+                                <xs:documentation>Hypercalcaemic Nephropathy</xs:documentation>
                             </xs:annotation>
                         </xs:enumeration>
                         <xs:enumeration value="3670">
@@ -2427,12 +2427,12 @@
                         </xs:enumeration>
                         <xs:enumeration value="736993008">
                             <xs:annotation>
-                                <xs:documentation>Nephropathy following eclampsia (disorder) </xs:documentation>
+                                <xs:documentation>Nephropathy following eclampsia (disorder)</xs:documentation>
                             </xs:annotation>
                         </xs:enumeration>
                         <xs:enumeration value="736992003">
                             <xs:annotation>
-                                <xs:documentation>Nephropathy following pre-eclampsia (disorder)  </xs:documentation>
+                                <xs:documentation>Nephropathy following pre-eclampsia (disorder)</xs:documentation>
                             </xs:annotation>
                         </xs:enumeration>
                         <xs:enumeration value="13886001">

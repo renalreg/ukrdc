@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.3.0 - 2021-12-16
+### Changed
+- Add to Clinician/Location Enumeration to support PV 
+
+## 3.2.0 - 2021-12-11
+### Changed
+- UKRR Added to SendingExtract Types
+- Set MinLength to 2 on Family/Given Names
+- Set MaxLength to 10 on Name Prefix.
+
 ## 3.1.0 - 2021-06-03
 ### Changed
 - SNOMED Codes added to the PRD Enumeration.

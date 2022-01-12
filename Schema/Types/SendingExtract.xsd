@@ -4,7 +4,7 @@
     <xs:restriction base="xs:string">
         <xs:enumeration value="SURVEY">
             <xs:annotation>
-                <xs:documentation>CSV files produced either by FormStorm scanning or send directly from the SharedHD project.</xs:documentation>
+                <xs:documentation>CSV files produced either by FormStorm scanning or sent directly from the SharedHD project</xs:documentation>
             </xs:annotation>
         </xs:enumeration>
         <xs:enumeration value="PVMIG">
@@ -34,7 +34,12 @@
         </xs:enumeration>
         <xs:enumeration value="MIRTH">
             <xs:annotation>
-                <xs:documentation>Data supplied in RDA Format which has been produced by our UKRDC Extract Tool.</xs:documentation>
+                <xs:documentation>Data supplied in RDA Format which has been produced by our UKRDC Extract Tool</xs:documentation>
+            </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="UKRR">
+            <xs:annotation>
+                <xs:documentation>Data taken from the UKRR Database</xs:documentation>
             </xs:annotation>
         </xs:enumeration>
     </xs:restriction>

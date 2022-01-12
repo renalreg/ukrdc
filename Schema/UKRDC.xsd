@@ -1,4 +1,4 @@
-<xs:schema xmlns="http://www.rixg.org.uk/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.rixg.org.uk/" version="3.1.0">
+<xs:schema xmlns="http://www.rixg.org.uk/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.rixg.org.uk/" version="3.3.0">
 
     <xs:include schemaLocation="Allergies/Allergy.xsd"/>
     <xs:include schemaLocation="ClinicalRelationships/ClinicalRelationship.xsd"/>

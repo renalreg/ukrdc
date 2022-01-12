@@ -15,7 +15,7 @@
             <xs:element name="Code" minOccurs="0">
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
-                        <xs:enumeration value="0l">
+                        <xs:enumeration value="01">
                             <xs:annotation>
                                 <xs:documentation>Employed</xs:documentation>
                             </xs:annotation>
